@@ -33,12 +33,6 @@ print("Update trick:shutdown PY OS Improved and type 'git pull' on pyos-improved
 time.sleep(5)
 i = os.system("cls")
 i = os.system("clear")
-=======
-print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | Version 1.0(Alpha 1 | Build 6)")
-print("Original by AMDISYES | Improved Version by minqwq")
-print("Make sure always are latest version!")
-print("Update trick:shutdown PY OS Improved and type "git pull" on pyos-improved folder to update system")
->>>>>>> 9959e900928b15bfd672257fc2e8984cabdfbd22
 count = 0
 stpasswd = "45450721"
 while count < 3:
