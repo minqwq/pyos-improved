@@ -18,7 +18,7 @@ while count < 3:
             if passwd == stpasswd:
                 tm.sleep(1.5)
                 while count < 3:
-                    cmd = input("root@pyosi ~ > ")
+                    cmd = input("root@pyosi ~ > ") # Standard commands
                     if cmd == "ls":
                         print("Downloads  Documents  Music  Pictures")
                     elif cmd == "hardwarelist":
@@ -58,15 +58,18 @@ while count < 3:
                         mm = int(input("Month: "))
                         print(calendar.month(yy, mm))
                     elif cmd == "help":
-                        print("ls          View the path")
-                        print("version     Show the system's version")
-                        print("coverter    A tool to covert .lpap/.lpcu/.bbc to .umm")
-                        print("time        Show the time and date")
-                        print("calendar    Show a calendar")
-                        print("calc        A simple calculator")
-                        print("clear       Clean the screen")
-                        print("passwd      Change your password")
-                        print("exit        Log out")
+                        print("ls             View the path")
+                        print("version        Show the system's version")
+                        print("converter       A tool to convert .lpap/.lpcu/.bbc to .umm")
+                        print("time           Show the time and date")
+                        print("calendar       Show a calendar")
+                        print("calc           A simple calculator")
+                        print("clear          Clean the screen")
+                        print("passwd         Change your password")
+                        print("exit           Log out")
+                        print("shutdown       Shutdown system")
+                        print("hardwarelist   List all hardware on this computer")
+                        print("sudo           Nothing")
                     elif cmd == "calc":
                         try:
                             formula = input("Enter the formula to be calculated:\n")
