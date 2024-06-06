@@ -4,7 +4,8 @@ import datetime
 import calendar
 import os
 import sys
-print("PY OS Improved | Version 1.0(Pre Alpha | Build 1)")
+import time
+print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | Version 1.0(Alpha 1 | Build 4)")
 print("Original by AMDISYES | Improved Version by minqwq")
 count = 0
 stpasswd = "114514"
@@ -20,10 +21,23 @@ while count < 3:
                     cmd = input("root@pyosi ~ > ")
                     if cmd == "ls":
                         print("Downloads  Documents  Music  Pictures")
+                    elif cmd == "hardwarelist":
+                        print("CPU:Intel Pentium 4@1400MHz")
+                        print("GPU:Cirrus Logic GD 5446(4MB)")
+                        print("Memory:512MB DDR2")
+                        print("Sound Card:Speaker")
+                        print("Ethernet Card:NE2K_PCI")
+                        print("Disk:HDD1=30GB, HDD2=55GB")
+                    elif cmd == "sudo":
+                        print("This system is not based on linux, so sudo is not on here")
                     elif cmd == "about":
                         print("---------------| About |---------------")
-                        print("PY OS Improved 1.0pre-a(Build 1)")
+                        print("PY OS Improved 1.0 a1(Build 4)")
                         print("(C) 0x1c Studio 2022--2023 | (C) LR Studio 2024")
+                    elif cmd == "shutdown":
+                        print("Shutting down...")
+                        time.sleep(3)
+                        sys.exit()
                     elif cmd == "converter":
                         print("File Convert\nConvert .lpap/.lpcu/.bbc to .umm")
                         input("Input file's path:\n")
