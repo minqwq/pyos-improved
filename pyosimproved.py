@@ -5,7 +5,6 @@ import calendar
 import os
 import sys
 import time
-<<<<<<< HEAD
 print("Access BIOS v8.1")
 print("bios.mcpestudio.com/release/8/1/0/index.html")
 time.sleep(0.3)
