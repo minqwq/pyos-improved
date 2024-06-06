@@ -1,2 +1,3 @@
 # pyos-improved
-Improve version of AMDISYES's PY OS
+Improve version of AMDISYES's PY OS  
+Learning py...
