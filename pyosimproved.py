@@ -5,8 +5,10 @@ import calendar
 import os
 import sys
 import time
-print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | Version 1.0(Alpha 1 | Build 4)")
+print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | Version 1.0(Alpha 1 | Build 6)")
 print("Original by AMDISYES | Improved Version by minqwq")
+print("Make sure always are latest version!")
+print("Update trick:shutdown PY OS Improved and type "git pull" on pyos-improved folder to update system")
 count = 0
 stpasswd = "114514"
 while count < 3:
