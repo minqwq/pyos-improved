@@ -5,7 +5,11 @@ import calendar
 import os
 import sys
 import time
+<<<<<<< HEAD
+print("Access BIOS v8.1") # BIOS Animation
+=======
 print("Access BIOS v8.1")
+>>>>>>> bb32b0dce7029dc932388504957085d212491adf
 print("bios.mcpestudio.com/release/8/1/0/index.html")
 time.sleep(0.3)
 print("Testing Memory...")
@@ -17,15 +21,24 @@ time.sleep(1)
 i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
+<<<<<<< HEAD
+print("  ______   __     ___  ____  ") # Startup screen
+=======
 print("  ______   __     ___  ____  ")
+>>>>>>> bb32b0dce7029dc932388504957085d212491adf
 print(" |  _ \ \ / /    / _ \/ ___| ")
 print(" | |_) \ V /    | | | \___ \ ")
 print(" |  __/ | |     | |_| |___) |")
 print(" |_|    |_|      \___/|____/ ")
 print("      --- Improved ---       ")
 print(" ")
+<<<<<<< HEAD
+print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | Version 1.0(Alpha 1 | Build 8)")
+print("Original by AMDISYES | Improved Version by minqwq ヽ(✿ﾟ▽ﾟ)ノ")
+=======
 print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | Version 1.0(Alpha 1 | Build 7)")
 print("Original by AMDISYES | Improved Version by minqwq")
+>>>>>>> bb32b0dce7029dc932388504957085d212491adf
 print("This screen will show 5 second")
 print(" ")
 print("Make sure always are latest version!")
@@ -33,6 +46,10 @@ print("Update trick:shutdown PY OS Improved and type 'git pull' on pyos-improved
 time.sleep(5)
 i = os.system("cls")
 i = os.system("clear")
+<<<<<<< HEAD
+print("Hi~ o(*￣▽￣*)ブ Welcome back to PY OS Improved~") # Login screen
+=======
+>>>>>>> bb32b0dce7029dc932388504957085d212491adf
 count = 0
 stpasswd = "45450721"
 while count < 3:
@@ -58,7 +75,11 @@ while count < 3:
                         print("This system is not based on linux, so sudo is not on here")
                     elif cmd == "about":
                         print("---------------| About |---------------")
+<<<<<<< HEAD
+                        print("PY OS Improved 1.0 a1(Build 8)")
+=======
                         print("PY OS Improved 1.0 a1(Build 7)")
+>>>>>>> bb32b0dce7029dc932388504957085d212491adf
                         print("(C) 0x1c Studio 2022--2023 | (C) LR Studio 2024")
                     elif cmd == "shutdown":
                         print("Shutting down...")
@@ -85,8 +106,8 @@ while count < 3:
                         print(calendar.month(yy, mm))
                     elif cmd == "help":
                         print("ls             View the path")
-                        print("version        Show the system's version")
-                        print("converter       A tool to convert .lpap/.lpcu/.bbc to .umm")
+                        print("about          Show the system's information")
+                        print("converter      A tool to convert .lpap/.lpcu/.bbc to .umm")
                         print("time           Show the time and date")
                         print("calendar       Show a calendar")
                         print("calc           A simple calculator")
@@ -106,6 +127,7 @@ while count < 3:
                         space = "0"
                     elif cmd == "clear":
                         i = os.system("cls")
+                        i = os.system("clear")
                     elif cmd == "exit":
                         break
                     else:
