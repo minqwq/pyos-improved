@@ -5,11 +5,11 @@ import calendar
 import os
 import sys
 import time
-<<<<<<< HEAD
-print("Access BIOS v8.1") # BIOS Animation
-=======
+# BIOS Animation
+print("cleaning screen...")
+i = os.system("cls")
+i = os.system("clear")
 print("Access BIOS v8.1")
->>>>>>> bb32b0dce7029dc932388504957085d212491adf
 print("bios.mcpestudio.com/release/8/1/0/index.html")
 time.sleep(0.3)
 print("Testing Memory...")
@@ -21,35 +21,48 @@ time.sleep(1)
 i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
-<<<<<<< HEAD
-print("  ______   __     ___  ____  ") # Startup screen
-=======
+# Startup screen
 print("  ______   __     ___  ____  ")
->>>>>>> bb32b0dce7029dc932388504957085d212491adf
 print(" |  _ \ \ / /    / _ \/ ___| ")
 print(" | |_) \ V /    | | | \___ \ ")
 print(" |  __/ | |     | |_| |___) |")
 print(" |_|    |_|      \___/|____/ ")
 print("      --- Improved ---       ")
 print(" ")
-<<<<<<< HEAD
-print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | Version 1.0(Alpha 1 | Build 8)")
+print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | Version 1.0(Alpha 2 | Build 12)")
 print("Original by AMDISYES | Improved Version by minqwq ヽ(✿ﾟ▽ﾟ)ノ")
-=======
-print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | Version 1.0(Alpha 1 | Build 7)")
-print("Original by AMDISYES | Improved Version by minqwq")
->>>>>>> bb32b0dce7029dc932388504957085d212491adf
 print("This screen will show 5 second")
 print(" ")
 print("Make sure always are latest version!")
 print("Update trick:shutdown PY OS Improved and type 'git pull' on pyos-improved folder to update system")
+print(" ")
+print("Current source code lines:162")
 time.sleep(5)
 i = os.system("cls")
 i = os.system("clear")
-<<<<<<< HEAD
-print("Hi~ o(*￣▽￣*)ブ Welcome back to PY OS Improved~") # Login screen
-=======
->>>>>>> bb32b0dce7029dc932388504957085d212491adf
+time.sleep(0.1)
+print("[INFO] Begin of logging")
+time.sleep(0.05)
+print("[...] Waking up system-process...")
+time.sleep(0.25)
+print("[O] system-process is waked up")
+time.sleep(0.1)
+print("[...] Detecting hardwares...")
+time.sleep(0.5)
+print("[O] Hardware list updated")
+time.sleep(0.05)
+print("[...] Waking up user-manager")
+time.sleep(0.1)
+print("[...] Waking up login-manager")
+time.sleep(0.2)
+print("[O] user-manager is waked up")
+time.sleep(0.1)
+print("[O] login manager is waked up")
+time.sleep(0.5)
+i = os.system("cls")
+i = os.system("clear")
+time.sleep(0.1)
+print("Hi~ o(*￣▽￣*)ブ My master~ Welcome back to PY OS Improved~") # Login screen
 count = 0
 stpasswd = "45450721"
 while count < 3:
@@ -64,26 +77,36 @@ while count < 3:
                     cmd = input("root@pyosi ~ > ") # Standard commands
                     if cmd == "ls":
                         print("Downloads  Documents  Music  Pictures")
-                    elif cmd == "hardwarelist":
+                    elif cmd == "neofetch":
+                        print("  ______   __     ___  ____  ")
+                        print(" |  _ \ \ / /    / _ \/ ___| ")
+                        print(" | |_) \ V /    | | | \___ \ ")
+                        print(" |  __/ | |     | |_| |___) |")
+                        print(" |_|    |_|      \___/|____/ ")
+                        print("      --- Improved ---       ")
+                        time.sleep(0.1)
+                        print("System:PY OS Improved 1.0 a2 b12")
+                        time.sleep(0.1)
                         print("CPU:Intel Pentium 4@1400MHz")
+                        time.sleep(0.1)
                         print("GPU:Cirrus Logic GD 5446(4MB)")
+                        time.sleep(0.1)
                         print("Memory:512MB DDR2")
+                        time.sleep(0.1)
                         print("Sound Card:Speaker")
+                        time.sleep(0.1)
                         print("Ethernet Card:NE2K_PCI")
+                        time.sleep(0.1)
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "sudo":
                         print("This system is not based on linux, so sudo is not on here")
                     elif cmd == "about":
                         print("---------------| About |---------------")
-<<<<<<< HEAD
-                        print("PY OS Improved 1.0 a1(Build 8)")
-=======
-                        print("PY OS Improved 1.0 a1(Build 7)")
->>>>>>> bb32b0dce7029dc932388504957085d212491adf
+                        print("PY OS Improved 1.0 a2(Build 12)")
                         print("(C) 0x1c Studio 2022--2023 | (C) LR Studio 2024")
                     elif cmd == "shutdown":
-                        print("Shutting down...")
-                        time.sleep(3)
+                        print("[...] Killing all process...")
+                        time.sleep(1)
                         sys.exit()
                     elif cmd == "converter":
                         print("File Convert\nConvert .lpap/.lpcu/.bbc to .umm")
@@ -105,6 +128,7 @@ while count < 3:
                         mm = int(input("Month: "))
                         print(calendar.month(yy, mm))
                     elif cmd == "help":
+                        print("Command List:")
                         print("ls             View the path")
                         print("about          Show the system's information")
                         print("converter      A tool to convert .lpap/.lpcu/.bbc to .umm")
@@ -115,7 +139,7 @@ while count < 3:
                         print("passwd         Change your password")
                         print("exit           Log out")
                         print("shutdown       Shutdown system")
-                        print("hardwarelist   List all hardware on this computer")
+                        print("neofetch       List all hardware and system version")
                         print("sudo           Nothing")
                     elif cmd == "calc":
                         try:
