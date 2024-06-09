@@ -17,4 +17,7 @@ Q:its crashed!
 A:tell me and i will fix it  
 
 Q:i want new somethings  
-A:tell me and i will try to make you want
+A:tell me and i will try to make you want  
+  
+Q:how to shutdown  
+A:type <code>shutdown</code>
