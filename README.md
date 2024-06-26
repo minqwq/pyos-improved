@@ -9,11 +9,12 @@ Stp4:<code>python3 pyosimproved.py</code>
 # You need:
 <code>python3</code>  
 <code>mpg123</code>  
+<code>openmpt123</code>  
 # QA
 Q:why i didn't hear sound?  
 A:you need install <code>mpg123</code>  
 
-Q:its crashed!
+Q:its crashed!  
 A:tell me and i will fix it  
 
 Q:i want new somethings  
