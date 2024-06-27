@@ -1,0 +1,8 @@
+The PY OS Improved Project is a very lightweight "system" written using python
+This project i made for fun
+
+Licensed by CC-BY-NC-SA 4.0
+
+------------------------
+
+...

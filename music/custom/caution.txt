@@ -1,0 +1,2 @@
+before importing music, you need to delete example music in folder
+or you want a error ;)
