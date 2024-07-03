@@ -5,6 +5,8 @@ Learning py...
 <code>python3</code>  
 <code>mpg123</code>  
 <code>openmpt123</code>  
+Next version you need(Prerelease 1)  
+<code>sidplayfp</code>  
 # Installation
 Stp1:open your terminal  
 Stp2:<code>git clone https://github.com/minqwq/pyos-improved.git</code>  
