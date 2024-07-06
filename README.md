@@ -1,6 +1,10 @@
 # pyos-improved
 ![GitHub repo size](https://img.shields.io/github/repo-size/minqwq/pyos-improved)
-![GitHub Repo stars](https://img.shields.io/github/stars/minqwq/pyos-improved?style=flat)  
+![GitHub Repo stars](https://img.shields.io/github/stars/minqwq/pyos-improved?style=flat)
+![GitHub branch status](https://img.shields.io/github/checks-status/minqwq/pyos-improved/main)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/t/minqwq/pyos-improved)
+![GitHub last commit](https://img.shields.io/github/last-commit/minqwq/pyos-improved)
+![GitHub Created At](https://img.shields.io/github/created-at/minqwq/pyos-improved)  
 Improve version of AMDISYES's PY OS  
 Learning py...
 # You need
