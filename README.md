@@ -6,15 +6,18 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/minqwq/pyos-improved)
 ![GitHub Created At](https://img.shields.io/github/created-at/minqwq/pyos-improved)  
 Improve version of AMDISYES's PY OS  
-Learning py...
+Learning py...  
+Recommend using linux to run
 # You need
-<code>git</code>  
-<code>python3</code>  
-<code>mpg123</code>  
-<code>openmpt123</code>  
+<code>git</code> use this for clone repo and you can quickly update  
+<code>python3</code> this "system" written using python so  
+<code>mpg123</code> play mpeg audio  
+<code>openmpt123</code> play module music  
+  
 Next version you need(Prerelease 1)  
-<code>sidplayfp</code>  
-<code>wildmidi</code>  
+  
+<code>sidplayfp</code> play sid music  
+<code>wildmidi</code> play midi
 # Installation
 Stp1:open your terminal  
 Stp2:<code>git clone https://github.com/minqwq/pyos-improved.git</code>  
