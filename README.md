@@ -7,7 +7,11 @@
 ![GitHub Created At](https://img.shields.io/github/created-at/minqwq/pyos-improved)  
 Improve version of AMDISYES's PY OS  
 Learning py...  
-Recommend using linux to run
+Recommend using linux to run  
+
+Language:Python(3)  
+Editor:<s>Vim 8.2</s>Neovim 0.4.4  
+Device:a Phone running a debian 11 proot container on zerotermux
 # You need
 <code>git</code> use this for clone repo and you can quickly update  
 <code>python3</code> this "system" written using python so  
