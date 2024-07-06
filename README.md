@@ -8,6 +8,7 @@
 Improve version of AMDISYES's PY OS  
 Learning py...
 # You need
+<code>git</code>  
 <code>python3</code>  
 <code>mpg123</code>  
 <code>openmpt123</code>  
