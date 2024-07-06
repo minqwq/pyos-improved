@@ -1,5 +1,6 @@
 # pyos-improved
-![GitHub repo size](https://img.shields.io/github/repo-size/minqwq/pyos-improved)  
+![GitHub repo size](https://img.shields.io/github/repo-size/minqwq/pyos-improved)
+![GitHub Repo stars](https://img.shields.io/github/stars/minqwq/pyos-improved?style=flat)  
 Improve version of AMDISYES's PY OS  
 Learning py...
 # You need
