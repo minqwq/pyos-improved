@@ -11,7 +11,7 @@ Learning py...
 Recommend using linux to run  
 
 Language:Python(3)  
-Editor:<s>Vim 8.2</s>Neovim 0.4.4  
+Editor:<s>Vim 8.2</s>Neovim 0.11.0dev  
 Device:a Phone running a debian 11 proot container on zerotermux  
   
 a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这个仓库搬到你手里
