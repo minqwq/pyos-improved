@@ -20,9 +20,6 @@ a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这
 <code>python3</code> this "system" written using python so  
 <code>mpg123</code> play mpeg audio  
 <code>openmpt123</code> play module music  
-  
-Next version you need(Prerelease 1)  
-  
 <code>sidplayfp</code> play sid music  
 <code>wildmidi</code> play midi
 # Installation
