@@ -12,8 +12,16 @@ import random
 import uuid
 import psutil
 from os import path
+from PIL import Image as img
+import matplotlib
+import matplotlib.pyplot as plt
+import tkinter
+import colorama
+from colorama import Fore as fore
+from colorama import Back as back
 # Preload classes
 #
+# New color library imported, but legacy will never remove
 # How to use these color:
 # green for example
 # use this trick:
@@ -40,7 +48,7 @@ class textmoji: # Textmojis
     owo_neko = " ฅ( ̳• ◡ • ̳)ฅ"
     owo = "(´･ω･`)"
     uhmm = "(*/ω＼*)"
-pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!']
+pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com']
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("cls")
@@ -76,48 +84,45 @@ i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
 # Startup screen
-print(color.blue + "  ______   __     ___  ____  ")
-print(" |  _ \ \ / /    / _ \/ ___| ")
-print(" | |_) \ V /    | | | \___ \ ")
-print(color.cyan + " |  __/ | |     | |_| |___) |")
-print(" |_|    |_|      \___/|____/ " + color.reset)
-print(color.purple + "      --- Improved ---       " + color.reset)
+print(color.blue + "    ______  __       ____  _____")
+print("   / __ \ \/ /      / __ \/ ___/")
+print("  / /_/ /\  /      / / / /\__ \ ")
+print(color.cyan + " / ____/ / /      / /_/ /___/ / ")
+print("/_/     /_/       \____//____/  " + color.reset)
+print(colorama.Fore.BLACK + colorama.Back.WHITE + "      |---==Improved==---|      " + color.reset)
 print(" ")
 print(random.sample(pyosimprovedtips, 1))
 print(" ")
-print(text.error + color.red + "Under development, may be unstable")
-print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | Version 1.0(Beta 3 | Build 36)")
+print(text.error + color.red + "Under development, may be unstable" + color.reset)
+print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | Version 1.0(Prerelease 1 | Build 47)")
 print("Original by AMDISYES | Improved Version by minqwq ヽ(✿ﾟ▽ﾟ)ノ")
 print("This screen will show 5 second")
 print(" ")
 print("Make sure always are latest version!")
-print("Update trick:shutdown PY OS Improved and type 'git pull' on pyos-improved folder to update system")
+print("Update trick:shutdown PY OS Improved and type './update.sh' on pyos-improved folder to update system")
+print("For check update:./checkupdate.sh")
 print(" ")
-print("Current source code lines:533")
+print("Current source code lines:467")
 time.sleep(5)
 i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
-print(color.grey + "[INFO] Begin of logging" + color.reset) # System loader screen
-time.sleep(0.05)
-print(color.yellow + "[...] Waking up system-process..." + color.reset)
+print("Calling system-process ...", end=' ')
 time.sleep(0.25)
-print(color.green + "[O] system-process is waked up" + color.reset)
+print(color.green + "success" + color.reset)
 time.sleep(0.1)
-print(color.yellow + "[...] Detecting hardwares..." + color.reset)
+print("Detecting hardwares ...", end=' ')
 time.sleep(0.5)
-print(color.green + "[O] Hardware list updated" + color.reset)
+print(color.green + "updated" + color.reset)
 time.sleep(0.05)
-print(color.yellow + "[...] Waking up user-manager" + color.reset)
+print("Starting user-manager ...", end=' ')
 time.sleep(0.1)
-print(color.yellow + "[...] Waking up login-manager" + color.reset)
+print(color.green + "started" + color.reset)
 time.sleep(0.2)
-print(color.green + "[O] user-manager is waked up" + color.reset)
+print("Starting login-manager ...", end=' ')
 time.sleep(0.1)
-print(color.green + "[O] login manager is waked up" + color.reset)
+print(color.green + "started" + color.reset)
 time.sleep(0.3)
-print("[INFO] End of logging(Deleted log cache)")
-time.sleep(0.5)
 i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
@@ -129,20 +134,20 @@ print("Current time:" + other_StyleTime)
 count = 0
 stpasswd = "45450721"
 while count < 3:
-    user = input("Account login: ")
+    user = input("Localhost login: ")
     if user == "root":
         i = os.system("mpg123 -q ./beep.mp3")
-        print(color.yellow + "This account has been protected by password, please type password(45450721)" + color.reset)
+        print(colorama.Back.RED + colorama.Fore.WHITE + "This account has been protected by password, please type password(45450721)" + color.reset)
         while count < 3:
             passwd = getpass.getpass("Password: ")
             if passwd == stpasswd:
                 i = os.system("mpg123 -q beep.mp3")
                 tm.sleep(1.5)
                 while count < 3:
-                    cmd = input(color.cyan + "U" + color.reset + ":root " + color.cyan + "H" + color.reset + ":127.0.0.1 " + color.cyan + "HN" + color.reset + ":Kawaii_System " + color.cyan + "P" + color.reset + ":" + color.red + "Unknown " + color.green + "$ " + color.reset) # Shell style(redesigned by minqwq)
+                    cmd = input(color.cyan + "U" + color.reset + ":root " + color.cyan + "H" + color.reset + ":127.0.0.1 " + color.cyan + "N" + color.reset + ":Kawaii_System " + color.cyan + "P" + color.reset + ":" + color.red + "Unknown " + color.green + "$ " + color.reset) # Shell style(redesigned by minqwq)
                     if cmd == "ls": # Path
                         print(text.error + color.red + "Path not found" + color.reset)
-                    elif cmd == "neofetch": # a Fake neofetch
+                    elif cmd == "uwufetch": # a Fake neofetch
                         print(color.blue + "  ______   __     ___  ____  ")
                         print(" |  _ \ \ / /    / _ \/ ___| ")
                         print(color.cyan + " | |_) \ V /    | | | \___ \ ")
@@ -150,7 +155,7 @@ while count < 3:
                         print(" |_|    |_|      \___/|____/ " + color.reset)
                         print(color.purple + "      --- Improved ---       " + color.reset)
                         time.sleep(0.1)
-                        print("System:PY OS Improved 1.0 b3 b36")
+                        print("System:PY OS Improved 1.0 pr1 b47")
                         time.sleep(0.1)
                         print("CPU:Intel Pentium 4@1400MHz")
                         time.sleep(0.1)
@@ -169,7 +174,7 @@ while count < 3:
                         print("This system is not based on linux, so sudo is not on here")
                     elif cmd == "about": # About system
                         print("---------------| About |---------------")
-                        print(color.blue + "PY OS Improved 1.0 b3(Build 36)" + color.reset)
+                        print(color.blue + "PY OS Improved 1.0 pr1(Build 47)" + color.reset)
                         print(color.grey + "(C) 0x1c Studio 2022--2023 | (C) LR Studio 2024" + color.reset)
                     elif cmd == "shutdown": # Shutdown
                         i = os.system("mpg123 -q ./shutdown.mp3")
@@ -179,9 +184,9 @@ while count < 3:
                         i = os.system("cls")
                         sys.exit()
                     elif cmd == "musicplayer": # Music player
+                        print("v1.1")
                         print("How to play:musicplayer <filename>" + color.cyan + " *Enter*" + color.reset)
-                        print("musicplayer playable songs list:")
-                        print("Space Debris(space_debris.mod)")
+                        print("For internal musics list, type musicplayer -l to get a list")
                         print(" ")
                         print("Play custom audio file:Put your audio file to <PY OS Improved>/music/custom/<filetype>")
                         print("and start PY OS Improved")
@@ -193,6 +198,36 @@ while count < 3:
                         print("Press Q to quit player")
                         print("Space Debris -- Unknown")
                         i = os.system("openmpt123 --quiet ./music/modulemusic/space_debris.mod")
+                    elif cmd == "musicplayer chippie.xm":
+                        print("Press Q to quit player")
+                        print("Chippie -- Unknown")
+                        i = os.system("openmpt123 --quiet ./music/modulemusic/chippie.xm")
+                    elif cmd == "musicplayer badapple_scan.xm":
+                        print("Press Q to quit player")
+                        print("badapple scan -- Unknown")
+                        i = os.system("openmpt123 --quiet ./music/modulemusic/badapple_scan.xm")
+                    elif cmd == "musicplayer un_owning_in_her.it":
+                        print("Press Q to quit player")
+                        print("U.N. Owning in her -- Unknown")
+                        i = os.system("openmpt123 --quiet ./music/modulemusic/un_owning_in_her.it")
+                    elif cmd == "musicplayer BACKTOTHESID.sid":
+                        i = os.system("sidplayfp -q ./music/sid/BACKTOTHESID.sid")
+                    elif cmd == "musicplayer unowen_blackmidi.mid":
+                        print(colorama.Fore.WHITE + colorama.Back.RED + "After song finished, the PY OS Improved will terminate, this is a code issue, i will try to fix it" + color.reset)
+                        print("U.N. Owen was her?(Black midi) -- Unknown(Original:ZUN)")
+                        print("Press Q to quit player")
+                        i = os.system("wildmidi ./music/mid/unowen_blackmidi.mid")
+                    elif cmd == "musicplayer -l":
+                        print("musicname, filename")
+                        print(colorama.Fore.BLACK + colorama.Back.WHITE + "Module(xm, mod, s3m)" + color.reset)
+                        print("Space Debris                   | space_debris.mod")
+                        print("Chippie                        | chippie.xm")
+                        print("badapple scan                  | badapple_scan.xm")
+                        print("U.N. Owning in her             | un_owning_in_her.it")
+                        print(colorama.Fore.BLACK + colorama.Back.WHITE + "SID(Commodore 64/128)" + color.reset)
+                        print("Back to the sid                | BACKTOTHESID.sid")
+                        print(colorama.Fore.BLACK + colorama.Back.WHITE + "MID(MIDI)" + color.reset)
+                        print("U.N. Owen was her?(Black midi) | unowen_blackmidi.mid")
                     elif cmd == "musicplayer custom-mpeg": # Music player external mpeg music
                         print("Press Q to quit player")
                         print("Custom mpeg audio -- User's choice")
@@ -249,13 +284,18 @@ while count < 3:
                         other_StyleTimeNoHMS = now.strftime("%Y-%m-%d")
                         print(other_StyleTimeNoHMS)
                     elif cmd == "perf": # Performance tools
-                        print("Performance v1.0 by ★minqwq★")
+                        print("Performance v1.1 by ★minqwq★")
                         print(" ")
                         print("cpu:Show the cpu's all performance")
                         print("  percent:Show percent")
+                        print("  cores:Show total cores")
+                        print("  fq:Show frequency")
                         print("mem:Show the memory")
                         print("uptime:Show system uptime")
                         print("swapmem:Show the swap memory's info")
+                        print("disk:Show disk's all performance")
+                        print("  usage:Show usage")
+                        print("")
                     elif cmd == "perf cpu": # Performance tools / cpu all
                         print(psutil.cpu_times())
                     elif cmd == "perf cpu percent": # Performance tools / cpupercent
@@ -268,6 +308,73 @@ while count < 3:
                         print(psutil.boot_time())
                     elif cmd == "perf swapmem": # Performance tools / Swap
                         print(psutil.swap_memory())
+                    elif cmd == "perf cpu cores": # Performance tools / cpu cores
+                        print(psutil.cpu_count())
+                    elif cmd == "perf cpu fq": # Performance tools / cpu freq
+                        print(psutil.cpu_freq())
+                    elif cmd == "perf disk": # Performance tools / disk
+                        print(psutil.disk())
+                    elif cmd == "perf disk usage": # Performance tools / disk usage
+                        print(psutil.disk_usage('/'))
+                    elif cmd == "imgview": # Image viewer
+                        print(color.blue + "Image Viewer! 1.0 developed by minqwq" + color.reset)
+                        print("\ncustom:Print user's custom image(<PY OS Improved>/image/custom)\nitnl:Print internal image(For list just manually type imgview itnl)")
+                    elif cmd == "imgview itnl ciallo":
+                        ciallo_img=img.open('./image/example/ciallo.jpeg')
+                        img.show()
+                    elif cmd == "caesar":
+                        def option():
+                            while True:
+                                print("Caesar tools v1.0 code from CSDN")
+                                print("Type a option...")
+                                print("e:Encode\nd:Decode\nq:Quit")
+                                mode=input("> ").lower()
+                                if mode in "e d q".split():
+                                    return mode
+                                else:
+                                    print("Incorrect option")
+                        
+                        def getKey(mode):
+                            key=0
+                            while key<=0 or key>=26:
+                                try:
+                                    key=int(input("Please type a key code...(from 1 to 26):"))
+                                except:
+                                    print("Illegal key code")
+                            if mode=="d":
+                                key=-key
+                            return key
+                        
+                        def getMessage(key):
+                            text=input("Please type encoded text:")  
+                            message=""
+                            for i in text:
+                                num=ord(i)
+                                num=num+key
+                                if i.isupper():
+                                    if num>ord("Z"):
+                                        num=num-26
+                                    elif num<ord("A"):
+                                        num=num+26
+                                elif i.islower():
+                                    if num>ord("z"):
+                                        num=num-26
+                                    elif num<ord("a"):
+                                        num=num+26
+                                message += chr(num)
+                            return message
+                        
+                        mode = option()
+                        if mode == "q":
+                            print("Welcome to you use this tool again!")
+                        elif mode == "e":
+                            key=getKey(mode)
+                            str1=getMessage(key)
+                            print("Encode result:\n\n",str1)
+                        elif mode == "d":
+                            key=getKey(mode)
+                            str2=getMessage(key)
+                            print("Decode result is:\n\n",str2)
                     elif cmd == "notepad":
                         file_path = input("\nCreate file (please enter the path to file): ")
                         
@@ -327,13 +434,15 @@ while count < 3:
                         print("passwd         Change your password")
                         print("exit           Log out")
                         print("shutdown       Shutdown system")
-                        print("neofetch       List all hardware and system version")
+                        print("uwufetch       List all hardware and system version")
                         print("sudo           Nothing")
                         print("ping           Ping tool python version(Unavailable)")
                         print("random         Random tools")
                         print("perf           Performance tools")
                         print("notepad        a Text editor, very simple")
                         print("musicplayer    Play music")
+                        print("imgview        Debug only, dont use")
+                        print("caesar         Caesar encryption tools")
                     elif cmd == "time --help": # time command help
                         print("Time command options:")
                         print("--help         Show this help")
