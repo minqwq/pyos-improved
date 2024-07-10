@@ -11,8 +11,9 @@ Learning py...
 Recommend using linux to run  
 
 Language:Python(3)  
-Editor:<s>Vim 8.2</s>Neovim 0.4.4  
+Editor:<s>Vim 8.2</s>Neovim 0.11.0dev  
 Device:a Phone running a debian 11 proot container on zerotermux  
+![Screenshot](/.images4readme/Screenshot_2024-07-09-06-01-27-802_com.termux.jpg)
   
 a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这个仓库搬到你手里
 # You need
@@ -20,9 +21,6 @@ a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这
 <code>python3</code> this "system" written using python so  
 <code>mpg123</code> play mpeg audio  
 <code>openmpt123</code> play module music  
-  
-Next version you need(Prerelease 1)  
-  
 <code>sidplayfp</code> play sid music  
 <code>wildmidi</code> play midi
 # Installation
