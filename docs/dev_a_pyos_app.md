@@ -11,8 +11,8 @@ and then create a new folder on <$PY OS Improved$>/apps/<$YOUR FOLDER$>
 and edit pyosimproved.py  
 # Add command
 You can add a command at anywhere after uwufetch command, a app startup command like this:  
-<code>elif cmd == "test":  
-    i = os.system("python3 ./apps/<$YOUR FOLDER$>")</code>  
+<code>elif cmd == "test":(Next line)  
+(4 space)i = os.system("python3 ./apps/<$YOUR FOLDER$>/<$FILENAME$>")</code>  
   
 And save your changes  
 now we can startup PY OS Improved using <code>python3 pyosimproved.py</code> command  
