@@ -22,7 +22,9 @@ a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这
 <code>mpg123</code> play mpeg audio  
 <code>openmpt123</code> play module music  
 <code>sidplayfp</code> play sid music  
-<code>wildmidi</code> play midi
+<code>wildmidi</code> play midi  
+Next version you need:↓  
+<code>ranger</code> file manager
 # Installation
 Stp1:open your terminal  
 Stp2:<code>git clone https://github.com/minqwq/pyos-improved.git</code>  
