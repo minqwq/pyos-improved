@@ -48,7 +48,7 @@ class textmoji: # Textmojis
     owo_neko = " ฅ( ̳• ◡ • ̳)ฅ"
     owo = "(´･ω･`)"
     uhmm = "(*/ω＼*)"
-pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken']
+pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。']
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("cls")
@@ -71,20 +71,22 @@ time.sleep(1)
 i = os.system("cls")
 i = os.system("clear")
 i = os.system("mpg123 -q ./beep.mp3") # *beep*
-print("Access BIOS v8.2")
-print("bios.mcpestudio.com/release/8/2/0/index.html")
+print("Access BIOS v8.2.1")
+print("bios.mcpestudio.com/release/8/2/1/index.html")
 time.sleep(0.3)
 print(color.yellow + "Testing Memory..." + color.reset)
 time.sleep(0.5)
 totalmem = psutil.virtual_memory().total
 print(color.green + str(totalmem) + " Bytes OK" + color.reset)
 time.sleep(0.1)
-print(color.yellow + "Booting From Hard Disk..." + color.reset)
+print(color.yellow + "Load system => HDD" + color.reset)
 time.sleep(1)
 i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
 # Startup screen
+system_version = "1.0 Prerelease 3"
+system_build = "Build 53"
 print(color.blue + "    ______  __       ____  _____")
 print("   / __ \ \/ /      / __ \/ ___/")
 print("  / /_/ /\  /      / / / /\__ \ ")
@@ -95,9 +97,13 @@ print(" ")
 print(random.sample(pyosimprovedtips, 1))
 print(" ")
 print(text.error + color.red + "Under development, may be unstable" + color.reset)
-print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | Version 1.0(Prerelease 2 | Build 49)")
+print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | " + system_version + " | " + system_build)
 print("Original by AMDISYES | Improved Version by minqwq & bibimingming ヽ(✿ﾟ▽ﾟ)ノ")
 print("This screen will show 5 second")
+print(" ")
+print("PY OS Improved is a open source software")
+print("Under CC-BY-NC-SA 4.0 License")
+print("Feel free to improve PY OS Improved!")
 print(" ")
 print("Make sure always are latest version!")
 print("Update trick:shutdown PY OS Improved and type './update.sh' on pyos-improved folder to update system")
@@ -145,7 +151,6 @@ while count < 3:
             passwd = getpass.getpass("Password: ")
             if passwd == stpasswd:
                 i = os.system("mpg123 -q beep.mp3")
-                tm.sleep(1.5)
                 while count < 3:
                     cmd = input(color.cyan + "U" + color.reset + ":root " + color.cyan + "H" + color.reset + ":127.0.0.1 " + color.cyan + "N" + color.reset + ":Kawaii_System " + color.cyan + "P" + color.reset + ":" + color.red + "Unknown " + color.green + "$ " + color.reset) # Shell style(redesigned by minqwq)
                     if cmd == "ls": # Path
@@ -158,7 +163,7 @@ while count < 3:
                         print(" |_|    |_|      \___/|____/ " + color.reset)
                         print(color.purple + "      --- Improved ---       " + color.reset)
                         time.sleep(0.1)
-                        print("System:PY OS Improved 1.0 pr2 b49")
+                        print("System:PY OS Improved " + system_version + " " + system_build)
                         time.sleep(0.1)
                         print("CPU:Intel Pentium 4@1400MHz")
                         time.sleep(0.1)
@@ -173,12 +178,29 @@ while count < 3:
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "ping": # Ping tool
                         print(text.error + color.red + "Unavailable for now" + color.reset)
+                    elif cmd == "fm":
+                        i = os.system("./apps/ranger/ranger.sh")
                     elif cmd == "sudo": # sudo not sudo
                         print("This system is not based on linux, so sudo is not on here")
                     elif cmd == "about": # About system
                         print("---------------| About |---------------")
-                        print(color.blue + "PY OS Improved 1.0 pr2(Build 49)" + color.reset)
+                        print(color.blue + "PY OS Improved " + system_version + " " + system_build + color.reset)
                         print(color.grey + "(C) 0x1c Studio 2022--2023 | (C) LR Studio & FCNM 2024" + color.reset)
+                        print(" ")
+                        print("about -c for credits...")
+                    elif cmd == "about -c":
+                        print(colorama.Back.WHITE + colorama.Fore.BLACK + "Development" + color.reset)
+                        print("minqwq")
+                        print("bibimingming")
+                        print("AMDISYES(Original PY OS)")
+                        print(colorama.Back.WHITE + colorama.Fore.BLACK + "Interface Design" + color.reset)
+                        print("minqwq")
+                        print(colorama.Back.WHITE + colorama.Fore.BLACK + "Early developing tester(not sorted)" + color.reset)
+                        print(colorama.Back.BLUE + "Currently early development is not ended, if you install and test, you can call me and i will add your name!" + color.reset)
+                        print("minqwq")
+                        print("bibimingming")
+                        print("Safari_Browse(Rongxuan2022)")
+                        print("AMDISYES")
                     elif cmd == "shutdown": # Shutdown
                         i = os.system("mpg123 -q ./shutdown.mp3")
                         print(color.yellow + "[...] Killing all process..." + color.reset)
@@ -461,6 +483,7 @@ while count < 3:
                         print("caesar         Caesar encryption tools")
                         print("uname          Show a information about your computer(Linux only)")
                         print("tetris         Tetris game written using Python 3")
+                        print("fm             File manager(Are you installed it?)")
                     elif cmd == "time --help": # time command help
                         print("Time command options:")
                         print("--help         Show this help")
@@ -480,8 +503,8 @@ while count < 3:
                     elif cmd == "exit": # Logout
                         break
                     else: # Wrong command
-                        print(text.error + color.red + "Shell:Command not found." + color.reset)
+                        print(text.error + color.red + "Not exist!" + color.reset)
             else: # Wrong password
-                print(color.red + "Password Incorrect, please try again..." + color.reset)
+                print(color.red + "Wrong." + color.reset)
     else: # Wrong user name
-        print(color.red + "User not found, try another..." + color.reset)
+        print(color.red + "Who?" + color.reset)
