@@ -1,0 +1,5 @@
+psutil
+Pillow
+matplotlib
+colorama
+datetime
