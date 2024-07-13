@@ -34,4 +34,4 @@ install_pip_packages() {
 install_packages
 install_pip_packages
 
-echo "Installation complete."
+echo "Installation complete ~\(≧▽≦)/~"
