@@ -1,24 +1,28 @@
-import time as tm
-import getpass
-import datetime
-import calendar
-import os
-import sys
-import time
-import socket
-import struct
-import select
-import random
-import uuid
-import psutil
-from os import path
-from PIL import Image as img
-import matplotlib
-import matplotlib.pyplot as plt
-import tkinter
-import colorama
-from colorama import Fore as fore
-from colorama import Back as back
+# DONT CHANGE ANY IMPORTED MODULES NAME, IM SERIOUS
+# OR YOU WANT TO BREAK PY OS IMPROVED
+#
+# PY OS Improved -- Open-source "Operating System(OS)"
+# Project creator:minqwq / LR Studio 2024
+# 
+# For our developer:
+# After you write code finished, please add some annotate in your code nearby, you maybe know why.
+import time as tm # Time
+import getpass # Password?
+import datetime # Time?
+import calendar # Calendar
+import os # Communicate to your system
+import sys # idk
+import time # Time
+# import socket
+# import struct
+# import select
+import random # Random tools
+import uuid # Generate uuid
+import psutil # Get hardware status
+from os import path # Path control
+import colorama # Color
+from colorama import Fore as fore # idk
+from colorama import Back as back # idk
 # Preload classes
 #
 # New color library imported, but legacy will never remove
@@ -48,7 +52,7 @@ class textmoji: # Textmojis
     owo_neko = " ฅ( ̳• ◡ • ̳)ฅ"
     owo = "(´･ω･`)"
     uhmm = "(*/ω＼*)"
-pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。']
+pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core']
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("cls")
@@ -86,7 +90,7 @@ i = os.system("clear")
 time.sleep(0.1)
 # Startup screen
 system_version = "1.0 Prerelease 3"
-system_build = "Build 53"
+system_build = "Build 56"
 print(color.blue + "    ______  __       ____  _____")
 print("   / __ \ \/ /      / __ \/ ___/")
 print("  / /_/ /\  /      / / / /\__ \ ")
@@ -98,12 +102,13 @@ print(random.sample(pyosimprovedtips, 1))
 print(" ")
 print(text.error + color.red + "Under development, may be unstable" + color.reset)
 print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | " + system_version + " | " + system_build)
+print("Codename " + colorama.Fore.LIGHTGREEN_EX + "Komeiji Koishi" + color.reset)
 print("Original by AMDISYES | Improved Version by minqwq & bibimingming ヽ(✿ﾟ▽ﾟ)ノ")
 print("This screen will show 5 second")
 print(" ")
 print("PY OS Improved is a open source software")
 print("Under CC-BY-NC-SA 4.0 License")
-print("Feel free to improve PY OS Improved!")
+print(colorama.Fore.LIGHTCYAN_EX + "Feel free to improve PY OS Improved!" + color.reset)
 print(" ")
 print("Make sure always are latest version!")
 print("Update trick:shutdown PY OS Improved and type './update.sh' on pyos-improved folder to update system")
@@ -139,7 +144,7 @@ i = os.system("mpg123 -q ./startup.mp3")
 print(color.green + "Hi~ o(*￣▽￣*)ブ My master~ Welcome back to PY OS Improved~" + color.reset) # Login screen
 now = datetime.datetime.now()
 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
-print("Current time:" + other_StyleTime)
+print("Current time: " + colorama.Fore.LIGHTCYAN_EX + other_StyleTime + color.reset)
 count = 0
 stpasswd = "45450721"
 while count < 3:
@@ -150,9 +155,11 @@ while count < 3:
         while count < 3:
             passwd = getpass.getpass("Password: ")
             if passwd == stpasswd:
+                print("Last login: " + colorama.Fore.LIGHTCYAN_EX + other_StyleTime + color.reset)
+                print("\nWelcome to Re-PYOS Shell\na User non-friendly shell")
                 i = os.system("mpg123 -q beep.mp3")
                 while count < 3:
-                    cmd = input(color.cyan + "U" + color.reset + ":root " + color.cyan + "H" + color.reset + ":127.0.0.1 " + color.cyan + "N" + color.reset + ":Kawaii_System " + color.cyan + "P" + color.reset + ":" + color.red + "Unknown " + color.green + "$ " + color.reset) # Shell style(redesigned by minqwq)
+                    cmd = input(colorama.Fore.LIGHTRED_EX + "U" + color.reset + ":root " + colorama.Fore.LIGHTGREEN_EX + "H" + color.reset + ":127.0.0.1 " + colorama.Fore.LIGHTYELLOW_EX + "N" + color.reset + ":Kawaii_System " + colorama.Fore.LIGHTBLUE_EX + "P" + color.reset + ":" + color.red + "Unknown " + colorama.Fore.LIGHTCYAN_EX + "# " + color.reset) # Shell style(redesigned by minqwq)
                     if cmd == "ls": # Path
                         print(text.error + color.red + "Path not found" + color.reset)
                     elif cmd == "uwufetch": # a Fake neofetch
@@ -483,7 +490,7 @@ while count < 3:
                         print("caesar         Caesar encryption tools")
                         print("uname          Show a information about your computer(Linux only)")
                         print("tetris         Tetris game written using Python 3")
-                        print("fm             File manager(Are you installed it?)")
+                        print("fm             File manager(Are you installed ranger?)")
                     elif cmd == "time --help": # time command help
                         print("Time command options:")
                         print("--help         Show this help")
