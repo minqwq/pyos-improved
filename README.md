@@ -47,4 +47,6 @@ A:type <code>shutdown</code>
 # Contributor
 <a href="https://github.com/minqwq/pyos-improved/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=minqwq/pyos-improved" />
-</a>
+</a>  
+  
+If im not deaded, the PY OS Improved will never stop.
