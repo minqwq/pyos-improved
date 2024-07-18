@@ -44,6 +44,9 @@ A:tell me and i will try to make you want
   
 Q:how to shutdown  
 A:type <code>shutdown</code>
+> [!Warning]
+>
+> Next prerelease will change command to <code>power shutdown</code>
 # Contributor
 <a href="https://github.com/minqwq/pyos-improved/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=minqwq/pyos-improved" />
