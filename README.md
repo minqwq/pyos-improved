@@ -53,4 +53,4 @@ A:type <code>shutdown</code>
 </a>
 <hr />
   
-If im not deaded, the PY OS Improved will never stop.
+If im not deaded, the PY OS Improved will never stop developing.
