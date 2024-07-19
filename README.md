@@ -23,7 +23,6 @@ a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这
 <code>openmpt123</code> play module music  
 <code>sidplayfp</code> play sid music  
 <code>wildmidi</code> play midi  
-Next version you need:↓  
 <code>ranger</code> file manager
 # Installation
 Stp1:open your terminal  
@@ -45,7 +44,15 @@ A:tell me and i will try to make you want
   
 Q:how to shutdown  
 A:type <code>shutdown</code>
+> [!Warning]
+>
+> Next prerelease will change command to <code>power shutdown</code>
+# Like it?
+Star this project, no anymore, just star it
 # Contributor
 <a href="https://github.com/minqwq/pyos-improved/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=minqwq/pyos-improved" />
 </a>
+<hr />
+  
+If im not deaded, the PY OS Improved will never stop developing.
