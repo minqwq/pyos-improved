@@ -23,6 +23,10 @@ from os import path # Path control
 import colorama # Color
 from colorama import Fore as fore # idk
 from colorama import Back as back # idk
+sys.path.append("./")
+import platform
+print("All modules loaded!")
+time.sleep(0.1)
 # Preload classes
 #
 # New color library imported, but legacy will never remove
@@ -41,10 +45,14 @@ class color: # Text colors
     cyan = "\033[36m"
     grey = "\033[37m"
     reset = "\033[0m"
+print("Added class 'color'")
+time.sleep(0.1)
 class text: # TIcons
     error = color.red + "[!] " + color.reset
     success = color.green + "[O] " + color.reset
     loading = color.yellow + "[...] " + color.reset
+print("Added class 'text'")
+time.sleep(0.1)
 class textmoji: # Textmojis
     ciallo = "(∠・ω< )⌒☆"
     omg0 = "₍•Д•)"
@@ -52,7 +60,11 @@ class textmoji: # Textmojis
     owo_neko = " ฅ( ̳• ◡ • ̳)ฅ"
     owo = "(´･ω･`)"
     uhmm = "(*/ω＼*)"
+print("Added class 'textmoji'")
+time.sleep(0.1)
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core']
+print("Tips loaded success")
+time.sleep(0.1)
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("cls")
@@ -89,8 +101,8 @@ i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
 # Startup screen
-system_version = "1.0 Prerelease 3"
-system_build = "Build 56"
+system_version = "1.0 Prerelease 4"
+system_build = "Build 61"
 print(color.blue + "    ______  __       ____  _____")
 print("   / __ \ \/ /      / __ \/ ___/")
 print("  / /_/ /\  /      / / / /\__ \ ")
@@ -196,25 +208,35 @@ while count < 3:
                         print(" ")
                         print("about -c for credits...")
                     elif cmd == "about -c":
-                        print(colorama.Back.WHITE + colorama.Fore.BLACK + "Development" + color.reset)
-                        print("minqwq")
-                        print("bibimingming")
-                        print("AMDISYES(Original PY OS)")
-                        print(colorama.Back.WHITE + colorama.Fore.BLACK + "Interface Design" + color.reset)
-                        print("minqwq")
+                        print(colorama.Fore.LIGHTCYAN_EX + "Credits" + color.reset)
+                        print(colorama.Back.WHITE + colorama.Fore.BLACK + "Developers" + color.reset)
+                        print("minqwq | Interface Design, Coder, Project Creator,")
+                        print("bibimingming | Module Installer")
+                        print("AMDISYES(Original PY OS) | Original Project Creator")
+                        print("Yukari2024 | Installer")
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Early developing tester(not sorted)" + color.reset)
                         print(colorama.Back.BLUE + "Currently early development is not ended, if you install and test, you can call me and i will add your name!" + color.reset)
                         print("minqwq")
                         print("bibimingming")
                         print("Safari_Browse(Rongxuan2022)")
                         print("AMDISYES")
-                    elif cmd == "shutdown": # Shutdown
+                    elif cmd == "power":
+                        print("Power options:")
+                        print("Shutdown:shutdown")
+                        print("Restart:reboot")
+                        print(" ")
+                        print("ex:power reboot")
+                    elif cmd == "power shutdown": # Shutdown
                         i = os.system("mpg123 -q ./shutdown.mp3")
                         print(color.yellow + "[...] Killing all process..." + color.reset)
                         time.sleep(1)
                         i = os.system("clear")
                         i = os.system("cls")
                         sys.exit()
+                    elif cmd == "power reboot":
+                        print(color.cyan + "Restarting..." + color.reset)
+                        time.sleep(1)
+                        os.execv(sys.executable, ['python'] + sys.argv)
                     elif cmd == "tetris":
                         print("   #####   ####  #####   ###    #   ####")
                         print("     #     #       #     #  #      #")
@@ -478,7 +500,7 @@ while count < 3:
                         print("clear          Clean the screen")
                         print("passwd         Change your password")
                         print("exit           Log out")
-                        print("shutdown       Shutdown system")
+                        print("power          Power options...")
                         print("uwufetch       List all hardware and system version")
                         print("sudo           Nothing")
                         print("ping           Ping tool python version(Unavailable)")
@@ -501,7 +523,7 @@ while count < 3:
                             formula = input("Enter the formula to be calculated(example:1+1):\n")
                             print(formula + "=", eval(formula))
                         except Exception as e:
-                            print("Input error.")
+                            print("Input error.\n" + str(e))
                     elif cmd == "": # what is this??? --minqwq at 2024-06-12 19:32
                         space = "0"
                     elif cmd == "clear": # Clear screen using real system command
