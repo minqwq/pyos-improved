@@ -1,0 +1,255 @@
+.\" Manpage for pipes.sh
+.\" Report errors or typos to https://github.com/pipeseroni/pipes.sh
+.TH pipes.sh 6 "25 Feb 2018" "1.3.0" "pipes.sh man page"
+
+.SH NAME
+pipes.sh \- animated pipes terminal screensaver
+
+.SH SYNOPSIS
+.B pipes.sh
+[\fIOPTION\fR]...
+
+.SH DESCRIPTION
+A bash script which draws randomly pathed pipes over the terminal. Generally used either as a functional screensaver or for amusement.
+
+.SH OPTIONS
+.TP 5
+.B -p [1-]
+Number of pipes. (default is 1)
+.TP
+.B -t [0-9]
+Determines the type of pipes to be drawn. Multiple arguments can be used. (default is 0)
+
+Due to the manpage limitation, the following list describes types in text,
+please see
+.UR https://github.com/pipeseroni/pipes.sh#-t--pipe-types
+README
+.UE
+for actual Unicode characters and screenshots.
+.RS
+.TP
+.B -t 0
+"BOX DRAWING HEAVY"
+.TP
+.B -t 1
+"BOX DRAWING LIGHT" and "BOX DRAWING LIGHT ARC"
+.TP
+.B -t 2
+"BOX DRAWING LIGHT"
+.TP
+.B -t 3
+"BOX DRAWING DOUBLE"
+.TP
+.B -t 4
+"|+ ++-+ +|++ +-"
+.TP
+.B -t 5
+"|/ \\/-\\ \\|/\\ /-"
+.TP
+.B -t 6
+".. .... .... .."
+.TP
+.B -t 7
+".o oo.o o.oo o."
+.TP
+.B -t 8
+"-\\ /\\|/ /-\\/ \\|" (railway)
+.TP
+.B -t 9
+"BOX DRAWING HEAVY AND LIGHT" (knobby)
+.RE
+
+.TP
+.B -t c[16 chars]
+Use custom type of pipes.
+
+The following table describes the order of characters and what they represent.
+Four of the characters are not applicable as the pipes does not perform a
+180-turn.
+.RS
+.TP
+.B Index
+Going
+.TP
+.B 1
+Straight up
+.TP
+.B 2
+Up and going right
+.TP
+.B 3
+Not applicable (up and back down), use space
+.TP
+.B 4
+Up and going left
+.TP
+.B 5
+Right and going up
+.TP
+.B 6
+Stright right
+.TP
+.B 7
+Right and going down
+.TP
+.B 8
+Not applicable (right and back left), use space
+.TP
+.B 9
+Not applicable (down and back up), use space
+.TP
+.B 10
+Down and going right
+.TP
+.B 11
+Straight down
+.TP
+.B 12
+Down and going left
+.TP
+.B 13
+Left and going up
+.TP
+.B 14
+Not applicable (left and back right), use space
+.TP
+.B 15
+Left and going down
+.TP
+.B 16
+Straight left
+.RE
+
+.TP
+.B -c [0-(COLORS-1)]
+Color index of pipes. Multiple arguments can be used. (default is 1 2 3 4 5 6 7
+0)
+
+\fICOLORS\fR is the available colors depending on \fB$TERM\fR capability.  For
+examples, \fBxterm\fR has 8 colors, \fBxterm-256color\fR has 256 colors, and
+\fBxterm-direct\fR -- requires ncurses 6.1+ -- has 16,777,216 colors.
+
+The color index is used to generate escape code using \fBtput setaf
+color_index\fR.
+
+For 256 colors, you may use 0 to 255 as color index.  For 16,777,216 colors,
+the index can be calculated with three color components,  R * 65536 + G * 256 +
+B (0 <= R, G, B < 256).
+
+You can also use hexadecimal, for examples:
+.RS 8
+.TP 12
+-c\fB#ffff\fR
+# cyan color
+.TP
+-c\fB#FFA500\fR
+# orange color
+.TP
+-c\fB#64\fR
+# for 256color index 100
+.RE
+
+.RS
+See also
+.UR https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
+Wikipedia
+.UE .
+.RE
+
+.TP
+.B -f [20-100]
+Frame rate. (default is 75)
+.TP
+.B -s [5-15]
+Probability of straight fitting. (default is 13)
+.TP
+.B -r [LIMIT]
+Resets the drawing after [LIMIT] characters. If no limit is specified then it takes the value 0. (default is 2000) 
+.TP
+.B -R
+Randomize starting position and direction.
+.TP
+.B -B
+No bold effect.
+.TP
+.B -C
+No color.
+.TP
+.B -K
+No change of colors and types when hitting screen edges.
+.TP
+.B -h
+Displays a help message.
+.TP
+.B -v
+Prints the version number.
+
+.SH KEYBOARD CONTROLS
+Press any key to quit pipes.sh, except the following \fBShift\fR + \fBKey\fR:
+.TP
+\fBP\fR / \fBO\fR
+Increase/decrease probability of straight pipes
+.TP
+\fBF\fR / \fBD\fR
+Increase/decrease frame rate
+.TP
+.B B
+Toggle bold effect
+.TP
+.B C
+Toggle no colors
+.TP
+.B K
+Toggle keeping pipe color and type when crossing edges
+
+.SH HISTORY
+\fIpipes.sh\fR was originally created by Matthew Simpson and posted to the
+.UR https://bbs.archlinux.org/viewtopic.php?pid=728932#p728932
+Arch Linux Forums
+.UE
+in early 2010. It was also later posted to
+.UR https://gist.github.com/msimpson/1096939
+Gist
+.UE
+released in the public domain.
+
+In early 2013, Yu-Jie Lin posted a modification of the script to Gist after
+reading about it on a
+.UR https://inconsolation.wordpress.com/2013/02/01/pipes-sh-a-little-bit-of-fun/
+blog
+.UE .
+It was maintained on Gist independently for a period of a few months.
+
+In 2014, the script was given its own GitHub repository as a project which
+encouraged contributions from other developers. As the project gained more
+popularity the decision was made to combine forces with developers of similar
+projects.
+
+Finally in 2015, the MIT License was added and the Pipeseroni collective was
+formed (see \fBLINKS\fR below) to maintain the project.
+
+.SH LINKS
+.UR https://pipeseroni.github.io/
+\fBWebsite\fR
+.UE
+
+.UR https://github.com/pipeseroni/pipes.sh
+\fBRepository\fR
+.UE
+
+.SH BUGS
+Please see current issues on
+.UR https://github.com/pipeseroni/pipes.sh/issues
+issue tracker
+.UE ,
+and report any bugs or request feature you'd like.
+
+.SH AUTHORS
+.UR https://github.com/pipeseroni/pipes.sh/graphs/contributors
+Pipeseroni/pipes.sh contributors
+.UE .
+
+.SH COPYRIGHT
+Copyright (c) 2010-2018 Pipeseroni/pipes.sh contributors.
+
+\fIpipes.sh\fR is licensed under the MIT License, see LICENSE file.

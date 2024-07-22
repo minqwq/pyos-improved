@@ -1,0 +1,48 @@
+This directory hosts shunit2 [1] test files.
+
+[1] https://github.com/kward/shunit2
+
+
+Running tests
+=============
+
+    $ make test          # shortcut for the next
+    $ test/run_tests.sh  # or
+    $ test/test_*.sh     # individually
+
+
+Checklist
+=========
+
+* Variables for tests:
+
+  * Must declare them using local.  (test cases only)
+
+  * Prefix an underscore.
+
+* If adding new default settings, please add new checks to the default settings 
+  test in test/test_parse.sh, ensuring no default settings can be changed 
+  without failing the test.
+
+
+Notes
+=====
+
+RANDOM
+------
+
+Bash RANDOM is used in pipes.sh, even it's not heavily, it will interfere the 
+tests as its purpose is to provide a random number.  In order to test a piece 
+of code that uses RANDOM, deterministically, we need to use a mock for RANDOM 
+for a deterministic sequences of numbers of our choices.
+
+In test_helper.bash, _RND_* and _CP provides the mock.  Basically you wrap the 
+code with two special comments, _CP extracts the code and make it as a 
+function and replace RANDOM with the mock to be used by eval.
+
+You then supply the random numbers you want using _RND_push, and the RANDOM 
+will be expanded to that exact sequence in the newly extracted function 
+execution.
+
+Please read the comments of the two components in test_helper.bash for more 
+details.

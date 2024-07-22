@@ -25,8 +25,8 @@ from colorama import Fore as fore # idk
 from colorama import Back as back # idk
 sys.path.append("./")
 import platform
-print("All modules loaded!")
-time.sleep(0.1)
+print(colorama.Fore.LIGHTGREEN_EX + "All modules loaded!" + "\033[0m")
+time.sleep(0.05)
 # Preload classes
 #
 # New color library imported, but legacy will never remove
@@ -46,13 +46,13 @@ class color: # Text colors
     grey = "\033[37m"
     reset = "\033[0m"
 print("Added class 'color'")
-time.sleep(0.1)
+time.sleep(0.05)
 class text: # TIcons
     error = color.red + "[!] " + color.reset
     success = color.green + "[O] " + color.reset
     loading = color.yellow + "[...] " + color.reset
 print("Added class 'text'")
-time.sleep(0.1)
+time.sleep(0.05)
 class textmoji: # Textmojis
     ciallo = "(∠・ω< )⌒☆"
     omg0 = "₍•Д•)"
@@ -61,10 +61,10 @@ class textmoji: # Textmojis
     owo = "(´･ω･`)"
     uhmm = "(*/ω＼*)"
 print("Added class 'textmoji'")
-time.sleep(0.1)
-pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core']
+time.sleep(0.05)
+pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.']
 print("Tips loaded success")
-time.sleep(0.1)
+time.sleep(0.05)
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("cls")
@@ -102,19 +102,20 @@ i = os.system("clear")
 time.sleep(0.1)
 # Startup screen
 system_version = "1.0 Prerelease 4"
-system_build = "Build 61"
+system_build = "Build 62"
 print(color.blue + "    ______  __       ____  _____")
 print("   / __ \ \/ /      / __ \/ ___/")
 print("  / /_/ /\  /      / / / /\__ \ ")
 print(color.cyan + " / ____/ / /      / /_/ /___/ / ")
 print("/_/     /_/       \____//____/  " + color.reset)
-print(colorama.Fore.BLACK + colorama.Back.WHITE + "      |---==Improved==---|      " + color.reset)
+print(colorama.Fore.BLACK + colorama.Back.LIGHTBLUE_EX + "      |---==Improved==---|      " + color.reset)
 print(" ")
 print(random.sample(pyosimprovedtips, 1))
 print(" ")
 print(text.error + color.red + "Under development, may be unstable" + color.reset)
 print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | " + system_version + " | " + system_build)
 print("Codename " + colorama.Fore.LIGHTGREEN_EX + "Komeiji Koishi" + color.reset)
+print("The Physical You(PY) OS logos is not are registered trademark, you can use it on anywhere.")
 print("Original by AMDISYES | Improved Version by minqwq & bibimingming ヽ(✿ﾟ▽ﾟ)ノ")
 print("This screen will show 5 second")
 print(" ")
@@ -126,7 +127,7 @@ print("Make sure always are latest version!")
 print("Update trick:shutdown PY OS Improved and type './update.sh' on pyos-improved folder to update system")
 print("For check update:./checkupdate.sh")
 print(" ")
-print("Current source code lines:467")
+print("Current source code lines:549")
 print(" ")
 print("(c) LR Studio & FCNM 2022--2024")
 time.sleep(5)
@@ -171,7 +172,7 @@ while count < 3:
                 print("\nWelcome to Re-PYOS Shell\na User non-friendly shell")
                 i = os.system("mpg123 -q beep.mp3")
                 while count < 3:
-                    cmd = input(colorama.Fore.LIGHTRED_EX + "U" + color.reset + ":root " + colorama.Fore.LIGHTGREEN_EX + "H" + color.reset + ":127.0.0.1 " + colorama.Fore.LIGHTYELLOW_EX + "N" + color.reset + ":Kawaii_System " + colorama.Fore.LIGHTBLUE_EX + "P" + color.reset + ":" + color.red + "Unknown " + colorama.Fore.LIGHTCYAN_EX + "# " + color.reset) # Shell style(redesigned by minqwq)
+                    cmd = input(colorama.Fore.LIGHTYELLOW_EX + "U" + color.reset + ":root " + colorama.Fore.LIGHTGREEN_EX + "H" + color.reset + ":127.0.0.1 " + colorama.Fore.LIGHTYELLOW_EX + "N" + color.reset + ":Kawaii_System " + colorama.Fore.LIGHTBLUE_EX + "P" + color.reset + ":" + color.red + "Unknown " + colorama.Fore.LIGHTCYAN_EX + "> " + color.reset) # Shell style(redesigned by minqwq)
                     if cmd == "ls": # Path
                         print(text.error + color.red + "Path not found" + color.reset)
                     elif cmd == "uwufetch": # a Fake neofetch
@@ -210,7 +211,7 @@ while count < 3:
                     elif cmd == "about -c":
                         print(colorama.Fore.LIGHTCYAN_EX + "Credits" + color.reset)
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Developers" + color.reset)
-                        print("minqwq | Interface Design, Coder, Project Creator,")
+                        print("minqwq | Interface Design, Coder, Project Creator, Document Editer")
                         print("bibimingming | Module Installer")
                         print("AMDISYES(Original PY OS) | Original Project Creator")
                         print("Yukari2024 | Installer")
@@ -220,6 +221,9 @@ while count < 3:
                         print("bibimingming")
                         print("Safari_Browse(Rongxuan2022)")
                         print("AMDISYES")
+                        print(colorama.Back.WHITE + colorama.Fore.BLACK + "Special Thanks for these projects" + color.reset)
+                        print("https://github.com/shkolovy/tetris-terminal | Used for games")
+                        print("https://github.com/pipeseroni/pipes.sh | Used for screensaver")
                     elif cmd == "power":
                         print("Power options:")
                         print("Shutdown:shutdown")
@@ -237,6 +241,12 @@ while count < 3:
                         print(color.cyan + "Restarting..." + color.reset)
                         time.sleep(1)
                         os.execv(sys.executable, ['python'] + sys.argv)
+                    elif cmd == "screensaver": # Screensaver
+                        print("Available screensavers:\npipes\n\nex:screensaver pipes")
+                    elif cmd == "screensaver pipes":
+                        i = os.system("cd ./apps/_screensaver/pipes.sh/ && ./pipes.sh && cd ../../../")
+                        i = os.system("cls")
+                        i = os.system("clear")
                     elif cmd == "tetris":
                         print("   #####   ####  #####   ###    #   ####")
                         print("     #     #       #     #  #      #")
@@ -513,6 +523,7 @@ while count < 3:
                         print("uname          Show a information about your computer(Linux only)")
                         print("tetris         Tetris game written using Python 3")
                         print("fm             File manager(Are you installed ranger?)")
+                        print("screensaver    Save your VGA screen, make your pc like a pro")
                     elif cmd == "time --help": # time command help
                         print("Time command options:")
                         print("--help         Show this help")
