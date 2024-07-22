@@ -52,6 +52,7 @@ Star this project, no anymore, just star it
 # Contributor
 <a href="https://github.com/minqwq/pyos-improved/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=minqwq/pyos-improved" />  
+<hr />
 If you want be a contributor, call me via email:minqwq723897@outlook.com and i will let you into devteam.
 </a>
 <hr />
