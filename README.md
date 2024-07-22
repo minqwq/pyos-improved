@@ -43,10 +43,7 @@ Q:i want new somethings
 A:tell me and i will try to make you want  
   
 Q:how to shutdown  
-A:type <code>shutdown</code>
-> [!Warning]
->
-> Next prerelease will change command to <code>power shutdown</code>
+A:type <code>power shutdown</code>
 # Like it?
 Star this project, no anymore, just star it
 # Contributor
