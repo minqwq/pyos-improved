@@ -47,9 +47,9 @@ A:type <code>power shutdown</code>
 # Like it?
 Star this project, no anymore, just star it
 # Contributor
-minqwq  
-~~bibimingming~~ Lefted the internet for 7 days  
-? Yukari2024 ? Unstable status
+minqwq | Creator of this project, Interface designer, Coder, Document editer  
+~~bibimingming~~ | Imported modules installer maker | Lefted the internet for 7 days  
+Yukari2024 | Installer maker | Unstable status
 <hr />
 <p>If you want be a contributor, call me via email:minqwq723897@outlook.com and i will let you into devteam.</p>
 </a>
