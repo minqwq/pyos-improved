@@ -47,8 +47,9 @@ A:type <code>power shutdown</code>
 # Like it?
 Star this project, no anymore, just star it
 # Contributor
-<a href="https://github.com/minqwq/pyos-improved/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=minqwq/pyos-improved" />  
+minqwq  
+~~bibimingming~~ Lefted the internet for 7 days  
+? Yukari2024 ? Unstable status
 <hr />
 <p>If you want be a contributor, call me via email:minqwq723897@outlook.com and i will let you into devteam.</p>
 </a>
