@@ -6,6 +6,9 @@
 # 
 # For our developer:
 # After you write code finished, please add some annotate in your code nearby, you maybe know why.
+# 
+# I want change this project name to Aoruki OS
+# Accept?
 import time as tm # Time
 import getpass # Password?
 import datetime # Time?
@@ -22,9 +25,11 @@ import psutil # Get hardware status
 from os import path # Path control
 import colorama # Color
 from colorama import Fore as fore # idk
-from colorama import Back as back # idk
+from colorama import Back as back
+import rich.spinner # idk
 sys.path.append("./")
 import platform
+import rich
 print(colorama.Fore.LIGHTGREEN_EX + "All modules loaded!" + "\033[0m")
 time.sleep(0.05)
 # Preload classes
@@ -36,6 +41,7 @@ time.sleep(0.05)
 # (color.green + "text here" + color.reset)
 # if you want use other color, change "green" to any below name on class color
 # color.<color>
+# Dont make so much of color in one line, its will be invisible(tested)
 class color: # Text colors
     red = "\033[31m"
     green = "\033[32m"
@@ -51,6 +57,7 @@ class text: # TIcons
     error = color.red + "[!] " + color.reset
     success = color.green + "[O] " + color.reset
     loading = color.yellow + "[...] " + color.reset
+    doubt = color.grey + "[?] " + color.reset
 print("Added class 'text'")
 time.sleep(0.05)
 class textmoji: # Textmojis
@@ -62,7 +69,7 @@ class textmoji: # Textmojis
     uhmm = "(*/ω＼*)"
 print("Added class 'textmoji'")
 time.sleep(0.05)
-pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.']
+pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery china words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信']
 print("Tips loaded success")
 time.sleep(0.05)
 # BIOS Animation
@@ -101,8 +108,8 @@ i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
 # Startup screen
-system_version = "1.0 Prerelease 4"
-system_build = "Build 62"
+system_version = "1.0 Release Candidate 1"
+system_build = "Build 68"
 print(color.blue + "    ______  __       ____  _____")
 print("   / __ \ \/ /      / __ \/ ___/")
 print("  / /_/ /\  /      / / / /\__ \ ")
@@ -113,7 +120,7 @@ print(" ")
 print(random.sample(pyosimprovedtips, 1))
 print(" ")
 print(text.error + color.red + "Under development, may be unstable" + color.reset)
-print("\033[31mPY\033[0m \033[33mOS\033[0m \033[34mImproved\033[0m | " + system_version + " | " + system_build)
+print("\033[38;5;45m" + "PY " + "\033[38;5;81m" + "OS " + "\033[38;5;117m" + "Im" + "\033[38;5;153m" + "pr" + "\033[38;5;189m" + "ov" + "\033[38;5;225m" + "ed" + color.reset + " | " + system_version + " | " + system_build)
 print("Codename " + colorama.Fore.LIGHTGREEN_EX + "Komeiji Koishi" + color.reset)
 print("The Physical You(PY) OS logos is not are registered trademark, you can use it on anywhere.")
 print("Original by AMDISYES | Improved Version by minqwq & bibimingming ヽ(✿ﾟ▽ﾟ)ノ")
@@ -154,7 +161,8 @@ i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
 i = os.system("mpg123 -q ./startup.mp3")
-print(color.green + "Hi~ o(*￣▽￣*)ブ My master~ Welcome back to PY OS Improved~" + color.reset) # Login screen
+print(color.green + textmoji.ciallo + " My master~ Welcome back to PY OS Improved~" + color.reset) # Login screen
+print(colorama.Fore.LIGHTGREEN_EX + "Leave blank for shutdown" + color.reset)
 now = datetime.datetime.now()
 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
 print("Current time: " + colorama.Fore.LIGHTCYAN_EX + other_StyleTime + color.reset)
@@ -162,6 +170,20 @@ count = 0
 stpasswd = "45450721"
 while count < 3:
     user = input("Localhost login: ")
+    if user == "gaster":
+        os.execv(sys.executable, ['python'] + sys.argv)
+    if user == "":
+        sys.exit()
+    if user == "bai9nine":
+        print("nope.   --minqwq")
+    if user == "yukari2024":
+        print(colorama.Back.LIGHTBLUE_EX + "PY OS Improved has been terminated.")
+        print("and this is not a issue, its just a easter egg." + color.reset)
+        sys.exit()
+    if user == "yukari":
+        print(colorama.Back.LIGHTBLUE_EX + "nope bro")
+        print("change her's second name and retry to login is useless." + color.reset)
+        sys.exit()
     if user == "root":
         i = os.system("mpg123 -q ./beep.mp3")
         print(colorama.Back.RED + colorama.Fore.WHITE + "This account has been protected by password, please type password(45450721)" + color.reset)
@@ -247,6 +269,8 @@ while count < 3:
                         i = os.system("cd ./apps/_screensaver/pipes.sh/ && ./pipes.sh && cd ../../../")
                         i = os.system("cls")
                         i = os.system("clear")
+                    elif cmd == "screensaver matrix":
+                        i = os.system("cd ./apps/_screensaver/cmatrix && ./cmatrix.sh && cd ../../../")
                     elif cmd == "tetris":
                         print("   #####   ####  #####   ###    #   ####")
                         print("     #     #       #     #  #      #")
@@ -493,6 +517,10 @@ while count < 3:
                                 break
                         
                         file.close()
+                    elif cmd == "cuscmd":
+                        print("Type custom command below...(ex:cat ciallo.txt)")
+                        customCommand = input("")
+                        i = os.system(customCommand)
                     elif cmd == "passwd": # Change password(for this session)
                         stpasswd = input("Input new password of this account: ")
                     elif cmd == "calendar": # Calendar
@@ -524,6 +552,7 @@ while count < 3:
                         print("tetris         Tetris game written using Python 3")
                         print("fm             File manager(Are you installed ranger?)")
                         print("screensaver    Save your VGA screen, make your pc like a pro")
+                        print("cuscmd         Run custom command")
                     elif cmd == "time --help": # time command help
                         print("Time command options:")
                         print("--help         Show this help")
@@ -546,5 +575,5 @@ while count < 3:
                         print(text.error + color.red + "Not exist!" + color.reset)
             else: # Wrong password
                 print(color.red + "Wrong." + color.reset)
-    else: # Wrong user name
-        print(color.red + "Who?" + color.reset)
+    else:
+        print(text.error + color.red + "Please retry." + color.reset)
