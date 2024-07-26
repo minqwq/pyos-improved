@@ -109,7 +109,7 @@ i = os.system("clear")
 time.sleep(0.1)
 # Startup screen
 system_version = "1.0 Release Candidate 1"
-system_build = "Build 68"
+system_build = "Build 69"
 print(color.blue + "    ______  __       ____  _____")
 print("   / __ \ \/ /      / __ \/ ___/")
 print("  / /_/ /\  /      / / / /\__ \ ")
@@ -283,7 +283,7 @@ while count < 3:
                         time.sleep(3)
                         i = os.system("python3 ./apps/tetris/tetris.py")
                     elif cmd == "musicplayer": # Music player
-                        print("v1.1")
+                        print("v1.2")
                         print("How to play:musicplayer <filename>" + color.cyan + " *Enter*" + color.reset)
                         print("For internal musics list, type musicplayer -l to get a list")
                         print(" ")
@@ -319,22 +319,16 @@ while count < 3:
                     elif cmd == "musicplayer -l":
                         print("musicname, filename")
                         print(colorama.Fore.BLACK + colorama.Back.WHITE + "Module(xm, mod, s3m)" + color.reset)
-                        print("Space Debris                   | space_debris.mod")
-                        print("Chippie                        | chippie.xm")
-                        print("badapple scan                  | badapple_scan.xm")
-                        print("U.N. Owning in her             | un_owning_in_her.it")
+                        i = os.system("ls ./music/modulemusic/")
                         print(colorama.Fore.BLACK + colorama.Back.WHITE + "SID(Commodore 64/128)" + color.reset)
-                        print("Back to the sid                | BACKTOTHESID.sid")
+                        i = os.system("ls ./music/sid/")
                         print(colorama.Fore.BLACK + colorama.Back.WHITE + "MID(MIDI)" + color.reset)
-                        print("U.N. Owen was her?(Black midi) | unowen_blackmidi.mid")
+                        i = os.system("ls ./music/mid/")
                     elif cmd == "musicplayer custom-mpeg": # Music player external mpeg music
-                        print("Press Q to quit player")
-                        print("Custom mpeg audio -- User's choice")
-                        i = os.system("mpg123 -q ./music/custom/mpeg/*")
-                    elif cmd == "musicplayer custom-module":
-                        print("Press Q to quit player")
-                        print("Custom module -- User's choice")
-                        i = os.system("openmpt123 --quiet ./music/custom/module/*")
+                        i = os.system("whoami")
+                        print("^^^ You are here")
+                        mpCustomMusic_mpeg = input("Path to mpeg file: ")
+                        i = os.system("mpg123 " + mpCustomMusic_mpeg)
                     elif cmd == "random": # Random tools
                         print("Random v1.0, by minqwq")
                         print(" ")
