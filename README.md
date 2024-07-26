@@ -47,7 +47,7 @@ A:type <code>power shutdown</code>
 # Like it?
 Star this project, no anymore, just star it
 # Contributor
-minqwq | Creator of this project, Interface designer, Coder, Document editer  
+~~minqwq~~ | Creator of this project, Interface designer, Coder, Document editer | Main phone is down  
 bibimingming | Imported modules installer maker   
 Yukari2024 | Installer maker | Unstable status
 <hr />
