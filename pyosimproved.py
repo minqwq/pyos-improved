@@ -26,10 +26,10 @@ from os import path # Path control
 import colorama # Color
 from colorama import Fore as fore # idk
 from colorama import Back as back
-import rich.spinner # idk
-sys.path.append("./")
+# import rich.spinner # idk
+# sys.path.append("./")
 import platform
-import rich
+# import rich
 print(colorama.Fore.LIGHTGREEN_EX + "All modules loaded!" + "\033[0m")
 time.sleep(0.05)
 # Preload classes
@@ -41,7 +41,6 @@ time.sleep(0.05)
 # (color.green + "text here" + color.reset)
 # if you want use other color, change "green" to any below name on class color
 # color.<color>
-# Dont make so much of color in one line, its will be invisible(tested)
 class color: # Text colors
     red = "\033[31m"
     green = "\033[32m"
@@ -72,11 +71,18 @@ time.sleep(0.05)
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery china words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信']
 print("Tips loaded success")
 time.sleep(0.05)
+system_version = "1.0 Release Candidate 1"
+system_build = "Build 76"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.5)
+print("640x480 VGA | 256C | Unknown")
+print(colorama.Back.RED + "NO SINGAL" + color.reset)
+time.sleep(1)
+i = os.system("cls")
+i = os.system("clear")
 print("Press F1 for BIOS Setup")
 time.sleep(1)
 i = os.system("cls")
@@ -94,8 +100,8 @@ time.sleep(1)
 i = os.system("cls")
 i = os.system("clear")
 i = os.system("mpg123 -q ./beep.mp3") # *beep*
-print("Access BIOS v8.2.1")
-print("bios.mcpestudio.com/release/8/2/1/index.html")
+print("Access BIOS v8.3")
+print("bios.mcpestudio.com/release/8/3/index.html")
 time.sleep(0.3)
 print(color.yellow + "Testing Memory..." + color.reset)
 time.sleep(0.5)
@@ -103,13 +109,13 @@ totalmem = psutil.virtual_memory().total
 print(color.green + str(totalmem) + " Bytes OK" + color.reset)
 time.sleep(0.1)
 print(color.yellow + "Load system => HDD" + color.reset)
+time.sleep(0.1)
+print(color.green + "PY OS Improved " + system_version + " /unk /stack /uwu" + color.reset)
 time.sleep(1)
 i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
 # Startup screen
-system_version = "1.0 Release Candidate 1"
-system_build = "Build 69"
 print(color.blue + "    ______  __       ____  _____")
 print("   / __ \ \/ /      / __ \/ ___/")
 print("  / /_/ /\  /      / / / /\__ \ ")
@@ -134,26 +140,26 @@ print("Make sure always are latest version!")
 print("Update trick:shutdown PY OS Improved and type './update.sh' on pyos-improved folder to update system")
 print("For check update:./checkupdate.sh")
 print(" ")
-print("Current source code lines:549")
+print("Current source code lines:567")
 print(" ")
 print("(c) LR Studio & FCNM 2022--2024")
 time.sleep(5)
 i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
-print("Calling system-process ...", end=' ')
+print("Calling system-process ...", end=' ', msg_type="info")
 time.sleep(0.25)
 print(color.green + "success" + color.reset)
 time.sleep(0.1)
-print("Detecting hardwares ...", end=' ')
+print("Detecting hardwares ...", end=' ', msg_type="info")
 time.sleep(0.5)
 print(color.green + "updated" + color.reset)
 time.sleep(0.05)
-print("Starting user-manager ...", end=' ')
+print("Starting user-manager ...", end=' ', msg_type="info")
 time.sleep(0.1)
 print(color.green + "started" + color.reset)
 time.sleep(0.2)
-print("Starting login-manager ...", end=' ')
+print("Starting login-manager ...", end=' ', msg_type="info")
 time.sleep(0.1)
 print(color.green + "started" + color.reset)
 time.sleep(0.3)
@@ -194,6 +200,7 @@ while count < 3:
                 print("\nWelcome to Re-PYOS Shell\na User non-friendly shell")
                 i = os.system("mpg123 -q beep.mp3")
                 while count < 3:
+                    # Line 39 is a critical process, dont change it   --minqwq
                     cmd = input(colorama.Fore.LIGHTYELLOW_EX + "U" + color.reset + ":root " + colorama.Fore.LIGHTGREEN_EX + "H" + color.reset + ":127.0.0.1 " + colorama.Fore.LIGHTYELLOW_EX + "N" + color.reset + ":Kawaii_System " + colorama.Fore.LIGHTBLUE_EX + "P" + color.reset + ":" + color.red + "Unknown " + colorama.Fore.LIGHTCYAN_EX + "> " + color.reset) # Shell style(redesigned by minqwq)
                     if cmd == "ls": # Path
                         print(text.error + color.red + "Path not found" + color.reset)
@@ -219,7 +226,9 @@ while count < 3:
                         time.sleep(0.1)
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "ping": # Ping tool
-                        print(text.error + color.red + "Unavailable for now" + color.reset)
+                        pingToolIPInput = input("Input IP or Domain: ")
+                        pingToolCountInput = input("Send how many packages: ")
+                        i = os.system("ping -c " + pingToolCountInput + " " + pingToolIPInput)
                     elif cmd == "fm":
                         i = os.system("./apps/ranger/ranger.sh")
                     elif cmd == "sudo": # sudo not sudo
@@ -264,7 +273,7 @@ while count < 3:
                         time.sleep(1)
                         os.execv(sys.executable, ['python'] + sys.argv)
                     elif cmd == "screensaver": # Screensaver
-                        print("Available screensavers:\npipes\n\nex:screensaver pipes")
+                        print("Available screensavers:\npipes\nmatrix\n\nex:screensaver pipes")
                     elif cmd == "screensaver pipes":
                         i = os.system("cd ./apps/_screensaver/pipes.sh/ && ./pipes.sh && cd ../../../")
                         i = os.system("cls")
@@ -283,8 +292,9 @@ while count < 3:
                         time.sleep(3)
                         i = os.system("python3 ./apps/tetris/tetris.py")
                     elif cmd == "musicplayer": # Music player
-                        print("v1.2")
-                        print("How to play:musicplayer <filename>" + color.cyan + " *Enter*" + color.reset)
+                        print("v1.3")
+                        print("How to play:musicplayer -t=<type> play" + color.cyan + " *Enter*" + color.reset)
+                        print("Available type:module, sid, mpeg")
                         print("For internal musics list, type musicplayer -l to get a list")
                         print(" ")
                         print("Play custom audio file:Put your audio file to <PY OS Improved>/music/custom/<filetype>")
@@ -293,42 +303,26 @@ while count < 3:
                         print("to play custom audio file")
                         print("ex:musicplayer custom-mpeg")
                         print("* Module music types(xm, mod, s3m)=custom-module, not custom-xm, custom-mod, custom-s3m")
-                    elif cmd == "musicplayer space_debris.mod": # Music player internal music
-                        print("Press Q to quit player")
-                        print("Space Debris -- Unknown")
-                        i = os.system("openmpt123 --quiet ./music/modulemusic/space_debris.mod")
-                    elif cmd == "musicplayer chippie.xm":
-                        print("Press Q to quit player")
-                        print("Chippie -- Unknown")
-                        i = os.system("openmpt123 --quiet ./music/modulemusic/chippie.xm")
-                    elif cmd == "musicplayer badapple_scan.xm":
-                        print("Press Q to quit player")
-                        print("badapple scan -- Unknown")
-                        i = os.system("openmpt123 --quiet ./music/modulemusic/badapple_scan.xm")
-                    elif cmd == "musicplayer un_owning_in_her.it":
-                        print("Press Q to quit player")
-                        print("U.N. Owning in her -- Unknown")
-                        i = os.system("openmpt123 --quiet ./music/modulemusic/un_owning_in_her.it")
-                    elif cmd == "musicplayer BACKTOTHESID.sid":
-                        i = os.system("sidplayfp -q ./music/sid/BACKTOTHESID.sid")
-                    elif cmd == "musicplayer unowen_blackmidi.mid":
-                        print(colorama.Fore.WHITE + colorama.Back.RED + "After song finished, the PY OS Improved will terminate, this is a code issue, i will try to fix it" + color.reset)
-                        print("U.N. Owen was her?(Black midi) -- Unknown(Original:ZUN)")
-                        print("Press Q to quit player")
-                        i = os.system("wildmidi ./music/mid/unowen_blackmidi.mid")
+                    elif cmd == "musicplayer -t=module play":
+                        i = os.system("ls ./music/modulemusic")
+                        mpModulePlay = input("Type a music filename: ")
+                        i = os.system("openmpt123 --quiet ./music/modulemusic/" + mpModulePlay)
+                    elif cmd == "musicplayer -t=sid play":
+                        i = os.system("ls ./music/sid")
+                        mpSIDPlay = input("Type a music filename: ")
+                        i = os.system("sidplayfp -q ./music/sid/" + mpSIDPlay)
+                    elif cmd == "musicplayer -t=mpeg play":
+                        i = os.system("ls ./music/mpeg")
+                        mpMPEGPlay = input("Type a music filename: ")
+                        i = os.system("mpg123 -q ./music/mpeg/" + mpMPEGPlay)
                     elif cmd == "musicplayer -l":
-                        print("musicname, filename")
+                        print("musicname -t=type play filename")
                         print(colorama.Fore.BLACK + colorama.Back.WHITE + "Module(xm, mod, s3m)" + color.reset)
                         i = os.system("ls ./music/modulemusic/")
                         print(colorama.Fore.BLACK + colorama.Back.WHITE + "SID(Commodore 64/128)" + color.reset)
                         i = os.system("ls ./music/sid/")
-                        print(colorama.Fore.BLACK + colorama.Back.WHITE + "MID(MIDI)" + color.reset)
-                        i = os.system("ls ./music/mid/")
-                    elif cmd == "musicplayer custom-mpeg": # Music player external mpeg music
-                        i = os.system("whoami")
-                        print("^^^ You are here")
-                        mpCustomMusic_mpeg = input("Path to mpeg file: ")
-                        i = os.system("mpg123 " + mpCustomMusic_mpeg)
+                        print(colorama.Fore.BLACK + colorama.Back.WHITE + "MPEG" + color.reset)
+                        i = os.system("ls ./music/mpeg/")
                     elif cmd == "random": # Random tools
                         print("Random v1.0, by minqwq")
                         print(" ")
