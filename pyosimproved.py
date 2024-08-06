@@ -71,8 +71,8 @@ time.sleep(0.05)
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery china words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信']
 print("Tips loaded success")
 time.sleep(0.05)
-system_version = "1.0 Release Candidate 1"
-system_build = "Build 76"
+system_version = "1.0 Release Candidate 2"
+system_build = "Build 78"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("cls")
@@ -140,26 +140,27 @@ print("Make sure always are latest version!")
 print("Update trick:shutdown PY OS Improved and type './update.sh' on pyos-improved folder to update system")
 print("For check update:./checkupdate.sh")
 print(" ")
-print("Current source code lines:567")
+print("Current source code lines:569")
+print("h-hi thewe, pwease wait, pwease wait! >.< it's me, youw wittwe py os, stawting up~")
 print(" ")
 print("(c) LR Studio & FCNM 2022--2024")
 time.sleep(5)
 i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
-print("Calling system-process ...", end=' ', msg_type="info")
+print("Calling system-process ...", end=' ')
 time.sleep(0.25)
 print(color.green + "success" + color.reset)
 time.sleep(0.1)
-print("Detecting hardwares ...", end=' ', msg_type="info")
+print("Detecting hardwares ...", end=' ')
 time.sleep(0.5)
 print(color.green + "updated" + color.reset)
 time.sleep(0.05)
-print("Starting user-manager ...", end=' ', msg_type="info")
+print("Starting user-manager ...", end=' ')
 time.sleep(0.1)
 print(color.green + "started" + color.reset)
 time.sleep(0.2)
-print("Starting login-manager ...", end=' ', msg_type="info")
+print("Starting login-manager ...", end=' ')
 time.sleep(0.1)
 print(color.green + "started" + color.reset)
 time.sleep(0.3)
@@ -167,15 +168,16 @@ i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
 i = os.system("mpg123 -q ./startup.mp3")
-print(color.green + textmoji.ciallo + " My master~ Welcome back to PY OS Improved~" + color.reset) # Login screen
+print(color.green + "h-hewwo! wewcome back to py os improved, senpai >///<. i-i missed you so much! x3" + color.reset) # Login screen
 print(colorama.Fore.LIGHTGREEN_EX + "Leave blank for shutdown" + color.reset)
 now = datetime.datetime.now()
 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
 print("Current time: " + colorama.Fore.LIGHTCYAN_EX + other_StyleTime + color.reset)
+print("pwease, pweasew login to youw account >.< x3")
 count = 0
 stpasswd = "45450721"
 while count < 3:
-    user = input("Localhost login: ")
+    user = input("> ")
     if user == "gaster":
         os.execv(sys.executable, ['python'] + sys.argv)
     if user == "":
@@ -560,8 +562,8 @@ while count < 3:
                     elif cmd == "exit": # Logout
                         break
                     else: # Wrong command
-                        print(text.error + color.red + "Not exist!" + color.reset)
+                        print(text.error + color.red + "i can't seem to find the command >.<" + color.reset)
             else: # Wrong password
-                print(color.red + "Wrong." + color.reset)
+                print(color.red + "h-hewwo, i think your password is wrong >.< ple-please retry, senpai? x3" + color.reset)
     else:
-        print(text.error + color.red + "Please retry." + color.reset)
+        print(text.error + color.red + "s-sowwy, i can't seem to find this user, owo! >.<" + color.reset)
