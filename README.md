@@ -11,7 +11,7 @@ Learning py...
 Recommend using linux to run  
 
 Language:Python(3)  
-Editor:<s>Vim 8.2</s>Neovim 0.11.0dev  
+Editor:<s>Vim 8.2</s> <s>Neovim 0.11.0dev</s> Kakoune  
 Device:a Phone running a debian 11 proot container on zerotermux  
 ![Screenshot](/.images4readme/Screenshot_2024-07-09-06-01-27-802_com.termux.jpg)
   
