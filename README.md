@@ -49,7 +49,7 @@ Star this project, no anymore, just star it
 # Contributor
 minqwq | Creator of this project, Interface designer, Coder, Document editer  
 bibimingming | Imported modules installer maker   
-Yukari2024 | Installer maker | (after 2 weeks)Phone battery down
+Yukari2024 | Installer maker
 <hr />
 <p>If you want be a contributor, call me via email:minqwq723897@outlook.com and i will let you into devteam.</p>
 </a>
