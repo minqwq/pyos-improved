@@ -11,7 +11,7 @@ Learning py...
 Recommend using linux to run  
 
 Language:Python(3)  
-Editor:<s>Vim 8.2</s>Neovim 0.11.0dev  
+Editor:<s>Vim 8.2</s> <s>Neovim 0.11.0dev</s> Kakoune  
 Device:a Phone running a debian 11 proot container on zerotermux  
 ![Screenshot](/.images4readme/Screenshot_2024-07-09-06-01-27-802_com.termux.jpg)
   
@@ -49,7 +49,7 @@ Star this project, no anymore, just star it
 # Contributor
 minqwq | Creator of this project, Interface designer, Coder, Document editer  
 bibimingming | Imported modules installer maker   
-Yukari2024 | Installer maker | (after 2 weeks)Phone battery down
+Yukari2024 | Installer maker
 <hr />
 <p>If you want be a contributor, call me via email:minqwq723897@outlook.com and i will let you into devteam.</p>
 </a>
