@@ -3,3 +3,4 @@ Pillow
 matplotlib
 colorama
 datetime
+pretty-errors

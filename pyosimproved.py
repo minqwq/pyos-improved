@@ -30,6 +30,8 @@ from colorama import Back as back
 # sys.path.append("./")
 import platform
 # import rich
+import requests
+import pretty_errors
 print(colorama.Fore.LIGHTGREEN_EX + "All modules loaded!" + "\033[0m")
 time.sleep(0.05)
 # Preload classes
@@ -72,7 +74,7 @@ pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdo
 print("Tips loaded success")
 time.sleep(0.05)
 system_version = "1.0 Release Candidate 2"
-system_build = "Build 78"
+system_build = "Build 82"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("cls")
@@ -115,6 +117,22 @@ time.sleep(1)
 i = os.system("cls")
 i = os.system("clear")
 time.sleep(0.1)
+# Boot manager
+print(colorama.Fore.LIGHTCYAN_EX + "PY OS Improved Boot manager" + color.reset)
+print("\n1:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1")
+bootChoice = input("> ")
+if bootChoice == "2":
+    os.execv(sys.executable, ['python'] + sys.argv)
+elif bootChoice == "3":
+    sys.exit()
+elif bootChoice == "4":
+    i = os.system("cls")
+    i = os.system("clear")
+    print("If you want exit, press Ctrl+C and you will shutdown")
+    i = os.system("python3 ./.pyosimproved_prealpha_original_file/pyosimproved.py")
+    sys.exit()
+i = os.system("cls")
+i = os.system("clear")
 # Startup screen
 print(color.blue + "    ______  __       ____  _____")
 print("   / __ \ \/ /      / __ \/ ___/")
@@ -130,7 +148,6 @@ print("\033[38;5;45m" + "PY " + "\033[38;5;81m" + "OS " + "\033[38;5;117m" + "Im
 print("Codename " + colorama.Fore.LIGHTGREEN_EX + "Komeiji Koishi" + color.reset)
 print("The Physical You(PY) OS logos is not are registered trademark, you can use it on anywhere.")
 print("Original by AMDISYES | Improved Version by minqwq & bibimingming ヽ(✿ﾟ▽ﾟ)ノ")
-print("This screen will show 5 second")
 print(" ")
 print("PY OS Improved is a open source software")
 print("Under CC-BY-NC-SA 4.0 License")
@@ -141,7 +158,6 @@ print("Update trick:shutdown PY OS Improved and type './update.sh' on pyos-impro
 print("For check update:./checkupdate.sh")
 print(" ")
 print("Current source code lines:569")
-print("h-hi thewe, pwease wait, pwease wait! >.< it's me, youw wittwe py os, stawting up~")
 print(" ")
 print("(c) LR Studio & FCNM 2022--2024")
 time.sleep(5)
@@ -511,6 +527,15 @@ while count < 3:
                         print("Type custom command below...(ex:cat ciallo.txt)")
                         customCommand = input("")
                         i = os.system(customCommand)
+                    elif cmd == "news":
+                        requestsUrl = "https://www.minqwq.us.kg/pyosimproved/news/latest.txt"
+                        requestsResponse = requests.get(requestsUrl)
+                        if requestsResponse.status_code == 200:
+                            print(colorama.Fore.LIGHTGREEN_EX + "STATUS:200(Success)\n" + color.reset)
+                            requestsText = requestsResponse.text
+                            print(requestsText)
+                        else:
+                            print("STATUS:" + requestsResponse.status_code + "(Failed)")
                     elif cmd == "passwd": # Change password(for this session)
                         stpasswd = input("Input new password of this account: ")
                     elif cmd == "calendar": # Calendar
@@ -543,6 +568,7 @@ while count < 3:
                         print("fm             File manager(Are you installed ranger?)")
                         print("screensaver    Save your VGA screen, make your pc like a pro")
                         print("cuscmd         Run custom command")
+                        print("news           Show latest news of PY OS Improved.")
                     elif cmd == "time --help": # time command help
                         print("Time command options:")
                         print("--help         Show this help")
