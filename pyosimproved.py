@@ -1,7 +1,6 @@
 # DONT CHANGE ANY IMPORTED MODULES NAME, IM SERIOUS
-# OR YOU WANT TO BREAK PY OS IMPROVED
 #
-# PY OS Improved -- Open-source "Operating System(OS)"
+# PY OS Improved -- Open-source "Operating System(OS)" written using Python 3
 # Project creator:minqwq / LR Studio 2024
 # 
 # For our developer:
@@ -73,8 +72,8 @@ time.sleep(0.05)
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery china words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信']
 print("Tips loaded success")
 time.sleep(0.05)
-system_version = "1.0 Release Candidate 2"
-system_build = "Build 82"
+system_version = "1.0 Release"
+system_build = "Build 87"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("cls")
@@ -128,7 +127,7 @@ elif bootChoice == "3":
 elif bootChoice == "4":
     i = os.system("cls")
     i = os.system("clear")
-    print("If you want exit, press Ctrl+C and you will shutdown")
+    print("If you want exit, press Ctrl+C to shutdown")
     i = os.system("python3 ./.pyosimproved_prealpha_original_file/pyosimproved.py")
     sys.exit()
 i = os.system("cls")
@@ -143,7 +142,6 @@ print(colorama.Fore.BLACK + colorama.Back.LIGHTBLUE_EX + "      |---==Improved==
 print(" ")
 print(random.sample(pyosimprovedtips, 1))
 print(" ")
-print(text.error + color.red + "Under development, may be unstable" + color.reset)
 print("\033[38;5;45m" + "PY " + "\033[38;5;81m" + "OS " + "\033[38;5;117m" + "Im" + "\033[38;5;153m" + "pr" + "\033[38;5;189m" + "ov" + "\033[38;5;225m" + "ed" + color.reset + " | " + system_version + " | " + system_build)
 print("Codename " + colorama.Fore.LIGHTGREEN_EX + "Komeiji Koishi" + color.reset)
 print("The Physical You(PY) OS logos is not are registered trademark, you can use it on anywhere.")
@@ -215,11 +213,10 @@ while count < 3:
             passwd = getpass.getpass("Password: ")
             if passwd == stpasswd:
                 print("Last login: " + colorama.Fore.LIGHTCYAN_EX + other_StyleTime + color.reset)
-                print("\nWelcome to Re-PYOS Shell\na User non-friendly shell")
-                i = os.system("mpg123 -q beep.mp3")
+                print("\nWelcome to Larine Shell(lsh) version 1.3.1\na User non-friendly shell")
                 while count < 3:
                     # Line 39 is a critical process, dont change it   --minqwq
-                    cmd = input(colorama.Fore.LIGHTYELLOW_EX + "U" + color.reset + ":root " + colorama.Fore.LIGHTGREEN_EX + "H" + color.reset + ":127.0.0.1 " + colorama.Fore.LIGHTYELLOW_EX + "N" + color.reset + ":Kawaii_System " + colorama.Fore.LIGHTBLUE_EX + "P" + color.reset + ":" + color.red + "Unknown " + colorama.Fore.LIGHTCYAN_EX + "> " + color.reset) # Shell style(redesigned by minqwq)
+                    cmd = input(colorama.Fore.LIGHTYELLOW_EX + "U" + color.reset + ":root " + colorama.Fore.LIGHTGREEN_EX + "H" + color.reset + ":localhost " + colorama.Fore.LIGHTYELLOW_EX + "N" + color.reset + ":Cikiy " + colorama.Fore.LIGHTBLUE_EX + "P" + color.reset + ":" + color.red + "Unknown " + colorama.Fore.LIGHTCYAN_EX + "# " + color.reset) # Shell style(redesigned by minqwq)
                     if cmd == "ls": # Path
                         print(text.error + color.red + "Path not found" + color.reset)
                     elif cmd == "uwufetch": # a Fake neofetch
@@ -537,14 +534,16 @@ while count < 3:
                         else:
                             print("STATUS:" + requestsResponse.status_code + "(Failed)")
                     elif cmd == "passwd": # Change password(for this session)
-                        stpasswd = input("Input new password of this account: ")
+                        stpasswd = input("Input new password of this session: ")
                     elif cmd == "calendar": # Calendar
                         yy = int(input("Year: "))
                         mm = int(input("Month: "))
                         print(color.green + "PY OS Calendar\n" + color.reset + calendar.month(yy, mm))
+                    elif cmd == "calcurse":
+                        i = os.system("calcurse")
                     elif cmd == "help": # Command list
                         print("Command List:")
-                        print(color.cyan + "ls             View the path")
+                        print(colorama.Fore.LIGHTCYAN_EX + "ls             View the path")
                         print("about          Show the system's information")
                         print("converter      A tool to convert .lpap/.lpcu/.bbc to .umm")
                         print("time           Show the time and date")

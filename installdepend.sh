@@ -10,20 +10,20 @@ install_packages() {
     case $distro in
         arch)
             echo "Detected you are Arch Linux, using pacman to install packages..."
-            sudo pacman -Sy --noconfirm ranger python python-pip git mpg123 libopenmpt sidplayfp wildmidi
+            sudo pacman -Sy --noconfirm ranger python python-pip git mpg123 libopenmpt sidplayfp wildmidi calcurse
             ;;
         ubuntu|debian)
             echo "Detected you are Ubuntu or Debian, Updating your system and install packages..."
             sudo apt update
-            sudo apt install -y ranger python3 python3-pip git mpg123 libopenmpt-dev sidplayfp wildmidi
+            sudo apt install -y ranger python3 python3-pip git mpg123 libopenmpt-dev sidplayfp wildmidi calcurse
             ;;
         fedora)
             echo "Detected you are Fedora, using dnf to install packages..."
-            sudo dnf install -y ranger python3 python3-pip git mpg123 libopenmpt-devel sidplayfp wildmidi
+            sudo dnf install -y ranger python3 python3-pip git mpg123 libopenmpt-devel sidplayfp wildmidi calcurse
             ;;
         opensuse-leap|opensuse-tumbleweed)
             echo "Detected you are Opensuse, using zypper to install packages..."
-            sudo zypper install -y ranger python3 python3-pip git mpg123 libopenmpt-devel sidplayfp wildmidi
+，            sudo zypper install -y ranger python3 python3-pip git mpg123 libopenmpt-devel sidplayfp wildmidi calcurse
             ;;
         *)
             echo "Unsupported distribution(Are you using Windows?): $distro"
@@ -34,7 +34,7 @@ install_packages() {
 
 # Function to install pip packages
 install_pip_packages() {
-    sudo pip3 install psutil colorama datetime
+    sudo pip3 install psutil colorama datetime pretty-errors
 }
 
 # Main execution starts here

@@ -28,7 +28,7 @@ a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这
 Stp1:open your terminal  
 Stp2:<code>git clone https://github.com/minqwq/pyos-improved.git</code>  
 Stp3:<code>cd ./pyos-improved</code>  
-Stp4:<code>./installdepend.sh</code> or <code>pip install -r requirements.txt</code>  
+Stp4:<code>python3 installer.py</code> or <code>./installdepend.sh</code> or <code>pip install -r requirements.txt</code>  
 Stp5:<code>python3 pyosimproved.py</code>  
 # Login
 Username:root
