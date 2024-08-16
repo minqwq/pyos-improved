@@ -1,6 +1,7 @@
 # DONT CHANGE ANY IMPORTED MODULES NAME, IM SERIOUS
 #
 # PY OS Improved -- Open-source "Operating System(OS)" written using Python 3
+# Make sure you have Python 3.9 or higher, lower version is not tested
 # Project creator:minqwq / LR Studio 2024
 # 
 # For our developer:
@@ -32,7 +33,6 @@ import platform
 import requests
 import pretty_errors
 print(colorama.Fore.LIGHTGREEN_EX + "All modules loaded!" + "\033[0m")
-time.sleep(0.05)
 # Preload classes
 #
 # New color library imported, but legacy will never remove
@@ -52,14 +52,12 @@ class color: # Text colors
     grey = "\033[37m"
     reset = "\033[0m"
 print("Added class 'color'")
-time.sleep(0.05)
 class text: # TIcons
     error = color.red + "[!] " + color.reset
     success = color.green + "[O] " + color.reset
     loading = color.yellow + "[...] " + color.reset
     doubt = color.grey + "[?] " + color.reset
 print("Added class 'text'")
-time.sleep(0.05)
 class textmoji: # Textmojis
     ciallo = "(∠・ω< )⌒☆"
     omg0 = "₍•Д•)"
@@ -68,38 +66,32 @@ class textmoji: # Textmojis
     owo = "(´･ω･`)"
     uhmm = "(*/ω＼*)"
 print("Added class 'textmoji'")
-time.sleep(0.05)
-pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery china words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信']
+pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
-time.sleep(0.05)
+i = os.system("alias cls="clear"")
+print("alias set!")
 system_version = "1.0 Release"
-system_build = "Build 87"
+system_build = "Build 90"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("cls")
-i = os.system("clear")
 time.sleep(0.5)
 print("640x480 VGA | 256C | Unknown")
 print(colorama.Back.RED + "NO SINGAL" + color.reset)
 time.sleep(1)
 i = os.system("cls")
-i = os.system("clear")
 print("Press F1 for BIOS Setup")
 time.sleep(1)
 i = os.system("cls")
-i = os.system("clear")
 print("Press F1 for BIOS Setup.")
 time.sleep(1)
 i = os.system("cls")
-i = os.system("clear")
 print("Press F1 for BIOS Setup..")
 time.sleep(1)
 i = os.system("cls")
-i = os.system("clear")
 print("Press F1 for BIOS Setup...")
 time.sleep(1)
 i = os.system("cls")
-i = os.system("clear")
 i = os.system("mpg123 -q ./beep.mp3") # *beep*
 print("Access BIOS v8.3")
 print("bios.mcpestudio.com/release/8/3/index.html")
@@ -114,7 +106,6 @@ time.sleep(0.1)
 print(color.green + "PY OS Improved " + system_version + " /unk /stack /uwu" + color.reset)
 time.sleep(1)
 i = os.system("cls")
-i = os.system("clear")
 time.sleep(0.1)
 # Boot manager
 print(colorama.Fore.LIGHTCYAN_EX + "PY OS Improved Boot manager" + color.reset)
@@ -126,12 +117,10 @@ elif bootChoice == "3":
     sys.exit()
 elif bootChoice == "4":
     i = os.system("cls")
-    i = os.system("clear")
     print("If you want exit, press Ctrl+C to shutdown")
     i = os.system("python3 ./.pyosimproved_prealpha_original_file/pyosimproved.py")
     sys.exit()
 i = os.system("cls")
-i = os.system("clear")
 # Startup screen
 print(color.blue + "    ______  __       ____  _____")
 print("   / __ \ \/ /      / __ \/ ___/")
@@ -160,7 +149,6 @@ print(" ")
 print("(c) LR Studio & FCNM 2022--2024")
 time.sleep(5)
 i = os.system("cls")
-i = os.system("clear")
 time.sleep(0.1)
 print("Calling system-process ...", end=' ')
 time.sleep(0.25)
@@ -179,7 +167,6 @@ time.sleep(0.1)
 print(color.green + "started" + color.reset)
 time.sleep(0.3)
 i = os.system("cls")
-i = os.system("clear")
 time.sleep(0.1)
 i = os.system("mpg123 -q ./startup.mp3")
 print(color.green + "h-hewwo! wewcome back to py os improved, senpai >///<. i-i missed you so much! x3" + color.reset) # Login screen
@@ -213,10 +200,12 @@ while count < 3:
             passwd = getpass.getpass("Password: ")
             if passwd == stpasswd:
                 print("Last login: " + colorama.Fore.LIGHTCYAN_EX + other_StyleTime + color.reset)
-                print("\nWelcome to Larine Shell(lsh) version 1.3.1\na User non-friendly shell")
+                print("\nWelcome to Larine Shell(lsh) version 1.4.0\na User non-friendly shell")
                 while count < 3:
                     # Line 39 is a critical process, dont change it   --minqwq
-                    cmd = input(colorama.Fore.LIGHTYELLOW_EX + "U" + color.reset + ":root " + colorama.Fore.LIGHTGREEN_EX + "H" + color.reset + ":localhost " + colorama.Fore.LIGHTYELLOW_EX + "N" + color.reset + ":Cikiy " + colorama.Fore.LIGHTBLUE_EX + "P" + color.reset + ":" + color.red + "Unknown " + colorama.Fore.LIGHTCYAN_EX + "# " + color.reset) # Shell style(redesigned by minqwq)
+                    lsh-time = now.strftime("%H:%M:%S")
+                    lsh-username = i = os.system("whoami")
+                    cmd = input(lsh-time + str(lsh-username) + "@tiramisu" + colorama.Fore.LIGHTGREEN_EX + " # " + color.reset) # Shell style(redesigned by minqwq)
                     if cmd == "ls": # Path
                         print(text.error + color.red + "Path not found" + color.reset)
                     elif cmd == "uwufetch": # a Fake neofetch
@@ -280,7 +269,6 @@ while count < 3:
                         i = os.system("mpg123 -q ./shutdown.mp3")
                         print(color.yellow + "[...] Killing all process..." + color.reset)
                         time.sleep(1)
-                        i = os.system("clear")
                         i = os.system("cls")
                         sys.exit()
                     elif cmd == "power reboot":
@@ -292,7 +280,6 @@ while count < 3:
                     elif cmd == "screensaver pipes":
                         i = os.system("cd ./apps/_screensaver/pipes.sh/ && ./pipes.sh && cd ../../../")
                         i = os.system("cls")
-                        i = os.system("clear")
                     elif cmd == "screensaver matrix":
                         i = os.system("cd ./apps/_screensaver/cmatrix && ./cmatrix.sh && cd ../../../")
                     elif cmd == "tetris":
@@ -583,7 +570,6 @@ while count < 3:
                         space = "0"
                     elif cmd == "clear": # Clear screen using real system command
                         i = os.system("cls")
-                        i = os.system("clear")
                     elif cmd == "exit": # Logout
                         break
                     else: # Wrong command
