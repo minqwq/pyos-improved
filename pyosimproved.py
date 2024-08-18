@@ -69,8 +69,8 @@ print("Added class 'textmoji'")
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
 i = os.system("alias cls=clear")
-system_version = "1.0 Release"
-system_build = "Build 94"
+system_version = "1.0 Release-hf1"
+system_build = "Build 95"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("clear")
@@ -255,7 +255,6 @@ while count < 3:
                         print("AMDISYES(Original PY OS) | Original Project Creator")
                         print("Yukari2024 | Installer")
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Early developing tester(not sorted)" + color.reset)
-                        print(colorama.Back.BLUE + "Currently early development is not ended, if you install and test, you can call me and i will add your name!" + color.reset)
                         print("minqwq")
                         print("bibimingming")
                         print("Safari_Browse(Rongxuan2022)")
