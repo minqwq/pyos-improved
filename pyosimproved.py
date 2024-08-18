@@ -68,30 +68,29 @@ class textmoji: # Textmojis
 print("Added class 'textmoji'")
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
-i = os.system("alias cls="clear"")
-print("alias set!")
+i = os.system("alias cls=clear")
 system_version = "1.0 Release"
-system_build = "Build 90"
+system_build = "Build 94"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
-i = os.system("cls")
+i = os.system("clear")
 time.sleep(0.5)
-print("640x480 VGA | 256C | Unknown")
+print("1024x768 VGA | 256C | Unknown")
 print(colorama.Back.RED + "NO SINGAL" + color.reset)
 time.sleep(1)
-i = os.system("cls")
+i = os.system("clear")
 print("Press F1 for BIOS Setup")
 time.sleep(1)
-i = os.system("cls")
+i = os.system("clear")
 print("Press F1 for BIOS Setup.")
 time.sleep(1)
-i = os.system("cls")
+i = os.system("clear")
 print("Press F1 for BIOS Setup..")
 time.sleep(1)
-i = os.system("cls")
+i = os.system("clear")
 print("Press F1 for BIOS Setup...")
 time.sleep(1)
-i = os.system("cls")
+i = os.system("clear")
 i = os.system("mpg123 -q ./beep.mp3") # *beep*
 print("Access BIOS v8.3")
 print("bios.mcpestudio.com/release/8/3/index.html")
@@ -105,7 +104,7 @@ print(color.yellow + "Load system => HDD" + color.reset)
 time.sleep(0.1)
 print(color.green + "PY OS Improved " + system_version + " /unk /stack /uwu" + color.reset)
 time.sleep(1)
-i = os.system("cls")
+i = os.system("clear")
 time.sleep(0.1)
 # Boot manager
 print(colorama.Fore.LIGHTCYAN_EX + "PY OS Improved Boot manager" + color.reset)
@@ -116,11 +115,11 @@ if bootChoice == "2":
 elif bootChoice == "3":
     sys.exit()
 elif bootChoice == "4":
-    i = os.system("cls")
+    i = os.system("clear")
     print("If you want exit, press Ctrl+C to shutdown")
     i = os.system("python3 ./.pyosimproved_prealpha_original_file/pyosimproved.py")
     sys.exit()
-i = os.system("cls")
+i = os.system("clear")
 # Startup screen
 print(color.blue + "    ______  __       ____  _____")
 print("   / __ \ \/ /      / __ \/ ___/")
@@ -148,7 +147,7 @@ print("Current source code lines:569")
 print(" ")
 print("(c) LR Studio & FCNM 2022--2024")
 time.sleep(5)
-i = os.system("cls")
+i = os.system("clear")
 time.sleep(0.1)
 print("Calling system-process ...", end=' ')
 time.sleep(0.25)
@@ -166,7 +165,7 @@ print("Starting login-manager ...", end=' ')
 time.sleep(0.1)
 print(color.green + "started" + color.reset)
 time.sleep(0.3)
-i = os.system("cls")
+i = os.system("clear")
 time.sleep(0.1)
 i = os.system("mpg123 -q ./startup.mp3")
 print(color.green + "h-hewwo! wewcome back to py os improved, senpai >///<. i-i missed you so much! x3" + color.reset) # Login screen
@@ -176,7 +175,7 @@ other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
 print("Current time: " + colorama.Fore.LIGHTCYAN_EX + other_StyleTime + color.reset)
 print("pwease, pweasew login to youw account >.< x3")
 count = 0
-stpasswd = "45450721"
+stpasswd = "ciallo"
 while count < 3:
     user = input("> ")
     if user == "gaster":
@@ -195,19 +194,24 @@ while count < 3:
         sys.exit()
     if user == "root":
         i = os.system("mpg123 -q ./beep.mp3")
-        print(colorama.Back.RED + colorama.Fore.WHITE + "This account has been protected by password, please type password(45450721)" + color.reset)
+        print(colorama.Back.RED + colorama.Fore.WHITE + "This account has been protected by password, please type password(ciallo)" + color.reset)
         while count < 3:
             passwd = getpass.getpass("Password: ")
             if passwd == stpasswd:
                 print("Last login: " + colorama.Fore.LIGHTCYAN_EX + other_StyleTime + color.reset)
                 print("\nWelcome to Larine Shell(lsh) version 1.4.0\na User non-friendly shell")
                 while count < 3:
-                    # Line 39 is a critical process, dont change it   --minqwq
-                    lsh-time = now.strftime("%H:%M:%S")
-                    lsh-username = i = os.system("whoami")
-                    cmd = input(lsh-time + str(lsh-username) + "@tiramisu" + colorama.Fore.LIGHTGREEN_EX + " # " + color.reset) # Shell style(redesigned by minqwq)
+                  # Line 39 is a critical process, dont change it   --minqwq
+                  # lsh_time = now.strftime("%H:%M:%S")
+                  # lsh_username = i = os.system("whoami")
+                    cmd = input(colorama.Fore.LIGHTBLUE_EX + "root" + color.grey + "@" + colorama.Fore.LIGHTCYAN_EX + "tiramisu" + colorama.Fore.LIGHTGREEN_EX + " # " + color.reset) # Shell style(redesigned by minqwq)
                     if cmd == "ls": # Path
-                        print(text.error + color.red + "Path not found" + color.reset)
+                        print("root path:")
+                        i = os.system("ls ./")
+                        print("programs path:")
+                        i = os.system("ls ./apps/")
+                        print("music path:")
+                        i = os.system("ls ./music/")
                     elif cmd == "uwufetch": # a Fake neofetch
                         print(color.blue + "  ______   __     ___  ____  ")
                         print(" |  _ \ \ / /    / _ \/ ___| ")
@@ -269,7 +273,7 @@ while count < 3:
                         i = os.system("mpg123 -q ./shutdown.mp3")
                         print(color.yellow + "[...] Killing all process..." + color.reset)
                         time.sleep(1)
-                        i = os.system("cls")
+                        i = os.system("clear")
                         sys.exit()
                     elif cmd == "power reboot":
                         print(color.cyan + "Restarting..." + color.reset)
@@ -279,7 +283,7 @@ while count < 3:
                         print("Available screensavers:\npipes\nmatrix\n\nex:screensaver pipes")
                     elif cmd == "screensaver pipes":
                         i = os.system("cd ./apps/_screensaver/pipes.sh/ && ./pipes.sh && cd ../../../")
-                        i = os.system("cls")
+                        i = os.system("clear")
                     elif cmd == "screensaver matrix":
                         i = os.system("cd ./apps/_screensaver/cmatrix && ./cmatrix.sh && cd ../../../")
                     elif cmd == "tetris":
@@ -569,7 +573,7 @@ while count < 3:
                     elif cmd == "": # what is this??? --minqwq at 2024-06-12 19:32
                         space = "0"
                     elif cmd == "clear": # Clear screen using real system command
-                        i = os.system("cls")
+                        i = os.system("clear")
                     elif cmd == "exit": # Logout
                         break
                     else: # Wrong command
