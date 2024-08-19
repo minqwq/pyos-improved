@@ -69,8 +69,8 @@ print("Added class 'textmoji'")
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
 i = os.system("alias cls=clear")
-system_version = "1.0 Release-hf1"
-system_build = "Build 95"
+system_version = "1.0.1 Release"
+system_build = "Build 97"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("clear")
@@ -108,7 +108,7 @@ i = os.system("clear")
 time.sleep(0.1)
 # Boot manager
 print(colorama.Fore.LIGHTCYAN_EX + "PY OS Improved Boot manager" + color.reset)
-print("\n1:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1")
+print("\nany key without 2, 3, 4:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1")
 bootChoice = input("> ")
 if bootChoice == "2":
     os.execv(sys.executable, ['python'] + sys.argv)
@@ -135,7 +135,7 @@ print("Codename " + colorama.Fore.LIGHTGREEN_EX + "Komeiji Koishi" + color.reset
 print("The Physical You(PY) OS logos is not are registered trademark, you can use it on anywhere.")
 print("Original by AMDISYES | Improved Version by minqwq & bibimingming ヽ(✿ﾟ▽ﾟ)ノ")
 print(" ")
-print("PY OS Improved is a open source software")
+print("PY OS Improved is a open source software and you can share it freedomly")
 print("Under CC-BY-NC-SA 4.0 License")
 print(colorama.Fore.LIGHTCYAN_EX + "Feel free to improve PY OS Improved!" + color.reset)
 print(" ")
@@ -167,8 +167,7 @@ print(color.green + "started" + color.reset)
 time.sleep(0.3)
 i = os.system("clear")
 time.sleep(0.1)
-i = os.system("mpg123 -q ./startup.mp3")
-print(color.green + "h-hewwo! wewcome back to py os improved, senpai >///<. i-i missed you so much! x3" + color.reset) # Login screen
+print(colorama.Fore.LIGHTCYAN_EX + "Welcome to PY OS Improved!" + color.reset) # Login screen
 print(colorama.Fore.LIGHTGREEN_EX + "Leave blank for shutdown" + color.reset)
 now = datetime.datetime.now()
 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
@@ -269,7 +268,6 @@ while count < 3:
                         print(" ")
                         print("ex:power reboot")
                     elif cmd == "power shutdown": # Shutdown
-                        i = os.system("mpg123 -q ./shutdown.mp3")
                         print(color.yellow + "[...] Killing all process..." + color.reset)
                         time.sleep(1)
                         i = os.system("clear")
