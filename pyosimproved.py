@@ -70,7 +70,7 @@ pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdo
 print("Tips loaded success")
 i = os.system("alias cls=clear")
 system_version = "1.0.1 Release"
-system_build = "Build 97"
+system_build = "Build 100"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("clear")
@@ -240,6 +240,8 @@ while count < 3:
                         i = os.system("./apps/ranger/ranger.sh")
                     elif cmd == "sudo": # sudo not sudo
                         print("This system is not based on linux, so sudo is not on here")
+                    elif cmd == "sticker":
+                        i = os.system("cd ./apps/sticker && python3 sticker.py && cd ../..")
                     elif cmd == "about": # About system
                         print("---------------| About |---------------")
                         print(color.blue + "PY OS Improved " + system_version + " " + system_build + color.reset)
@@ -294,38 +296,8 @@ while count < 3:
                         print("https://github.com/shkolovy/tetris-terminal")
                         time.sleep(3)
                         i = os.system("python3 ./apps/tetris/tetris.py")
-                    elif cmd == "musicplayer": # Music player
-                        print("v1.3")
-                        print("How to play:musicplayer -t=<type> play" + color.cyan + " *Enter*" + color.reset)
-                        print("Available type:module, sid, mpeg")
-                        print("For internal musics list, type musicplayer -l to get a list")
-                        print(" ")
-                        print("Play custom audio file:Put your audio file to <PY OS Improved>/music/custom/<filetype>")
-                        print("and start PY OS Improved")
-                        print("and type musicplayer custom-<filetype>" + color.cyan + " *Enter*" + color.reset)
-                        print("to play custom audio file")
-                        print("ex:musicplayer custom-mpeg")
-                        print("* Module music types(xm, mod, s3m)=custom-module, not custom-xm, custom-mod, custom-s3m")
-                    elif cmd == "musicplayer -t=module play":
-                        i = os.system("ls ./music/modulemusic")
-                        mpModulePlay = input("Type a music filename: ")
-                        i = os.system("openmpt123 --quiet ./music/modulemusic/" + mpModulePlay)
-                    elif cmd == "musicplayer -t=sid play":
-                        i = os.system("ls ./music/sid")
-                        mpSIDPlay = input("Type a music filename: ")
-                        i = os.system("sidplayfp -q ./music/sid/" + mpSIDPlay)
-                    elif cmd == "musicplayer -t=mpeg play":
-                        i = os.system("ls ./music/mpeg")
-                        mpMPEGPlay = input("Type a music filename: ")
-                        i = os.system("mpg123 -q ./music/mpeg/" + mpMPEGPlay)
-                    elif cmd == "musicplayer -l":
-                        print("musicname -t=type play filename")
-                        print(colorama.Fore.BLACK + colorama.Back.WHITE + "Module(xm, mod, s3m)" + color.reset)
-                        i = os.system("ls ./music/modulemusic/")
-                        print(colorama.Fore.BLACK + colorama.Back.WHITE + "SID(Commodore 64/128)" + color.reset)
-                        i = os.system("ls ./music/sid/")
-                        print(colorama.Fore.BLACK + colorama.Back.WHITE + "MPEG" + color.reset)
-                        i = os.system("ls ./music/mpeg/")
+                    elif cmd == "mp":
+                        i = os.system("cd ./apps/musicplayer && python3 musicplayer.py && cd ../..")
                     elif cmd == "random": # Random tools
                         print("Random v1.0, by minqwq")
                         print(" ")
@@ -415,58 +387,7 @@ while count < 3:
                         ciallo_img=img.open('./image/example/ciallo.jpeg')
                         img.show()
                     elif cmd == "caesar":
-                        def option():
-                            while True:
-                                print("Caesar tools v1.0 code from CSDN")
-                                print("Type a option...")
-                                print("e:Encode\nd:Decode\nq:Quit")
-                                mode=input("> ").lower()
-                                if mode in "e d q".split():
-                                    return mode
-                                else:
-                                    print("Incorrect option")
-                        
-                        def getKey(mode):
-                            key=0
-                            while key<=0 or key>=26:
-                                try:
-                                    key=int(input("Please type a key code...(from 1 to 26):"))
-                                except:
-                                    print("Illegal key code")
-                            if mode=="d":
-                                key=-key
-                            return key
-                        
-                        def getMessage(key):
-                            text=input("Please type encoded text:")  
-                            message=""
-                            for i in text:
-                                num=ord(i)
-                                num=num+key
-                                if i.isupper():
-                                    if num>ord("Z"):
-                                        num=num-26
-                                    elif num<ord("A"):
-                                        num=num+26
-                                elif i.islower():
-                                    if num>ord("z"):
-                                        num=num-26
-                                    elif num<ord("a"):
-                                        num=num+26
-                                message += chr(num)
-                            return message
-                        
-                        mode = option()
-                        if mode == "q":
-                            print("Welcome to you use this tool again!")
-                        elif mode == "e":
-                            key=getKey(mode)
-                            str1=getMessage(key)
-                            print("Encode result:\n\n",str1)
-                        elif mode == "d":
-                            key=getKey(mode)
-                            str2=getMessage(key)
-                            print("Decode result is:\n\n",str2)
+                        i = os.system("cd ./apps/caesartools && python3 caesar.py && cd ../..")
                     elif cmd == "notepad":
                         file_path = input("\nCreate file (please enter the path to file): ")
                         
@@ -547,7 +468,7 @@ while count < 3:
                         print("random         Random tools")
                         print("perf           Performance tools")
                         print("notepad        a Text editor, very simple")
-                        print("musicplayer    Play music")
+                        print("mp             Play music")
                         print("imgview        Debug only, dont use")
                         print("caesar         Caesar encryption tools")
                         print("uname          Show a information about your computer(Linux only)")
@@ -556,6 +477,7 @@ while count < 3:
                         print("screensaver    Save your VGA screen, make your pc like a pro")
                         print("cuscmd         Run custom command")
                         print("news           Show latest news of PY OS Improved.")
+                        print("sticker        a Simple sticker for write text(cant save)")
                     elif cmd == "time --help": # time command help
                         print("Time command options:")
                         print("--help         Show this help")
