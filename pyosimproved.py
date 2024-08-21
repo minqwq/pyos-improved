@@ -32,6 +32,7 @@ import platform
 # import rich
 import requests
 import pretty_errors
+from dialog import Dialog
 print(colorama.Fore.LIGHTGREEN_EX + "All modules loaded!" + "\033[0m")
 # Preload classes
 #
@@ -66,19 +67,27 @@ class textmoji: # Textmojis
     owo = "(´･ω･`)"
     uhmm = "(*/ω＼*)"
 print("Added class 'textmoji'")
+pretty_errors.configure(
+    postfix               = '\nPY OS Improved has been crashed.\nRestart command:python3 pyosimproved.py\nReport this error!:https://github.com/minqwq/pyos-improved/issues or \e]8;;https://github.com/minqwq/pyos-improved/issues\aClick here.\e]8;;\a',
+    separator_character   = '#',
+    line_color            = colorama.Fore.LIGHTBLUE_EX + 'Here > ' + color.reset,
+)
+print("config updated for pretty-errors")
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
 i = os.system("alias cls=clear")
 system_version = "1.0.1 Release"
-system_build = "Build 100"
+system_build = "Build 103"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("clear")
 time.sleep(0.5)
-print("1024x768 VGA | 256C | Unknown")
-print(colorama.Back.RED + "NO SINGAL" + color.reset)
-time.sleep(1)
+d = Dialog(dialog="dialog")
+d.set_background_title("R:1024x768 | CD:256 | Screen 0")
+d.infobox("No Singal", width=0, height=0, title="Error")
+time.sleep(2)
 i = os.system("clear")
+time.sleep(0.1)
 print("Press F1 for BIOS Setup")
 time.sleep(1)
 i = os.system("clear")
@@ -270,13 +279,16 @@ while count < 3:
                         print(" ")
                         print("ex:power reboot")
                     elif cmd == "power shutdown": # Shutdown
-                        print(color.yellow + "[...] Killing all process..." + color.reset)
-                        time.sleep(1)
+                        d.set_background_title("PY OS Improved " + system_version + " " + system_build)
+                        d.infobox("Shutting down...", width=0, height=0, title="Power manager")
+                        time.sleep(3)
                         i = os.system("clear")
                         sys.exit()
                     elif cmd == "power reboot":
-                        print(color.cyan + "Restarting..." + color.reset)
-                        time.sleep(1)
+                        d.set_background_title("PY OS Improved " + system_version + " " + system_build)
+                        d.infobox("Restarting...", width=0, height=0, title="Power manager")
+                        time.sleep(3)
+                        i = os.system("clear")
                         os.execv(sys.executable, ['python'] + sys.argv)
                     elif cmd == "screensaver": # Screensaver
                         print("Available screensavers:\npipes\nmatrix\n\nex:screensaver pipes")

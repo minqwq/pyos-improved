@@ -4,3 +4,4 @@ matplotlib
 colorama
 datetime
 pretty-errors
+pythondialog
