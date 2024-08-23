@@ -45,7 +45,10 @@ A:tell me and i will try to make you want
 Q:how to shutdown  
 A:type <code>power shutdown</code>
 # Like it?
-Star this project, no anymore, just star it
+Star this project, no anymore, just star it  
+or if you really like it and you want donate me, use wechat pay:  
+![weixin](/donate/weixin.png)  
+this is not forcely required, if you dont have money you can just click star
 # Contributor
 minqwq | Creator of this project, Interface designer, Coder, Document editer  
 bibimingming | Imported modules installer maker   
