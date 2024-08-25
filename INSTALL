@@ -1,4 +1,4 @@
-pyos-improved-----2024.8.5-by bibimingming
+pyos-improved-----2024.8.25-by bibimingming
 
 #This is an introduction to the installation of a text version,If you do every step, you will not make an error,If you can, please shrink the window to the minimum to read this file
 
@@ -26,4 +26,7 @@ INSTALL
 --enter [python3 pyosimproved.py] to run it
 --If all steps are completed, it will run perfectly
 
-
+*if you can't use pip ,please follow this step:
+1.python3 -m venv path/to/venv
+source 2.path/to/venv/bin/activate
+3.pip install packagename
