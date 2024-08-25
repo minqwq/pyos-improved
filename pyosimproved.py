@@ -76,12 +76,15 @@ print("config updated for pretty-errors")
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
 i = os.system("alias cls=clear")
-system_version = "1.0.1 Release"
-system_build = "Build 103"
+system_version = "1.1.0 Release"
+system_build = "Build 115"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 i = os.system("clear")
-time.sleep(0.5)
+print("Press any key to continue...")
+debugMode = input("\n")
+if debugMode == "d":
+    print("Unfinished goto debug mode ok")
 d = Dialog(dialog="dialog")
 d.set_background_title("R:1024x768 | CD:256 | Screen 0")
 d.infobox("No Singal", width=0, height=0, title="Error")
@@ -100,12 +103,10 @@ i = os.system("clear")
 print("Press F1 for BIOS Setup...")
 time.sleep(1)
 i = os.system("clear")
-i = os.system("mpg123 -q ./beep.mp3") # *beep*
-print("Access BIOS v8.3")
-print("bios.mcpestudio.com/release/8/3/index.html")
+print("Access BIOS v9.0b1")
+print("bios.mcpestudio.com/release/9/0/beta1/index.html")
 time.sleep(0.3)
 print(color.yellow + "Testing Memory..." + color.reset)
-time.sleep(0.5)
 totalmem = psutil.virtual_memory().total
 print(color.green + str(totalmem) + " Bytes OK" + color.reset)
 time.sleep(0.1)
@@ -116,18 +117,26 @@ time.sleep(1)
 i = os.system("clear")
 time.sleep(0.1)
 # Boot manager
+bootManagerLoopRun = True
 print(colorama.Fore.LIGHTCYAN_EX + "PY OS Improved Boot manager" + color.reset)
-print("\nany key without 2, 3, 4:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1")
-bootChoice = input("> ")
-if bootChoice == "2":
-    os.execv(sys.executable, ['python'] + sys.argv)
-elif bootChoice == "3":
-    sys.exit()
-elif bootChoice == "4":
-    i = os.system("clear")
-    print("If you want exit, press Ctrl+C to shutdown")
-    i = os.system("python3 ./.pyosimproved_prealpha_original_file/pyosimproved.py")
-    sys.exit()
+print("\n1:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1")
+while bootManagerLoopRun == True:
+    bootChoice = input("> ")
+    if bootChoice == "1":
+        print("...")
+        break
+    elif bootChoice == "2":
+        os.execv(sys.executable, ['python'] + sys.argv)
+    elif bootChoice == "3":
+        sys.exit()
+    elif bootChoice == "4":
+        i = os.system("clear")
+        print("If you want exit, press Ctrl+C to shutdown")
+        i = os.system("python3 ./.pyosimproved_prealpha_original_file/pyosimproved.py")
+        break
+        exit()
+    else:
+        print(color.red + "ERR" + color.reset)
 i = os.system("clear")
 # Startup screen
 print(color.blue + "    ______  __       ____  _____")
@@ -204,10 +213,15 @@ while count < 3:
         i = os.system("mpg123 -q ./beep.mp3")
         print(colorama.Back.RED + colorama.Fore.WHITE + "This account has been protected by password, please type password(ciallo)" + color.reset)
         while count < 3:
-            passwd = getpass.getpass("Password: ")
+            print("Warning! your password will show to screen, clear screen after login.")
+            passwd = input("Password: ")
             if passwd == stpasswd:
-                print("Last login: " + colorama.Fore.LIGHTCYAN_EX + other_StyleTime + color.reset)
-                print("\nWelcome to Larine Shell(lsh) version 1.4.0\na User non-friendly shell")
+                i = os.system("clear")
+                lshdate = now.strftime("%Y-%m-%d")
+                lshtime = now.strftime("%H:%M:%S")
+                print("Welcome aboard " + color.cyan + user + color.reset + ".")
+                print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".")
+                print("\nWelcome to Larine Shell(lsh) version 1.5\na User non-friendly shell")
                 while count < 3:
                   # Line 39 is a critical process, dont change it   --minqwq
                   # lsh_time = now.strftime("%H:%M:%S")
@@ -229,6 +243,8 @@ while count < 3:
                         print(color.purple + "      --- Improved ---       " + color.reset)
                         time.sleep(0.1)
                         print("System:PY OS Improved " + system_version + " " + system_build)
+                        print("Architecture:" + str(platform.machine()))
+                        print("Python version:" + str(platform.python_version()))
                         time.sleep(0.1)
                         print("CPU:Intel Pentium 4@1400MHz")
                         time.sleep(0.1)
@@ -241,6 +257,8 @@ while count < 3:
                         print(text.error + color.red + "Ethernet Card:Not found" + color.reset)
                         time.sleep(0.1)
                         print("Disk:HDD1=30GB, HDD2=55GB")
+                    elif cmd == "uwufetch colotest256":
+                        i = os.system("python3 ./apps/color256/color256.py")
                     elif cmd == "ping": # Ping tool
                         pingToolIPInput = input("Input IP or Domain: ")
                         pingToolCountInput = input("Send how many packages: ")
