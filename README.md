@@ -8,8 +8,10 @@
 ![GitHub Created At](https://img.shields.io/github/created-at/minqwq/pyos-improved)  
 Improve version of AMDISYES's PY OS  
 Learning py...  
-Recommend using linux to run  
-
+Recommend using linux to run 
+  
+![pyosi_snapshot0](/.images4readme/IMG_20240828_012807.jpg)  
+  
 Language:Python(3)  
 Editor:Vim 9.0 <s>Neovim 0.11.0dev</s> <s>Kakoune</s>  
 Device:a Phone running a debian 11 proot container on zerotermux  
