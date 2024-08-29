@@ -17,7 +17,14 @@ Last updated at 2024-08-30 GMT+8 by minqwq
 Language:Python(3)  
 Editor:Vim 9.0 <s>Neovim 0.11.0dev</s> <s>Kakoune</s>  
 Device:a Phone running a debian 11 proot container on zerotermux  
-![Screenshot](/.images4readme/Screenshot_2024-07-09-06-01-27-802_com.termux.jpg)
+![2024-08-30 05-15-52屏幕截图](https://github.com/user-attachments/assets/50e7d899-a154-4e0e-bf3b-b0e07774796c)
+![2024-08-30 05-16-32屏幕截图](https://github.com/user-attachments/assets/b891916a-fbff-4912-9b17-79b353e22cd0)
+![2024-08-30 05-17-16屏幕截图](https://github.com/user-attachments/assets/904c3ef0-9dab-453a-9406-0f7f44f062b4)
+![2024-08-30 05-18-02屏幕截图](https://github.com/user-attachments/assets/c5bb9d9b-13f3-48ce-b33d-4d1723d1bc62)
+![2024-08-30 05-19-00屏幕截图](https://github.com/user-attachments/assets/c3818736-5e02-4a27-997c-66457d952646)
+![2024-08-30 05-19-59屏幕截图](https://github.com/user-attachments/assets/0dc08dbb-4047-4c68-bdb3-90c903b4023c)
+![2024-08-30 05-21-04屏幕截图](https://github.com/user-attachments/assets/b5468453-656c-4b7d-9503-0e60678a0af6)
+
   
 a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这个仓库搬到你手里
 # You need
@@ -30,7 +37,8 @@ a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这
 <code>ranger</code> file manager(Optional, if you dont need file manager)
 # Installation
 Stp1:open your terminal  
-> wait! before below step you still need install above packages  
+> wait! before below step you still need install above packages
+
 Stp2:<code>git clone https://github.com/minqwq/pyos-improved.git</code>  
 Stp3:<code>cd ./pyos-improved</code>  
 Stp4:<code>python3 installer.py</code> or <code>./installdepend.sh</code> or <code>pip install -r requirements.txt</code>  
