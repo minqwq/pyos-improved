@@ -10,6 +10,8 @@ Improve version of AMDISYES's PY OS
 Learning py...  
 Recommend using linux to run 
   
+Last updated at 2024-08-30 GMT+8 by minqwq
+  
 ![pyosi_snapshot0](/.images4readme/IMG_20240828_012807.jpg)  
   
 Language:Python(3)  
@@ -19,15 +21,16 @@ Device:a Phone running a debian 11 proot container on zerotermux
   
 a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这个仓库搬到你手里
 # You need
-<code>git</code> use this for clone repo and you can quickly update  
-<code>python3</code> this "system" written using python so  
-<code>mpg123</code> play mpeg audio  
-<code>openmpt123</code> play module music  
-<code>sidplayfp</code> play sid music  
-<code>wildmidi</code> play midi  
-<code>ranger</code> file manager
+<code>git</code> use this for clone repo and you can quickly update(Optional, because you can download source from release)  
+<code>python3</code> this "system" written using python so(Forcely required.)  
+<code>mpg123</code> play mpeg audio(Optional, if you dont need to play music)  
+<code>openmpt123</code> play module music(Optional, if you dont need to play music)  
+<code>sidplayfp</code> play sid music(Optional, if you dont need to play music)  
+<code>wildmidi</code> play midi(You dont need this)  
+<code>ranger</code> file manager(Optional, if you dont need file manager)
 # Installation
 Stp1:open your terminal  
+> wait! before below step you still need install above packages  
 Stp2:<code>git clone https://github.com/minqwq/pyos-improved.git</code>  
 Stp3:<code>cd ./pyos-improved</code>  
 Stp4:<code>python3 installer.py</code> or <code>./installdepend.sh</code> or <code>pip install -r requirements.txt</code>  
