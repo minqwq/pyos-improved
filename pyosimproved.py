@@ -30,9 +30,11 @@ from colorama import Back as back
 # sys.path.append("./")
 import platform
 # import rich
-import requests
-import pretty_errors
-from dialog import Dialog
+import requests # Get file from server
+import pretty_errors # Crash screen replace
+from dialog import Dialog # Dialog
+from python_goto import goto # Goto a line
+import pygame # btw this is not a game, i import this for something, like se(sound effect).
 print(colorama.Fore.LIGHTGREEN_EX + "All modules loaded!" + "\033[0m")
 # Preload classes
 #
@@ -75,34 +77,28 @@ pretty_errors.configure(
 print("config updated for pretty-errors")
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
-i = os.system("alias cls=clear")
-system_version = "1.1.0 Release"
-system_build = "Build 115"
+os.system("alias cls=clear")
+system_version = "1.1.1 Release"
+system_build = "Build 138"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
-i = os.system("clear")
+os.system("clear")
 print("Press any key to continue...")
 debugMode = input("\n")
 if debugMode == "d":
-    print("Unfinished goto debug mode ok")
+    now = datetime.datetime.now()
+    print("You are now in debug mode.")
+    print("If crash and saying name 'd' is not defined, dont report this error.")
+    goto(line=196)
 d = Dialog(dialog="dialog")
 d.set_background_title("R:1024x768 | CD:256 | Screen 0")
 d.infobox("No Singal", width=0, height=0, title="Error")
 time.sleep(2)
-i = os.system("clear")
+os.system("clear")
 time.sleep(0.1)
-print("Press F1 for BIOS Setup")
-time.sleep(1)
-i = os.system("clear")
-print("Press F1 for BIOS Setup.")
-time.sleep(1)
-i = os.system("clear")
-print("Press F1 for BIOS Setup..")
-time.sleep(1)
-i = os.system("clear")
-print("Press F1 for BIOS Setup...")
-time.sleep(1)
-i = os.system("clear")
+pygame.mixer.init()
+pygame.mixer.music.load("./audio/se/success.mp3")
+pygame.mixer.music.play()
 print("Access BIOS v9.0b1")
 print("bios.mcpestudio.com/release/9/0/beta1/index.html")
 time.sleep(0.3)
@@ -114,7 +110,7 @@ print(color.yellow + "Load system => HDD" + color.reset)
 time.sleep(0.1)
 print(color.green + "PY OS Improved " + system_version + " /unk /stack /uwu" + color.reset)
 time.sleep(1)
-i = os.system("clear")
+os.system("clear")
 time.sleep(0.1)
 # Boot manager
 bootManagerLoopRun = True
@@ -130,15 +126,21 @@ while bootManagerLoopRun == True:
     elif bootChoice == "3":
         sys.exit()
     elif bootChoice == "4":
-        i = os.system("clear")
+        os.system("clear")
         print("If you want exit, press Ctrl+C to shutdown")
-        i = os.system("python3 ./.pyosimproved_prealpha_original_file/pyosimproved.py")
-        break
-        exit()
+        os.system("python3 ./.earlysystem/pyosimproved.py")
+         
+        sys.exit()
+    elif bootChoice == "5":
+        os.system("clear")
+        print("If you want exit, press Ctrl+C to shutdown")
+        os.system("python3 ./.earlysystem/bbcos-full.py")
+        sys.exit()
     else:
         print(color.red + "ERR" + color.reset)
-i = os.system("clear")
+os.system("clear")
 # Startup screen
+startingtime = time.time()
 print(color.blue + "    ______  __       ____  _____")
 print("   / __ \ \/ /      / __ \/ ___/")
 print("  / /_/ /\  /      / / / /\__ \ ")
@@ -149,7 +151,7 @@ print(" ")
 print(random.sample(pyosimprovedtips, 1))
 print(" ")
 print("\033[38;5;45m" + "PY " + "\033[38;5;81m" + "OS " + "\033[38;5;117m" + "Im" + "\033[38;5;153m" + "pr" + "\033[38;5;189m" + "ov" + "\033[38;5;225m" + "ed" + color.reset + " | " + system_version + " | " + system_build)
-print("Codename " + colorama.Fore.LIGHTGREEN_EX + "Komeiji Koishi" + color.reset)
+print("Codename " + "\033[38;5;39m" + "baka9" + color.reset)
 print("The Physical You(PY) OS logos is not are registered trademark, you can use it on anywhere.")
 print("Original by AMDISYES | Improved Version by minqwq & bibimingming ヽ(✿ﾟ▽ﾟ)ノ")
 print(" ")
@@ -165,7 +167,7 @@ print("Current source code lines:569")
 print(" ")
 print("(c) LR Studio & FCNM 2022--2024")
 time.sleep(5)
-i = os.system("clear")
+os.system("clear")
 time.sleep(0.1)
 print("Calling system-process ...", end=' ')
 time.sleep(0.25)
@@ -183,57 +185,73 @@ print("Starting login-manager ...", end=' ')
 time.sleep(0.1)
 print(color.green + "started" + color.reset)
 time.sleep(0.3)
-i = os.system("clear")
+os.system("clear")
 time.sleep(0.1)
+end_startingtime = time.time()
+startingtime_t = end_startingtime - startingtime
+pygame.mixer.music.load("./audio/se/welcome.mp3")
+pygame.mixer.music.play()
 print(colorama.Fore.LIGHTCYAN_EX + "Welcome to PY OS Improved!" + color.reset) # Login screen
 print(colorama.Fore.LIGHTGREEN_EX + "Leave blank for shutdown" + color.reset)
 now = datetime.datetime.now()
 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
 print("Current time: " + colorama.Fore.LIGHTCYAN_EX + other_StyleTime + color.reset)
+print("Startup system used " + str(startingtime_t) + "s.")
 print("pwease, pweasew login to youw account >.< x3")
+print("(You can type a custom name to continue, like 'meguru' after login will show 'meguru@tiramisu #')")
 count = 0
 stpasswd = "ciallo"
 while count < 3:
     user = input("> ")
     if user == "gaster":
         os.execv(sys.executable, ['python'] + sys.argv)
-    if user == "":
+    elif user == "":
         sys.exit()
-    if user == "bai9nine":
+    elif user == "bai9nine":
         print("nope.   --minqwq")
-    if user == "yukari2024":
+    elif user == "yukari2024":
         print(colorama.Back.LIGHTBLUE_EX + "PY OS Improved has been terminated.")
         print("and this is not a issue, its just a easter egg." + color.reset)
         sys.exit()
-    if user == "yukari":
+    elif user == "yukari":
         print(colorama.Back.LIGHTBLUE_EX + "nope bro")
         print("change her's second name and retry to login is useless." + color.reset)
         sys.exit()
-    if user == "root":
-        i = os.system("mpg123 -q ./beep.mp3")
+    else:
         print(colorama.Back.RED + colorama.Fore.WHITE + "This account has been protected by password, please type password(ciallo)" + color.reset)
         while count < 3:
             print("Warning! your password will show to screen, clear screen after login.")
             passwd = input("Password: ")
             if passwd == stpasswd:
-                i = os.system("clear")
+                os.system("clear")
                 lshdate = now.strftime("%Y-%m-%d")
                 lshtime = now.strftime("%H:%M:%S")
-                print("Welcome aboard " + color.cyan + user + color.reset + ".")
+                lsh_hostname = "tiramisu"
+                print("PY OS Improved " + system_version)
+                print("* Official website:https://www.minqwq.us.kg/pyosimproved")
+                print("* Telegram group:@pyosimproved")
+                print("* IRC:pyos-improved@irc.freenode.net:6667")
+                time.sleep(0.05)
+                print("\nNeed help? email to minqwq723897@outlook.com, i will help you.")
+                print("Have issues? open a issue here:https://github.com/minqwq/pyos-improved/issues")
+                time.sleep(0.05)
+                print("\nWelcome aboard " + color.cyan + user + color.reset + ".")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".")
                 print("\nWelcome to Larine Shell(lsh) version 1.5\na User non-friendly shell")
                 while count < 3:
                   # Line 39 is a critical process, dont change it   --minqwq
                   # lsh_time = now.strftime("%H:%M:%S")
-                  # lsh_username = i = os.system("whoami")
-                    cmd = input(colorama.Fore.LIGHTBLUE_EX + "root" + color.grey + "@" + colorama.Fore.LIGHTCYAN_EX + "tiramisu" + colorama.Fore.LIGHTGREEN_EX + " # " + color.reset) # Shell style(redesigned by minqwq)
+                  # lsh_username = os.system("whoami")
+                    cmd = input(colorama.Fore.LIGHTBLUE_EX + user + color.grey + "@" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " # " + color.reset) # Shell style(redesigned by minqwq)
+                    if user == "d":
+                        cmd = input("DEBUG_SHELL > ")
                     if cmd == "ls": # Path
                         print("root path:")
-                        i = os.system("ls ./")
+                        os.system("ls ./")
                         print("programs path:")
-                        i = os.system("ls ./apps/")
+                        os.system("ls ./apps/")
                         print("music path:")
-                        i = os.system("ls ./music/")
+                        os.system("ls ./music/")
                     elif cmd == "uwufetch": # a Fake neofetch
                         print(color.blue + "  ______   __     ___  ____  ")
                         print(" |  _ \ \ / /    / _ \/ ___| ")
@@ -258,17 +276,25 @@ while count < 3:
                         time.sleep(0.1)
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
-                        i = os.system("python3 ./apps/color256/color256.py")
+                        os.system("python3 ./apps/color256/color256.py")
+                    elif cmd == "guessnum":
+                        os.system("python3 ./apps/guessnum/guessnum.py")
                     elif cmd == "ping": # Ping tool
                         pingToolIPInput = input("Input IP or Domain: ")
                         pingToolCountInput = input("Send how many packages: ")
-                        i = os.system("ping -c " + pingToolCountInput + " " + pingToolIPInput)
+                        os.system("ping -c " + pingToolCountInput + " " + pingToolIPInput)
                     elif cmd == "fm":
-                        i = os.system("./apps/ranger/ranger.sh")
+                        os.system("./apps/ranger/ranger.sh")
+                    elif cmd == "hostname":
+                        print("add option -c to change.\n\nHostname:\n" + lsh_hostname)
+                    elif cmd == "hostname -c":
+                        lsh_hostname = input("> ")
+                        if lsh_hostname == "":
+                            lsh_hostname = "tiramisu"
                     elif cmd == "sudo": # sudo not sudo
                         print("This system is not based on linux, so sudo is not on here")
                     elif cmd == "sticker":
-                        i = os.system("cd ./apps/sticker && python3 sticker.py && cd ../..")
+                        os.system("cd ./apps/sticker && python3 sticker.py && cd ../..")
                     elif cmd == "about": # About system
                         print("---------------| About |---------------")
                         print(color.blue + "PY OS Improved " + system_version + " " + system_build + color.reset)
@@ -300,21 +326,21 @@ while count < 3:
                         d.set_background_title("PY OS Improved " + system_version + " " + system_build)
                         d.infobox("Shutting down...", width=0, height=0, title="Power manager")
                         time.sleep(3)
-                        i = os.system("clear")
+                        os.system("clear")
                         sys.exit()
                     elif cmd == "power reboot":
                         d.set_background_title("PY OS Improved " + system_version + " " + system_build)
                         d.infobox("Restarting...", width=0, height=0, title="Power manager")
                         time.sleep(3)
-                        i = os.system("clear")
+                        os.system("clear")
                         os.execv(sys.executable, ['python'] + sys.argv)
                     elif cmd == "screensaver": # Screensaver
                         print("Available screensavers:\npipes\nmatrix\n\nex:screensaver pipes")
                     elif cmd == "screensaver pipes":
-                        i = os.system("cd ./apps/_screensaver/pipes.sh/ && ./pipes.sh && cd ../../../")
-                        i = os.system("clear")
+                        os.system("cd ./apps/_screensaver/pipes.sh/ && ./pipes.sh && cd ../../../")
+                        os.system("clear")
                     elif cmd == "screensaver matrix":
-                        i = os.system("cd ./apps/_screensaver/cmatrix && ./cmatrix.sh && cd ../../../")
+                        os.system("cd ./apps/_screensaver/cmatrix && ./cmatrix.sh && cd ../../../")
                     elif cmd == "tetris":
                         print("   #####   ####  #####   ###    #   ####")
                         print("     #     #       #     #  #      #")
@@ -325,9 +351,9 @@ while count < 3:
                         print("by shkolovy")
                         print("https://github.com/shkolovy/tetris-terminal")
                         time.sleep(3)
-                        i = os.system("python3 ./apps/tetris/tetris.py")
+                        os.system("python3 ./apps/tetris/tetris.py")
                     elif cmd == "mp":
-                        i = os.system("cd ./apps/musicplayer && python3 musicplayer.py && cd ../..")
+                        os.system("cd ./apps/musicplayer && python3 musicplayer.py && cd ../..")
                     elif cmd == "random": # Random tools
                         print("Random v1.0, by minqwq")
                         print(" ")
@@ -417,7 +443,7 @@ while count < 3:
                         ciallo_img=img.open('./image/example/ciallo.jpeg')
                         img.show()
                     elif cmd == "caesar":
-                        i = os.system("cd ./apps/caesartools && python3 caesar.py && cd ../..")
+                        os.system("cd ./apps/caesartools && python3 caesar.py && cd ../..")
                     elif cmd == "notepad":
                         file_path = input("\nCreate file (please enter the path to file): ")
                         
@@ -462,7 +488,7 @@ while count < 3:
                     elif cmd == "cuscmd":
                         print("Type custom command below...(ex:cat ciallo.txt)")
                         customCommand = input("")
-                        i = os.system(customCommand)
+                        os.system(customCommand)
                     elif cmd == "news":
                         requestsUrl = "https://www.minqwq.us.kg/pyosimproved/news/latest.txt"
                         requestsResponse = requests.get(requestsUrl)
@@ -479,35 +505,38 @@ while count < 3:
                         mm = int(input("Month: "))
                         print(color.green + "PY OS Calendar\n" + color.reset + calendar.month(yy, mm))
                     elif cmd == "calcurse":
-                        i = os.system("calcurse")
+                        os.system("calcurse")
                     elif cmd == "help": # Command list
-                        print("Command List:")
-                        print(colorama.Fore.LIGHTCYAN_EX + "ls             View the path")
+                        print("Larine Shell manual help:")
+                        print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(System)" + color.reset)
+                        print(color.cyan + "ls             View the path")
                         print("about          Show the system's information")
                         print("converter      A tool to convert .lpap/.lpcu/.bbc to .umm")
                         print("time           Show the time and date")
                         print("calendar       Show a calendar")
-                        print("calc           A simple calculator")
-                        print("clear          Clean the screen")
-                        print("passwd         Change your password")
-                        print("exit           Log out")
-                        print("power          Power options...")
+                        print("clear          Clear the screen")
+                        print("passwd         Change password for this session")
+                        print("power          Power manager")
+                        print("exit           Lock system")
+                        print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Tools)" + color.reset)
+                        print(color.cyan + "calc           A simple calculator")
                         print("uwufetch       List all hardware and system version")
-                        print("sudo           Nothing")
                         print("ping           Ping tool python version(Unavailable)")
                         print("random         Random tools")
                         print("perf           Performance tools")
                         print("notepad        a Text editor, very simple")
-                        print("mp             Play music")
-                        print("imgview        Debug only, dont use")
                         print("caesar         Caesar encryption tools")
-                        print("uname          Show a information about your computer(Linux only)")
-                        print("tetris         Tetris game written using Python 3")
-                        print("fm             File manager(Are you installed ranger?)")
+                        print("fm             Ranger file manager")
+                        print("sticker        notepad but can't save content")
+                        print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Relax)" + color.reset)
+                        print(color.cyan + "mp             Play music")
                         print("screensaver    Save your VGA screen, make your pc like a pro")
-                        print("cuscmd         Run custom command")
+                        print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Games)" + color.reset)
+                        print(color.cyan + "tetris         Tetris game written using Python")
+                        print("guessnum       Guess number game written using Python")
+                        print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE +  "(Other)" + color.reset)
+                        print(color.cyan + "cuscmd         Run custom command")
                         print("news           Show latest news of PY OS Improved.")
-                        print("sticker        a Simple sticker for write text(cant save)")
                     elif cmd == "time --help": # time command help
                         print("Time command options:")
                         print("--help         Show this help")
@@ -522,12 +551,33 @@ while count < 3:
                     elif cmd == "": # what is this??? --minqwq at 2024-06-12 19:32
                         space = "0"
                     elif cmd == "clear": # Clear screen using real system command
-                        i = os.system("clear")
+                        os.system("clear")
                     elif cmd == "exit": # Logout
-                        break
+                        os.system("clear")
+                        systemIsLocked = True
+                        print("PY OS Improved " + system_version + " (Locked.)")
+                        print("Press u and press enter to login account...")
+                        print("or...\ntime   | View current time")
+                        print("st   | Shutdown")
+                        while systemIsLocked == True:
+                            unlockSystem = input("")
+                            if unlockSystem == "u":
+                                systemIsLocked = False
+                                os.system("clear")
+                            elif unlockSystem == "time":
+                                now = datetime.datetime.now()
+                                other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
+                                print(other_StyleTime)
+                            elif unlockSystem == "st":
+                                os.system("clear")
+                                sys.exit()
+                        startingtime = "?"
+                        end_startingtime = "?"
+                        startingtime_t = "?"
+                        goto(line=188)
                     else: # Wrong command
+                        pygame.mixer.music.load("./audio/se/err.mp3")
+                        pygame.mixer.music.play()
                         print(text.error + color.red + "i can't seem to find the command >.<" + color.reset)
             else: # Wrong password
                 print(color.red + "h-hewwo, i think your password is wrong >.< ple-please retry, senpai? x3" + color.reset)
-    else:
-        print(text.error + color.red + "s-sowwy, i can't seem to find this user, owo! >.<" + color.reset)
