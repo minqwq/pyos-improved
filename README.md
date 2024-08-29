@@ -32,6 +32,7 @@ Stp2:<code>git clone https://github.com/minqwq/pyos-improved.git</code>
 Stp3:<code>cd ./pyos-improved</code>  
 Stp4:<code>python3 installer.py</code> or <code>./installdepend.sh</code> or <code>pip install -r requirements.txt</code>  
 Stp5:<code>python3 pyosimproved.py</code>  
+> Didn't installed completely?(Like error, no packages, no modules ..) Please open a issue or email me:minqwq723897@outlook.com
 # Login
 Username:root
 # QA
