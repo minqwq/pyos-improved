@@ -7,3 +7,4 @@ pretty-errors
 pythondialog
 python-goto
 pygame
+tqdm

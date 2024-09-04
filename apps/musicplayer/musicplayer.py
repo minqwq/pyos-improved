@@ -9,28 +9,28 @@ class color: # Text colors
     cyan = "\033[36m"
     grey = "\033[37m"
     reset = "\033[0m"
-print("v2.0")
-print("How to play:t=<type> play" + color.cyan + " *Enter*" + color.reset)
-print("Available type:module, sid, mpeg")
+print("v2.1")
+print("How to play:<type> play" + color.cyan + " *Enter*" + color.reset)
+print("Available type:mod, sid, mpeg")
 print("For internal musics list, type list to get a list")
 print(" ")
 var = 1
 while var == 1:
     cmd = input("\n> ")
-    if cmd == "t=module play":
+    if cmd == "mod play":
         i = os.system("ls ../../music/modulemusic")
         mpModulePlay = input("Type a music filename: ")
         i = os.system("openmpt123 --quiet ../../music/modulemusic/" + mpModulePlay)
-    elif cmd == "t=sid play":
+    elif cmd == "sid play":
         i = os.system("ls ../../music/sid")
         mpSIDPlay = input("Type a music filename: ")
         i = os.system("sidplayfp -q ../../music/sid/" + mpSIDPlay)
-    elif cmd == "t=mpeg play":
+    elif cmd == "mpeg play":
         i = os.system("ls ../../music/mpeg")
         mpMPEGPlay = input("Type a music filename: ")
         i = os.system("mpg123 -q ../../music/mpeg/" + mpMPEGPlay)
     elif cmd == "list":
-        print("musicname -t=type play filename")
+        print("musicname <type> play filename")
         print(colorama.Fore.BLACK + colorama.Back.WHITE + "Module(xm, mod, s3m)" + color.reset)
         i = os.system("ls ../../music/modulemusic/")
         print(colorama.Fore.BLACK + colorama.Back.WHITE + "SID(Commodore 64/128)" + color.reset)
