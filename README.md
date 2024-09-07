@@ -1,5 +1,4 @@
-              PY OS             
-      |---==Improved==---|      
+![PY OS Improved](./.images4readme/pyosi_logo.png)
 ![GitHub repo size](https://img.shields.io/github/repo-size/minqwq/pyos-improved)
 ![GitHub Repo stars](https://img.shields.io/github/stars/minqwq/pyos-improved?style=flat)
 ![GitHub branch status](https://img.shields.io/github/checks-status/minqwq/pyos-improved/main)
