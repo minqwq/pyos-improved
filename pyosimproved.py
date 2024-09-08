@@ -78,8 +78,8 @@ print("config updated for pretty-errors")
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
 os.system("alias cls=clear")
-system_version = "1.1.2 Release"
-system_build = "Build 155"
+system_version = "1.2 Release"
+system_build = "Build 166"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 os.system("clear")
@@ -208,7 +208,7 @@ end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
 pygame.mixer.music.load("./audio/se/welcome.mp3")
 pygame.mixer.music.play()
-print(colorama.Fore.LIGHTCYAN_EX + "Hewwwo wewcome back to PY OS Improved senpai >.<" + color.reset) # Login screen
+print(colorama.Fore.LIGHTCYAN_EX + "Hewwwo wewcome back to PY OS Improved senpai >.<" + color.reset) # Login screen | For restart to login manager, please goto this line for work normally
 print(colorama.Fore.LIGHTGREEN_EX + "Leave blank for shutdown" + color.reset)
 now = datetime.datetime.now()
 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
@@ -260,6 +260,7 @@ while count < 3:
                 time.sleep(0.05)
                 print("\nIf you need some help, pwease senpai, email me at minqwq723897@outlook.com, i w-will gladly help you uwu")
                 print("If you have any issues, pwease open an issue h-here: https://github.com/minqwq/pyos-improved/issues")
+                print("Help document for new:input " + colorama.Fore.LIGHTGREEN_EX + "tutor" + color.reset + " and will show help for first using people.")
                 time.sleep(0.05)
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
@@ -304,6 +305,23 @@ while count < 3:
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python3 ./apps/color256/color256.py")
+                    elif cmd == "ttt":
+                        os.system("python3 ./apps/tictactoe/tictactoe.py")
+                    elif cmd == "paint":
+                        paintWidthAndHeight = input("Input width and height(example:50 50): ")
+                        os.system("cd ./savedfile && python3 ../apps/paint/paint.py " + paintWidthAndHeight + " && cd ..")
+                    elif cmd == "pftest":
+                        print("CPU Performance Test by minqwq")
+                        print("2024-09-07")
+                        os.system("python3 ./apps/pftest/mark.py")
+                    elif cmd == "nekochat":
+                        nekochatConnectToIP = input("Input server IP: ")
+                        nekochatConnectToPort = input("Input server Port: ")
+                        nekochatUsername = input("What's your name?: ")
+                        print("Welcome to NekoChat Client(Python Port) by Yukari2024")
+                        os.system("python3 ./apps/nekochat/py/client.py --ip " + nekochatConnectToIP + " --port " + nekochatConnectToPort + " --name " + nekochatUsername)
+                    elif cmd == "demine":
+                        os.system("./apps/minesweeper/minesweeper")
                     elif cmd == "fileget":
                         os.system("cd ./download && python3 ../apps/fileget/fileget.py && cd ..")
                     elif cmd == "uptime":
@@ -322,6 +340,7 @@ while count < 3:
                     elif cmd == "hostname -c":
                         lsh_hostname = input("> ")
                         if lsh_hostname == "":
+                            print("No string provided.")
                             lsh_hostname = "tiramisu"
                     elif cmd == "sudo": # sudo not sudo
                         print("This system is not based on linux, so sudo is not on here")
@@ -348,6 +367,7 @@ while count < 3:
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Special Thanks for these projects" + color.reset)
                         print("https://github.com/shkolovy/tetris-terminal | Used for games")
                         print("https://github.com/pipeseroni/pipes.sh | Used for screensaver")
+                        print("http://154.64.231.6:3000/Yukari/Minesweeper | Used for games")
                     elif cmd == "power":
                         print("Power options:")
                         print("Shutdown:shutdown")
@@ -553,7 +573,6 @@ while count < 3:
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Tools)" + color.reset)
                         print(color.cyan + "calc           A simple calculator")
                         print("uwufetch       List all hardware and system version")
-                        print("ping           Ping tool python version(Unavailable)")
                         print("random         Random tools")
                         print("perf           Performance tools")
                         print("notepad        a Text editor, very simple")
@@ -561,16 +580,24 @@ while count < 3:
                         print("fm             Ranger file manager")
                         print("sticker        notepad but can't save content")
                         print("fileget        Get any file from internet")
+                        print("paint          Paint(image maker app)")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Relax)" + color.reset)
                         print(color.cyan + "mp             Play music")
                         print("screensaver    Save your VGA screen, make your pc like a pro")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Games)" + color.reset)
                         print(color.cyan + "tetris         Tetris game written using Python")
                         print("guessnum       Guess number game written using Python")
+                        print("demine         Minesweeper game written using C")
+                        print("ttt            tic-tac-toe game written using Python")
+                        print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Networking)" + color.reset)
+                        print(color.cyan + "nekochat       Online chatting client and server by Yukari2024")
+                        print("ping           Ping tool" + color.reset)
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE +  "(Other)" + color.reset)
                         print(color.cyan + "cuscmd         Run custom command")
                         print("news           Show latest news of PY OS Improved.")
                         print("uptime         Show (this)system uptime")
+                        print("pftest         CPU Performance Test")
+                        print("tutor          Help document for new" + color.reset)
                     elif cmd == "time --help": # time command help
                         print("Time command options:")
                         print("--help         Show this help")
@@ -582,6 +609,8 @@ while count < 3:
                             print(formula + "=", eval(formula))
                         except Exception as e:
                             print("Input error.\n" + str(e))
+                    elif cmd == "tutor":
+                        os.system("cd ./apps/tutor && python3 tutor.py && cd ../..")
                     elif cmd == "": # what is this??? --minqwq at 2024-06-12 19:32
                         space = "0"
                     elif cmd == "clear": # Clear screen using real system command
