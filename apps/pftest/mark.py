@@ -1,4 +1,6 @@
 import time
+import os
+import tqdm
 print("1:1000000\n2:2000000\n3:4000000\n4:8000000\n5:16000000\n6:32000000\n7:64000000\n8:100000000")
 diffChoice = input("Choose difficulty for your CPU: ")
 if diffChoice == "1":
@@ -17,14 +19,17 @@ elif diffChoice == "7":
     max = 64000000
 elif diffChoice == "8":
     max = 100000000
-print("Test start.\nIf not responding, please wait or press Ctrl+C to force close.")
+elif diffChoice == "9":
+    max = input("Input custom amount: ")
+    if max == "":
+        print("No value provided.")
 startTestTime = time.time()
 empty = ""
-for min in range(max):
-    print(empty, end="")
+for min in tqdm.tqdm(range(max)):
+    uwu = 0
 endStartTestTime = time.time()
 timeResult = endStartTestTime - startTestTime
-score = 1000000 - timeResult * 54188
+score = 1000000 - timeResult * 45721
 if score > 980000:
     print("Grade:X")
 elif score > 900000:

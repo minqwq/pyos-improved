@@ -35,6 +35,7 @@ import pretty_errors # Crash screen replace
 from dialog import Dialog # Dialog
 from python_goto import goto # Goto a line
 import base256 # Encode and decode
+import tqdm # Progress bar
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 # Preload classes
 #
@@ -68,9 +69,15 @@ class textmoji: # Textmojis
     owo_neko = " ฅ( ̳• ◡ • ̳)ฅ"
     owo = "(´･ω･`)"
     uhmm = "(*/ω＼*)"
+    nya0 = "(ฅ>ω<*ฅ)"
+    nya1 = "ヽ(=ˆ･ω･ˆ=)丿"
+    nah0 = "╮(‵▽′)╭"
 print("Added class 'textmoji'")
+class override:
+    errorexpection = "teto:ErrorExpection"
+    tongue = "teto:a-------"
 pretty_errors.configure(
-    postfix               = '\nPY OS Improved has been crashed.\nRestart command:python3 pyosimproved.py\nReport this error!:https://github.com/minqwq/pyos-improved/issues or \e]8;;https://github.com/minqwq/pyos-improved/issues\aClick here.\e]8;;\a',
+    postfix               = '\nPY OS Improved has been crashed.\nRestart command:python3 pyosimproved.py\nReport this error!:https://github.com/minqwq/pyos-improved/issues',
     separator_character   = '#',
     line_color            = colorama.Fore.LIGHTBLUE_EX + 'Here > ' + color.reset,
 )
@@ -78,11 +85,18 @@ print("config updated for pretty-errors")
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
 os.system("alias cls=clear")
-system_version = "1.2 Release"
-system_build = "Build 166"
+system_version = "1.2.1 Release"
+system_build = "Build 184"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 os.system("clear")
+if sys.platform.startswith("win"):
+    print("Warning! you are running this program on Windows, some command may not work.")
+    os.system("alias clear=cls")
+    print("Setted clear command = cls")
+    print("Continue run after 3s...")
+    time.sleep(3)
+    os.system("clear")
 print("Press any key to continue...")
 while True:
     debugMode = input("\n")
@@ -95,7 +109,7 @@ while True:
         pygame.mixer.init()
         print("You are now in debug mode.")
         print("If crash, dont report ANY error.")
-        goto(line=211)
+        goto(line=231)
     elif debugMode == "v":
         print(system_version + " " + system_build)
         sys.exit()
@@ -110,7 +124,15 @@ d.set_background_title("R:1024x768 | CD:256 | Screen 0")
 d.infobox("No Singal", width=0, height=0, title="Error")
 time.sleep(2)
 os.system("clear")
-time.sleep(0.1)
+print("_")
+time.sleep(0.5)
+os.system("clear")
+print(" ")
+time.sleep(0.5)
+os.system("clear")
+print("_")
+time.sleep(0.5)
+os.system("clear")
 import pygame
 pygame.mixer.init()
 pygame.mixer.music.load("./audio/se/success.mp3")
@@ -173,14 +195,12 @@ print("The Physical You(PY) OS logos is not are registered trademark, you can us
 print("Original by AMDISYES | Improved Version by minqwq & bibimingming ヽ(✿ﾟ▽ﾟ)ノ")
 print(" ")
 print("PY OS Improved is a open source software and you can share it freedomly")
-print("Under CC-BY-NC-SA 4.0 License")
+print("Under WTFPL 2.0 License")
 print(colorama.Fore.LIGHTCYAN_EX + "Feel free to improve PY OS Improved!" + color.reset)
 print(" ")
 print("Make sure always are latest version!")
 print("Update trick:shutdown PY OS Improved and type './update.sh' on pyos-improved folder to update system")
 print("For check update:./checkupdate.sh")
-print(" ")
-print("Current source code lines:569")
 print(" ")
 print("(c) LR Studio & FCNM 2022--2024")
 time.sleep(5)
@@ -260,6 +280,8 @@ while count < 3:
                 time.sleep(0.05)
                 print("\nIf you need some help, pwease senpai, email me at minqwq723897@outlook.com, i w-will gladly help you uwu")
                 print("If you have any issues, pwease open an issue h-here: https://github.com/minqwq/pyos-improved/issues")
+                print("Powered by PyOS(Previously known as BBC OS)")
+                print("Wanna try PyOS? link here:https://github.com/AMDISYES/pyos_core")
                 print("Help document for new:input " + colorama.Fore.LIGHTGREEN_EX + "tutor" + color.reset + " and will show help for first using people.")
                 time.sleep(0.05)
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
@@ -270,7 +292,7 @@ while count < 3:
                   # Line 246 is a critical process, dont change it   --minqwq
                   # lsh_time = now.strftime("%H:%M:%S")
                   # lsh_username = os.system("whoami")
-                    cmd = input(colorama.Fore.LIGHTBLUE_EX + user + color.grey + "@" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " # " + color.reset) # Shell style(redesigned by minqwq)
+                    cmd = input(colorama.Fore.LIGHTBLUE_EX + user + color.grey + ":" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " # " + color.reset) # Shell style(redesigned by minqwq)
                     if user == "d":
                         cmd = input("DEBUG_SHELL > ")
                     if cmd == "ls": # Path
@@ -281,30 +303,31 @@ while count < 3:
                         print("music path:")
                         os.system("ls ./music/")
                     elif cmd == "uwufetch": # a Fake neofetch
+                        currentUptime = time.time()
+                        currentUptimeII = currentUptime - end_startingtime
                         print(color.blue + "  ______   __     ___  ____  ")
                         print(" |  _ \ \ / /    / _ \/ ___| ")
                         print(color.cyan + " | |_) \ V /    | | | \___ \ ")
                         print(" |  __/ | |     | |_| |___) |")
                         print(" |_|    |_|      \___/|____/ " + color.reset)
                         print(color.purple + "      --- Improved ---       " + color.reset)
-                        time.sleep(0.1)
+                        print(user + " " + lsh_hostname)
                         print("System:PY OS Improved " + system_version + " " + system_build)
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
-                        time.sleep(0.1)
-                        print("CPU:Intel Pentium 4@1400MHz")
-                        time.sleep(0.1)
+                        print("Terminal:tty1")
+                        print("Uptime:" + str(currentUptimeII) + "sec")
+                        print("Host:" + lsh_hostname)
+                        print("CPU:Intel Pentium(133MHz)")
                         print("GPU:Cirrus Logic GD 5446(4MB)")
-                        time.sleep(0.1)
                         print("Memory: " + str(totalmem) + " Bytes")
-                        time.sleep(0.1)
-                        print("Sound Card:Sound Blaster 16")
-                        time.sleep(0.1)
-                        print(text.error + color.red + "Ethernet Card:Not found" + color.reset)
-                        time.sleep(0.1)
+                        print("Sound Card:GUS")
+                        print("Ethernet Card:?")
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python3 ./apps/color256/color256.py")
+                    elif cmd == "clock":
+                        os.system("python3 ./apps/clock/clock.py")
                     elif cmd == "ttt":
                         os.system("python3 ./apps/tictactoe/tictactoe.py")
                     elif cmd == "paint":
@@ -349,10 +372,10 @@ while count < 3:
                     elif cmd == "about": # About system
                         print("---------------| About |---------------")
                         print(color.blue + "PY OS Improved " + system_version + " " + system_build + color.reset)
-                        print(color.grey + "(C) 0x1c Studio 2022--2023 | (C) LR Studio & FCNM 2024" + color.reset)
+                        print(color.grey + "(C) 0x1c Studio 2022--2023 | (C) LR Studio & FCNM & StarHikari Studios 2024" + color.reset)
                         print(" ")
-                        print("about -c for credits...")
-                    elif cmd == "about -c":
+                        print("add option -c for credits\nadd option -s for support")
+                    elif cmd == "about -c" or cmd == "about --credits":
                         print(colorama.Fore.LIGHTCYAN_EX + "Credits" + color.reset)
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Developers" + color.reset)
                         print("minqwq | Interface Design, Coder, Project Creator, Document Editer")
@@ -368,19 +391,26 @@ while count < 3:
                         print("https://github.com/shkolovy/tetris-terminal | Used for games")
                         print("https://github.com/pipeseroni/pipes.sh | Used for screensaver")
                         print("http://154.64.231.6:3000/Yukari/Minesweeper | Used for games")
+                    elif cmd == "about -s" or cmd == "about --support":
+                        print("minqwq's social accounts:")
+                        print("QQ:1617195774")
+                        print("WeChat:minqwq723897")
+                        print("E-mail:minqwq723897@outlook.com")
+                        print("Telegram:@minqwq723897")
+                        print("IRC(Instant only):minqwq #pyos-improved irc.freenode.net:6667")
                     elif cmd == "power":
                         print("Power options:")
-                        print("Shutdown:shutdown")
-                        print("Restart:reboot")
+                        print("Shutdown:shutdown or without start by power, st")
+                        print("Restart:reboot or without start by power, rbt")
                         print(" ")
                         print("ex:power reboot")
-                    elif cmd == "power shutdown": # Shutdown
+                    elif cmd == "power shutdown" or cmd == "st": # Shutdown
                         d.set_background_title("PY OS Improved " + system_version + " " + system_build)
                         d.infobox("Shutting down...", width=0, height=0, title="Power manager")
                         time.sleep(3)
                         os.system("clear")
                         sys.exit()
-                    elif cmd == "power reboot":
+                    elif cmd == "power reboot" or cmd == "rbt":
                         d.set_background_title("PY OS Improved " + system_version + " " + system_build)
                         d.infobox("Restarting...", width=0, height=0, title="Power manager")
                         time.sleep(3)
@@ -564,12 +594,13 @@ while count < 3:
                         print(color.cyan + "ls             View the path")
                         print("about          Show the system's information")
                         print("converter      A tool to convert .lpap/.lpcu/.bbc to .umm")
-                        print("time           Show the time and date")
+                        print("time           Show the time and date(Deteled in this version)")
                         print("calendar       Show a calendar")
                         print("clear          Clear the screen")
                         print("passwd         Change password for this session")
                         print("power          Power manager")
                         print("exit           Lock system")
+                        print("hostname       Show hostname")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Tools)" + color.reset)
                         print(color.cyan + "calc           A simple calculator")
                         print("uwufetch       List all hardware and system version")
@@ -581,6 +612,7 @@ while count < 3:
                         print("sticker        notepad but can't save content")
                         print("fileget        Get any file from internet")
                         print("paint          Paint(image maker app)")
+                        print("clock          Timer and clock")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Relax)" + color.reset)
                         print(color.cyan + "mp             Play music")
                         print("screensaver    Save your VGA screen, make your pc like a pro")
