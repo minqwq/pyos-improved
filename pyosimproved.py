@@ -36,6 +36,7 @@ from dialog import Dialog # Dialog
 from python_goto import goto # Goto a line
 import base256 # Encode and decode
 import tqdm # Progress bar
+import autoexec
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 # Preload classes
 #
@@ -85,8 +86,8 @@ print("config updated for pretty-errors")
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
 os.system("alias cls=clear")
-system_version = "1.2.1 Release"
-system_build = "Build 184"
+system_version = "1.2.2 Release"
+system_build = "Build 187"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 os.system("clear")
@@ -107,9 +108,10 @@ while True:
         startingtime = "???"
         import pygame
         pygame.mixer.init()
+        d = Dialog(dialog="dialog")
         print("You are now in debug mode.")
         print("If crash, dont report ANY error.")
-        goto(line=231)
+        goto(line=232)
     elif debugMode == "v":
         print(system_version + " " + system_build)
         sys.exit()
@@ -254,6 +256,22 @@ while count < 3:
         print(colorama.Back.LIGHTBLUE_EX + "nope bro")
         print("change her's second name and retry to login is useless." + color.reset)
         sys.exit()
+    elif user == "koishi":
+        for idk in range(100000):
+            print(colorama.Fore.LIGHTRED_EX)
+            print("die", end="")
+        for idk2 in range(50000):
+            print("look back ", end="")
+        for idk3 in range(20):
+            for idk4 in tqdm.tqdm(range(5114)):
+                print(colorama.Fore.LIGHTRED_EX + "die!!!", end="")
+            d.infobox("N? Si??a?", width=0, height=0, title="Er??r")
+            time.sleep(random.random())
+            os.system("clear")
+        d.infobox("Look back~", width=0, height=0, title="From Koishi")
+        time.sleep(0.1)
+        os.system("clear")
+        print("You have been kicked by Komeiji Koishi.\nPlease r???\nP??\nPlease re-lo??..gin.")
     else:
         print(colorama.Back.RED + colorama.Fore.WHITE + "This account has been protected by password, please type password(ciallo)" + color.reset)
         while count < 3:
@@ -286,13 +304,15 @@ while count < 3:
                 time.sleep(0.05)
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
-                os.system("python3 ./autoexec.py")
-                print("\nLarine SHell (lsh) version 1.5-R2 >///<\nit's a wittwe user non-fwiendwy shell...")
+                os.system("python3 autoexec.py")
+                print("\nLarine SHell (lsh) version 1.6 >///<\nit's a wittwe user non-fwiendwy shell...")
                 while count < 3:
                   # Line 246 is a critical process, dont change it   --minqwq
-                  # lsh_time = now.strftime("%H:%M:%S")
+                    lsh_time_prepare = datetime.datetime.now()
+                    lsh_time = lsh_time_prepare.strftime("%H:%M:%S")
+                    print(colorama.Fore.LIGHTYELLOW_EX + "[" + lsh_time + "]" + color.reset, end=" ")
                   # lsh_username = os.system("whoami")
-                    cmd = input(colorama.Fore.LIGHTBLUE_EX + user + color.grey + ":" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " # " + color.reset) # Shell style(redesigned by minqwq)
+                    cmd = input(colorama.Fore.LIGHTBLUE_EX + user + color.grey + ":" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " > " + color.reset) # Shell style(redesigned by minqwq)
                     if user == "d":
                         cmd = input("DEBUG_SHELL > ")
                     if cmd == "ls": # Path

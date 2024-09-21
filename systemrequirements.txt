@@ -1,0 +1,11 @@
+At least you need:
+CPU:Any faster than 150MHz
+GPU:None.
+Memory:16MB?
+Disk:40MB
+
+Recommend:
+CPU:Pentium III or Better
+GPU:Cirrus Logic GD 5446 or Better
+Memory:256MB+
+Disk:128MB+
