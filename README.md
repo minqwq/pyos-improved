@@ -16,13 +16,12 @@ Last updated at 2024-08-30 GMT+8 by minqwq
 Language:Python(3)  
 Editor:Vim 9.0 <s>Neovim 0.11.0dev</s> <s>Kakoune</s>  
 Device:a Phone running a debian 11 proot container on zerotermux  
-![2024-08-30 05-15-52屏幕截图](https://github.com/user-attachments/assets/50e7d899-a154-4e0e-bf3b-b0e07774796c)
-![2024-08-30 05-16-32屏幕截图](https://github.com/user-attachments/assets/b891916a-fbff-4912-9b17-79b353e22cd0)
-![2024-08-30 05-17-16屏幕截图](https://github.com/user-attachments/assets/904c3ef0-9dab-453a-9406-0f7f44f062b4)
-![2024-08-30 05-18-02屏幕截图](https://github.com/user-attachments/assets/c5bb9d9b-13f3-48ce-b33d-4d1723d1bc62)
-![2024-08-30 05-19-00屏幕截图](https://github.com/user-attachments/assets/c3818736-5e02-4a27-997c-66457d952646)
-![2024-08-30 05-19-59屏幕截图](https://github.com/user-attachments/assets/0dc08dbb-4047-4c68-bdb3-90c903b4023c)
-![2024-08-30 05-21-04屏幕截图](https://github.com/user-attachments/assets/b5468453-656c-4b7d-9503-0e60678a0af6)
+![2024-09-18 15-10-54 创建的截图](https://github.com/user-attachments/assets/255a1014-bfff-4d3d-aff6-6b86e8f84a3d)
+![2024-09-18 15-10-35 创建的截图](https://github.com/user-attachments/assets/47933651-94a9-4f53-bb91-d019d8093c9a)
+![2024-09-18 15-10-15 创建的截图](https://github.com/user-attachments/assets/9d74c904-b3f5-4e5e-bebe-4add18b89da3)
+![2024-09-18 15-09-11 创建的截图](https://github.com/user-attachments/assets/2f5e52d0-aa85-4ca6-b131-7b4328a550c4)
+![2024-09-18 15-07-52 创建的截图](https://github.com/user-attachments/assets/a2f04bd4-09f2-4c7f-8ea5-0487f0195f1f)
+![2024-09-18 15-06-48 创建的截图](https://github.com/user-attachments/assets/0710587c-b9d3-469c-8aa6-f7c0b516f380)
 
   
 a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这个仓库搬到你手里
