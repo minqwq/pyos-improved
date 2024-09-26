@@ -5,10 +5,7 @@
 # Project creator:minqwq / LR Studio 2024
 # 
 # For our developer:
-# After you write code finished, please add some annotate in your code nearby, you maybe know why.
-# 
-# I want change this project name to Aoruki OS
-# Accept?
+# After you write code finished, please add comment(s) in your code nearby, you maybe know why.
 import time as tm # Time
 import getpass # Password?
 import datetime # Time?
@@ -36,7 +33,7 @@ from dialog import Dialog # Dialog
 from python_goto import goto # Goto a line
 import base256 # Encode and decode
 import tqdm # Progress bar
-import autoexec
+import traceback
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 # Preload classes
 #
@@ -77,6 +74,8 @@ print("Added class 'textmoji'")
 class override:
     errorexpection = "teto:ErrorExpection"
     tongue = "teto:a-------"
+def echo(string):
+    print(string)
 pretty_errors.configure(
     postfix               = '\nPY OS Improved has been crashed.\nRestart command:python3 pyosimproved.py\nReport this error!:https://github.com/minqwq/pyos-improved/issues',
     separator_character   = '#',
@@ -87,7 +86,7 @@ pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdo
 print("Tips loaded success")
 os.system("alias cls=clear")
 system_version = "1.2.2 Release"
-system_build = "Build 187"
+system_build = "Build 196"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 os.system("clear")
@@ -111,7 +110,7 @@ while True:
         d = Dialog(dialog="dialog")
         print("You are now in debug mode.")
         print("If crash, dont report ANY error.")
-        goto(line=232)
+        goto(line=214)
     elif debugMode == "v":
         print(system_version + " " + system_build)
         sys.exit()
@@ -208,24 +207,6 @@ print("(c) LR Studio & FCNM 2022--2024")
 time.sleep(5)
 os.system("clear")
 time.sleep(0.1)
-print("Calling system-process ...", end=' ')
-time.sleep(0.25)
-print(color.green + "success" + color.reset)
-time.sleep(0.1)
-print("Detecting hardwares ...", end=' ')
-time.sleep(0.5)
-print(color.green + "updated" + color.reset)
-time.sleep(0.05)
-print("Starting user-manager ...", end=' ')
-time.sleep(0.1)
-print(color.green + "started" + color.reset)
-time.sleep(0.2)
-print("Starting login-manager ...", end=' ')
-time.sleep(0.1)
-print(color.green + "started" + color.reset)
-time.sleep(0.3)
-os.system("clear")
-time.sleep(0.1)
 end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
 pygame.mixer.music.load("./audio/se/welcome.mp3")
@@ -273,11 +254,8 @@ while count < 3:
         os.system("clear")
         print("You have been kicked by Komeiji Koishi.\nPlease r???\nP??\nPlease re-lo??..gin.")
     else:
-        print(colorama.Back.RED + colorama.Fore.WHITE + "This account has been protected by password, please type password(ciallo)" + color.reset)
         while count < 3:
-            print("Warning! your password will show to screen, clear screen after login.")
-            passwd = input("Password: ")
-            if passwd == stpasswd:
+            try:
                 os.system("clear")
                 lshdate = now.strftime("%Y-%m-%d")
                 lshtime = now.strftime("%H:%M:%S")
@@ -336,7 +314,7 @@ while count < 3:
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
                         print("Terminal:tty1")
-                        print("Uptime:" + str(currentUptimeII) + "sec")
+                        print("Uptime:" + str(currentUptimeII) + "min")
                         print("Host:" + lsh_hostname)
                         print("CPU:Intel Pentium(133MHz)")
                         print("GPU:Cirrus Logic GD 5446(4MB)")
@@ -346,6 +324,16 @@ while count < 3:
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python3 ./apps/color256/color256.py")
+                    elif cmd == "crash":
+                        badstring = uwu
+                        anotherbadstring = "owo"
+                        print(badstring + anotherbadstring)
+                    elif cmd.startswith("echo "):
+                        string = cmd[5:]
+                        if string == "":
+                            print("No string provided...")
+                        else:
+                            print(string)
                     elif cmd == "clock":
                         os.system("python3 ./apps/clock/clock.py")
                     elif cmd == "ttt":
@@ -437,12 +425,7 @@ while count < 3:
                         os.system("clear")
                         os.execv(sys.executable, ['python'] + sys.argv)
                     elif cmd == "screensaver": # Screensaver
-                        print("Available screensavers:\npipes\nmatrix\n\nex:screensaver pipes")
-                    elif cmd == "screensaver pipes":
-                        os.system("cd ./apps/_screensaver/pipes.sh/ && ./pipes.sh && cd ../../../")
-                        os.system("clear")
-                    elif cmd == "screensaver matrix":
-                        os.system("cd ./apps/_screensaver/cmatrix && ./cmatrix.sh && cd ../../../")
+                        os.system("cd ./apps/_screensaver && python3 scrsv.py && cd ../..")
                     elif cmd == "tetris":
                         print("   #####   ####  #####   ###    #   ####")
                         print("     #     #       #     #  #      #")
@@ -600,8 +583,12 @@ while count < 3:
                             print(requestsText)
                         else:
                             print("STATUS:" + requestsResponse.status_code + "(Failed)")
-                    elif cmd == "passwd": # Change password(for this session)
-                        stpasswd = input("Input new password of this session: ")
+                    elif cmd.startswith("passwd "): # Change password(for this session)
+                        stpasswd = cmd[7:]
+                        if stpasswd == "":
+                            print("No string provided")
+                        else:
+                            print("Password set to " + stpasswd)
                     elif cmd == "calendar": # Calendar
                         yy = int(input("Year: "))
                         mm = int(input("Month: "))
@@ -617,10 +604,11 @@ while count < 3:
                         print("time           Show the time and date(Deteled in this version)")
                         print("calendar       Show a calendar")
                         print("clear          Clear the screen")
-                        print("passwd         Change password for this session")
+                        print("passwd <str>   Change password for this session")
                         print("power          Power manager")
                         print("exit           Lock system")
                         print("hostname       Show hostname")
+                        print("echo <str>     Print text to screen ")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Tools)" + color.reset)
                         print(color.cyan + "calc           A simple calculator")
                         print("uwufetch       List all hardware and system version")
@@ -689,11 +677,14 @@ while count < 3:
                         startingtime = "?"
                         end_startingtime = "?"
                         startingtime_t = "?"
-                        goto(line=211)
+                        goto(line=233)
                     else: # Wrong command
                         pygame.mixer.music.load("./audio/se/err.mp3")
                         pygame.mixer.music.play()
                         print(text.error + color.red + "i can't seem to find the command >.<" + color.reset)
-                        print(color.red + "[うう、未知のコマンド...]" + color.reset, end=' ')
-            else: # Wrong password
-                print(color.red + "h-hewwo, i think your password is wrong >.< ple-please retry, senpai? x3" + color.reset)
+                        print(color.red + "[Unknown command]" + color.reset, end=' ')
+            except Exception as crashReason:
+                print(colorama.Fore.LIGHTRED_EX + ":(\n\nPY OS Improved has been crashed!\n" + str(crashReason) + "\n" + str(traceback.print_exc()) + "\nSystem Information:\n" + system_version + " " + system_build + "\n")
+                os.system("uname")
+                input("[CRASH - Press any key to shutdown]" + color.reset)
+                sys.exit()

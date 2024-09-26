@@ -1,7 +1,7 @@
 import time
 import os
 import tqdm
-print("1:1000000\n2:2000000\n3:4000000\n4:8000000\n5:16000000\n6:32000000\n7:64000000\n8:100000000")
+print("1:1000000\n2:2000000\n3:4000000\n4:8000000\n5:16000000\n6:32000000\n7:64000000\n8:100000000\n9:200000000\n10:400000000\n11:800000000\n12:1600000000\n13:2147483647\nc:Custom")
 diffChoice = input("Choose difficulty for your CPU: ")
 if diffChoice == "1":
     max = 1000000
@@ -20,7 +20,17 @@ elif diffChoice == "7":
 elif diffChoice == "8":
     max = 100000000
 elif diffChoice == "9":
-    max = input("Input custom amount: ")
+    max = 200000000
+elif diffChoice == "10":
+    max = 400000000
+elif diffChoice == "11":
+    max = 800000000
+elif diffChoice == "12":
+    max = 1600000000
+elif diffChoice == "13":
+    max = 2147483647
+elif diffChoice == "c":
+    max = int(input("Input custom amount: "))
     if max == "":
         print("No value provided.")
 startTestTime = time.time()
@@ -42,5 +52,7 @@ elif score > 300000:
     print("Grade:C")
 elif score > 100000:
     print("Grade:D")
+elif score > 50:
+    print("Lower than zero!")
 print("\nScore: " + str(score))
 print("\nTesting took " + str(timeResult) + "s")
