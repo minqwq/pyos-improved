@@ -85,8 +85,8 @@ print("config updated for pretty-errors")
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
 os.system("alias cls=clear")
-system_version = "1.2.2 Release"
-system_build = "Build 196"
+system_version = "1.2.2_R2 Release"
+system_build = "Build 198"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 os.system("clear")
@@ -324,6 +324,8 @@ while count < 3:
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python3 ./apps/color256/color256.py")
+                    elif cmd == "rss":
+                        os.system("python3 ./apps/rssreader/main.py")
                     elif cmd == "crash":
                         badstring = uwu
                         anotherbadstring = "owo"
@@ -399,6 +401,7 @@ while count < 3:
                         print("https://github.com/shkolovy/tetris-terminal | Used for games")
                         print("https://github.com/pipeseroni/pipes.sh | Used for screensaver")
                         print("http://154.64.231.6:3000/Yukari/Minesweeper | Used for games")
+                        print("https://github.com/erkankavas/python-rss-reader | RSS Reader")
                     elif cmd == "about -s" or cmd == "about --support":
                         print("minqwq's social accounts:")
                         print("QQ:1617195774")
@@ -598,22 +601,22 @@ while count < 3:
                     elif cmd == "help": # Command list
                         print("Larine Shell manual help:")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(System)" + color.reset)
-                        print(color.cyan + "ls             View the path")
+                        print("ls             View the path")
                         print("about          Show the system's information")
                         print("converter      A tool to convert .lpap/.lpcu/.bbc to .umm")
                         print("time           Show the time and date(Deteled in this version)")
                         print("calendar       Show a calendar")
                         print("clear          Clear the screen")
-                        print("passwd <str>   Change password for this session")
+                        print(color.red + "passwd <str>   Change password for this session" + color.reset)
                         print("power          Power manager")
                         print("exit           Lock system")
                         print("hostname       Show hostname")
                         print("echo <str>     Print text to screen ")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Tools)" + color.reset)
-                        print(color.cyan + "calc           A simple calculator")
+                        print("calc           A simple calculator")
                         print("uwufetch       List all hardware and system version")
                         print("random         Random tools")
-                        print("perf           Performance tools")
+                        print(color.red + "perf           Performance tools" + color.reset)
                         print("notepad        a Text editor, very simple")
                         print("caesar         Caesar encryption tools")
                         print("fm             Ranger file manager")
@@ -622,22 +625,23 @@ while count < 3:
                         print("paint          Paint(image maker app)")
                         print("clock          Timer and clock")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Relax)" + color.reset)
-                        print(color.cyan + "mp             Play music")
+                        print("mp             Play music")
                         print("screensaver    Save your VGA screen, make your pc like a pro")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Games)" + color.reset)
-                        print(color.cyan + "tetris         Tetris game written using Python")
+                        print("tetris         Tetris game written using Python")
                         print("guessnum       Guess number game written using Python")
                         print("demine         Minesweeper game written using C")
                         print("ttt            tic-tac-toe game written using Python")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Networking)" + color.reset)
-                        print(color.cyan + "nekochat       Online chatting client and server by Yukari2024")
-                        print("ping           Ping tool" + color.reset)
+                        print("nekochat       Online chatting client and server by Yukari2024")
+                        print("ping           Ping tool")
+                        print("rss            RSS Reader by erkankavas")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE +  "(Other)" + color.reset)
-                        print(color.cyan + "cuscmd         Run custom command")
-                        print("news           Show latest news of PY OS Improved.")
+                        print("cuscmd         Run custom command")
+                        print(color.red + "news           Show latest news of PY OS Improved." + color.reset)
                         print("uptime         Show (this)system uptime")
                         print("pftest         CPU Performance Test")
-                        print("tutor          Help document for new" + color.reset)
+                        print("tutor          Help document for new")
                     elif cmd == "time --help": # time command help
                         print("Time command options:")
                         print("--help         Show this help")

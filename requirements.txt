@@ -8,3 +8,5 @@ pythondialog
 python-goto
 pygame
 tqdm
+requests
+base256
