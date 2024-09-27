@@ -325,7 +325,7 @@ while count < 3:
                     elif cmd == "uwufetch colotest256":
                         os.system("python3 ./apps/color256/color256.py")
                     elif cmd == "rss":
-                        os.system("python3 ./apps/rssreader/main.py")
+                        os.system("python3 ./apps/rss/main.py")
                     elif cmd == "crash":
                         badstring = uwu
                         anotherbadstring = "owo"
