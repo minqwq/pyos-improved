@@ -44,16 +44,16 @@ Stp5:<code>python3 pyosimproved.py</code>
 > Didn't installed completely?(Like error, no packages, no modules ..) Please open a issue or email me:minqwq723897@outlook.com
 # QA
 Q:why i didn't hear sound?  
-A:you need install <code>mpg123</code>  
+A:change your audio volume or you forgot something  
 
 Q:its crashed!  
-A:tell me and i will fix it  
+A:open a issue  
 
 Q:i want new somethings  
 A:tell me and i will try to make you want  
   
 Q:how to shutdown  
-A:type <code>power shutdown</code>
+A:type <code>st</code>
 # Like it?
 Star this project, no anymore, just star it  
 or if you really like it and you want donate me, use wechat pay:  
