@@ -28,10 +28,10 @@ a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这
 # Install them(Debian(or Ubuntu?))
 <code>sudo apt install git python3 openmpt123 sidplayfp</code>
 # Installation
-Stp1:Open terminal
+Stp1:Open terminal  
 Stp2:<code>git clone https://github.com/minqwq/pyos-improved.git</code>  
 Stp3:<code>cd ./pyos-improved</code>  
-Stp4:<code>python3 installer.py</code> or <code>./installdepend.sh</code> or <code>pip install -r requirements.txt</code>  
+Stp4:<code>pip install -r requirements.txt</code>  
 Stp5:<code>python3 pyosimproved.py</code>  
 > Didn't installed completely?(Like error, no packages, no modules ..) Please open a issue or email me:minqwq723897@outlook.com
 # QA
