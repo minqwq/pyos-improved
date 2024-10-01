@@ -9,7 +9,7 @@ Improve version of AMDISYES's PY OS
 Learning py...  
 Recommend using linux to run 
   
-Last updated at 2024-08-30 GMT+8 by minqwq
+Last updated at 2024-09-30 UTC+8 by minqwq
   
 ![pyosi_snapshot0](/.images4readme/IMG_20240828_012807.jpg)  
   
@@ -25,21 +25,13 @@ Device:a Phone running a debian 11 proot container on zerotermux
 
   
 a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这个仓库搬到你手里
-# You need
-<code>git</code> use this for clone repo and you can quickly update(Optional, because you can download source from release)  
-<code>python3</code> this "system" written using python so(Forcely required.)  
-<code>mpg123</code> play mpeg audio(Optional, if you dont need to play music)  
-<code>openmpt123</code> play module music(Optional, if you dont need to play music)  
-<code>sidplayfp</code> play sid music(Optional, if you dont need to play music)  
-<code>wildmidi</code> play midi(You dont need this)  
-<code>ranger</code> file manager(Optional, if you dont need file manager)
+# Install them(Debian(or Ubuntu?))
+<code>sudo apt install git python3 openmpt123 sidplayfp</code>
 # Installation
-Stp1:open your terminal  
-> wait! before below step you still need install above packages
-
+Stp1:Open terminal  
 Stp2:<code>git clone https://github.com/minqwq/pyos-improved.git</code>  
 Stp3:<code>cd ./pyos-improved</code>  
-Stp4:<code>python3 installer.py</code> or <code>./installdepend.sh</code> or <code>pip install -r requirements.txt</code>  
+Stp4:<code>pip install -r requirements.txt</code>  
 Stp5:<code>python3 pyosimproved.py</code>  
 > Didn't installed completely?(Like error, no packages, no modules ..) Please open a issue or email me:minqwq723897@outlook.com
 # QA
