@@ -1,5 +1,6 @@
 import colorama
 import os
+from python_goto import goto
 class color: # Text colors
     red = "\033[31m"
     green = "\033[32m"
@@ -9,10 +10,12 @@ class color: # Text colors
     cyan = "\033[36m"
     grey = "\033[37m"
     reset = "\033[0m"
-print("v2.1")
+print("v2.2")
 print("How to play:<type> play" + color.cyan + " *Enter*" + color.reset)
 print("Available type:mod, sid, mpeg")
 print("For internal musics list, type list to get a list")
+print("mpeg requires the internet to play, because the mp3 is in minqwq's personal site")
+print("exit:exit")
 print(" ")
 var = 1
 while var == 1:
@@ -26,9 +29,12 @@ while var == 1:
         mpSIDPlay = input("Type a music filename: ")
         i = os.system("sidplayfp -q ../../music/sid/" + mpSIDPlay)
     elif cmd == "mpeg play":
-        i = os.system("ls ../../music/mpeg")
+        isNet = input("Do you have internet?\n1:Yes\n2:No\n>  ")
+        if isNet == "2":
+            goto(lines=17)
+        i = os.system("cat ./mpeglist.txt")
         mpMPEGPlay = input("Type a music filename: ")
-        i = os.system("mpg123 -q ../../music/mpeg/" + mpMPEGPlay)
+        i = os.system("mpg123 -q https://www.minqwq.us.kg/audio/mp3_64kbps/" + mpMPEGPlay)
     elif cmd == "list":
         print("musicname <type> play filename")
         print(colorama.Fore.BLACK + colorama.Back.WHITE + "Module(xm, mod, s3m)" + color.reset)

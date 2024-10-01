@@ -34,6 +34,7 @@ from python_goto import goto # Goto a line
 import base256 # Encode and decode
 import tqdm # Progress bar
 import traceback
+import logging # Log.
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 # Preload classes
 #
@@ -82,11 +83,14 @@ pretty_errors.configure(
     line_color            = colorama.Fore.LIGHTBLUE_EX + 'Here > ' + color.reset,
 )
 print("config updated for pretty-errors")
+LOG_FORMAT = '[%(levelname)s] %(asctime)s | %(message)s'
+logging.basicConfig(filename='output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
+logger = logging.getLogger(__name__)
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
 os.system("alias cls=clear")
 system_version = "1.2.2_R2 Release"
-system_build = "Build 198"
+system_build = "Build 206"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 os.system("clear")
@@ -153,9 +157,11 @@ os.system("clear")
 time.sleep(0.1)
 # Boot manager
 bootManagerLoopRun = True
+logger.info("Start logging.")
+logger.info("Starting PY OS Improved Boot manager.")
 print(colorama.Fore.LIGHTCYAN_EX + "PY OS Improved Boot manager" + color.reset)
 print("If you dont know which to choose, choose 1.")
-print("\n1:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1")
+print("\n1:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1\n5:BBC OS 1.2.1")
 while bootManagerLoopRun == True:
     bootChoice = input("> ")
     if bootChoice == "1":
@@ -180,6 +186,7 @@ while bootManagerLoopRun == True:
         print(color.red + "ERR" + color.reset)
 os.system("clear")
 # Startup screen
+logger.info("Starting main operating system...")
 startingtime = time.time()
 print(color.blue + "    ______  __       ____  _____")
 print("   / __ \ \/ /      / __ \/ ___/")
@@ -209,6 +216,7 @@ os.system("clear")
 time.sleep(0.1)
 end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
+logger.info("Welcome to PY OS Improved!")
 pygame.mixer.music.load("./audio/se/welcome.mp3")
 pygame.mixer.music.play()
 print(colorama.Fore.LIGHTCYAN_EX + "Hewwwo wewcome back to PY OS Improved senpai >.<" + color.reset) # Login screen | For restart to login manager, please goto this line for work normally
@@ -254,6 +262,7 @@ while count < 3:
         os.system("clear")
         print("You have been kicked by Komeiji Koishi.\nPlease r???\nP??\nPlease re-lo??..gin.")
     else:
+        isCreatorAccount = False
         while count < 3:
             try:
                 os.system("clear")
@@ -262,9 +271,12 @@ while count < 3:
                 lsh_hostname = "tiramisu"
                 if user == "minqwq":
                     creatorVerifyPassword = "qwe115061"
-                    creatorVerify = input("Verify required, please type password...\n> ")
+                    creatorVerify = getpass.getpass("Verify required, please type password...\n> ")
                     if creatorVerify == creatorVerifyPassword:
+                        os.system("clear")
                         print("The creator of PY OS Improved, welcome back.\n")
+                        user = colorama.Fore.LIGHTBLUE_EX + "(CRTRACT) minqwq" + color.reset
+                        isCreatorAccount = True
                     else:
                         print(color.red + "Access Denied." + color.reset)
                         sys.exit()
@@ -283,7 +295,7 @@ while count < 3:
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
                 os.system("python3 autoexec.py")
-                print("\nLarine SHell (lsh) version 1.6 >///<\nit's a wittwe user non-fwiendwy shell...")
+                print("\nLarine SHell (lsh) version 1.6.1 >///<\nit's a wittwe user non-fwiendwy shell...")
                 while count < 3:
                   # Line 246 is a critical process, dont change it   --minqwq
                     lsh_time_prepare = datetime.datetime.now()
@@ -291,6 +303,7 @@ while count < 3:
                     print(colorama.Fore.LIGHTYELLOW_EX + "[" + lsh_time + "]" + color.reset, end=" ")
                   # lsh_username = os.system("whoami")
                     cmd = input(colorama.Fore.LIGHTBLUE_EX + user + color.grey + ":" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " > " + color.reset) # Shell style(redesigned by minqwq)
+                    logger.info("[Command] tty1/lsh: " + cmd)
                     if user == "d":
                         cmd = input("DEBUG_SHELL > ")
                     if cmd == "ls": # Path
@@ -324,9 +337,22 @@ while count < 3:
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python3 ./apps/color256/color256.py")
+                    elif cmd.startswith("su"):
+                        user_preInput = cmd[3:]
+                        if user_preInput == "":
+                            print("Please type you want to login super user.")
+                        elif user_preInput == "minqwq":
+                            print("If you know the password, please reboot and try to login to this account.")
+                        elif user_preInput == "minimalmio" or user_preInput == "MinimalMio" or user_preInput == "Minimal_Mio" or user_preInput == "minimal_mio":
+                            print("Sorry, you dont have permission to login to this account, if you want, reboot to login manager.")
+                        else:
+                            user = user_preInput
+                            print("Logged in as " + user)
+                            logger.info("[Login manager] Switch user to " + user)
                     elif cmd == "rss":
                         os.system("python3 ./apps/rss/main.py")
                     elif cmd == "crash":
+                        logger.warn("Congrats, you make the PY OS Improved crashed.")
                         badstring = uwu
                         anotherbadstring = "owo"
                         print(badstring + anotherbadstring)
@@ -419,11 +445,13 @@ while count < 3:
                         d.set_background_title("PY OS Improved " + system_version + " " + system_build)
                         d.infobox("Shutting down...", width=0, height=0, title="Power manager")
                         time.sleep(3)
+                        logger.info("Shutting down.")
                         os.system("clear")
                         sys.exit()
                     elif cmd == "power reboot" or cmd == "rbt":
                         d.set_background_title("PY OS Improved " + system_version + " " + system_build)
                         d.infobox("Restarting...", width=0, height=0, title="Power manager")
+                        logger.info("Restarting.")
                         time.sleep(3)
                         os.system("clear")
                         os.execv(sys.executable, ['python'] + sys.argv)
@@ -491,88 +519,8 @@ while count < 3:
                         print(other_StyleTimeNoHMS)
                     elif cmd == "uname":
                         print(os.uname())
-                    elif cmd == "perf": # Performance tools
-                        print("Performance v1.1 by ★minqwq★")
-                        print(" ")
-                        print("cpu:Show the cpu's all performance")
-                        print("  percent:Show percent")
-                        print("  cores:Show total cores")
-                        print("  fq:Show frequency")
-                        print("mem:Show the memory")
-                        print("uptime:Show system uptime")
-                        print("swapmem:Show the swap memory's info")
-                        print("disk:Show disk's all performance")
-                        print("  usage:Show usage")
-                        print("")
-                    elif cmd == "perf cpu": # Performance tools / cpu all
-                        print(psutil.cpu_times())
-                    elif cmd == "perf cpu percent": # Performance tools / cpupercent
-                        print(psutil.cpu_percent(interval=1))
-                    elif cmd == "perf mem": # Performance tools / mem all
-                        print(psutil.virtual_memory())
-                    elif cmd == "perf mem total":
-                        print(psutil.virtual_memory().total)
-                    elif cmd == "perf uptime": # Performance tools / uptime
-                        print(psutil.boot_time())
-                    elif cmd == "perf swapmem": # Performance tools / Swap
-                        print(psutil.swap_memory())
-                    elif cmd == "perf cpu cores": # Performance tools / cpu cores
-                        print(psutil.cpu_count())
-                    elif cmd == "perf cpu fq": # Performance tools / cpu freq
-                        print(psutil.cpu_freq())
-                    elif cmd == "perf disk": # Performance tools / disk
-                        print(psutil.disk())
-                    elif cmd == "perf disk usage": # Performance tools / disk usage
-                        print(psutil.disk_usage('/'))
-                    elif cmd == "imgview": # Image viewer
-                        print(color.blue + "Image Viewer! 1.0 developed by minqwq" + color.reset)
-                        print("\ncustom:Print user's custom image(<PY OS Improved>/image/custom)\nitnl:Print internal image(For list just manually type imgview itnl)")
-                    elif cmd == "imgview itnl ciallo":
-                        print("Color depth require:8bit at least")
-                        ciallo_img = os.system("timg ./image/example/ciallo.jpeg")
                     elif cmd == "caesar":
                         os.system("cd ./apps/caesartools && python3 caesar.py && cd ../..")
-                    elif cmd == "notepad":
-                        file_path = input("\nCreate file (please enter the path to file): ")
-                        
-                        if path.exists(file_path):
-                            print("\n\tFile already exists!")
-                            ans = input("\nDo you want to use this file? (y/n)\n-> ")
-                        
-                            if ans == 'y' or ans == 'Y':
-                                file = open(file_path, "a")
-                                ans = input("\nDo you want to erase all content? (y/n)\n-> ")
-                        
-                                if ans == 'y' or ans == 'Y':
-                                    print("\n\tErasing...\n")
-                                    file.seek(0)
-                                    file.truncate()
-                        
-                                else:
-                                    pass
-                        
-                            else:
-                                exit()
-                        
-                        else:
-                            print("\n\tCreating new file...\n")
-                            file = open(file_path, "a")
-                        
-                        print("\nPress RETURN to start a new line.\nPress Ctrl + C to save and close.\n\n")
-                        
-                        line_count = 1
-                        
-                        while line_count > 0:
-                            try:
-                                line = input("\t" + str(line_count) + " ")
-                                file.write(line)
-                                file.write('\n')
-                                line_count += 1
-                            except KeyboardInterrupt:
-                                print("\n\n\tClosing...")
-                                break
-                        
-                        file.close()
                     elif cmd == "cuscmd":
                         print("Type custom command below...(ex:cat ciallo.txt)")
                         customCommand = input("")
@@ -616,8 +564,6 @@ while count < 3:
                         print("calc           A simple calculator")
                         print("uwufetch       List all hardware and system version")
                         print("random         Random tools")
-                        print(color.red + "perf           Performance tools" + color.reset)
-                        print("notepad        a Text editor, very simple")
                         print("caesar         Caesar encryption tools")
                         print("fm             Ranger file manager")
                         print("sticker        notepad but can't save content")
@@ -687,8 +633,11 @@ while count < 3:
                         pygame.mixer.music.play()
                         print(text.error + color.red + "i can't seem to find the command >.<" + color.reset)
                         print(color.red + "[Unknown command]" + color.reset, end=' ')
+                        logger.error("tty1/lsh: " + cmd + ": Command not found!")
             except Exception as crashReason:
                 print(colorama.Fore.LIGHTRED_EX + ":(\n\nPY OS Improved has been crashed!\n" + str(crashReason) + "\n" + str(traceback.print_exc()) + "\nSystem Information:\n" + system_version + " " + system_build + "\n")
                 os.system("uname")
+                logger.critical(str(traceback.print_exc()))
+                logger.critical("PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o ")
                 input("[CRASH - Press any key to shutdown]" + color.reset)
                 sys.exit()
