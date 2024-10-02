@@ -106,3 +106,16 @@
 [ERROR] Oct Wed 02 19:22:40 2024 | tty1/lsh: ex: Command not found!
 [INFO] Oct Wed 02 19:22:42 2024 | [Command] tty1/lsh: st
 [INFO] Oct Wed 02 19:22:45 2024 | Shutting down.
+[INFO] Oct Thu 03 00:43:22 2024 | Start logging.
+[INFO] Oct Thu 03 00:43:22 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Thu 03 00:43:25 2024 | Starting main operating system...
+[INFO] Oct Thu 03 00:43:30 2024 | Welcome to PY OS Improved!
+[INFO] Oct Thu 03 00:43:38 2024 | [Command] tty1/lsh: help
+[INFO] Oct Thu 03 00:43:44 2024 | [Command] tty1/lsh: ping
+[INFO] Oct Thu 03 00:48:12 2024 | [Command] tty1/lsh: tutro
+[ERROR] Oct Thu 03 00:48:12 2024 | tty1/lsh: tutro: Command not found!
+[INFO] Oct Thu 03 00:48:14 2024 | [Command] tty1/lsh: tutor
+[INFO] Oct Thu 03 00:48:36 2024 | [Command] tty1/lsh: rss
+[INFO] Oct Thu 03 00:48:57 2024 | [Command] tty1/lsh: exit
+[CRITICAL] Oct Thu 03 00:49:00 2024 | None
+[CRITICAL] Oct Thu 03 00:49:00 2024 | PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o 
