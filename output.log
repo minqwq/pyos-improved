@@ -87,3 +87,22 @@
 [INFO] Oct Tue 01 11:00:38 2024 | Shutting down.
 [INFO] Oct Tue 01 12:37:37 2024 | Start logging.
 [INFO] Oct Tue 01 12:37:37 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Wed 02 14:39:18 2024 | Start logging.
+[INFO] Oct Wed 02 14:39:18 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Wed 02 14:39:20 2024 | Starting main operating system...
+[INFO] Oct Wed 02 14:39:25 2024 | Welcome to PY OS Improved!
+[INFO] Oct Wed 02 14:39:35 2024 | [Command] tty1/lsh: uwufetch
+[INFO] Oct Wed 02 17:09:32 2024 | Start logging.
+[INFO] Oct Wed 02 17:09:32 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Wed 02 17:09:42 2024 | Starting main operating system...
+[INFO] Oct Wed 02 17:09:47 2024 | Welcome to PY OS Improved!
+[INFO] Oct Wed 02 18:25:33 2024 | [Command] tty1/lsh: g
+[ERROR] Oct Wed 02 18:25:33 2024 | tty1/lsh: g: Command not found!
+[INFO] Oct Wed 02 18:25:49 2024 | [Command] tty1/lsh: uwufetch
+[INFO] Oct Wed 02 19:22:35 2024 | [Command] tty1/lsh: 1
+[ERROR] Oct Wed 02 19:22:35 2024 | tty1/lsh: 1: Command not found!
+[INFO] Oct Wed 02 19:22:37 2024 | [Command] tty1/lsh: uwufetch
+[INFO] Oct Wed 02 19:22:40 2024 | [Command] tty1/lsh: ex
+[ERROR] Oct Wed 02 19:22:40 2024 | tty1/lsh: ex: Command not found!
+[INFO] Oct Wed 02 19:22:42 2024 | [Command] tty1/lsh: st
+[INFO] Oct Wed 02 19:22:45 2024 | Shutting down.
