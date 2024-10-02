@@ -1,4 +1,5 @@
 ![PY OS Improved](./.images4readme/pyosi_logo.png)
+
 ![GitHub repo size](https://img.shields.io/github/repo-size/minqwq/pyos-improved)
 ![GitHub Repo stars](https://img.shields.io/github/stars/minqwq/pyos-improved?style=flat)
 ![GitHub branch status](https://img.shields.io/github/checks-status/minqwq/pyos-improved/main)
@@ -28,24 +29,24 @@ a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这
 # Install them(Debian(or Ubuntu?))
 <code>sudo apt install git python3 openmpt123 sidplayfp</code>
 # Installation
-Stp1:Open terminal  
+Stp1:Open a terminal  
 Stp2:<code>git clone https://github.com/minqwq/pyos-improved.git</code>  
 Stp3:<code>cd ./pyos-improved</code>  
 Stp4:<code>pip install -r requirements.txt</code>  
 Stp5:<code>python3 pyosimproved.py</code>  
-> Didn't installed completely?(Like error, no packages, no modules ..) Please open a issue or email me:minqwq723897@outlook.com
+> Can't installed completely?(Like error, no packages, no modules ..) Please open a issue or email me:minqwq723897@outlook.com
 # QA
-Q:why i didn't hear sound?  
-A:change your audio volume or you forgot something  
+Q: Why I can't hear sound?  
+A: Revise your volume or you seem to forgot something.  
 
-Q:its crashed!  
-A:open a issue  
+Q: It's crashed!  
+A: Open a issue.  
 
-Q:i want new somethings  
-A:tell me and i will try to make you want  
+Q: I want something new.
+A: Tell me and I will try to make it.  
   
-Q:how to shutdown  
-A:type <code>st</code>
+Q: How to shutdown?  
+A: Type <code>st</code>
 # Like it?
 Star this project, no anymore, just star it  
 or if you really like it and you want donate me, use wechat pay:  
