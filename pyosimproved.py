@@ -89,8 +89,8 @@ logger = logging.getLogger(__name__)
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
 os.system("alias cls=clear")
-system_version = "1.2.2_R2 Release"
-system_build = "Build 206"
+system_version = "1.2.2_R3 Release"
+system_build = "Build 209"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 os.system("clear")
@@ -337,6 +337,18 @@ while count < 3:
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python3 ./apps/color256/color256.py")
+                    elif cmd.startswith("rm"):
+                        rmFile = cmd[3:]
+                        if rmFile == "":
+                            print("No string provided.")
+                        else:
+                            os.remove(rmFile)
+                    elif cmd.starswith("rmdir"):
+                        rmDir = cmd[6:]
+                        if rmDir == "":
+                            print("No string provided.")
+                        else:
+                            os.rmdir(rmDir)
                     elif cmd.startswith("su"):
                         user_preInput = cmd[3:]
                         if user_preInput == "":
@@ -560,6 +572,10 @@ while count < 3:
                         print("exit           Lock system")
                         print("hostname       Show hostname")
                         print("echo <str>     Print text to screen ")
+                        print("rm <str>       Remove file")
+                        print("rmdir <str>    Remove directory")
+                        print("su <str>       Switch user")
+                        print("rss            RSS Feed reader")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Tools)" + color.reset)
                         print("calc           A simple calculator")
                         print("uwufetch       List all hardware and system version")
