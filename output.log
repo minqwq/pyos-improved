@@ -119,3 +119,19 @@
 [INFO] Oct Thu 03 00:48:57 2024 | [Command] tty1/lsh: exit
 [CRITICAL] Oct Thu 03 00:49:00 2024 | None
 [CRITICAL] Oct Thu 03 00:49:00 2024 | PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o 
+[INFO] Oct Thu 03 17:00:00 2024 | Start logging.
+[INFO] Oct Thu 03 17:00:00 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Thu 03 17:00:10 2024 | Starting main operating system...
+[INFO] Oct Thu 03 17:00:15 2024 | Welcome to PY OS Improved!
+[INFO] Oct Thu 03 17:00:52 2024 | [Command] tty1/lsh: help
+[CRITICAL] Oct Thu 03 17:00:52 2024 | None
+[CRITICAL] Oct Thu 03 17:00:52 2024 | PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o 
+[INFO] Oct Thu 03 17:02:18 2024 | [Command] tty1/lsh: help
+[INFO] Oct Thu 03 17:02:25 2024 | [Command] tty1/lsh: passwd
+[ERROR] Oct Thu 03 17:02:25 2024 | tty1/lsh: passwd: Command not found!
+[INFO] Oct Thu 03 17:02:29 2024 | [Command] tty1/lsh: passwd 1
+[INFO] Oct Thu 03 17:02:39 2024 | [Command] tty1/lsh: echo uwu
+[INFO] Oct Thu 03 17:02:43 2024 | [Command] tty1/lsh: rm
+[INFO] Oct Thu 03 17:02:48 2024 | [Command] tty1/lsh: rmdir
+[CRITICAL] Oct Thu 03 17:02:48 2024 | None
+[CRITICAL] Oct Thu 03 17:02:48 2024 | PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o 

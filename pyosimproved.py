@@ -114,7 +114,7 @@ while True:
         d = Dialog(dialog="dialog")
         print("You are now in debug mode.")
         print("If crash, dont report ANY error.")
-        goto(line=214)
+        goto(line=222)
     elif debugMode == "v":
         print(system_version + " " + system_build)
         sys.exit()
@@ -343,7 +343,7 @@ while count < 3:
                             print("No string provided.")
                         else:
                             os.remove(rmFile)
-                    elif cmd.starswith("rmdir"):
+                    elif cmd.startswith("rmdir"):
                         rmDir = cmd[6:]
                         if rmDir == "":
                             print("No string provided.")
@@ -643,7 +643,7 @@ while count < 3:
                         startingtime = "?"
                         end_startingtime = "?"
                         startingtime_t = "?"
-                        goto(line=233)
+                        goto(line=222)
                     else: # Wrong command
                         pygame.mixer.music.load("./audio/se/err.mp3")
                         pygame.mixer.music.play()
