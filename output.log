@@ -167,3 +167,9 @@
 [CRITICAL] Oct Sat 05 22:10:23 2024 | PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o 
 [INFO] Oct Sat 05 22:16:03 2024 | Start logging.
 [INFO] Oct Sat 05 22:16:03 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Sat 05 23:33:23 2024 | Start logging.
+[INFO] Oct Sat 05 23:33:23 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Sat 05 23:33:24 2024 | Starting main operating system...
+[INFO] Oct Sat 05 23:33:30 2024 | Welcome to PY OS Improved!
+[INFO] Oct Sat 05 23:33:47 2024 | [Command] tty1/lsh: help
+[INFO] Oct Sat 05 23:48:06 2024 | [Command] tty1/lsh: exit

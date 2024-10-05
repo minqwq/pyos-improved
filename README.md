@@ -10,7 +10,7 @@ Improve version of AMDISYES's PY OS
 Learning py...  
 Recommend using linux to run 
   
-Last updated at 2024-09-30 UTC+8 by minqwq
+Last updated at 2024-10-05 UTC+8 by minqwq
   
 ![pyosi_snapshot0](/.images4readme/IMG_20240828_012807.jpg)  
   
@@ -47,6 +47,8 @@ A: Tell me and I will try to make it.
   
 Q: How to shutdown?  
 A: Type <code>st</code>
+# Code style?
+None.
 # Like it?
 Star this project, no anymore, just star it  
 or if you really like it and you want donate me, use wechat pay:  
