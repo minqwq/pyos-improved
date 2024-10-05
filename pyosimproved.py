@@ -6,6 +6,17 @@
 # 
 # For our developer:
 # After you write code finished, please add comment(s) in your code nearby, you maybe know why.
+
+# How to add a quick jump for vim?:
+# add comment with some special word(like uw1 uw2 ..)
+# Press esc and type /uw1 to quick jump.
+
+# (Chinese)
+# 为什么我不想像那样重构:我懒。
+# 所以我想出了一个办法，它基于编辑器的搜索功能
+# 只需在某个地方加上注释，然后输入一些字(不要和已有的注释同名即可)
+# 之后你只需使用搜索功能搜索这个注释你就可以快速定位了
+# --minqwq | 2024-10-05
 import time as tm # Time
 import getpass # Password?
 import datetime # Time?
@@ -89,8 +100,8 @@ logger = logging.getLogger(__name__)
 pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
 print("Tips loaded success")
 os.system("alias cls=clear")
-system_version = "1.2.2_R3 Release"
-system_build = "Build 209"
+system_version = "1.2.3 Release"
+system_build = "Build 210"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 os.system("clear")
@@ -206,12 +217,10 @@ print("PY OS Improved is a open source software and you can share it freedomly")
 print("Under WTFPL 2.0 License")
 print(colorama.Fore.LIGHTCYAN_EX + "Feel free to improve PY OS Improved!" + color.reset)
 print(" ")
-print("Make sure always are latest version!")
-print("Update trick:shutdown PY OS Improved and type './update.sh' on pyos-improved folder to update system")
-print("For check update:./checkupdate.sh")
-print(" ")
 print("(c) LR Studio & FCNM 2022--2024")
-time.sleep(5)
+print(" ")
+for startingbar in tqdm.tqdm(range(100)):
+    time.sleep(0.05)
 os.system("clear")
 time.sleep(0.1)
 end_startingtime = time.time()

@@ -135,3 +135,35 @@
 [INFO] Oct Thu 03 17:02:48 2024 | [Command] tty1/lsh: rmdir
 [CRITICAL] Oct Thu 03 17:02:48 2024 | None
 [CRITICAL] Oct Thu 03 17:02:48 2024 | PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o 
+[INFO] Oct Fri 04 15:00:02 2024 | Start logging.
+[INFO] Oct Fri 04 15:00:02 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Fri 04 15:00:03 2024 | Starting main operating system...
+[INFO] Oct Fri 04 15:00:08 2024 | Welcome to PY OS Improved!
+[INFO] Oct Fri 04 15:00:34 2024 | [Command] tty1/lsh: help
+[INFO] Oct Fri 04 15:04:08 2024 | [Command] tty1/lsh: rbt
+[INFO] Oct Fri 04 15:04:08 2024 | Restarting.
+[INFO] Oct Fri 04 15:04:21 2024 | Start logging.
+[INFO] Oct Fri 04 15:04:21 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Fri 04 15:04:22 2024 | Starting main operating system...
+[INFO] Oct Fri 04 15:04:28 2024 | Welcome to PY OS Improved!
+[INFO] Oct Fri 04 15:13:07 2024 | Start logging.
+[INFO] Oct Fri 04 15:13:07 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Fri 04 15:13:08 2024 | Starting main operating system...
+[INFO] Oct Fri 04 15:13:13 2024 | Welcome to PY OS Improved!
+[INFO] Oct Fri 04 18:47:02 2024 | Start logging.
+[INFO] Oct Fri 04 18:47:02 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Fri 04 18:47:02 2024 | Starting main operating system...
+[INFO] Oct Fri 04 18:47:07 2024 | Welcome to PY OS Improved!
+[INFO] Oct Fri 04 18:47:17 2024 | [Command] tty1/lsh: uwufetch
+[INFO] Oct Sat 05 22:06:23 2024 | [Command] tty1/lsh: help
+[INFO] Oct Sat 05 22:06:25 2024 | [Command] tty1/lsh: news
+[CRITICAL] Oct Sat 05 22:06:28 2024 | None
+[CRITICAL] Oct Sat 05 22:06:28 2024 | PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o 
+[INFO] Oct Sat 05 22:10:09 2024 | [Command] tty1/lsh: su
+[INFO] Oct Sat 05 22:10:13 2024 | [Command] tty1/lsh: su minqwq
+[INFO] Oct Sat 05 22:10:15 2024 | [Command] tty1/lsh: help
+[INFO] Oct Sat 05 22:10:23 2024 | [Command] tty1/lsh: uptime
+[CRITICAL] Oct Sat 05 22:10:23 2024 | None
+[CRITICAL] Oct Sat 05 22:10:23 2024 | PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o 
+[INFO] Oct Sat 05 22:16:03 2024 | Start logging.
+[INFO] Oct Sat 05 22:16:03 2024 | Starting PY OS Improved Boot manager.
