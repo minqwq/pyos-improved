@@ -4,7 +4,6 @@ matplotlib
 colorama
 datetime
 pretty-errors
-pythondialog
 python-goto
 pygame
 tqdm

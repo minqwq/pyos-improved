@@ -173,3 +173,50 @@
 [INFO] Oct Sat 05 23:33:30 2024 | Welcome to PY OS Improved!
 [INFO] Oct Sat 05 23:33:47 2024 | [Command] tty1/lsh: help
 [INFO] Oct Sat 05 23:48:06 2024 | [Command] tty1/lsh: exit
+[INFO] Oct Sun 06 02:46:15 2024 | Start logging.
+[INFO] Oct Sun 06 02:46:15 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Sun 06 02:46:18 2024 | Starting main operating system...
+[INFO] Oct Sun 06 02:46:23 2024 | Welcome to PY OS Improved!
+[INFO] Oct Sun 06 02:46:58 2024 | [Command] tty1/lsh: help
+[INFO] Oct Sun 06 02:47:06 2024 | [Command] tty1/lsh: echo uwu
+[INFO] Oct Sun 06 02:51:49 2024 | [Command] tty1/lsh: ext
+[ERROR] Oct Sun 06 02:51:49 2024 | tty1/lsh: ext: Command not found!
+[INFO] Oct Sun 06 02:51:51 2024 | [Command] tty1/lsh: exit
+[INFO] Oct Sun 06 02:54:31 2024 | Start logging.
+[INFO] Oct Sun 06 02:54:31 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Sun 06 02:54:31 2024 | Starting main operating system...
+[INFO] Oct Sun 06 02:54:36 2024 | Welcome to PY OS Improved!
+[INFO] Oct Sun 06 02:54:44 2024 | [Command] tty1/lsh: help
+[INFO] Oct Sun 06 02:54:48 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:49 2024 | [Command] tty1/lsh: m
+[ERROR] Oct Sun 06 02:54:49 2024 | tty1/lsh: m: Command not found!
+[INFO] Oct Sun 06 02:54:51 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:51 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:52 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:53 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:54 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:55 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:55 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:55 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:55 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:55 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:55 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:56 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:56 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:56 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:56 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:56 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:56 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 02:54:57 2024 | [Command] tty1/lsh: 
+[INFO] Oct Sun 06 18:23:02 2024 | Start logging.
+[INFO] Oct Sun 06 18:23:02 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Sun 06 18:23:05 2024 | Starting main operating system...
+[INFO] Oct Sun 06 18:23:10 2024 | Welcome to PY OS Improved!
+[INFO] Oct Sun 06 18:23:18 2024 | [Command] tty1/lsh: rbt
+[INFO] Oct Sun 06 18:23:18 2024 | Restarting.
+[INFO] Oct Sun 06 18:23:28 2024 | Start logging.
+[INFO] Oct Sun 06 18:23:28 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Sun 06 18:23:29 2024 | Starting main operating system...
+[INFO] Oct Sun 06 18:23:34 2024 | Welcome to PY OS Improved!
+[INFO] Oct Sun 06 18:23:41 2024 | [Command] tty1/lsh: st
+[INFO] Oct Sun 06 18:23:41 2024 | Shutting down.

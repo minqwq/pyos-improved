@@ -40,7 +40,6 @@ import platform
 # import rich
 import requests # Get file from server
 import pretty_errors # Crash screen replace
-from dialog import Dialog # Dialog
 from python_goto import goto # Goto a line
 import base256 # Encode and decode
 import tqdm # Progress bar
@@ -101,7 +100,7 @@ pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdo
 print("Tips loaded success")
 os.system("alias cls=clear")
 system_version = "1.2.3 Release"
-system_build = "Build 210"
+system_build = "Build 213"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 os.system("clear")
@@ -122,7 +121,6 @@ while True:
         startingtime = "???"
         import pygame
         pygame.mixer.init()
-        d = Dialog(dialog="dialog")
         print("You are now in debug mode.")
         print("If crash, dont report ANY error.")
         goto(line=222)
@@ -135,9 +133,7 @@ while True:
         print("h / Manual help")
     else:
         break
-d = Dialog(dialog="dialog")
-d.set_background_title("R:1024x768 | CD:256 | Screen 0")
-d.infobox("No Singal", width=0, height=0, title="Error")
+print(colorama.Back.LIGHTRED_EX + colorama.Fore.LIGHTYELLOW_EX + "E:NO SINGAL" + color.reset)
 time.sleep(2)
 os.system("clear")
 print("_")
@@ -463,17 +459,11 @@ while count < 3:
                         print(" ")
                         print("ex:power reboot")
                     elif cmd == "power shutdown" or cmd == "st": # Shutdown
-                        d.set_background_title("PY OS Improved " + system_version + " " + system_build)
-                        d.infobox("Shutting down...", width=0, height=0, title="Power manager")
-                        time.sleep(3)
                         logger.info("Shutting down.")
                         os.system("clear")
                         sys.exit()
                     elif cmd == "power reboot" or cmd == "rbt":
-                        d.set_background_title("PY OS Improved " + system_version + " " + system_build)
-                        d.infobox("Restarting...", width=0, height=0, title="Power manager")
                         logger.info("Restarting.")
-                        time.sleep(3)
                         os.system("clear")
                         os.execv(sys.executable, ['python'] + sys.argv)
                     elif cmd == "screensaver": # Screensaver
