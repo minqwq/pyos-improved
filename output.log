@@ -220,3 +220,51 @@
 [INFO] Oct Sun 06 18:23:34 2024 | Welcome to PY OS Improved!
 [INFO] Oct Sun 06 18:23:41 2024 | [Command] tty1/lsh: st
 [INFO] Oct Sun 06 18:23:41 2024 | Shutting down.
+[INFO] Oct Sun 06 18:29:41 2024 | Start logging.
+[INFO] Oct Sun 06 18:29:41 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Sun 06 18:29:43 2024 | Starting main operating system...
+[INFO] Oct Sun 06 18:29:49 2024 | Welcome to PY OS Improved!
+[INFO] Oct Sun 06 18:30:13 2024 | [Command] tty1/lsh: help
+[INFO] Oct Sun 06 18:45:46 2024 | [Command] tty1/lsh: exit
+[INFO] Oct Sun 06 21:50:11 2024 | Start logging.
+[INFO] Oct Sun 06 21:50:11 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Sun 06 21:50:21 2024 | Starting main operating system...
+[INFO] Oct Sun 06 21:50:27 2024 | Welcome to PY OS Improved!
+[INFO] Oct Sun 06 21:50:37 2024 | [Command] tty1/lsh: help
+[INFO] Oct Sun 06 21:50:47 2024 | [Command] tty1/lsh: rss
+[INFO] Oct Sun 06 21:52:48 2024 | [Command] tty1/lsh: ls
+[INFO] Oct Sun 06 22:52:34 2024 | [Command] tty1/lsh: s
+[ERROR] Oct Sun 06 22:52:34 2024 | tty1/lsh: s: Command not found!
+[INFO] Oct Sun 06 22:52:37 2024 | [Command] tty1/lsh: uwufetch
+[INFO] Oct Sun 06 22:52:41 2024 | [Command] tty1/lsh: exit
+[INFO] Oct Mon 07 09:43:14 2024 | Start logging.
+[INFO] Oct Mon 07 09:43:14 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Mon 07 09:43:15 2024 | Starting main operating system...
+[INFO] Oct Mon 07 09:43:20 2024 | Welcome to PY OS Improved!
+[INFO] Oct Mon 07 09:43:28 2024 | [Command] tty1/lsh: helo
+[ERROR] Oct Mon 07 09:43:29 2024 | tty1/lsh: helo: Command not found!
+[INFO] Oct Mon 07 09:43:30 2024 | [Command] tty1/lsh: help
+[INFO] Oct Mon 07 09:43:54 2024 | [Command] tty1/lsh: screensaver
+[INFO] Oct Mon 07 10:02:37 2024 | [Command] tty1/lsh: timr
+[ERROR] Oct Mon 07 10:02:37 2024 | tty1/lsh: timr: Command not found!
+[INFO] Oct Mon 07 10:02:38 2024 | [Command] tty1/lsh: time
+[INFO] Oct Mon 07 10:13:50 2024 | [Command] tty1/lsh: a
+[ERROR] Oct Mon 07 10:13:50 2024 | tty1/lsh: a: Command not found!
+[INFO] Oct Mon 07 10:13:53 2024 | [Command] tty1/lsh: help
+[INFO] Oct Mon 07 10:13:56 2024 | [Command] tty1/lsh: st
+[INFO] Oct Mon 07 10:13:56 2024 | Shutting down.
+[INFO] Oct Mon 07 18:20:25 2024 | Start logging.
+[INFO] Oct Mon 07 18:20:25 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Mon 07 18:20:27 2024 | Starting main operating system...
+[INFO] Oct Mon 07 18:20:33 2024 | Welcome to PY OS Improved!
+[INFO] Oct Mon 07 18:24:02 2024 | [Command] tty1/lsh: 
+[INFO] Oct Mon 07 18:24:03 2024 | [Command] tty1/lsh: 1
+[ERROR] Oct Mon 07 18:24:03 2024 | tty1/lsh: 1: Command not found!
+[INFO] Oct Mon 07 19:04:15 2024 | [Command] tty1/lsh: a
+[ERROR] Oct Mon 07 19:04:15 2024 | tty1/lsh: a: Command not found!
+[INFO] Oct Mon 07 19:04:29 2024 | [Command] tty1/lsh: about
+[INFO] Oct Mon 07 19:05:04 2024 | [Command] tty1/lsh: st
+[INFO] Oct Mon 07 19:05:04 2024 | Shutting down.
+[INFO] Oct Mon 07 19:12:44 2024 | Start logging.
+[INFO] Oct Mon 07 19:12:44 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Mon 07 19:12:44 2024 | Starting main operating system...

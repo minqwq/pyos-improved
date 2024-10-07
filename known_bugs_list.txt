@@ -1,6 +1,0 @@
-When you cant use internet, if you type news will crash.
-
-********************
-
-No more...
-If you found a bug and not in here, please open a issue on our official github repo.

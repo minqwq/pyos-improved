@@ -100,7 +100,7 @@ pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdo
 print("Tips loaded success")
 os.system("alias cls=clear")
 system_version = "1.2.3 Release"
-system_build = "Build 213"
+system_build = "Build 214"
 # BIOS Animation
 print("cleaning screen...") # Clean screen first
 os.system("clear")
@@ -196,10 +196,10 @@ os.system("clear")
 logger.info("Starting main operating system...")
 startingtime = time.time()
 print(color.blue + "    ______  __       ____  _____")
-print("   / __ \ \/ /      / __ \/ ___/")
-print("  / /_/ /\  /      / / / /\__ \ ")
+print("   / __ \\ \\/ /      / __ \\/ ___/")
+print("  / /_/ /\\  /      / / / /\\__ \\ ")
 print(color.cyan + " / ____/ / /      / /_/ /___/ / ")
-print("/_/     /_/       \____//____/  " + color.reset)
+print("/_/     /_/       \\____//____/  " + color.reset)
 print(colorama.Fore.BLACK + colorama.Back.LIGHTBLUE_EX + "      |---==Improved==---|      " + color.reset)
 print(" ")
 print(random.sample(pyosimprovedtips, 1))
