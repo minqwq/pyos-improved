@@ -268,3 +268,246 @@
 [INFO] Oct Mon 07 19:12:44 2024 | Start logging.
 [INFO] Oct Mon 07 19:12:44 2024 | Starting PY OS Improved Boot manager.
 [INFO] Oct Mon 07 19:12:44 2024 | Starting main operating system...
+[INFO] Oct Tue 08 17:54:12 2024 | Logger started successfully.
+[INFO] Oct Tue 08 17:54:19 2024 | Start logging.
+[INFO] Oct Tue 08 17:54:19 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Tue 08 17:54:21 2024 | Starting main operating system...
+[INFO] Oct Tue 08 17:55:33 2024 | Logger started successfully.
+[INFO] Oct Tue 08 17:55:39 2024 | Start logging.
+[INFO] Oct Tue 08 17:55:39 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Tue 08 17:55:39 2024 | Starting main operating system...
+[INFO] Oct Tue 08 17:55:45 2024 | Welcome to PY OS Improved!
+[INFO] Oct Tue 08 17:55:53 2024 | [Command] tty1/lsh: help
+[INFO] Oct Tue 08 17:56:08 2024 | [Command] tty1/lsh: uwufetch
+[INFO] Oct Tue 08 17:56:31 2024 | [Command] tty1/lsh: st
+[INFO] Oct Tue 08 17:56:31 2024 | Shutting down.
+[INFO] Oct Tue 08 18:04:50 2024 | Logger started successfully.
+[INFO] Oct Tue 08 18:05:02 2024 | Start logging.
+[INFO] Oct Tue 08 18:05:02 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Tue 08 18:05:04 2024 | Starting main operating system...
+[INFO] Oct Tue 08 18:05:09 2024 | Welcome to PY OS Improved!
+[INFO] Oct Tue 08 18:05:24 2024 | [Command] tty1/lsh: help
+[INFO] Oct Tue 08 18:06:05 2024 | [Command] tty1/lsh: tutor
+[INFO] Oct Tue 08 18:06:16 2024 | [Command] tty1/lsh: 
+[INFO] Oct Tue 08 18:06:19 2024 | [Command] tty1/lsh: time
+[INFO] Oct Tue 08 18:06:24 2024 | [Command] tty1/lsh: time --help
+[INFO] Oct Tue 08 18:06:41 2024 | [Command] tty1/lsh: screensaver
+[INFO] Oct Tue 08 18:08:57 2024 | Logger started successfully.
+[INFO] Oct Tue 08 18:09:09 2024 | Logger started successfully.
+[INFO] Oct Tue 08 18:09:16 2024 | Start logging.
+[INFO] Oct Tue 08 18:09:16 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Tue 08 18:09:16 2024 | Starting main operating system...
+[INFO] Oct Tue 08 18:09:21 2024 | Welcome to PY OS Improved!
+[INFO] Oct Tue 08 18:09:29 2024 | [Command] tty1/lsh: help
+[INFO] Oct Tue 08 18:09:50 2024 | [Command] tty1/lsh: st
+[INFO] Oct Tue 08 18:09:50 2024 | Shutting down.
+[INFO] Oct Tue 08 18:10:16 2024 | Logger started successfully.
+[INFO] Oct Tue 08 18:10:22 2024 | Start logging.
+[INFO] Oct Tue 08 18:10:22 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Tue 08 18:10:22 2024 | Starting main operating system...
+[INFO] Oct Tue 08 18:10:27 2024 | Welcome to PY OS Improved!
+[INFO] Oct Tue 08 18:10:44 2024 | [Command] tty1/lsh: st
+[INFO] Oct Tue 08 18:10:44 2024 | Shutting down.
+[INFO] Oct Tue 08 18:11:29 2024 | Logger started successfully.
+[INFO] Oct Tue 08 18:11:35 2024 | Start logging.
+[INFO] Oct Tue 08 18:11:35 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Tue 08 18:11:35 2024 | Starting main operating system...
+[INFO] Oct Tue 08 18:11:40 2024 | Welcome to PY OS Improved!
+[INFO] Oct Tue 08 18:11:52 2024 | [Command] tty1/lsh: [A
+[ERROR] Oct Tue 08 18:11:52 2024 | tty1/lsh: [A: Command not found!
+[INFO] Oct Tue 08 18:11:59 2024 | [Command] tty1/lsh: exit
+[INFO] Oct Tue 08 18:14:15 2024 | Logger started successfully.
+[INFO] Oct Tue 08 18:14:23 2024 | Start logging.
+[INFO] Oct Tue 08 18:14:23 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Tue 08 18:14:23 2024 | Starting main operating system...
+[INFO] Oct Tue 08 18:14:29 2024 | Welcome to PY OS Improved!
+[INFO] Oct Tue 08 18:15:06 2024 | [Command] tty1/lsh: a
+[ERROR] Oct Tue 08 18:15:06 2024 | tty1/lsh: a: Command not found!
+[INFO] Oct Tue 08 18:15:07 2024 | [Command] tty1/lsh: a
+[ERROR] Oct Tue 08 18:15:07 2024 | tty1/lsh: a: Command not found!
+[INFO] Oct Tue 08 18:15:07 2024 | [Command] tty1/lsh: a
+[ERROR] Oct Tue 08 18:15:07 2024 | tty1/lsh: a: Command not found!
+[INFO] Oct Tue 08 18:15:11 2024 | [Command] tty1/lsh: ezit
+[ERROR] Oct Tue 08 18:15:11 2024 | tty1/lsh: ezit: Command not found!
+[INFO] Oct Tue 08 18:15:12 2024 | [Command] tty1/lsh: exit
+[INFO] Oct Wed 09 01:14:18 2024 | Logger started successfully.
+[INFO] Oct Wed 09 01:14:26 2024 | Start logging.
+[INFO] Oct Wed 09 01:14:26 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Wed 09 01:14:36 2024 | Starting main operating system...
+[INFO] Oct Wed 09 01:14:41 2024 | Welcome to PY OS Improved!
+[INFO] Oct Wed 09 01:15:07 2024 | [Command] tty1/lsh: help
+[INFO] Oct Wed 09 15:50:43 2024 | Logger started successfully.
+[INFO] Oct Wed 09 15:50:54 2024 | Start logging.
+[INFO] Oct Wed 09 15:50:54 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Wed 09 15:51:15 2024 | Logger started successfully.
+[INFO] Oct Wed 09 15:52:07 2024 | Logger started successfully.
+[INFO] Oct Wed 09 15:52:16 2024 | Start logging.
+[INFO] Oct Wed 09 15:52:16 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Wed 09 15:52:22 2024 | Logger started successfully.
+[INFO] Oct Wed 09 15:52:55 2024 | Logger started successfully.
+[INFO] Oct Wed 09 15:53:22 2024 | Start logging.
+[INFO] Oct Wed 09 15:53:22 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Wed 09 15:53:24 2024 | Starting main operating system...
+[INFO] Oct Wed 09 15:53:29 2024 | Welcome to PY OS Improved!
+[INFO] Oct Wed 09 15:54:11 2024 | Logger started successfully.
+[INFO] Oct Wed 09 15:55:06 2024 | Logger started successfully.
+[INFO] Oct Wed 09 15:55:13 2024 | Logger started successfully.
+[INFO] Oct Wed 09 15:55:58 2024 | Logger started successfully.
+[INFO] Oct Wed 09 15:56:08 2024 | Start logging.
+[INFO] Oct Wed 09 15:56:08 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Wed 09 15:56:13 2024 | Logger started successfully.
+[INFO] Oct Wed 09 15:56:22 2024 | Start logging.
+[INFO] Oct Wed 09 15:56:22 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Wed 09 15:56:24 2024 | Starting main operating system...
+[INFO] Oct Wed 09 15:56:30 2024 | Welcome to PY OS Improved!
+[INFO] Oct Wed 09 15:56:41 2024 | [Command] tty1/lsh: help
+[INFO] Oct Wed 09 15:56:45 2024 | [Command] tty1/lsh: pftest
+[INFO] Oct Wed 09 17:51:31 2024 | Logger started successfully.
+[INFO] Oct Wed 09 17:51:41 2024 | Start logging.
+[INFO] Oct Wed 09 17:51:41 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Wed 09 17:51:42 2024 | Starting main operating system...
+[INFO] Oct Wed 09 17:51:48 2024 | Welcome to PY OS Improved!
+[INFO] Oct Wed 09 17:51:55 2024 | [Command] tty1/lsh: uwufetch
+[INFO] Oct Wed 09 17:59:43 2024 | [Command] tty1/lsh: help
+[INFO] Oct Wed 09 18:00:07 2024 | [Command] tty1/lsh: s
+[ERROR] Oct Wed 09 18:00:07 2024 | tty1/lsh: s: Command not found!
+[INFO] Oct Wed 09 18:00:10 2024 | [Command] tty1/lsh: ls
+[INFO] Oct Wed 09 18:00:40 2024 | [Command] tty1/lsh: screensaver
+[INFO] Oct Wed 09 18:44:58 2024 | [Command] tty1/lsh: d
+[ERROR] Oct Wed 09 18:44:58 2024 | tty1/lsh: d: Command not found!
+[INFO] Oct Wed 09 18:45:06 2024 | [Command] tty1/lsh: uwufetch
+[INFO] Oct Wed 09 18:45:20 2024 | [Command] tty1/lsh: exit
+[INFO] Oct Wed 09 21:29:13 2024 | Logger started successfully.
+[INFO] Oct Wed 09 21:29:36 2024 | Logger started successfully.
+[INFO] Oct Wed 09 21:29:43 2024 | Start logging.
+[INFO] Oct Wed 09 21:29:43 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Wed 09 21:29:46 2024 | Starting main operating system...
+[INFO] Oct Wed 09 21:29:51 2024 | Welcome to PY OS Improved!
+[INFO] Oct Wed 09 21:30:02 2024 | [Command] tty1/lsh: help
+[INFO] Oct Wed 09 21:30:18 2024 | [Command] tty1/lsh: wh
+[ERROR] Oct Wed 09 21:30:18 2024 | tty1/lsh: wh: Command not found!
+[INFO] Oct Wed 09 21:30:19 2024 | [Command] tty1/lsh: 
+[INFO] Oct Wed 09 22:41:48 2024 | [Command] tty1/lsh: a
+[ERROR] Oct Wed 09 22:41:48 2024 | tty1/lsh: a: Command not found!
+[INFO] Oct Wed 09 22:41:49 2024 | [Command] tty1/lsh: a
+[ERROR] Oct Wed 09 22:41:49 2024 | tty1/lsh: a: Command not found!
+[INFO] Oct Wed 09 22:41:49 2024 | [Command] tty1/lsh: a
+[ERROR] Oct Wed 09 22:41:49 2024 | tty1/lsh: a: Command not found!
+[INFO] Oct Wed 09 22:41:49 2024 | [Command] tty1/lsh: a
+[ERROR] Oct Wed 09 22:41:49 2024 | tty1/lsh: a: Command not found!
+[INFO] Oct Wed 09 22:41:49 2024 | [Command] tty1/lsh: 
+[INFO] Oct Wed 09 22:41:51 2024 | [Command] tty1/lsh: exit
+[INFO] Oct Thu 10 00:44:57 2024 | Logger started successfully.
+[INFO] Oct Thu 10 00:45:05 2024 | Start logging.
+[INFO] Oct Thu 10 00:45:05 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Thu 10 01:09:52 2024 | Logger started successfully.
+[INFO] Oct Thu 10 01:10:00 2024 | Start logging.
+[INFO] Oct Thu 10 01:10:00 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Thu 10 01:10:02 2024 | Starting main operating system...
+[INFO] Oct Thu 10 01:10:07 2024 | Welcome to PY OS Improved!
+[INFO] Oct Thu 10 01:10:14 2024 | [Command] tty1/lsh: help
+[INFO] Oct Thu 10 01:10:18 2024 | [Command] tty1/lsh: pftest
+[INFO] Oct Thu 10 01:10:31 2024 | [Command] tty1/lsh: pftest
+[INFO] Oct Thu 10 01:12:25 2024 | [Command] tty1/lsh: 
+[INFO] Oct Thu 10 01:13:17 2024 | [Command] tty1/lsh: p0 a
+[ERROR] Oct Thu 10 01:13:17 2024 | tty1/lsh: p0 a: Command not found!
+[INFO] Oct Thu 10 01:14:17 2024 | Logger started successfully.
+[INFO] Oct Thu 10 01:14:26 2024 | Start logging.
+[INFO] Oct Thu 10 01:14:26 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Thu 10 01:14:27 2024 | Starting main operating system...
+[INFO] Oct Thu 10 01:14:32 2024 | Welcome to PY OS Improved!
+[INFO] Oct Thu 10 01:14:44 2024 | [Command] tty1/lsh: help
+[INFO] Oct Thu 10 01:14:57 2024 | [Command] tty1/lsh: tetris
+[INFO] Oct Thu 10 01:15:35 2024 | [Command] tty1/lsh: pftest
+[INFO] Oct Thu 10 03:21:46 2024 | Logger started successfully.
+[INFO] Oct Thu 10 03:22:07 2024 | Start logging.
+[INFO] Oct Thu 10 03:22:07 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Thu 10 03:22:26 2024 | Starting main operating system...
+[INFO] Oct Thu 10 03:22:31 2024 | Welcome to PY OS Improved!
+[INFO] Oct Thu 10 03:22:40 2024 | [Command] tty1/lsh: help
+[INFO] Oct Thu 10 03:22:49 2024 | [Command] tty1/lsh: ls
+[INFO] Oct Thu 10 03:22:57 2024 | [Command] tty1/lsh: mp
+[INFO] Oct Thu 10 03:23:33 2024 | [Command] tty1/lsh: 
+[INFO] Oct Thu 10 03:23:33 2024 | [Command] tty1/lsh: 
+[INFO] Oct Thu 10 03:23:47 2024 | [Command] tty1/lsh: pftest
+[INFO] Oct Thu 10 03:23:57 2024 | [Command] tty1/lsh: clock
+[INFO] Oct Thu 10 03:24:17 2024 | [Command] tty1/lsh: echo uwu
+[INFO] Oct Thu 10 03:24:30 2024 | [Command] tty1/lsh: tetris
+[INFO] Oct Thu 10 13:17:54 2024 | Logger started successfully.
+[INFO] Oct Thu 10 13:18:11 2024 | Start logging.
+[INFO] Oct Thu 10 13:18:11 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Thu 10 13:18:13 2024 | Starting main operating system...
+[INFO] Oct Thu 10 13:18:18 2024 | Welcome to PY OS Improved!
+[INFO] Oct Thu 10 13:18:36 2024 | [Command] tty1/lsh: help
+[INFO] Oct Thu 10 13:18:41 2024 | [Command] tty1/lsh: news
+[INFO] Oct Thu 10 13:18:59 2024 | [Command] tty1/lsh: tutor
+[INFO] Oct Thu 10 13:19:21 2024 | [Command] tty1/lsh: rss
+[INFO] Oct Thu 10 13:20:43 2024 | [Command] tty1/lsh: tetris
+[INFO] Oct Thu 10 13:21:25 2024 | [Command] tty1/lsh: ls
+[INFO] Oct Thu 10 13:21:30 2024 | [Command] tty1/lsh: md
+[ERROR] Oct Thu 10 13:21:30 2024 | tty1/lsh: md: Command not found!
+[INFO] Oct Thu 10 13:21:35 2024 | [Command] tty1/lsh: exit
+[INFO] Oct Thu 10 16:03:36 2024 | Logger started successfully.
+[INFO] Oct Thu 10 16:03:46 2024 | Start logging.
+[INFO] Oct Thu 10 16:03:46 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Thu 10 16:04:29 2024 | Logger started successfully.
+[INFO] Oct Thu 10 16:04:35 2024 | Start logging.
+[INFO] Oct Thu 10 16:04:35 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Thu 10 16:04:44 2024 | Starting main operating system...
+[INFO] Oct Thu 10 16:04:49 2024 | Welcome to PY OS Improved!
+[INFO] Oct Thu 10 16:04:59 2024 | [Command] tty1/lsh: help
+[INFO] Oct Thu 10 16:05:02 2024 | [Command] tty1/lsh: 
+[INFO] Oct Thu 10 16:05:51 2024 | [Command] tty1/lsh: mp
+[INFO] Oct Thu 10 22:26:00 2024 | Logger started successfully.
+[INFO] Oct Thu 10 22:26:13 2024 | Logger started successfully.
+[INFO] Oct Thu 10 22:26:20 2024 | Start logging.
+[INFO] Oct Thu 10 22:26:20 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Thu 10 22:26:26 2024 | Starting main operating system...
+[INFO] Oct Thu 10 22:26:31 2024 | Welcome to PY OS Improved!
+[INFO] Oct Thu 10 22:26:41 2024 | [Command] tty1/lsh: help
+[INFO] Oct Thu 10 22:26:48 2024 | [Command] tty1/lsh: 2048
+[INFO] Oct Thu 10 22:27:30 2024 | [Command] tty1/lsh: st
+[INFO] Oct Thu 10 22:27:30 2024 | Shutting down.
+[INFO] Oct Thu 10 22:32:21 2024 | Logger started successfully.
+[INFO] Oct Thu 10 22:32:27 2024 | Start logging.
+[INFO] Oct Thu 10 22:32:27 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Thu 10 22:32:29 2024 | Starting main operating system...
+[INFO] Oct Thu 10 22:32:34 2024 | Welcome to PY OS Improved!
+[INFO] Oct Thu 10 22:32:43 2024 | [Command] tty1/lsh: tasks
+[INFO] Oct Thu 10 22:32:51 2024 | [Command] tty1/lsh: [A
+[ERROR] Oct Thu 10 22:32:51 2024 | tty1/lsh: [A: Command not found!
+[INFO] Oct Thu 10 22:32:53 2024 | [Command] tty1/lsh: tasks
+[INFO] Oct Thu 10 22:33:01 2024 | [Command] tty1/lsh: cuscmd
+[INFO] Oct Thu 10 22:33:35 2024 | [Command] tty1/lsh: st
+[INFO] Oct Thu 10 22:33:35 2024 | Shutting down.
+[INFO] Oct Thu 10 22:34:03 2024 | Logger started successfully.
+[INFO] Oct Thu 10 22:34:10 2024 | Start logging.
+[INFO] Oct Thu 10 22:34:10 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Thu 10 22:34:10 2024 | Starting main operating system...
+[INFO] Oct Thu 10 22:34:15 2024 | Welcome to PY OS Improved!
+[INFO] Oct Thu 10 22:34:18 2024 | [Command] tty1/lsh: 
+[INFO] Oct Thu 10 22:34:19 2024 | [Command] tty1/lsh: 
+[INFO] Oct Thu 10 22:34:19 2024 | [Command] tty1/lsh: 
+[INFO] Oct Thu 10 22:34:20 2024 | [Command] tty1/lsh: 
+[INFO] Oct Thu 10 22:34:22 2024 | [Command] tty1/lsh: tasks
+[INFO] Oct Thu 10 22:35:11 2024 | [Command] tty1/lsh: help
+[INFO] Oct Thu 10 22:35:21 2024 | [Command] tty1/lsh: time
+[INFO] Oct Thu 10 22:35:45 2024 | [Command] tty1/lsh: about --credits
+[INFO] Oct Thu 10 22:40:51 2024 | [Command] tty1/lsh: uptime
+[INFO] Oct Fri 11 04:08:24 2024 | Logger started successfully.
+[INFO] Oct Fri 11 04:08:32 2024 | Start logging.
+[INFO] Oct Fri 11 04:08:32 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Fri 11 04:08:34 2024 | Starting main operating system...
+[INFO] Oct Fri 11 04:08:39 2024 | Welcome to PY OS Improved!
+[INFO] Oct Fri 11 15:48:30 2024 | Logger started successfully.
+[INFO] Oct Fri 11 15:48:41 2024 | Start logging.
+[INFO] Oct Fri 11 15:48:41 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Fri 11 15:48:44 2024 | Starting main operating system...
+[INFO] Oct Fri 11 15:48:50 2024 | Welcome to PY OS Improved!
+[INFO] Oct Fri 11 15:48:59 2024 | [Command] tty1/lsh: help
+[INFO] Oct Fri 11 15:49:00 2024 | [Command] tty1/lsh: 
+[INFO] Oct Fri 11 15:49:17 2024 | [Command] tty1/lsh: fm
+[INFO] Oct Fri 11 15:49:29 2024 | [Command] tty1/lsh: 
+[INFO] Oct Fri 11 15:49:34 2024 | [Command] tty1/lsh: 1
+[ERROR] Oct Fri 11 15:49:34 2024 | tty1/lsh: 1: Command not found!
+[INFO] Oct Fri 11 15:49:43 2024 | [Command] tty1/lsh: 2048

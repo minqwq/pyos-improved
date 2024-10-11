@@ -1,6 +1,7 @@
 import time
 import os
 import tqdm
+print("TTYMark by minqwq\nIf you want use this program on your project, please dont delete this line\nIf you delete this line...Take care in tonight.")
 print("1:1000000\n2:2000000\n3:4000000\n4:8000000\n5:16000000\n6:32000000\n7:64000000\n8:100000000\n9:200000000\n10:400000000\n11:800000000\n12:1600000000\n13:2147483647\nc:Custom")
 diffChoice = input("Choose difficulty for your CPU: ")
 if diffChoice == "1":

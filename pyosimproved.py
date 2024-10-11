@@ -17,6 +17,9 @@
 # 只需在某个地方加上注释，然后输入一些字(不要和已有的注释同名即可)
 # 之后你只需使用搜索功能搜索这个注释你就可以快速定位了
 # --minqwq | 2024-10-05
+#
+# 在需要显示反斜杠到屏幕的情况下，请输入两个反斜杠，这是一个兼容性问题
+# --minqwq | 2024-10-07
 import time as tm # Time
 import getpass # Password?
 import datetime # Time?
@@ -96,13 +99,16 @@ print("config updated for pretty-errors")
 LOG_FORMAT = '[%(levelname)s] %(asctime)s | %(message)s'
 logging.basicConfig(filename='output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
-pyosimprovedtips = ['Did you know random tools? its so useful!', 'You can shutdown system using shutdown command.', 'Wanna see current hardware performance? type perf.', 'Official github repository:https://github.com/minqwq/pyos-improved', 'Ciallo～(∠・ω< )⌒☆', 'Star this project if you love ღゝ◡╹)ノ♡ https://github.com/minqwq/pyos-improved', 'za~ko~♡za~ko~♡', 'Kernel panic! ...Just kidding its not real ( ˝ᗢ̈˝ )', 'Did you know cheating is illegal? i ve just called police, just wait and go in', 'amogus', 'ღゝ◡╹)ノ♡', 'Coding using vim 8.2', 'My github profile:https://github.com/minqwq', 'so...', 'Who want a stylus!?', 'Also try Sabbat of the witch(Sanoba witch)!', 'im thinking miku miku oo ee oo', 'Discuss about this system:https://minqwq.666forum.com/f1-py-os-improved', 'Wanna contribute our development? call me via email:minqwq723897@outlook.com', 'bababoy', 'monday left me broken', '。', 'Also try original PY OS! https://github.com/AMDISYES/pyos_core', 'Nobody care you? lets be a friend.', 'mystery chinese words:你说的对，但是PY OS Improved是minqwq自主研发的次世代操作系统，中间忘了，这就是PY OS Improved带给我的自信', 'View our official site!:https://www.minqwq.us.kg/pyosimproved']
+logger.info("Logger started successfully.")
+pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-improved", "awa", "Also try original PY OS! link available after login.", "No stay back gordon!", "sjsjsjnwnwjsosjq????"]
 print("Tips loaded success")
 os.system("alias cls=clear")
-system_version = "1.2.3 Release"
-system_build = "Build 214"
+system_version = "1.3 Beta 1" # 版本号
+system_build = "Build 223" # 每做一个修改或增减内容，就加一个build
+system_is_beta = True # 是否为Beta版
 # BIOS Animation
-print("cleaning screen...") # Clean screen first
+for abcdefg in range(10000):
+    print(colorama.Back.BLUE + color.blue + "aaaaaaaaaaaaaaaaaa" + color.reset, end="")
 os.system("clear")
 if sys.platform.startswith("win"):
     print("Warning! you are running this program on Windows, some command may not work.")
@@ -111,6 +117,7 @@ if sys.platform.startswith("win"):
     print("Continue run after 3s...")
     time.sleep(3)
     os.system("clear")
+os.system("clear && clear && clear")
 print("Press any key to continue...")
 while True:
     debugMode = input("\n")
@@ -123,7 +130,7 @@ while True:
         pygame.mixer.init()
         print("You are now in debug mode.")
         print("If crash, dont report ANY error.")
-        goto(line=222)
+        goto(line=237)
     elif debugMode == "v":
         print(system_version + " " + system_build)
         sys.exit()
@@ -190,7 +197,8 @@ while bootManagerLoopRun == True:
         os.system("python3 ./.earlysystem/bbcos-full.py")
         sys.exit()
     else:
-        print(color.red + "ERR" + color.reset)
+        os.system("clear")
+        goto(line=176)
 os.system("clear")
 # Startup screen
 logger.info("Starting main operating system...")
@@ -204,8 +212,10 @@ print(colorama.Fore.BLACK + colorama.Back.LIGHTBLUE_EX + "      |---==Improved==
 print(" ")
 print(random.sample(pyosimprovedtips, 1))
 print(" ")
+if system_is_beta == True: # If is beta version, show this warn
+    print(text.error + colorama.Fore.LIGHTYELLOW_EX + "Beta version" + color.reset)
 print("\033[38;5;45m" + "PY " + "\033[38;5;81m" + "OS " + "\033[38;5;117m" + "Im" + "\033[38;5;153m" + "pr" + "\033[38;5;189m" + "ov" + "\033[38;5;225m" + "ed" + color.reset + " | " + system_version + " | " + system_build)
-print("Codename " + "\033[38;5;39m" + "baka9" + color.reset)
+print("Codename " + "\033[38;5;117m" + "Mio - My dear moments -" + color.reset)
 print("The Physical You(PY) OS logos is not are registered trademark, you can use it on anywhere.")
 print("Original by AMDISYES | Improved Version by minqwq & bibimingming ヽ(✿ﾟ▽ﾟ)ノ")
 print(" ")
@@ -342,6 +352,10 @@ while count < 3:
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python3 ./apps/color256/color256.py")
+                    elif cmd == "tasks":
+                        os.system("cd ./savedfile/tasks && ../../apps/tasks/tasks && cd ../..")
+                    elif cmd == "2048":
+                        os.system("./apps/2048/2048-in-terminal")
                     elif cmd.startswith("rm"):
                         rmFile = cmd[3:]
                         if rmFile == "":
@@ -445,6 +459,7 @@ while count < 3:
                         print("https://github.com/pipeseroni/pipes.sh | Used for screensaver")
                         print("http://154.64.231.6:3000/Yukari/Minesweeper | Used for games")
                         print("https://github.com/erkankavas/python-rss-reader | RSS Reader")
+                        print("https://github.com/alewmoose/2048-in-terminal | Used for games")
                     elif cmd == "about -s" or cmd == "about --support":
                         print("minqwq's social accounts:")
                         print("QQ:1617195774")
@@ -585,6 +600,7 @@ while count < 3:
                         print("fileget        Get any file from internet")
                         print("paint          Paint(image maker app)")
                         print("clock          Timer and clock")
+                        print("tasks          Critical tasks now will never forgot again.")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Relax)" + color.reset)
                         print("mp             Play music")
                         print("screensaver    Save your VGA screen, make your pc like a pro")
@@ -593,6 +609,7 @@ while count < 3:
                         print("guessnum       Guess number game written using Python")
                         print("demine         Minesweeper game written using C")
                         print("ttt            tic-tac-toe game written using Python")
+                        print("2048           2048 in Terminal")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Networking)" + color.reset)
                         print("nekochat       Online chatting client and server by Yukari2024")
                         print("ping           Ping tool")
@@ -642,14 +659,18 @@ while count < 3:
                         startingtime = "?"
                         end_startingtime = "?"
                         startingtime_t = "?"
-                        goto(line=222)
+                        goto(line=237)
                     else: # Wrong command
                         pygame.mixer.music.load("./audio/se/err.mp3")
                         pygame.mixer.music.play()
                         print(text.error + color.red + "i can't seem to find the command >.<" + color.reset)
                         print(color.red + "[Unknown command]" + color.reset, end=' ')
                         logger.error("tty1/lsh: " + cmd + ": Command not found!")
-            except Exception as crashReason:
+            except KeyboardInterrupt:
+                space = "0"
+                pressToContinue = input("\nPlease type 'st' to shutdown...")
+                
+            except Exception as crashReason: # Crash
                 print(colorama.Fore.LIGHTRED_EX + ":(\n\nPY OS Improved has been crashed!\n" + str(crashReason) + "\n" + str(traceback.print_exc()) + "\nSystem Information:\n" + system_version + " " + system_build + "\n")
                 os.system("uname")
                 logger.critical(str(traceback.print_exc()))
