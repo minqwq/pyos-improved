@@ -106,17 +106,23 @@ os.system("alias cls=clear")
 system_version = "1.3 Beta 1" # 版本号
 system_build = "Build 225" # 每做一个修改或增减内容，就加一个build
 system_is_beta = True # 是否为Beta版
+isWindows = False # 是否为Windows
 # BIOS Animation
 for abcdefg in range(10000):
     print(colorama.Back.BLUE + color.blue + "aaaaaaaaaaaaaaaaaa" + color.reset, end="")
-os.system("clear")
 if sys.platform.startswith("win"):
     print("Warning! you are running this program on Windows, some command may not work.")
     os.system("alias clear=cls")
     print("Setted clear command = cls")
     print("Continue run after 3s...")
     time.sleep(3)
-    os.system("clear")
+    isWindows = True
+    os.system("cls")
+def clearScreen():
+    if isWindows == True:
+        os.system("cls")
+    elif isWindows == False:
+        os.system("clear")
 os.system("clear && clear && clear")
 print("Press any key to continue...")
 while True:
@@ -126,8 +132,6 @@ while True:
         startingtime_t = "???"
         end_startingtime = "???"
         startingtime = "???"
-        import pygame
-        pygame.mixer.init()
         print("You are now in debug mode.")
         print("If crash, dont report ANY error.")
         goto(line=237)
@@ -142,20 +146,16 @@ while True:
         break
 print(colorama.Back.LIGHTRED_EX + colorama.Fore.LIGHTYELLOW_EX + "E:NO SINGAL" + color.reset)
 time.sleep(2)
-os.system("clear")
+clearScreen()
 print("_")
 time.sleep(0.5)
-os.system("clear")
+clearScreen()
 print(" ")
 time.sleep(0.5)
-os.system("clear")
+clearScreen()
 print("_")
 time.sleep(0.5)
-os.system("clear")
-import pygame
-pygame.mixer.init()
-pygame.mixer.music.load("./audio/se/success.mp3")
-pygame.mixer.music.play()
+clearScreen()
 print("Cirnosoft 1964--2024 No rights reserved")
 print("Funky BIOS v9.9_baka")
 print("reimuhttp://bios.cirnosoft.9/versions/9dot9/updatelog")
@@ -167,7 +167,7 @@ print(color.yellow + "Booting default operating system..." + color.reset)
 time.sleep(0.1)
 print(color.green + "PY OS Improved " + system_version + " /unk /stack /uwu" + color.reset)
 time.sleep(1)
-os.system("clear")
+clearScreen()
 time.sleep(0.1)
 # Boot manager
 bootManagerLoopRun = True
@@ -186,20 +186,20 @@ while bootManagerLoopRun == True:
     elif bootChoice == "3":
         sys.exit()
     elif bootChoice == "4":
-        os.system("clear")
+        clearScreen()
         print("If you want exit, press Ctrl+C to shutdown")
         os.system("python ./.earlysystem/pyosimproved.py")
          
         sys.exit()
     elif bootChoice == "5":
-        os.system("clear")
+        clearScreen()
         print("If you want exit, press Ctrl+C to shutdown")
         os.system("python ./.earlysystem/bbcos-full.py")
         sys.exit()
     else:
-        os.system("clear")
+        clearScreen()
         goto(line=176)
-os.system("clear")
+clearScreen()
 # Startup screen
 logger.info("Starting main operating system...")
 startingtime = time.time()
@@ -227,13 +227,11 @@ print("(c) LR Studio & FCNM 2022--2024")
 print(" ")
 for startingbar in tqdm.tqdm(range(100)):
     time.sleep(0.05)
-os.system("clear")
+clearScreen()
 time.sleep(0.1)
 end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
 logger.info("Welcome to PY OS Improved!")
-pygame.mixer.music.load("./audio/se/welcome.mp3")
-pygame.mixer.music.play()
 print(colorama.Fore.LIGHTCYAN_EX + "Hewwwo wewcome back to PY OS Improved senpai >.<" + color.reset) # Login screen | For restart to login manager, please goto this line for work normally
 print(colorama.Fore.LIGHTGREEN_EX + "Leave blank for shutdown" + color.reset)
 now = datetime.datetime.now()
@@ -271,16 +269,16 @@ while count < 3:
                 print(colorama.Fore.LIGHTRED_EX + "die!!!", end="")
             d.infobox("N? Si??a?", width=0, height=0, title="Er??r")
             time.sleep(random.random())
-            os.system("clear")
+            clearScreen()
         d.infobox("Look back~", width=0, height=0, title="From Koishi")
         time.sleep(0.1)
-        os.system("clear")
+        clearScreen()
         print("You have been kicked by Komeiji Koishi.\nPlease r???\nP??\nPlease re-lo??..gin.")
     else:
         isCreatorAccount = False
         while count < 3:
             try:
-                os.system("clear")
+                clearScreen()
                 lshdate = now.strftime("%Y-%m-%d")
                 lshtime = now.strftime("%H:%M:%S")
                 lsh_hostname = "tiramisu"
@@ -288,7 +286,7 @@ while count < 3:
                     creatorVerifyPassword = "qwe115061"
                     creatorVerify = getpass.getpass("Verify required, please type password...\n> ")
                     if creatorVerify == creatorVerifyPassword:
-                        os.system("clear")
+                        clearScreen()
                         print("The creator of PY OS Improved, welcome back.\n")
                         user = colorama.Fore.LIGHTBLUE_EX + "(CRTRACT) minqwq" + color.reset
                         isCreatorAccount = True
@@ -477,11 +475,11 @@ while count < 3:
                         print("ex:power reboot")
                     elif cmd == "power shutdown" or cmd == "st": # Shutdown
                         logger.info("Shutting down.")
-                        os.system("clear")
+                        clearScreen()
                         sys.exit()
                     elif cmd == "power reboot" or cmd == "rbt":
                         logger.info("Restarting.")
-                        os.system("clear")
+                        clearScreen()
                         os.execv(sys.executable, ['python'] + sys.argv)
                     elif cmd == "screensaver": # Screensaver
                         os.system("cd ./apps/_screensaver && python scrsv.py && cd ../..")
@@ -639,9 +637,9 @@ while count < 3:
                     elif cmd == "": # what is this??? --minqwq at 2024-06-12 19:32
                         space = "0"
                     elif cmd == "clear": # Clear screen using real system command
-                        os.system("clear")
+                        clearScreen()
                     elif cmd == "exit": # Logout
-                        os.system("clear")
+                        clearScreen()
                         systemIsLocked = True
                         print("PY OS Improved " + system_version + " (Locked.)")
                         print("Press u and press enter to login account...")
@@ -651,21 +649,19 @@ while count < 3:
                             unlockSystem = input("")
                             if unlockSystem == "u":
                                 systemIsLocked = False
-                                os.system("clear")
+                                clearScreen()
                             elif unlockSystem == "time":
                                 now = datetime.datetime.now()
                                 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
                                 print(other_StyleTime)
                             elif unlockSystem == "st":
-                                os.system("clear")
+                                clearScreen()
                                 sys.exit()
                         startingtime = "?"
                         end_startingtime = "?"
                         startingtime_t = "?"
                         goto(line=237)
                     else: # Wrong command
-                        pygame.mixer.music.load("./audio/se/err.mp3")
-                        pygame.mixer.music.play()
                         print(text.error + color.red + "i can't seem to find the command >.<" + color.reset)
                         print(color.red + "[Unknown command]" + color.reset, end=' ')
                         logger.error("tty1/lsh: " + cmd + ": Command not found!")
