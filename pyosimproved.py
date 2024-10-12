@@ -91,7 +91,7 @@ class override:
 def echo(string):
     print(string)
 pretty_errors.configure(
-    postfix               = '\nPY OS Improved has been crashed.\nRestart command:python3 pyosimproved.py\nReport this error!:https://github.com/minqwq/pyos-improved/issues',
+    postfix               = '\nPY OS Improved has been crashed.\nRestart command:python pyosimproved.py\nReport this error!:https://github.com/minqwq/pyos-improved/issues',
     separator_character   = '#',
     line_color            = colorama.Fore.LIGHTBLUE_EX + 'Here > ' + color.reset,
 )
@@ -104,7 +104,7 @@ pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-
 print("Tips loaded success")
 os.system("alias cls=clear")
 system_version = "1.3 Beta 1" # 版本号
-system_build = "Build 223" # 每做一个修改或增减内容，就加一个build
+system_build = "Build 225" # 每做一个修改或增减内容，就加一个build
 system_is_beta = True # 是否为Beta版
 # BIOS Animation
 for abcdefg in range(10000):
@@ -188,13 +188,13 @@ while bootManagerLoopRun == True:
     elif bootChoice == "4":
         os.system("clear")
         print("If you want exit, press Ctrl+C to shutdown")
-        os.system("python3 ./.earlysystem/pyosimproved.py")
+        os.system("python ./.earlysystem/pyosimproved.py")
          
         sys.exit()
     elif bootChoice == "5":
         os.system("clear")
         print("If you want exit, press Ctrl+C to shutdown")
-        os.system("python3 ./.earlysystem/bbcos-full.py")
+        os.system("python ./.earlysystem/bbcos-full.py")
         sys.exit()
     else:
         os.system("clear")
@@ -309,7 +309,7 @@ while count < 3:
                 time.sleep(0.05)
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
-                os.system("python3 autoexec.py")
+                os.system("python autoexec.py")
                 print("\nLarine SHell (lsh) version 1.6.1 >///<\nit's a wittwe user non-fwiendwy shell...")
                 while count < 3:
                   # Line 246 is a critical process, dont change it   --minqwq
@@ -351,7 +351,9 @@ while count < 3:
                         print("Ethernet Card:?")
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
-                        os.system("python3 ./apps/color256/color256.py")
+                        os.system("python ./apps/color256/color256.py")
+                    elif cmd == "asciicvt":
+                        os.system("python ./apps/asciicvt/asciiconverter.py")
                     elif cmd == "tasks":
                         os.system("cd ./savedfile/tasks && ../../apps/tasks/tasks && cd ../..")
                     elif cmd == "2048":
@@ -381,7 +383,7 @@ while count < 3:
                             print("Logged in as " + user)
                             logger.info("[Login manager] Switch user to " + user)
                     elif cmd == "rss":
-                        os.system("python3 ./apps/rss/main.py")
+                        os.system("python ./apps/rss/main.py")
                     elif cmd == "crash":
                         logger.warn("Congrats, you make the PY OS Improved crashed.")
                         badstring = uwu
@@ -394,31 +396,31 @@ while count < 3:
                         else:
                             print(string)
                     elif cmd == "clock":
-                        os.system("python3 ./apps/clock/clock.py")
+                        os.system("python ./apps/clock/clock.py")
                     elif cmd == "ttt":
-                        os.system("python3 ./apps/tictactoe/tictactoe.py")
+                        os.system("python ./apps/tictactoe/tictactoe.py")
                     elif cmd == "paint":
                         paintWidthAndHeight = input("Input width and height(example:50 50): ")
-                        os.system("cd ./savedfile && python3 ../apps/paint/paint.py " + paintWidthAndHeight + " && cd ..")
+                        os.system("cd ./savedfile && python ../apps/paint/paint.py " + paintWidthAndHeight + " && cd ..")
                     elif cmd == "pftest":
                         print("CPU Performance Test by minqwq")
                         print("2024-09-07")
-                        os.system("python3 ./apps/pftest/mark.py")
+                        os.system("python ./apps/pftest/mark.py")
                     elif cmd == "nekochat":
                         nekochatConnectToIP = input("Input server IP: ")
                         nekochatConnectToPort = input("Input server Port: ")
                         nekochatUsername = input("What's your name?: ")
                         print("Welcome to NekoChat Client(Python Port) by Yukari2024")
-                        os.system("python3 ./apps/nekochat/py/client.py --ip " + nekochatConnectToIP + " --port " + nekochatConnectToPort + " --name " + nekochatUsername)
+                        os.system("python ./apps/nekochat/py/client.py --ip " + nekochatConnectToIP + " --port " + nekochatConnectToPort + " --name " + nekochatUsername)
                     elif cmd == "demine":
                         os.system("./apps/minesweeper/minesweeper")
                     elif cmd == "fileget":
-                        os.system("cd ./download && python3 ../apps/fileget/fileget.py && cd ..")
+                        os.system("cd ./download && python ../apps/fileget/fileget.py && cd ..")
                     elif cmd == "uptime":
                         currentUptime = time.time()
                         print(currentUptime - end_startingtime)
                     elif cmd == "guessnum":
-                        os.system("python3 ./apps/guessnum/guessnum.py")
+                        os.system("python ./apps/guessnum/guessnum.py")
                     elif cmd == "ping": # Ping tool
                         pingToolIPInput = input("Input IP or Domain: ")
                         pingToolCountInput = input("Send how many packages: ")
@@ -435,7 +437,7 @@ while count < 3:
                     elif cmd == "sudo": # sudo not sudo
                         print("This system is not based on linux, so sudo is not on here")
                     elif cmd == "sticker":
-                        os.system("cd ./apps/sticker && python3 sticker.py && cd ../..")
+                        os.system("cd ./apps/sticker && python sticker.py && cd ../..")
                     elif cmd == "about": # About system
                         print("---------------| About |---------------")
                         print(color.blue + "PY OS Improved " + system_version + " " + system_build + color.reset)
@@ -482,7 +484,7 @@ while count < 3:
                         os.system("clear")
                         os.execv(sys.executable, ['python'] + sys.argv)
                     elif cmd == "screensaver": # Screensaver
-                        os.system("cd ./apps/_screensaver && python3 scrsv.py && cd ../..")
+                        os.system("cd ./apps/_screensaver && python scrsv.py && cd ../..")
                     elif cmd == "tetris":
                         print("   #####   ####  #####   ###    #   ####")
                         print("     #     #       #     #  #      #")
@@ -493,9 +495,9 @@ while count < 3:
                         print("by shkolovy")
                         print("https://github.com/shkolovy/tetris-terminal")
                         time.sleep(3)
-                        os.system("python3 ./apps/tetris/tetris.py")
+                        os.system("python ./apps/tetris/tetris.py")
                     elif cmd == "mp":
-                        os.system("cd ./apps/musicplayer && python3 musicplayer.py && cd ../..")
+                        os.system("cd ./apps/musicplayer && python musicplayer.py && cd ../..")
                     elif cmd == "random": # Random tools
                         print("Random v1.0, by minqwq")
                         print(" ")
@@ -546,7 +548,7 @@ while count < 3:
                     elif cmd == "uname":
                         print(os.uname())
                     elif cmd == "caesar":
-                        os.system("cd ./apps/caesartools && python3 caesar.py && cd ../..")
+                        os.system("cd ./apps/caesartools && python caesar.py && cd ../..")
                     elif cmd == "cuscmd":
                         print("Type custom command below...(ex:cat ciallo.txt)")
                         customCommand = input("")
@@ -601,6 +603,7 @@ while count < 3:
                         print("paint          Paint(image maker app)")
                         print("clock          Timer and clock")
                         print("tasks          Critical tasks now will never forgot again.")
+                        print("asciicvt       ASCII Converter")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Relax)" + color.reset)
                         print("mp             Play music")
                         print("screensaver    Save your VGA screen, make your pc like a pro")
@@ -632,7 +635,7 @@ while count < 3:
                         except Exception as e:
                             print("Input error.\n" + str(e))
                     elif cmd == "tutor":
-                        os.system("cd ./apps/tutor && python3 tutor.py && cd ../..")
+                        os.system("cd ./apps/tutor && python tutor.py && cd ../..")
                     elif cmd == "": # what is this??? --minqwq at 2024-06-12 19:32
                         space = "0"
                     elif cmd == "clear": # Clear screen using real system command
