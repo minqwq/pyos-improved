@@ -103,7 +103,7 @@ logger.info("Logger started successfully.")
 pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-improved", "awa", "Also try original PY OS! link available after login.", "No stay back gordon!", "sjsjsjnwnwjsosjq????"]
 print("Tips loaded success")
 os.system("alias cls=clear")
-system_version = "1.3 Beta 1" # 版本号
+system_version = "1.3 Beta 2" # 版本号
 system_build = "Build 225" # 每做一个修改或增减内容，就加一个build
 system_is_beta = True # 是否为Beta版
 isWindows = False # 是否为Windows
