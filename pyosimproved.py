@@ -96,6 +96,7 @@ pretty_errors.configure(
     line_color            = colorama.Fore.LIGHTBLUE_EX + 'Here > ' + color.reset,
 )
 print("config updated for pretty-errors")
+os.remove("output.log")
 LOG_FORMAT = '[%(levelname)s] %(asctime)s | %(message)s'
 logging.basicConfig(filename='output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
@@ -103,13 +104,11 @@ logger.info("Logger started successfully.")
 pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-improved", "awa", "Also try original PY OS! link available after login.", "No stay back gordon!", "sjsjsjnwnwjsosjq????"]
 print("Tips loaded success")
 os.system("alias cls=clear")
-system_version = "1.3 Beta 2" # 版本号
-system_build = "Build 225" # 每做一个修改或增减内容，就加一个build
-system_is_beta = True # 是否为Beta版
+system_version = "1.3 Release" # 版本号
+system_build = "Build 229" # 每做一个修改或增减内容，就加一个build
+system_is_beta = False # 是否为Beta版
 isWindows = False # 是否为Windows
 # BIOS Animation
-for abcdefg in range(10000):
-    print(colorama.Back.BLUE + color.blue + "aaaaaaaaaaaaaaaaaa" + color.reset, end="")
 if sys.platform.startswith("win"):
     print("Warning! you are running this program on Windows, some command may not work.")
     os.system("alias clear=cls")
@@ -124,6 +123,8 @@ def clearScreen():
     elif isWindows == False:
         os.system("clear")
 os.system("clear && clear && clear")
+if sys.platform.startswith("linux") or sys.platform.startswith("posix"):
+    print("If you dont have 'python' command, please set alias 'python=python3'")
 print("Press any key to continue...")
 while True:
     debugMode = input("\n")
@@ -496,32 +497,6 @@ while count < 3:
                         os.system("python ./apps/tetris/tetris.py")
                     elif cmd == "mp":
                         os.system("cd ./apps/musicplayer && python musicplayer.py && cd ../..")
-                    elif cmd == "random": # Random tools
-                        print("Random v1.0, by minqwq")
-                        print(" ")
-                        print("number:Generate a random number")
-                        print("answer:Randomly choose a answer(from 1 to 4)")
-                        print("uuid <mode>:Generate a random uuid")
-                    elif cmd == "random number": # Random tools / Random number
-                        random_number = random.random()
-                        print(random_number)
-                    elif cmd == "random answer": # Random tools / Random answer
-                        print(random.randint(0,4))
-                    elif cmd == "random uuid": # Random tools / Random uuid generator(Not set mode)
-                        print(text.error + color.red + "Please set a mode...(ex:random uuid 1)" + color.reset)
-                    elif cmd == "random uuid 1": # Random tools / Random uuid generator
-                        print(uuid.uuid1())
-                    elif cmd == "random uuid 2":
-                        print(text.error + color.red + "UUID: No uuid2" + color.reset)
-                    elif cmd == "random uuid 3":
-                        print(text.error + color.red + "Sorry, this mode is unavailable for now" + color.reset)
-                    elif cmd == "random uuid 4":
-                        print(uuid.uuid4())
-                    elif cmd == "random uuid 5":
-                        print(text.error + color.red + "Sorry, thos mode is unable for now" + color.reset)
-                    elif cmd == "random ccdomain":
-                        ccdomainrdmnum = "https://" + str(random.randint(1000, 9999)) + ".cc"
-                        print(ccdomainrdmnum)
                     elif cmd == "converter": # converter but cant select file
                         print("File Convert\nConvert .lpap/.lpcu/.bbc to .umm")
                         input("Input file's path:\n")
@@ -552,13 +527,14 @@ while count < 3:
                         customCommand = input("")
                         os.system(customCommand)
                     elif cmd == "news":
-                        requestsUrl = "https://www.minqwq.us.kg/pyosimproved/news/latest.txt"
-                        requestsResponse = requests.get(requestsUrl)
-                        if requestsResponse.status_code == 200:
-                            print(colorama.Fore.LIGHTGREEN_EX + "STATUS:200(Success)\n" + color.reset)
-                            requestsText = requestsResponse.text
-                            print(requestsText)
-                        else:
+                        try:
+                            requestsUrl = "https://www.minqwq.us.kg/pyosimproved/news/latest.txt"
+                            requestsResponse = requests.get(requestsUrl)
+                            if requestsResponse.status_code == 200:
+                                print(colorama.Fore.LIGHTGREEN_EX + "STATUS:200(Success)\n" + color.reset)
+                                requestsText = requestsResponse.text
+                                print(requestsText)
+                        except Exception:
                             print("STATUS:" + requestsResponse.status_code + "(Failed)")
                     elif cmd.startswith("passwd "): # Change password(for this session)
                         stpasswd = cmd[7:]
@@ -593,7 +569,6 @@ while count < 3:
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Tools)" + color.reset)
                         print("calc           A simple calculator")
                         print("uwufetch       List all hardware and system version")
-                        print("random         Random tools")
                         print("caesar         Caesar encryption tools")
                         print("fm             Ranger file manager")
                         print("sticker        notepad but can't save content")
@@ -665,14 +640,19 @@ while count < 3:
                         print(text.error + color.red + "i can't seem to find the command >.<" + color.reset)
                         print(color.red + "[Unknown command]" + color.reset, end=' ')
                         logger.error("tty1/lsh: " + cmd + ": Command not found!")
-            except KeyboardInterrupt:
-                space = "0"
-                pressToContinue = input("\nPlease type 'st' to shutdown...")
-                
+            except KeyboardInterrupt: # Ctrl+C, "Ctrl+Alt+Del" like action
+                try:
+                    print("\nPress 1 to restart\nPress other key to back\nor Press Ctrl+C again to shutdown...")
+                    emergencyChoice = input()
+                    if emergencyChoice == "1":
+                        goto(line=149)
+                except KeyboardInterrupt:
+                    clearScreen()
+                    sys.exit()
             except Exception as crashReason: # Crash
                 print(colorama.Fore.LIGHTRED_EX + ":(\n\nPY OS Improved has been crashed!\n" + str(crashReason) + "\n" + str(traceback.print_exc()) + "\nSystem Information:\n" + system_version + " " + system_build + "\n")
                 os.system("uname")
                 logger.critical(str(traceback.print_exc()))
-                logger.critical("PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o ")
+                logger.critical("PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
                 input("[CRASH - Press any key to shutdown]" + color.reset)
                 sys.exit()
