@@ -10,7 +10,7 @@ Improve version of AMDISYES's PY OS
 Learning py...  
 Recommend using linux to run 
   
-Last updated at 2024-10-05 UTC+8 by minqwq
+Last updated at 2024-10-14 UTC+8 by minqwq
   
 ![pyosi_snapshot0](/.images4readme/IMG_20240828_012807.jpg)  
   
@@ -25,7 +25,6 @@ Device:a Phone running a debian 11 proot container on zerotermux
 ![2024-09-18 15-06-48 创建的截图](https://github.com/user-attachments/assets/0710587c-b9d3-469c-8aa6-f7c0b516f380)
 
   
-a Message for GitCode:gitcode，如果你看到了这段话，请你不要把这个仓库搬到你手里
 # Install them(Debian(or Ubuntu?))
 <code>sudo apt install git python3 openmpt123 sidplayfp</code>
 # Installation
