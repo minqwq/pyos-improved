@@ -1,2 +1,13 @@
-[INFO] Oct Fri 18 06:55:46 2024 | Logger started successfully.
-[INFO] Oct Fri 18 06:55:51 2024 | [Command] tty1/lsh: calc
+[INFO] Oct Sat 19 03:32:51 2024 | Logger started successfully.
+[INFO] Oct Sat 19 03:32:57 2024 | Start logging.
+[INFO] Oct Sat 19 03:32:57 2024 | Starting PY OS Improved Boot manager.
+[INFO] Oct Sat 19 03:33:00 2024 | Starting main operating system...
+[INFO] Oct Sat 19 03:33:05 2024 | Welcome to PY OS Improved!
+[INFO] Oct Sat 19 03:33:15 2024 | [Command] tty1/lsh: help
+[INFO] Oct Sat 19 03:33:31 2024 | [Command] tty1/lsh: uptime
+[INFO] Oct Sat 19 03:33:59 2024 | [Command] tty1/lsh: :q
+[ERROR] Oct Sat 19 03:33:59 2024 | tty1/lsh: :q: Command not found!
+[INFO] Oct Sat 19 03:34:01 2024 | [Command] tty1/lsh: wq
+[ERROR] Oct Sat 19 03:34:01 2024 | tty1/lsh: wq: Command not found!
+[INFO] Oct Sat 19 03:34:02 2024 | [Command] tty1/lsh: st
+[INFO] Oct Sat 19 03:34:02 2024 | Shutting down.
