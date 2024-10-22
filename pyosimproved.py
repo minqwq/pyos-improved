@@ -91,7 +91,7 @@ class override:
 def echo(string):
     print(string)
 pretty_errors.configure(
-    postfix               = '\nPY OS Improved has been crashed.\nRestart command:python pyosimproved.py\nReport this error!:https://github.com/minqwq/pyos-improved/issues',
+    postfix               = '!!! FALLBACK CRASH SCREEN !!!\nPY OS Improved has been crashed.\nRestart command:python pyosimproved.py\nReport this error!:https://github.com/minqwq/pyos-improved/issues',
     separator_character   = '#',
     line_color            = colorama.Fore.LIGHTBLUE_EX + 'Here > ' + color.reset,
 )
@@ -104,10 +104,18 @@ logger.info("Logger started successfully.")
 pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-improved", "awa", "Also try original PY OS! link available after login.", "No stay back gordon!", "sjsjsjnwnwjsosjq????"]
 print("Tips loaded success")
 os.system("alias cls=clear")
+
+# CONFIG START
+
 system_version = "1.3 Release" # 版本号
-system_build = "Build 229" # 每做一个修改或增减内容，就加一个build
-system_is_beta = False # 是否为Beta版
-isWindows = False # 是否为Windows
+system_build = "Build 236" # 每做一个修改或增减内容，就加一个 Build
+system_is_beta = False # 是否为 Beta 版
+isWindows = False # 是否为 Windows
+cmd_theme = "default" # 终端 Shell 主题
+isDev = False # 是否为 Dev 模式
+
+# CONFIG END
+
 # BIOS Animation
 if sys.platform.startswith("win"):
     print("Warning! you are running this program on Windows, some command may not work.")
@@ -157,6 +165,7 @@ clearScreen()
 print("_")
 time.sleep(0.5)
 clearScreen()
+print(colorama.Back.BLUE)
 print("Cirnosoft 1964--2024 No rights reserved")
 print("Funky BIOS v9.9_baka")
 print("reimuhttp://bios.cirnosoft.9/versions/9dot9/updatelog")
@@ -294,6 +303,15 @@ while count < 3:
                     else:
                         print(color.red + "Access Denied." + color.reset)
                         sys.exit()
+                elif user == "dev":
+                    clearScreen()
+                    print("You are trying to login dev account, please input the password below:")
+                    deVerify = input("")
+                    if deVerify == "ilovemio":
+                        isDev = True
+                    else:
+                        clearScreen()
+                        sys.exit()
                 print("h-hewwo there, my sweetie senpai x3")
                 print("Welcome to PY OS Improved " + system_version + " >///<")
                 print("* Visit our awesome website: https://www.minqwq.us.kg/pyosimproved")
@@ -309,24 +327,44 @@ while count < 3:
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
                 os.system("python autoexec.py")
+                if isDev == True:
+                    print("Logged into dev account, some command may unlocked!")
                 print("\nLarine SHell (lsh) version 1.6.1 >///<\nit's a wittwe user non-fwiendwy shell...")
                 while count < 3:
+                    if cmd_theme == "default":
+                        cmd_pre = colorama.Fore.LIGHTBLUE_EX + user + color.grey + ":" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " > " + color.reset
+                    elif cmd_theme == "lite":
+                        cmd_pre = colorama.Fore.GREEN + user + colorama.Fore.LIGHTGREEN_EX + " : " + color.reset
+                    elif cmd_theme == "debian_bash":
+                        cmd_pre = colorama.Fore.LIGHTGREEN_EX + user + "@" + lsh_hostname + color.reset + ":" + colorama.Fore.LIGHTBLUE_EX + "~" + color.reset + "$ "
+                    elif cmd_theme == "arch_bash":
+                        cmd_pre = "[" + user + "@" + lsh_hostname + " ~ ] $ "
+                    else:
+                        print("Theme not found! falling to default.")
+                        cmd_theme = "default"
+                        goto(line=322)
                   # Line 246 is a critical process, dont change it   --minqwq
                     lsh_time_prepare = datetime.datetime.now()
                     lsh_time = lsh_time_prepare.strftime("%H:%M:%S")
                     print(colorama.Fore.LIGHTYELLOW_EX + "[" + lsh_time + "]" + color.reset, end=" ")
                   # lsh_username = os.system("whoami")
-                    cmd = input(colorama.Fore.LIGHTBLUE_EX + user + color.grey + ":" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " > " + color.reset) # Shell style(redesigned by minqwq)
+                    cmd = input(cmd_pre)
                     logger.info("[Command] tty1/lsh: " + cmd)
-                    if user == "d":
-                        cmd = input("DEBUG_SHELL > ")
                     if cmd == "ls": # Path
-                        print("root path:")
-                        os.system("ls ./")
-                        print("programs path:")
-                        os.system("ls ./apps/")
-                        print("music path:")
-                        os.system("ls ./music/")
+                        if isWindows == True:
+                            print("root path:")
+                            os.system("ls ./")
+                            print("programs path:")
+                            os.system("ls ./apps/")
+                            print("music path:")
+                            os.system("ls ./music/")
+                        elif isWindows == False:
+                            print("root path:")
+                            os.system("dir .\\")
+                            print("programs path:")
+                            os.system("dir .\\apps")
+                            print("music path:")
+                            os.system("dir .\\music")
                     elif cmd == "uwufetch": # a Fake neofetch
                         currentUptime = time.time()
                         currentUptimeII = currentUptime - end_startingtime
@@ -336,21 +374,31 @@ while count < 3:
                         print(" |  __/ | |     | |_| |___) |")
                         print(" |_|    |_|      \___/|____/ " + color.reset)
                         print(color.purple + "      --- Improved ---       " + color.reset)
-                        print(user + " " + lsh_hostname)
+                        print(user + "@" + lsh_hostname)
                         print("System:PY OS Improved " + system_version + " " + system_build)
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
                         print("Terminal:tty1")
-                        print("Uptime:" + str(currentUptimeII) + "min")
+                        print("Uptime:" + str(currentUptimeII) + " s")
                         print("Host:" + lsh_hostname)
                         print("CPU:Intel Pentium(133MHz)")
                         print("GPU:Cirrus Logic GD 5446(4MB)")
                         print("Memory: " + str(totalmem) + " Bytes")
-                        print("Sound Card:GUS")
+                        print("Sound Card:?")
                         print("Ethernet Card:?")
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
+                    elif cmd.startswith("poitheme change"):
+                        cmd_theme = cmd[16:]
+                        logger.info("Shell theme changed to " + cmd[16:])
+                        print("Successfully seted shell theme " + cmd[16:])
+                    elif cmd == "conf":
+                        print("system_version:" + system_version)
+                        print("system_build:" + system_build)
+                        print("system_is_beta:" + str(system_is_beta))
+                        print("isWindows:" + str(isWindows))
+                        print("cmd_theme:" + cmd_theme)
                     elif cmd == "asciicvt":
                         os.system("python ./apps/asciicvt/asciiconverter.py")
                     elif cmd == "tasks":
@@ -384,10 +432,11 @@ while count < 3:
                     elif cmd == "rss":
                         os.system("python ./apps/rss/main.py")
                     elif cmd == "crash":
-                        logger.warn("Congrats, you make the PY OS Improved crashed.")
-                        badstring = uwu
-                        anotherbadstring = "owo"
-                        print(badstring + anotherbadstring)
+                        if user == "dev":
+                            logger.warn("Congrats, you make the PY OS Improved crashed.")
+                            badstring = uwu
+                            anotherbadstring = "owo"
+                            print(badstring + anotherbadstring)
                     elif cmd.startswith("echo "):
                         string = cmd[5:]
                         if string == "":
@@ -448,13 +497,13 @@ while count < 3:
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Developers" + color.reset)
                         print("minqwq | Interface Design, Coder, Project Creator, Document Editer")
                         print("bibimingming | Module Installer")
-                        print("AMDISYES(Original PY OS) | Original Project Creator")
-                        print("Yukari2024 | Installer")
+                        print("MeltedIce aka AMDISYES(Original PY OS) | Original Project Creator")
+                        print("MinimalMio aka Yukari2024 | Installer")
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Early developing tester(not sorted)" + color.reset)
                         print("minqwq")
                         print("bibimingming")
                         print("Safari_Browse(Rongxuan2022)")
-                        print("AMDISYES")
+                        print("MeltedIce aka AMDISYES")
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Special Thanks for these projects" + color.reset)
                         print("https://github.com/shkolovy/tetris-terminal | Used for games")
                         print("https://github.com/pipeseroni/pipes.sh | Used for screensaver")
@@ -566,6 +615,7 @@ while count < 3:
                         print("rmdir <str>    Remove directory")
                         print("su <str>       Switch user")
                         print("rss            RSS Feed reader")
+                        print("conf           Show the current config")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Tools)" + color.reset)
                         print("calc           A simple calculator")
                         print("uwufetch       List all hardware and system version")
@@ -635,7 +685,7 @@ while count < 3:
                         startingtime = "?"
                         end_startingtime = "?"
                         startingtime_t = "?"
-                        goto(line=237)
+                        goto(line=244)
                     else: # Wrong command
                         print(text.error + color.red + "i can't seem to find the command >.<" + color.reset)
                         print(color.red + "[Unknown command]" + color.reset, end=' ')
@@ -645,7 +695,7 @@ while count < 3:
                     print("\nPress 1 to restart\nPress other key to back\nor Press Ctrl+C again to shutdown...")
                     emergencyChoice = input()
                     if emergencyChoice == "1":
-                        goto(line=149)
+                        goto(line=157)
                 except KeyboardInterrupt:
                     clearScreen()
                     sys.exit()
