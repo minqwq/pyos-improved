@@ -44,7 +44,7 @@ import platform
 import requests # Get file from server
 import pretty_errors # Crash screen replace
 from python_goto import goto # Goto a line
-import base256 # Encode and decode
+import base64 # Encode and decode
 import tqdm # Progress bar
 import traceback
 import logging # Log.
@@ -108,7 +108,7 @@ os.system("alias cls=clear")
 # CONFIG START
 
 system_version = "1.3 Release" # 版本号
-system_build = "Build 236" # 每做一个修改或增减内容，就加一个 Build
+system_build = "Build 237" # 每做一个修改或增减内容，就加一个 Build
 system_is_beta = False # 是否为 Beta 版
 isWindows = False # 是否为 Windows
 cmd_theme = "default" # 终端 Shell 主题
@@ -143,7 +143,7 @@ while True:
         startingtime = "???"
         print("You are now in debug mode.")
         print("If crash, dont report ANY error.")
-        goto(line=237)
+        goto(line=245)
     elif debugMode == "v":
         print(system_version + " " + system_build)
         sys.exit()
@@ -230,10 +230,10 @@ print("The Physical You(PY) OS logos is not are registered trademark, you can us
 print("Original by AMDISYES | Improved Version by minqwq & bibimingming ヽ(✿ﾟ▽ﾟ)ノ")
 print(" ")
 print("PY OS Improved is a open source software and you can share it freedomly")
-print("Under WTFPL 2.0 License")
+print("Under \"minqwq's License\" 1.0 License.")
 print(colorama.Fore.LIGHTCYAN_EX + "Feel free to improve PY OS Improved!" + color.reset)
 print(" ")
-print("(c) LR Studio & FCNM 2022--2024")
+print("(c) LR Studio & FCNM & StarHikari 2022--2025")
 print(" ")
 for startingbar in tqdm.tqdm(range(100)):
     time.sleep(0.05)
@@ -293,8 +293,11 @@ while count < 3:
                 lshtime = now.strftime("%H:%M:%S")
                 lsh_hostname = "tiramisu"
                 if user == "minqwq":
-                    creatorVerifyPassword = "qwe115061"
-                    creatorVerify = getpass.getpass("Verify required, please type password...\n> ")
+                    # password_pre = b"aWxvdmVtaW8="
+                    # password = base64.b64decode(password_pre)
+                    # inputpass = bytes(input(), encoding="utf-8")
+                    creatorVerifyPassword = base64.b64decode(b"cXdlMTE1MDYx")
+                    creatorVerify = bytes(getpass.getpass("Verify required, please type password...\n> "), encoding="utf-8")
                     if creatorVerify == creatorVerifyPassword:
                         clearScreen()
                         print("The creator of PY OS Improved, welcome back.\n")
@@ -489,7 +492,7 @@ while count < 3:
                     elif cmd == "about": # About system
                         print("---------------| About |---------------")
                         print(color.blue + "PY OS Improved " + system_version + " " + system_build + color.reset)
-                        print(color.grey + "(C) 0x1c Studio 2022--2023 | (C) LR Studio & FCNM & StarHikari Studios 2024" + color.reset)
+                        print(color.grey + "(C) 0x1c Studio 2022--2023 | (C) LR Studio & FCNM & StarHikari Studios 2022--2025" + color.reset)
                         print(" ")
                         print("add option -c for credits\nadd option -s for support")
                     elif cmd == "about -c" or cmd == "about --credits":
@@ -559,14 +562,6 @@ while count < 3:
                         now = datetime.datetime.now()
                         other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
                         print(other_StyleTime)
-                    elif cmd == "time --no-date":
-                        now = datetime.datetime.now()
-                        other_StyleTimeNoYMD = now.strftime("%H:%M:%S")
-                        print(other_StyleTimeNoYMD)
-                    elif cmd == "time --no-clk":
-                        now = datetime.datetime.now()
-                        other_StyleTimeNoHMS = now.strftime("%Y-%m-%d")
-                        print(other_StyleTimeNoHMS)
                     elif cmd == "uname":
                         print(os.uname())
                     elif cmd == "caesar":
