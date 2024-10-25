@@ -32,7 +32,6 @@ import time # Time
 # import select
 import random # Random tools
 import uuid # Generate uuid
-import psutil # Get hardware status
 from os import path # Path control
 import colorama # Color
 from colorama import Fore as fore # idk
@@ -108,7 +107,7 @@ os.system("alias cls=clear")
 # CONFIG START
 
 system_version = "1.3 Release" # 版本号
-system_build = "Build 237" # 每做一个修改或增减内容，就加一个 Build
+system_build = "Build 239" # 每做一个修改或增减内容，就加一个 Build
 system_is_beta = False # 是否为 Beta 版
 isWindows = False # 是否为 Windows
 cmd_theme = "default" # 终端 Shell 主题
@@ -165,7 +164,6 @@ clearScreen()
 print("_")
 time.sleep(0.5)
 clearScreen()
-print(colorama.Back.BLUE)
 print("Cirnosoft 1964--2024 No rights reserved")
 print("Funky BIOS v9.9_baka")
 print("reimuhttp://bios.cirnosoft.9/versions/9dot9/updatelog")
@@ -344,8 +342,8 @@ while count < 3:
                         cmd_pre = "[" + user + "@" + lsh_hostname + " ~ ] $ "
                     else:
                         print("Theme not found! falling to default.")
+                        print("Available theme name:default, lite, debian_bash, arch_bash")
                         cmd_theme = "default"
-                        goto(line=322)
                   # Line 246 is a critical process, dont change it   --minqwq
                     lsh_time_prepare = datetime.datetime.now()
                     lsh_time = lsh_time_prepare.strftime("%H:%M:%S")
@@ -381,7 +379,7 @@ while count < 3:
                         print("System:PY OS Improved " + system_version + " " + system_build)
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
-                        print("Terminal:tty1")
+                        print("Terminal:tty")
                         print("Uptime:" + str(currentUptimeII) + " s")
                         print("Host:" + lsh_hostname)
                         print("CPU:Intel Pentium(133MHz)")
@@ -392,8 +390,8 @@ while count < 3:
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
-                    elif cmd.startswith("poitheme change"):
-                        cmd_theme = cmd[16:]
+                    elif cmd.startswith("chthm"):
+                        cmd_theme = cmd[6:]
                         logger.info("Shell theme changed to " + cmd[16:])
                         print("Successfully seted shell theme " + cmd[16:])
                     elif cmd == "conf":
@@ -611,6 +609,7 @@ while count < 3:
                         print("su <str>       Switch user")
                         print("rss            RSS Feed reader")
                         print("conf           Show the current config")
+                        print("chthm <name>   Change theme of the shell")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Tools)" + color.reset)
                         print("calc           A simple calculator")
                         print("uwufetch       List all hardware and system version")
