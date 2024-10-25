@@ -152,6 +152,7 @@ while True:
         print("h / Manual help")
     else:
         break
+import psutil
 print(colorama.Back.LIGHTRED_EX + colorama.Fore.LIGHTYELLOW_EX + "E:NO SINGAL" + color.reset)
 time.sleep(2)
 clearScreen()
