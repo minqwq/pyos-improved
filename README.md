@@ -1,3 +1,4 @@
+We are not died, The PY OS Improved Project is still on working for 1.3 Release! Please just wait.
 ![PY OS Improved](./.images4readme/pyosi_logo.png)
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/minqwq/pyos-improved)
