@@ -7,7 +7,7 @@ We are not died, The PY OS Improved Project is still on working for 1.3 Release!
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/minqwq/pyos-improved)
 ![GitHub last commit](https://img.shields.io/github/last-commit/minqwq/pyos-improved)
 ![GitHub Created At](https://img.shields.io/github/created-at/minqwq/pyos-improved)  
-Improve version of [MeltIce's PY OS](https://github.com/Meltide/mpga-pyos)  
+Improve version of [MeltIce's PyOS](https://github.com/Meltide/mpga-pyos)  
 Learning py...  
 Recommend using linux to run 
   
