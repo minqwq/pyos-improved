@@ -6,6 +6,5 @@ datetime
 pretty-errors
 python-goto
 pygame
-tqdm
 requests
-base256
+progressbar

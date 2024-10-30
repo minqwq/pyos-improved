@@ -44,9 +44,10 @@ import requests # Get file from server
 import pretty_errors # Crash screen replace
 from python_goto import goto # Goto a line
 import base64 # Encode and decode
-import tqdm # Progress bar
+# import tqdm # Progress bar
 import traceback
 import logging # Log.
+import progressbar # Progress bar 2nd
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 # Preload classes
 #
@@ -72,6 +73,7 @@ class text: # TIcons
     success = color.green + "[O] " + color.reset
     loading = color.yellow + "[...] " + color.reset
     doubt = color.grey + "[?] " + color.reset
+    no = color.red + "[X]" + color.reset
 print("Added class 'text'")
 class textmoji: # Textmojis
     ciallo = "(∠・ω< )⌒☆"
@@ -95,19 +97,26 @@ pretty_errors.configure(
     line_color            = colorama.Fore.LIGHTBLUE_EX + 'Here > ' + color.reset,
 )
 print("config updated for pretty-errors")
-os.remove("output.log")
+try:
+    os.remove("output.log")
+except FileNotFoundError:
+    pass
 LOG_FORMAT = '[%(levelname)s] %(asctime)s | %(message)s'
 logging.basicConfig(filename='output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
 logger.info("Logger started successfully.")
+def dotLoader(howMany, howSlow):
+    for dotLoader_time in range(howMany):
+        print(".", end="")
+        time.sleep(howSlow)
 pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-improved", "awa", "Also try original PY OS! link available after login.", "No stay back gordon!", "sjsjsjnwnwjsosjq????"]
 print("Tips loaded success")
 os.system("alias cls=clear")
 
 # CONFIG START
 
-system_version = "1.3 Release" # 版本号
-system_build = "Build 239" # 每做一个修改或增减内容，就加一个 Build
+system_version = "1.3.1 Release" # 版本号
+system_build = "Build 248" # 每做一个修改或增减内容，就加一个 Build
 system_is_beta = False # 是否为 Beta 版
 isWindows = False # 是否为 Windows
 cmd_theme = "default" # 终端 Shell 主题
@@ -153,6 +162,7 @@ while True:
     else:
         break
 import psutil
+print("module import: psutil")
 print(colorama.Back.LIGHTRED_EX + colorama.Fore.LIGHTYELLOW_EX + "E:NO SINGAL" + color.reset)
 time.sleep(2)
 clearScreen()
@@ -165,17 +175,15 @@ clearScreen()
 print("_")
 time.sleep(0.5)
 clearScreen()
-print("Cirnosoft 1964--2024 No rights reserved")
-print("Funky BIOS v9.9_baka")
-print("reimuhttp://bios.cirnosoft.9/versions/9dot9/updatelog")
+print("minsoft 2011--2025 No rights reserved")
+print("EveryBooter v1.0")
+print("Testing memory...")
 time.sleep(0.15)
-totalmem = psutil.virtual_memory().total
-print(color.green + str(totalmem) + " Bytes OK" + color.reset)
-time.sleep(0.05)
-print(color.yellow + "Booting default operating system..." + color.reset)
-time.sleep(0.1)
-print(color.green + "PY OS Improved " + system_version + " /unk /stack /uwu" + color.reset)
-time.sleep(1)
+for memtest in range(int(psutil.virtual_memory().total / 1024 / 1024)):
+    print(str(memtest), end="\r")
+    time.sleep(0.0005)
+print(str(round(int(psutil.virtual_memory().total / 1024 / 1024))) + "MB OK")
+time.sleep(0.5)
 clearScreen()
 time.sleep(0.1)
 # Boot manager
@@ -198,7 +206,6 @@ while bootManagerLoopRun == True:
         clearScreen()
         print("If you want exit, press Ctrl+C to shutdown")
         os.system("python ./.earlysystem/pyosimproved.py")
-         
         sys.exit()
     elif bootChoice == "5":
         clearScreen()
@@ -232,17 +239,15 @@ print("PY OS Improved is a open source software and you can share it freedomly")
 print("Under \"minqwq's License\" 1.0 License.")
 print(colorama.Fore.LIGHTCYAN_EX + "Feel free to improve PY OS Improved!" + color.reset)
 print(" ")
-print("(c) LR Studio & FCNM & StarHikari 2022--2025")
+print("(C) " + color.green + "0x1c Studio " + color.reset + "2022--2023 | (C) " + colorama.Fore.LIGHTRED_EX + "Flandre" + color.red + " Studio " + color.reset + "&" + color.grey + " FCNM " + color.reset + "&" + color.grey + " SnowMio Studios 2022--2025" + color.reset)
 print(" ")
-for startingbar in tqdm.tqdm(range(100)):
-    time.sleep(0.05)
+dotLoader(50, 0.1)
 clearScreen()
 time.sleep(0.1)
 end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
 logger.info("Welcome to PY OS Improved!")
 print(colorama.Fore.LIGHTCYAN_EX + "Hewwwo wewcome back to PY OS Improved senpai >.<" + color.reset) # Login screen | For restart to login manager, please goto this line for work normally
-print(colorama.Fore.LIGHTGREEN_EX + "Leave blank for shutdown" + color.reset)
 now = datetime.datetime.now()
 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
 print("Current time: " + colorama.Fore.LIGHTCYAN_EX + other_StyleTime + color.reset)
@@ -256,7 +261,7 @@ while count < 3:
     if user == "gaster":
         os.execv(sys.executable, ['python'] + sys.argv)
     elif user == "":
-        sys.exit()
+        pass
     elif user == "bai9nine":
         print("nope.   --minqwq")
     elif user == "yukari2024":
@@ -290,7 +295,7 @@ while count < 3:
                 clearScreen()
                 lshdate = now.strftime("%Y-%m-%d")
                 lshtime = now.strftime("%H:%M:%S")
-                lsh_hostname = "tiramisu"
+                lsh_hostname = "ayaya"
                 if user == "minqwq":
                     # password_pre = b"aWxvdmVtaW8="
                     # password = base64.b64decode(password_pre)
@@ -381,11 +386,11 @@ while count < 3:
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
                         print("Terminal:tty")
-                        print("Uptime:" + str(currentUptimeII) + " s")
+                        print("Uptime:" + str(round(int(currentUptimeII))) + " s")
                         print("Host:" + lsh_hostname)
                         print("CPU:Intel Pentium(133MHz)")
                         print("GPU:Cirrus Logic GD 5446(4MB)")
-                        print("Memory: " + str(totalmem) + " Bytes")
+                        print("Memory: " + str(round(int(psutil.virtual_memory().total / 1024 / 1024))) + " MB")
                         print("Sound Card:?")
                         print("Ethernet Card:?")
                         print("Disk:HDD1=30GB, HDD2=55GB")
@@ -491,7 +496,7 @@ while count < 3:
                     elif cmd == "about": # About system
                         print("---------------| About |---------------")
                         print(color.blue + "PY OS Improved " + system_version + " " + system_build + color.reset)
-                        print(color.grey + "(C) 0x1c Studio 2022--2023 | (C) LR Studio & FCNM & StarHikari Studios 2022--2025" + color.reset)
+                        print("(C) " + color.green + "0x1c Studio " + color.reset + "2022--2023 | (C) " + colorama.Fore.LIGHTRED_EX + "Flandre" + color.red + " Studio " + color.reset + "&" + color.grey + " FCNM " + color.reset + "&" + color.grey + " SnowMio Studios 2022--2025" + color.reset)
                         print(" ")
                         print("add option -c for credits\nadd option -s for support")
                     elif cmd == "about -c" or cmd == "about --credits":
