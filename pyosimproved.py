@@ -47,7 +47,6 @@ import base64 # Encode and decode
 # import tqdm # Progress bar
 import traceback
 import logging # Log.
-import progressbar # Progress bar 2nd
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 # Preload classes
 #
@@ -116,7 +115,7 @@ os.system("alias cls=clear")
 # CONFIG START
 
 system_version = "1.3.1 Release" # 版本号
-system_build = "Build 248" # 每做一个修改或增减内容，就加一个 Build
+system_build = "Build 256" # 每做一个修改或增减内容，就加一个 Build
 system_is_beta = False # 是否为 Beta 版
 isWindows = False # 是否为 Windows
 cmd_theme = "default" # 终端 Shell 主题
@@ -175,7 +174,7 @@ clearScreen()
 print("_")
 time.sleep(0.5)
 clearScreen()
-print("minsoft 2011--2025 No rights reserved")
+print(colorama.Fore.LIGHTGREEN_EX + "minsoft 2011--2025 No rights reserved")
 print("EveryBooter v1.0")
 print("Testing memory...")
 time.sleep(0.15)
@@ -185,6 +184,7 @@ for memtest in range(int(psutil.virtual_memory().total / 1024 / 1024)):
 print(str(round(int(psutil.virtual_memory().total / 1024 / 1024))) + "MB OK")
 time.sleep(0.5)
 clearScreen()
+print(color.reset)
 time.sleep(0.1)
 # Boot manager
 bootManagerLoopRun = True
@@ -219,12 +219,7 @@ clearScreen()
 # Startup screen
 logger.info("Starting main operating system...")
 startingtime = time.time()
-print(color.blue + "    ______  __       ____  _____")
-print("   / __ \\ \\/ /      / __ \\/ ___/")
-print("  / /_/ /\\  /      / / / /\\__ \\ ")
-print(color.cyan + " / ____/ / /      / /_/ /___/ / ")
-print("/_/     /_/       \\____//____/  " + color.reset)
-print(colorama.Fore.BLACK + colorama.Back.LIGHTBLUE_EX + "      |---==Improved==---|      " + color.reset)
+os.system("python apps/coreutils/startuplogo/animatedlogo.py")
 print(" ")
 print(random.sample(pyosimprovedtips, 1))
 print(" ")
@@ -241,7 +236,7 @@ print(colorama.Fore.LIGHTCYAN_EX + "Feel free to improve PY OS Improved!" + colo
 print(" ")
 print("(C) " + color.green + "0x1c Studio " + color.reset + "2022--2023 | (C) " + colorama.Fore.LIGHTRED_EX + "Flandre" + color.red + " Studio " + color.reset + "&" + color.grey + " FCNM " + color.reset + "&" + color.grey + " SnowMio Studios 2022--2025" + color.reset)
 print(" ")
-dotLoader(50, 0.1)
+time.sleep(3)
 clearScreen()
 time.sleep(0.1)
 end_startingtime = time.time()
@@ -396,6 +391,9 @@ while count < 3:
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
+                    elif cmd.startswith("extprog"):
+                        extprog_run = cmd[7:]
+                        os.system("python extprog/" + extprog_run + ".py")
                     elif cmd.startswith("chthm"):
                         cmd_theme = cmd[6:]
                         logger.info("Shell theme changed to " + cmd[16:])
