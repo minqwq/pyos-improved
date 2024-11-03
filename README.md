@@ -49,10 +49,9 @@ We will free forever, from now to future. --minqwq(Leader of LR Studio)
 minqwq | Creator of this project, Interface designer, Coder, Document editer  
 bibimingming | Imported modules installer maker   
 Yukari2024 | Installer maker
-<hr />
-<p>If you want be a contributor, call me via email:minqwq723897@outlook.com and i will let you into devteam.</p>
-</a>
-<hr />
+#
+If you want be a contributor, call me via email:minqwq723897@outlook.com and i will let you into devteam.
+#
 # Screenshots 
 ![shot-2024-10-30_23-54-38](https://github.com/user-attachments/assets/baed2fd0-558e-469c-8b0e-c89e016ebf87)
 ![shot-2024-10-30_23-54-09](https://github.com/user-attachments/assets/aef32029-c754-49eb-8470-c1cc11c3958f)
