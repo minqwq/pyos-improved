@@ -120,7 +120,8 @@ os.system("alias cls=clear")
 # CONFIG START
 
 system_version = "1.3.1 Release" # 版本号
-system_build = "Build 259" # 每做一个修改或增减内容，就加一个 Build
+system_codename = "Nobody remember"
+system_build = "Build 265" # 每做一个修改或增减内容，就加一个 Build
 system_is_beta = False # 是否为 Beta 版
 isWindows = False # 是否为 Windows
 cmd_theme = "default" # 终端 Shell 主题
@@ -142,6 +143,8 @@ def clearScreen():
         os.system("cls")
     elif isWindows == False:
         os.system("clear")
+def beep():
+    print("\a", end="\r")
 os.system("clear && clear && clear")
 if sys.platform.startswith("linux") or sys.platform.startswith("posix"):
     print("If you dont have 'python' command, please set alias 'python=python3'")
@@ -155,7 +158,7 @@ while True:
         startingtime = "???"
         print("You are now in debug mode.")
         print("If crash, dont report ANY error.")
-        goto(line=245)
+        goto(line=250)
     elif debugMode == "v":
         print(system_version + " " + system_build)
         sys.exit()
@@ -186,6 +189,7 @@ time.sleep(0.15)
 for memtest in range(int(psutil.virtual_memory().total / 1024 / 1024)):
     print(str(memtest), end="\r")
     time.sleep(0.0005)
+beep()
 print(str(round(int(psutil.virtual_memory().total / 1024 / 1024))) + "MB OK")
 time.sleep(0.5)
 clearScreen()
@@ -231,7 +235,7 @@ print(" ")
 if system_is_beta == True: # If is beta version, show this warn
     print(text.error + colorama.Fore.LIGHTYELLOW_EX + "Beta version" + color.reset)
 print("\033[38;5;45m" + "PY " + "\033[38;5;81m" + "OS " + "\033[38;5;117m" + "Im" + "\033[38;5;153m" + "pr" + "\033[38;5;189m" + "ov" + "\033[38;5;225m" + "ed" + color.reset + " | " + system_version + " | " + system_build)
-print("Codename " + "\033[38;5;117m" + "Mio - My dear moments -" + color.reset)
+print("Codename " + system_codename + color.reset)
 print("The Physical You(PY) OS logos is not are registered trademark, you can use it on anywhere.")
 print("Original by AMDISYES | Improved Version by minqwq & bibimingming ヽ(✿ﾟ▽ﾟ)ノ")
 print(" ")
@@ -246,6 +250,7 @@ clearScreen()
 time.sleep(0.1)
 end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
+beep()
 logger.info("Welcome to PY OS Improved!")
 print(colorama.Fore.LIGHTCYAN_EX + "Hewwwo wewcome back to PY OS Improved senpai >.<" + color.reset) # Login screen | For restart to login manager, please goto this line for work normally
 now = datetime.datetime.now()
@@ -319,6 +324,7 @@ while count < 3:
                     else:
                         clearScreen()
                         sys.exit()
+                beep()
                 print("h-hewwo there, my sweetie senpai x3")
                 print("Welcome to PY OS Improved " + system_version + " >///<")
                 print("* Visit our awesome website: https://www.minqwq.us.kg/pyosimproved")
@@ -353,7 +359,7 @@ while count < 3:
                   # Line 246 is a critical process, dont change it   --minqwq
                     lsh_time_prepare = datetime.datetime.now()
                     lsh_time = lsh_time_prepare.strftime("%H:%M:%S")
-                    print(colorama.Fore.LIGHTYELLOW_EX + "[" + lsh_time + "]" + color.reset, end=" ")
+                    print("[" + lsh_time + "]", end=" ")
                   # lsh_username = os.system("whoami")
                     cmd = input(cmd_pre)
                     logger.info("[Command] tty1/lsh: " + cmd)
@@ -405,6 +411,7 @@ while count < 3:
                         print("Successfully seted shell theme " + cmd[16:])
                     elif cmd == "conf":
                         print("system_version:" + system_version)
+                        print("system_codename:" + system_codename)
                         print("system_build:" + system_build)
                         print("system_is_beta:" + str(system_is_beta))
                         print("isWindows:" + str(isWindows))
@@ -507,7 +514,7 @@ while count < 3:
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Developers" + color.reset)
                         print("minqwq | Interface Design, Coder, Project Creator, Document Editer")
                         print("bibimingming | Module Installer")
-                        print("MeltedIce aka AMDISYES(Original PY OS) | Original Project Creator")
+                        print("MeltedIde aka MeltedIce aka AMDISYES(Original PY OS) | Original Project Creator")
                         print("MinimalMio aka Yukari2024 | Installer")
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Early developing tester(not sorted)" + color.reset)
                         print("minqwq")
@@ -623,7 +630,7 @@ while count < 3:
                         print("calc           A simple calculator")
                         print("uwufetch       List all hardware and system version")
                         print("caesar         Caesar encryption tools")
-                        print("fm             Ranger file manager")
+                        print(color.red + "fm             Ranger file manager" + color.reset)
                         print("sticker        notepad but can't save content")
                         print("fileget        Get any file from internet")
                         print("paint          Paint(image maker app)")
@@ -690,6 +697,7 @@ while count < 3:
                         startingtime_t = "?"
                         goto(line=244)
                     else: # Wrong command
+                        beep()
                         print(text.error + color.red + "i can't seem to find the command >.<" + color.reset)
                         print(color.red + "[Unknown command]" + color.reset, end=' ')
                         logger.error("tty1/lsh: " + cmd + ": Command not found!")
