@@ -108,6 +108,11 @@ def dotLoader(howMany, howSlow):
     for dotLoader_time in range(howMany):
         print(".", end="")
         time.sleep(howSlow)
+def slowprint(text):
+    for blyat in text:
+        print(blyat, end="", flush=True)
+        time.sleep(0.005)
+    print("")
 pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-improved", "awa", "Also try original PY OS! link available after login.", "No stay back gordon!", "sjsjsjnwnwjsosjq????"]
 print("Tips loaded success")
 os.system("alias cls=clear")
@@ -115,7 +120,7 @@ os.system("alias cls=clear")
 # CONFIG START
 
 system_version = "1.3.1 Release" # 版本号
-system_build = "Build 256" # 每做一个修改或增减内容，就加一个 Build
+system_build = "Build 259" # 每做一个修改或增减内容，就加一个 Build
 system_is_beta = False # 是否为 Beta 版
 isWindows = False # 是否为 Windows
 cmd_theme = "default" # 终端 Shell 主题
@@ -174,9 +179,9 @@ clearScreen()
 print("_")
 time.sleep(0.5)
 clearScreen()
-print(colorama.Fore.LIGHTGREEN_EX + "minsoft 2011--2025 No rights reserved")
-print("EveryBooter v1.0")
-print("Testing memory...")
+slowprint(colorama.Fore.LIGHTGREEN_EX + "minsoft 2011--2025 No lefts unserved")
+slowprint("EveryBooter v1.0")
+slowprint("Testing memory...")
 time.sleep(0.15)
 for memtest in range(int(psutil.virtual_memory().total / 1024 / 1024)):
     print(str(memtest), end="\r")
@@ -492,7 +497,7 @@ while count < 3:
                     elif cmd == "sticker":
                         os.system("cd ./apps/sticker && python sticker.py && cd ../..")
                     elif cmd == "about": # About system
-                        print("---------------| About |---------------")
+                        slowprint("---------------| About |---------------")
                         print(color.blue + "PY OS Improved " + system_version + " " + system_build + color.reset)
                         print("(C) " + color.green + "0x1c Studio " + color.reset + "2022--2023 | (C) " + colorama.Fore.LIGHTRED_EX + "Flandre" + color.red + " Studio " + color.reset + "&" + color.grey + " FCNM " + color.reset + "&" + color.grey + " SnowMio Studios 2022--2025" + color.reset)
                         print(" ")
@@ -690,7 +695,7 @@ while count < 3:
                         logger.error("tty1/lsh: " + cmd + ": Command not found!")
             except KeyboardInterrupt: # Ctrl+C, "Ctrl+Alt+Del" like action
                 try:
-                    print("\nPress 1 to restart\nPress other key to back\nor Press Ctrl+C again to shutdown...")
+                    slowprint("\nPress 1 to restart\nPress other key to back\nor Press Ctrl+C again to shutdown...")
                     emergencyChoice = input()
                     if emergencyChoice == "1":
                         goto(line=157)
