@@ -403,8 +403,7 @@ while count < 3:
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
                     elif cmd.startswith("extprog"):
-                        extprog_run = cmd[7:]
-                        os.system("python extprog/" + extprog_run + ".py")
+                        os.system("python ./extprog/__main__.py")
                     elif cmd.startswith("chthm"):
                         cmd_theme = cmd[6:]
                         logger.info("Shell theme changed to " + cmd[16:])
@@ -626,6 +625,7 @@ while count < 3:
                         print("rss            RSS Feed reader")
                         print("conf           Show the current config")
                         print("chthm <name>   Change theme of the shell")
+                        print("extprog        Run external program")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Tools)" + color.reset)
                         print("calc           A simple calculator")
                         print("uwufetch       List all hardware and system version")
