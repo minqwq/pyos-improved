@@ -47,6 +47,7 @@ import base64 # Encode and decode
 # import tqdm # Progress bar
 import traceback
 import logging # Log.
+import json # Read json file(config file need this)
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 # Preload classes
 #
@@ -113,35 +114,46 @@ def slowprint(text):
         print(blyat, end="", flush=True)
         time.sleep(0.005)
     print("")
+def dir_filecount(directory):
+    count = 0
+    for _, _, files in os.walk(directory):
+        count += len(files)
+        return count
 pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-improved", "awa", "Also try original PY OS! link available after login.", "No stay back gordon!", "sjsjsjnwnwjsosjq????"]
 print("Tips loaded success")
 os.system("alias cls=clear")
 
 # CONFIG START
 
-system_version = "1.3.1 Release" # 版本号
-system_codename = "Nobody remember"
-system_build = "Build 265" # 每做一个修改或增减内容，就加一个 Build
-system_is_beta = False # 是否为 Beta 版
-isWindows = False # 是否为 Windows
-cmd_theme = "default" # 终端 Shell 主题
-isDev = False # 是否为 Dev 模式
+with open("./config/conf.json", "r", encoding="utf-8") as conf:
+    jsonRead = json.load(conf)
+    system_version = jsonRead["system_version"] # 版本号
+    system_codename = jsonRead["system_codename"]
+    system_build = jsonRead["system_build"] # 每做一个修改或增减内容，就加一个 Build
+    system_is_beta = False # 是否为 Beta 版
+    isWindows = jsonRead["isWindows"] # 是否为 Windows
+    cmd_theme = jsonRead["cmd_theme"] # 终端 Shell 主题
+    isDev = False # 是否为 Dev 模式
 
 # CONFIG END
 
 # BIOS Animation
-if sys.platform.startswith("win"):
-    print("Warning! you are running this program on Windows, some command may not work.")
-    os.system("alias clear=cls")
-    print("Setted clear command = cls")
-    print("Continue run after 3s...")
-    time.sleep(3)
-    isWindows = True
-    os.system("cls")
+if jsonRead["isWindows"] == "":
+#    print("Unknown OS type, please set one.\n1:Linux\n2:Windows")
+#    conf_isWindows_write = input(">")
+#    if conf_isWindows_write == "1":
+#        jsonRead["isWindows"]="false"
+#        open("./config.conf.json", "w", encoding="utf-8").write(json.dumps("isWindows", indent="4", ensure_ascii=False))
+#    elif conf_isWindows_write == "2":
+#        jsonRead["isWindows"]="true"
+#        open("./config.conf.json", "w", encoding="utf-8").write(json.dumps("isWindows", indent="4", ensure_ascii=False))
+    print("Please configure the 'isWindows' to false or true on config/conf.json\nIt's looks like this:\"isWindows\": \"\", Change it to:\n\"isWindows\": \"false\" If you are linux\n\"isWindows\": \"true\" If you are windows")
+    print("Exiting...")
+    sys.exit()
 def clearScreen():
-    if isWindows == True:
+    if isWindows == "true":
         os.system("cls")
-    elif isWindows == False:
+    elif isWindows == "false":
         os.system("clear")
 def beep():
     print("\a", end="\r")
@@ -244,6 +256,7 @@ print("Under \"minqwq's License\" 1.0 License.")
 print(colorama.Fore.LIGHTCYAN_EX + "Feel free to improve PY OS Improved!" + color.reset)
 print(" ")
 print("(C) " + color.green + "0x1c Studio " + color.reset + "2022--2023 | (C) " + colorama.Fore.LIGHTRED_EX + "Flandre" + color.red + " Studio " + color.reset + "&" + color.grey + " FCNM " + color.reset + "&" + color.grey + " SnowMio Studios 2022--2025" + color.reset)
+print("The PY OS Improved Project 2024/06/06--Today")
 print(" ")
 time.sleep(3)
 clearScreen()
@@ -391,6 +404,7 @@ while count < 3:
                         print("System:PY OS Improved " + system_version + " " + system_build)
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
+                        print("External programs:" + str(dir_filecount("./extprog")) + "(extprog)")
                         print("Terminal:tty")
                         print("Uptime:" + str(round(int(currentUptimeII))) + " s")
                         print("Host:" + lsh_hostname)
@@ -506,6 +520,7 @@ while count < 3:
                         slowprint("---------------| About |---------------")
                         print(color.blue + "PY OS Improved " + system_version + " " + system_build + color.reset)
                         print("(C) " + color.green + "0x1c Studio " + color.reset + "2022--2023 | (C) " + colorama.Fore.LIGHTRED_EX + "Flandre" + color.red + " Studio " + color.reset + "&" + color.grey + " FCNM " + color.reset + "&" + color.grey + " SnowMio Studios 2022--2025" + color.reset)
+                        print("The PY OS Improved Project 2024/06/06--Today")
                         print(" ")
                         print("add option -c for credits\nadd option -s for support")
                     elif cmd == "about -c" or cmd == "about --credits":

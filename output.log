@@ -1,12 +1,11 @@
-[INFO] Nov Mon 04 21:48:11 2024 | Logger started successfully.
-[INFO] Nov Mon 04 21:48:21 2024 | Start logging.
-[INFO] Nov Mon 04 21:48:21 2024 | Starting PY OS Improved Boot manager.
-[INFO] Nov Mon 04 21:48:22 2024 | Starting main operating system...
-[INFO] Nov Mon 04 21:48:28 2024 | Welcome to PY OS Improved!
-[INFO] Nov Mon 04 21:49:10 2024 | [Command] tty1/lsh: chthm lite
-[INFO] Nov Mon 04 21:49:10 2024 | Shell theme changed to 
-[INFO] Nov Mon 04 21:49:17 2024 | [Command] tty1/lsh: chthm arch_bash
-[INFO] Nov Mon 04 21:49:17 2024 | Shell theme changed to 
-[INFO] Nov Mon 04 21:49:21 2024 | [Command] tty1/lsh: about
-[INFO] Nov Mon 04 22:18:19 2024 | [Command] tty1/lsh: st
-[INFO] Nov Mon 04 22:18:19 2024 | Shutting down.
+[INFO] Nov Thu 07 17:09:46 2024 | Logger started successfully.
+[INFO] Nov Thu 07 17:09:56 2024 | Start logging.
+[INFO] Nov Thu 07 17:09:56 2024 | Starting PY OS Improved Boot manager.
+[INFO] Nov Thu 07 17:09:59 2024 | Starting main operating system...
+[INFO] Nov Thu 07 17:10:05 2024 | Welcome to PY OS Improved!
+[INFO] Nov Thu 07 17:10:16 2024 | [Command] tty1/lsh: about
+[INFO] Nov Thu 07 17:11:29 2024 | [Command] tty1/lsh: tutor
+[INFO] Nov Thu 07 17:12:22 2024 | [Command] tty1/lsh: uwufetch
+[INFO] Nov Thu 07 17:12:32 2024 | [Command] tty1/lsh: extprog
+[INFO] Nov Thu 07 17:14:07 2024 | [Command] tty1/lsh: st
+[INFO] Nov Thu 07 17:14:07 2024 | Shutting down.
