@@ -138,18 +138,19 @@ with open("./config/conf.json", "r", encoding="utf-8") as conf:
 # CONFIG END
 
 # BIOS Animation
-if jsonRead["isWindows"] == "":
-#    print("Unknown OS type, please set one.\n1:Linux\n2:Windows")
-#    conf_isWindows_write = input(">")
-#    if conf_isWindows_write == "1":
-#        jsonRead["isWindows"]="false"
-#        open("./config.conf.json", "w", encoding="utf-8").write(json.dumps("isWindows", indent="4", ensure_ascii=False))
-#    elif conf_isWindows_write == "2":
-#        jsonRead["isWindows"]="true"
-#        open("./config.conf.json", "w", encoding="utf-8").write(json.dumps("isWindows", indent="4", ensure_ascii=False))
-    print("Please configure the 'isWindows' to false or true on config/conf.json\nIt's looks like this:\"isWindows\": \"\", Change it to:\n\"isWindows\": \"false\" If you are linux\n\"isWindows\": \"true\" If you are windows")
-    print("Exiting...")
-    sys.exit()
+# with open("./config/conf.json", "w", encoding="utf-8") as temp_writeConfig:
+    if jsonRead["isWindows"] == "":
+        # print("Unknown OS type, please set one.\nfalse:Linux\ntrue:Windows")
+        # conf_isWindows_write = input(">")
+        if conf_isWindows_write == "false":
+            pass
+            # 这不会写，帮我写一下，就是把配置文件里的"isWindows"值改成"false"("isWindows": "false")
+        elif conf_isWindows_write == "true":
+            pass
+            # 这里和上面一样，不过false改成true
+        print("Please configure the 'isWindows' to false or true on config/conf.json\nIt's looks like this:\"isWindows\": \"\", Change it to:\n\"isWindows\": \"false\" If you are linux\n\"isWindows\": \"true\" If you are windows")
+        print("Exiting...")
+        sys.exit()
 def clearScreen():
     if isWindows == "true":
         os.system("cls")
