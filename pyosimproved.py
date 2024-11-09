@@ -591,8 +591,6 @@ while count < 3:
                         now = datetime.datetime.now()
                         other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
                         print(other_StyleTime)
-                    elif cmd == "uname":
-                        print(os.uname())
                     elif cmd == "caesar":
                         os.system("cd ./apps/caesartools && python caesar.py && cd ../..")
                     elif cmd == "cuscmd":
