@@ -20,12 +20,20 @@
 #
 # 在需要显示反斜杠到屏幕的情况下，请输入两个反斜杠，这是一个兼容性问题
 # --minqwq | 2024-10-07
+import argparse
+from python_goto import goto # Goto a line
+import json # Read json file(config file need this)
+conf = open("./config/conf.json", "r", encoding="utf-8")
+jsonRead = json.load(conf)
+parser = argparse.ArgumentParser( prog='PY OS Improved', description='Ultimate fake operating system!', epilog='If you have issues, go to our official github repo.')
+parser.add_argument("-v", "--version", action="version", version=jsonRead["system_version"])
 import time as tm # Time
 import getpass # Password?
-import datetime # Time?
 import calendar # Calendar
 import os # Communicate to your system
 import sys # idk
+import datetime
+import colorama
 import time # Time
 # import socket
 # import struct
@@ -33,21 +41,19 @@ import time # Time
 import random # Random tools
 import uuid # Generate uuid
 from os import path # Path control
-import colorama # Color
-from colorama import Fore as fore # idk
-from colorama import Back as back
 # import rich.spinner # idk
 # sys.path.append("./")
 import platform
 # import rich
 import requests # Get file from server
 import pretty_errors # Crash screen replace
-from python_goto import goto # Goto a line
 import base64 # Encode and decode
 # import tqdm # Progress bar
 import traceback
 import logging # Log.
-import json # Read json file(config file need this)
+import profile # Maybe useless?
+import re
+print("\033[?25l")
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 # Preload classes
 #
@@ -86,6 +92,9 @@ class textmoji: # Textmojis
     nya1 = "ヽ(=ˆ･ω･ˆ=)丿"
     nah0 = "╮(‵▽′)╭"
 print("Added class 'textmoji'")
+class style_cur:
+    hide = "\033[?25l"
+    show = "\033[?25h"
 class override:
     errorexpection = "teto:ErrorExpection"
     tongue = "teto:a-------"
@@ -125,32 +134,30 @@ os.system("alias cls=clear")
 
 # CONFIG START
 
-with open("./config/conf.json", "r", encoding="utf-8") as conf:
-    jsonRead = json.load(conf)
-    system_version = jsonRead["system_version"] # 版本号
-    system_codename = jsonRead["system_codename"]
-    system_build = jsonRead["system_build"] # 每做一个修改或增减内容，就加一个 Build
-    system_is_beta = False # 是否为 Beta 版
-    isWindows = jsonRead["isWindows"] # 是否为 Windows
-    cmd_theme = jsonRead["cmd_theme"] # 终端 Shell 主题
-    isDev = False # 是否为 Dev 模式
+system_version = jsonRead["system_version"] # 版本号
+system_codename = jsonRead["system_codename"]
+system_build = jsonRead["system_build"] # 每做一个修改或增减内容，就加一个 Build
+system_is_beta = True # 是否为 Beta 版
+isWindows = jsonRead["isWindows"] # 是否为 Windows
+cmd_theme = jsonRead["cmd_theme"] # 终端 Shell 主题
+isDev = False # 是否为 Dev 模式
 
 # CONFIG END
 
 # BIOS Animation
 # with open("./config/conf.json", "w", encoding="utf-8") as temp_writeConfig:
-    if jsonRead["isWindows"] == "":
-        # print("Unknown OS type, please set one.\nfalse:Linux\ntrue:Windows")
-        # conf_isWindows_write = input(">")
-        if conf_isWindows_write == "false":
-            pass
-            # 这不会写，帮我写一下，就是把配置文件里的"isWindows"值改成"false"("isWindows": "false")
-        elif conf_isWindows_write == "true":
-            pass
-            # 这里和上面一样，不过false改成true
-        print("Please configure the 'isWindows' to false or true on config/conf.json\nIt's looks like this:\"isWindows\": \"\", Change it to:\n\"isWindows\": \"false\" If you are linux\n\"isWindows\": \"true\" If you are windows")
-        print("Exiting...")
-        sys.exit()
+if jsonRead["isWindows"] == "":
+    # print("Unknown OS type, please set one.\nfalse:Linux\ntrue:Windows")
+    # conf_isWindows_write = input(">")
+    if conf_isWindows_write == "false":
+        pass
+        # 这不会写，帮我写一下，就是把配置文件里的"isWindows"值改成"false"("isWindows": "false")
+    elif conf_isWindows_write == "true":
+        pass
+        # 这里和上面一样，不过false改成true
+    print("Please configure the 'isWindows' to false or true on config/conf.json\nIt's looks like this:\"isWindows\": \"\", Change it to:\n\"isWindows\": \"false\" If you are linux\n\"isWindows\": \"true\" If you are windows")
+    print("Exiting...")
+    sys.exit()
 def clearScreen():
     if isWindows == "true":
         os.system("cls")
@@ -158,29 +165,23 @@ def clearScreen():
         os.system("clear")
 def beep():
     print("\a", end="\r")
-os.system("clear && clear && clear")
 if sys.platform.startswith("linux") or sys.platform.startswith("posix"):
     print("If you dont have 'python' command, please set alias 'python=python3'")
-print("Press any key to continue...")
-while True:
-    debugMode = input("\n")
-    if debugMode == "d":
-        now = datetime.datetime.now()
-        startingtime_t = "???"
-        end_startingtime = "???"
-        startingtime = "???"
-        print("You are now in debug mode.")
-        print("If crash, dont report ANY error.")
-        goto(line=250)
-    elif debugMode == "v":
-        print(system_version + " " + system_build)
-        sys.exit()
-    elif debugMode == "h":
-        print("d / Enable debug mode")
-        print("v / Show version and exit")
-        print("h / Manual help")
-    else:
-        break
+temp_clock1 = time.time()
+print("Press d to fastboot.\nElse, press enter" + style_cur.show)
+
+if temp_clock1 < 2:
+    goto(line=181)
+debugMode = input("\n")
+if debugMode == "d":
+    now = datetime.datetime.now()
+    startingtime_t = "???"
+    end_startingtime = "???"
+    startingtime = "???"
+    print("You are now in debug mode.")
+    print("If crash, dont report ANY error.")
+    goto(line=250)
+print(style_cur.hide)
 import psutil
 print("module import: psutil")
 print(colorama.Back.LIGHTRED_EX + colorama.Fore.LIGHTYELLOW_EX + "E:NO SINGAL" + color.reset)
@@ -205,6 +206,8 @@ for memtest in range(int(psutil.virtual_memory().total / 1024 / 1024)):
 beep()
 print(str(round(int(psutil.virtual_memory().total / 1024 / 1024))) + "MB OK")
 time.sleep(0.5)
+profile.run("re.compile")
+time.sleep(1.5)
 clearScreen()
 print(color.reset)
 time.sleep(0.1)
@@ -212,7 +215,7 @@ time.sleep(0.1)
 bootManagerLoopRun = True
 logger.info("Start logging.")
 logger.info("Starting PY OS Improved Boot manager.")
-print(colorama.Fore.LIGHTCYAN_EX + "PY OS Improved Boot manager" + color.reset)
+print(colorama.Fore.LIGHTCYAN_EX + "PY OS Improved Boot manager" + color.reset + style_cur.show)
 print("If you dont know which to choose, choose 1.")
 print("\n1:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1\n5:BBC OS 1.2.1")
 while bootManagerLoopRun == True:
@@ -242,12 +245,12 @@ clearScreen()
 logger.info("Starting main operating system...")
 startingtime = time.time()
 os.system("python apps/coreutils/startuplogo/animatedlogo.py")
-print(" ")
+print(" " + style_cur.hide)
 print(random.sample(pyosimprovedtips, 1))
 print(" ")
 if system_is_beta == True: # If is beta version, show this warn
     print(text.error + colorama.Fore.LIGHTYELLOW_EX + "Beta version" + color.reset)
-print("\033[38;5;45m" + "PY " + "\033[38;5;81m" + "OS " + "\033[38;5;117m" + "Im" + "\033[38;5;153m" + "pr" + "\033[38;5;189m" + "ov" + "\033[38;5;225m" + "ed" + color.reset + " | " + system_version + " | " + system_build)
+print(colorama.Fore.LIGHTRED_EX + "Flandre" + color.reset + "/" + "\033[38;5;45m" + "PY " + "\033[38;5;81m" + "OS " + "\033[38;5;117m" + "Im" + "\033[38;5;153m" + "pr" + "\033[38;5;189m" + "ov" + "\033[38;5;225m" + "ed" + color.reset + " | " + system_version + " | " + system_build)
 print("Codename " + system_codename + color.reset)
 print("The Physical You(PY) OS logos is not are registered trademark, you can use it on anywhere.")
 print("Original by AMDISYES | Improved Version by minqwq & bibimingming ヽ(✿ﾟ▽ﾟ)ノ")
@@ -266,7 +269,7 @@ end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
 beep()
 logger.info("Welcome to PY OS Improved!")
-print(colorama.Fore.LIGHTCYAN_EX + "Hewwwo wewcome back to PY OS Improved senpai >.<" + color.reset) # Login screen | For restart to login manager, please goto this line for work normally
+print(colorama.Fore.LIGHTCYAN_EX + "Hewwwo wewcome back to PY OS Improved senpai >.<" + color.reset + style_cur.show) # Login screen | For restart to login manager, please goto this line for work normally
 now = datetime.datetime.now()
 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
 print("Current time: " + colorama.Fore.LIGHTCYAN_EX + other_StyleTime + color.reset)
@@ -417,6 +420,8 @@ while count < 3:
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
+                    elif cmd == "ed":
+                        os.system("python ./apps/ed-editor/edit.py")
                     elif cmd.startswith("extprog"):
                         os.system("python ./extprog/__main__.py")
                     elif cmd.startswith("chthm"):
@@ -424,12 +429,7 @@ while count < 3:
                         logger.info("Shell theme changed to " + cmd[16:])
                         print("Successfully seted shell theme " + cmd[16:])
                     elif cmd == "conf":
-                        print("system_version:" + system_version)
-                        print("system_codename:" + system_codename)
-                        print("system_build:" + system_build)
-                        print("system_is_beta:" + str(system_is_beta))
-                        print("isWindows:" + str(isWindows))
-                        print("cmd_theme:" + cmd_theme)
+                        print("Remaking")
                     elif cmd == "asciicvt":
                         os.system("python ./apps/asciicvt/asciiconverter.py")
                     elif cmd == "tasks":
@@ -555,7 +555,7 @@ while count < 3:
                         print("Restart:reboot or without start by power, rbt")
                         print(" ")
                         print("ex:power reboot")
-                    elif cmd == "power shutdown" or cmd == "st": # Shutdown
+                    elif cmd == "power shutdown" or cmd == "st" or cmd == ":q": # Shutdown
                         logger.info("Shutting down.")
                         clearScreen()
                         sys.exit()
@@ -653,6 +653,7 @@ while count < 3:
                         print("clock          Timer and clock")
                         print("tasks          Critical tasks now will never forgot again.")
                         print("asciicvt       ASCII Converter")
+                        print("ed             Line text editor")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Relax)" + color.reset)
                         print("mp             Play music")
                         print("screensaver    Save your VGA screen, make your pc like a pro")
@@ -729,7 +730,7 @@ while count < 3:
             except Exception as crashReason: # Crash
                 print(colorama.Fore.LIGHTRED_EX + ":(\n\nPY OS Improved has been crashed!\n" + str(crashReason) + "\n" + str(traceback.print_exc()) + "\nSystem Information:\n" + system_version + " " + system_build + "\n")
                 os.system("uname")
-                logger.critical(str(traceback.print_exc()))
+                traceback.print_exc(file="latestcrash.log")
                 logger.critical("PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
                 input("[CRASH - Press any key to shutdown]" + color.reset)
                 sys.exit()
