@@ -53,6 +53,7 @@ import traceback
 import logging # Log.
 import profile # Maybe useless?
 import re
+import autoexec
 print("\033[?25l")
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 # Preload classes
@@ -356,7 +357,7 @@ while count < 3:
                 time.sleep(0.05)
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
-                os.system("python autoexec.py")
+                autoexec.main()
                 if isDev == True:
                     print("Logged into dev account, some command may unlocked!")
                 print("\nLarine SHell (lsh) version 1.6.1 >///<\nit's a wittwe user non-fwiendwy shell...")

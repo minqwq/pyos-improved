@@ -1,3 +1,3 @@
-# This file will run at login after welcome text.
-# If you dont know how to write, start by print("Hello World!")
-lsh_end = ""
+def main():
+    # Auto-execute command start here
+    cmd_theme = "lite"
