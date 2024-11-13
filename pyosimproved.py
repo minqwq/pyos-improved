@@ -128,6 +128,16 @@ def dir_filecount(directory):
     for _, _, files in os.walk(directory):
         count += len(files)
         return count
+def cbatteryperc():
+    try:
+        if psutil.sensors_battery().percent > 21:
+            print("Warning: Battery percent is low now(20%), you may need to charge your battery")
+        elif psutol.sensors_battery().percent > 11:
+            print("Warning: Battery percent is very low now...(10%)")
+        elif psutil.sensors_battery().percent > 6:
+            print("Warning: Why not go to charge battery now?(5%)")
+    except FileNotFoundError:
+        pass
 pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-improved", "awa", "Also try original PY OS! link available after login.", "No stay back gordon!", "sjsjsjnwnwjsosjq????"]
 print("Tips loaded success")
 os.system("alias cls=clear")
@@ -380,6 +390,7 @@ while count < 3:
                   # lsh_username = os.system("whoami")
                     cmd = input(cmd_pre)
                     logger.info("[Command] tty1/lsh: " + cmd)
+                    cbatteryperc() # Check battery percent
                     if cmd == "ls": # Path
                         if isWindows == True:
                             print("root path:")
@@ -406,6 +417,8 @@ while count < 3:
                         print(color.purple + "      --- Improved ---       " + color.reset)
                         print(user + "@" + lsh_hostname)
                         print("System:PY OS Improved " + system_version + " " + system_build)
+                        print("Running on:", end="")
+                        running_on = str(os.system("python ./apps/coreutils/tinythings/detectdistro_linux/distrodetect.py"))
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
                         print("External programs:" + str(dir_filecount("./extprog")) + "(extprog)")
