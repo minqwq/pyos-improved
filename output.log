@@ -1,11 +1,6 @@
-[INFO] Nov Thu 07 17:09:46 2024 | Logger started successfully.
-[INFO] Nov Thu 07 17:09:56 2024 | Start logging.
-[INFO] Nov Thu 07 17:09:56 2024 | Starting PY OS Improved Boot manager.
-[INFO] Nov Thu 07 17:09:59 2024 | Starting main operating system...
-[INFO] Nov Thu 07 17:10:05 2024 | Welcome to PY OS Improved!
-[INFO] Nov Thu 07 17:10:16 2024 | [Command] tty1/lsh: about
-[INFO] Nov Thu 07 17:11:29 2024 | [Command] tty1/lsh: tutor
-[INFO] Nov Thu 07 17:12:22 2024 | [Command] tty1/lsh: uwufetch
-[INFO] Nov Thu 07 17:12:32 2024 | [Command] tty1/lsh: extprog
-[INFO] Nov Thu 07 17:14:07 2024 | [Command] tty1/lsh: st
-[INFO] Nov Thu 07 17:14:07 2024 | Shutting down.
+[INFO] Nov Wed 13 17:27:15 2024 | Logger started successfully.
+[INFO] Nov Wed 13 17:27:25 2024 | Start logging.
+[INFO] Nov Wed 13 17:27:25 2024 | Starting PY OS Improved Boot manager.
+[INFO] Nov Wed 13 17:27:25 2024 | Starting main operating system...
+[INFO] Nov Wed 13 17:27:31 2024 | Welcome to PY OS Improved!
+[INFO] Nov Wed 13 17:27:35 2024 | [Command] tty1/lsh: uwufetch

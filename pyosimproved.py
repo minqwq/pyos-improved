@@ -53,6 +53,7 @@ import traceback
 import logging # Log.
 import profile # Maybe useless?
 import re
+import autoexec
 print("\033[?25l")
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 # Preload classes
@@ -132,12 +133,17 @@ def cbatteryperc():
     try:
         if psutil.sensors_battery().percent > 21:
             print("Warning: Battery percent is low now(20%), you may need to charge your battery")
-        elif psutol.sensors_battery().percent > 11:
+        elif psutil.sensors_battery().percent > 11:
             print("Warning: Battery percent is very low now...(10%)")
         elif psutil.sensors_battery().percent > 6:
             print("Warning: Why not go to charge battery now?(5%)")
     except FileNotFoundError:
         pass
+def linuxUtil_detectDistro():
+    if platform.system() == "Linux":
+        os.system("python ./apps/coreutils/tinythings/detectdistro_linux/distrodetect.py")
+    else:
+        platform.system()
 pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-improved", "awa", "Also try original PY OS! link available after login.", "No stay back gordon!", "sjsjsjnwnwjsosjq????"]
 print("Tips loaded success")
 os.system("alias cls=clear")
@@ -366,7 +372,7 @@ while count < 3:
                 time.sleep(0.05)
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
-                os.system("python autoexec.py")
+                autoexec.main()
                 if isDev == True:
                     print("Logged into dev account, some command may unlocked!")
                 print("\nLarine SHell (lsh) version 1.6.1 >///<\nit's a wittwe user non-fwiendwy shell...")
@@ -418,7 +424,7 @@ while count < 3:
                         print(user + "@" + lsh_hostname)
                         print("System:PY OS Improved " + system_version + " " + system_build)
                         print("Running on:", end="")
-                        running_on = str(os.system("python ./apps/coreutils/tinythings/detectdistro_linux/distrodetect.py"))
+                        running_on = linuxUtil_detectDistro()
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
                         print("External programs:" + str(dir_filecount("./extprog")) + "(extprog)")
@@ -604,8 +610,6 @@ while count < 3:
                         now = datetime.datetime.now()
                         other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
                         print(other_StyleTime)
-                    elif cmd == "uname":
-                        print(os.uname())
                     elif cmd == "caesar":
                         os.system("cd ./apps/caesartools && python caesar.py && cd ../..")
                     elif cmd == "cuscmd":
