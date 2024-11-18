@@ -20,6 +20,9 @@
 #
 # 在需要显示反斜杠到屏幕的情况下，请输入两个反斜杠，这是一个兼容性问题
 # --minqwq | 2024-10-07
+import resource
+from coreutil.module.actions import *
+usage_before = resource.getrusage(resource.RUSAGE_SELF)
 import argparse
 from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
@@ -46,7 +49,7 @@ from os import path # Path control
 import platform
 # import rich
 import requests # Get file from server
-import pretty_errors # Crash screen replace
+# import pretty_errors # Crash screen replace
 import base64 # Encode and decode
 # import tqdm # Progress bar
 import traceback
@@ -54,6 +57,7 @@ import logging # Log.
 import profile # Maybe useless?
 import re
 import autoexec
+# import coreutil.module.history as history
 print("\033[?25l")
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 # Preload classes
@@ -101,49 +105,20 @@ class override:
     tongue = "teto:a-------"
 def echo(string):
     print(string)
-pretty_errors.configure(
-    postfix               = '!!! FALLBACK CRASH SCREEN !!!\nPY OS Improved has been crashed.\nRestart command:python pyosimproved.py\nReport this error!:https://github.com/minqwq/pyos-improved/issues',
-    separator_character   = '#',
-    line_color            = colorama.Fore.LIGHTBLUE_EX + 'Here > ' + color.reset,
-)
-print("config updated for pretty-errors")
+# pretty_errors.configure(
+#    postfix               = '!!! FALLBACK CRASH SCREEN !!!\nPY OS Improved has been crashed.\nRestart command:python pyosimproved.py\nReport this error!:https://github.com/minqwq/pyos-improved/issues',
+#    separator_character   = '#',
+#    line_color            = colorama.Fore.LIGHTBLUE_EX + 'Here > ' + color.reset,
+# print("config updated for pretty-errors")
 try:
     os.remove("output.log")
 except FileNotFoundError:
     pass
+cmdhist_lines = 0
 LOG_FORMAT = '[%(levelname)s] %(asctime)s | %(message)s'
-logging.basicConfig(filename='output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
+logging.basicConfig(filename='.output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
 logger.info("Logger started successfully.")
-def dotLoader(howMany, howSlow):
-    for dotLoader_time in range(howMany):
-        print(".", end="")
-        time.sleep(howSlow)
-def slowprint(text):
-    for blyat in text:
-        print(blyat, end="", flush=True)
-        time.sleep(0.005)
-    print("")
-def dir_filecount(directory):
-    count = 0
-    for _, _, files in os.walk(directory):
-        count += len(files)
-        return count
-def cbatteryperc():
-    try:
-        if psutil.sensors_battery().percent > 21:
-            print("Warning: Battery percent is low now(20%), you may need to charge your battery")
-        elif psutil.sensors_battery().percent > 11:
-            print("Warning: Battery percent is very low now...(10%)")
-        elif psutil.sensors_battery().percent > 6:
-            print("Warning: Why not go to charge battery now?(5%)")
-    except FileNotFoundError:
-        pass
-def linuxUtil_detectDistro():
-    if platform.system() == "Linux":
-        os.system("python ./apps/coreutils/tinythings/detectdistro_linux/distrodetect.py")
-    else:
-        platform.system()
 pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-improved", "awa", "Also try original PY OS! link available after login.", "No stay back gordon!", "sjsjsjnwnwjsosjq????"]
 print("Tips loaded success")
 os.system("alias cls=clear")
@@ -160,6 +135,11 @@ isDev = False # 是否为 Dev 模式
 
 # CONFIG END
 
+def cmdhistory_write():
+    tmp_f = open("./cache/history.txt", "a", encoding="utf-8")
+    # cmdhist_lines += 1
+    cmdhist_time = datetime.datetime.now().strftime("%b %a %d %H:%M:%S %Y")
+    tmp_f.write(str(cmdhist_time) + " " + user + ":" + lsh_hostname + " | " + cmd + "\n")
 # BIOS Animation
 # with open("./config/conf.json", "w", encoding="utf-8") as temp_writeConfig:
 if jsonRead["isWindows"] == "":
@@ -196,7 +176,7 @@ if debugMode == "d":
     startingtime = "???"
     print("You are now in debug mode.")
     print("If crash, dont report ANY error.")
-    goto(line=250)
+    goto(line=271)
 print(style_cur.hide)
 import psutil
 print("module import: psutil")
@@ -216,11 +196,13 @@ slowprint(colorama.Fore.LIGHTGREEN_EX + "minsoft 2011--2025 No lefts unserved")
 slowprint("EveryBooter v1.0")
 slowprint("Testing memory...")
 time.sleep(0.15)
-for memtest in range(int(psutil.virtual_memory().total / 1024 / 1024)):
-    print(str(memtest), end="\r")
-    time.sleep(0.0005)
+memtest = 0
+for memtest in range(129):
+    print(str(memtest) + "MB", end="\r")
+    time.sleep(0.02)
+    memtest = memtest + 1
 beep()
-print(str(round(int(psutil.virtual_memory().total / 1024 / 1024))) + "MB OK")
+print("128MB OK")
 time.sleep(0.5)
 profile.run("re.compile")
 time.sleep(1.5)
@@ -376,6 +358,7 @@ while count < 3:
                 if isDev == True:
                     print("Logged into dev account, some command may unlocked!")
                 print("\nLarine SHell (lsh) version 1.6.1 >///<\nit's a wittwe user non-fwiendwy shell...")
+                tmp_outolog = open(".output.log", "a", encoding="utf-8")
                 while count < 3:
                     if cmd_theme == "default":
                         cmd_pre = colorama.Fore.LIGHTBLUE_EX + user + color.grey + ":" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " > " + color.reset
@@ -389,23 +372,23 @@ while count < 3:
                         print("Theme not found! falling to default.")
                         print("Available theme name:default, lite, debian_bash, arch_bash")
                         cmd_theme = "default"
-                  # Line 246 is a critical process, dont change it   --minqwq
                     lsh_time_prepare = datetime.datetime.now()
                     lsh_time = lsh_time_prepare.strftime("%H:%M:%S")
                     print("[" + lsh_time + "]", end=" ")
                   # lsh_username = os.system("whoami")
                     cmd = input(cmd_pre)
                     logger.info("[Command] tty1/lsh: " + cmd)
+                    cmdhistory_write()
                     cbatteryperc() # Check battery percent
                     if cmd == "ls": # Path
-                        if isWindows == True:
+                        if isWindows == "false":
                             print("root path:")
                             os.system("ls ./")
                             print("programs path:")
                             os.system("ls ./apps/")
                             print("music path:")
                             os.system("ls ./music/")
-                        elif isWindows == False:
+                        elif isWindows == "true":
                             print("root path:")
                             os.system("dir .\\")
                             print("programs path:")
@@ -415,6 +398,7 @@ while count < 3:
                     elif cmd == "uwufetch": # a Fake neofetch
                         currentUptime = time.time()
                         currentUptimeII = currentUptime - end_startingtime
+                        usage_after = resource.getrusage(resource.RUSAGE_SELF)
                         print(color.blue + "  ______   __     ___  ____  ")
                         print(" |  _ \ \ / /    / _ \/ ___| ")
                         print(color.cyan + " | |_) \ V /    | | | \___ \ ")
@@ -422,8 +406,7 @@ while count < 3:
                         print(" |_|    |_|      \___/|____/ " + color.reset)
                         print(color.purple + "      --- Improved ---       " + color.reset)
                         print(user + "@" + lsh_hostname)
-                        print("System:PY OS Improved " + system_version + " " + system_build)
-                        print("Running on:", end="")
+                        print("System:PY OS Improved " + system_version + " " + system_build + "\nRunning on:", end="")
                         running_on = linuxUtil_detectDistro()
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
@@ -433,12 +416,18 @@ while count < 3:
                         print("Host:" + lsh_hostname)
                         print("CPU:Intel Pentium(133MHz)")
                         print("GPU:Cirrus Logic GD 5446(4MB)")
-                        print("Memory: " + str(round(int(psutil.virtual_memory().total / 1024 / 1024))) + " MB")
+                        print("Memory: " + "128" + " MB, Used:", end="")
+                        print(f"{(usage_after.ru_maxrss - usage_before.ru_maxrss) / 1024:.2f}MB")
                         print("Sound Card:?")
                         print("Ethernet Card:?")
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
+                    elif cmd.startswith("stdoutredirect"):
+                        if cmd[16:] == "":
+                            print("No string provided.")
+                        else:
+                            sys.stdout = cmd[16:]
                     elif cmd == "ed":
                         os.system("python ./apps/ed-editor/edit.py")
                     elif cmd.startswith("extprog"):
@@ -641,55 +630,56 @@ while count < 3:
                     elif cmd == "help": # Command list
                         print("Larine Shell manual help:")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(System)" + color.reset)
-                        print("ls             View the path")
-                        print("about          Show the system's information")
-                        print("converter      A tool to convert .lpap/.lpcu/.bbc to .umm")
-                        print("time           Show the time and date(Deteled in this version)")
-                        print("calendar       Show a calendar")
-                        print("clear          Clear the screen")
-                        print(color.red + "passwd <str>   Change password for this session" + color.reset)
-                        print("power          Power manager")
-                        print("exit           Lock system")
-                        print("hostname       Show hostname")
-                        print("echo <str>     Print text to screen ")
-                        print("rm <str>       Remove file")
-                        print("rmdir <str>    Remove directory")
-                        print("su <str>       Switch user")
-                        print("rss            RSS Feed reader")
-                        print("conf           Show the current config")
-                        print("chthm <name>   Change theme of the shell")
-                        print("extprog        Run external program")
+                        print("ls                View the path")
+                        print("about             Show the system's information")
+                        print("converter         A tool to convert .lpap/.lpcu/.bbc to .umm")
+                        print("time              Show the time and date(Deteled in this version)")
+                        print("calendar          Show a calendar")
+                        print("clear             Clear the screen")
+                        print(color.red + "passwd <str>      Change password for this session" + color.reset)
+                        print("power             Power manager")
+                        print("exit              Lock system")
+                        print("hostname          Show hostname")
+                        print("echo <str>        Print text to screen ")
+                        print("rm <str>          Remove file")
+                        print("rmdir <str>       Remove directory")
+                        print("su <str>          Switch user")
+                        print("rss               RSS Feed reader")
+                        print("conf              Show the current config")
+                        print("chthm <name>      Change theme of the shell")
+                        print("extprog           Run external program")
+                        print("stdoutredirect    Redirect standard output to other place(example:a filename)")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Tools)" + color.reset)
-                        print("calc           A simple calculator")
-                        print("uwufetch       List all hardware and system version")
-                        print("caesar         Caesar encryption tools")
-                        print(color.red + "fm             Ranger file manager" + color.reset)
-                        print("sticker        notepad but can't save content")
-                        print("fileget        Get any file from internet")
-                        print("paint          Paint(image maker app)")
-                        print("clock          Timer and clock")
-                        print("tasks          Critical tasks now will never forgot again.")
-                        print("asciicvt       ASCII Converter")
-                        print("ed             Line text editor")
+                        print("calc              A simple calculator")
+                        print("uwufetch          List all hardware and system version")
+                        print("caesar            Caesar encryption tools")
+                        print(color.red + "fm                Ranger file manager" + color.reset)
+                        print("sticker           notepad but can't save content")
+                        print("fileget           Get any file from internet")
+                        print("paint             Paint(image maker app)")
+                        print("clock             Timer and clock")
+                        print("tasks             Critical tasks now will never forgot again.")
+                        print("asciicvt          ASCII Converter")
+                        print("ed                Line text editor")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Relax)" + color.reset)
-                        print("mp             Play music")
-                        print("screensaver    Save your VGA screen, make your pc like a pro")
+                        print("mp                Play music")
+                        print("screensaver       Save your VGA screen, make your pc like a pro")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Games)" + color.reset)
-                        print("tetris         Tetris game written using Python")
-                        print("guessnum       Guess number game written using Python")
-                        print("demine         Minesweeper game written using C")
-                        print("ttt            tic-tac-toe game written using Python")
-                        print("2048           2048 in Terminal")
+                        print("tetris            Tetris game written using Python")
+                        print("guessnum          Guess number game written using Python")
+                        print("demine            Minesweeper game written using C")
+                        print("ttt               tic-tac-toe game written using Python")
+                        print("2048              2048 in Terminal")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Networking)" + color.reset)
-                        print("nekochat       Online chatting client and server by Yukari2024")
-                        print("ping           Ping tool")
-                        print("rss            RSS Reader by erkankavas")
+                        print("nekochat          Online chatting client and server by Yukari2024")
+                        print("ping              Ping tool")
+                        print("rss               RSS Reader by erkankavas")
                         print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE +  "(Other)" + color.reset)
-                        print("cuscmd         Run custom command")
-                        print(color.red + "news           Show latest news of PY OS Improved." + color.reset)
-                        print("uptime         Show (this)system uptime")
-                        print("pftest         CPU Performance Test")
-                        print("tutor          Help document for new")
+                        print("cuscmd            Run custom command")
+                        print(color.red + "news              Show latest news of PY OS Improved." + color.reset)
+                        print("uptime            Show (this)system uptime")
+                        print("pftest            CPU Performance Test")
+                        print("tutor             Help document for new")
                     elif cmd == "time --help": # time command help
                         print("Time command options:")
                         print("--help         Show this help")

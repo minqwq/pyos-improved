@@ -34,7 +34,7 @@ while var == 1:
             goto(lines=17)
         i = os.system("cat ./mpeglist.txt")
         mpMPEGPlay = input("Type a music filename: ")
-        i = os.system("mpg123 -q https://www.minqwq.us.kg/audio/mp3_64kbps/" + mpMPEGPlay)
+        i = os.system("mpg123 -q https://minqwq.us.kg/audio/mp3_64kbps/" + mpMPEGPlay)
     elif cmd == "list":
         print("musicname <type> play filename")
         print(colorama.Fore.BLACK + colorama.Back.WHITE + "Module(xm, mod, s3m)" + color.reset)
