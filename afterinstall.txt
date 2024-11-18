@@ -1,0 +1,6 @@
+After install, you need to modify the config to start PY OS Improved.
+Config file location:config/conf.json
+
+And find "isWindows" line
+After finded this, change "" in this line to "true" or "false"
+Enjoy...
