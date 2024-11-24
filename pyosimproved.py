@@ -148,11 +148,11 @@ def cmdhistory_write():
 if jsonRead["isWindows"] == "":
     # print("Unknown OS type, please set one.\nfalse:Linux\ntrue:Windows")
     # conf_isWindows_write = input(">")
-    if conf_isWindows_write == "false":
-        pass
+    # if conf_isWindows_write == "false":
+        # pass
         # 这不会写，帮我写一下，就是把配置文件里的"isWindows"值改成"false"("isWindows": "false")
-    elif conf_isWindows_write == "true":
-        pass
+    # elif conf_isWindows_write == "true":
+        # pass
         # 这里和上面一样，不过false改成true
     print("Please configure the 'isWindows' to false or true on config/conf.json\nIt's looks like this:\"isWindows\": \"\", Change it to:\n\"isWindows\": \"false\" If you are linux\n\"isWindows\": \"true\" If you are windows")
     print("Exiting...")
