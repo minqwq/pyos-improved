@@ -1,7 +1,7 @@
 import requests
 import datetime
 
-Api_key = '2154faddb71353e0e8e2b62421209689' # Please lessly use this program, this key is 1000 requests/day max
+Api_key = '2154faddb71353e0e8e2b62421209689' # Please lessly use this program, this key is only 1000 requests/day max
 base_url = 'http://api.openweathermap.org/data/2.5/weather'
 
 city = input('Enter a city/state name: ')

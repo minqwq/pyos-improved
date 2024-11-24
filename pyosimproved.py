@@ -115,6 +115,7 @@ try:
 except FileNotFoundError:
     pass
 cmdhist_lines = 0
+cmdhist_time = "nul"
 LOG_FORMAT = '[%(levelname)s] %(asctime)s | %(message)s'
 logging.basicConfig(filename='.output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
@@ -134,11 +135,13 @@ cmd_theme = jsonRead["cmd_theme"] # 终端 Shell 主题
 isDev = False # 是否为 Dev 模式
 
 # CONFIG END
-
+# coreutil/plaintext loads START
+co_manualHelp = "coreutil/plaintext/manualhelp.txt"
+co_welcome = "coreutil/plaintext/welcome.txt"
 def cmdhistory_write():
     tmp_f = open("./cache/history.txt", "a", encoding="utf-8")
     # cmdhist_lines += 1
-    cmdhist_time = datetime.datetime.now().strftime("%b %a %d %H:%M:%S %Y")
+    cmdhist_timed = datetime.datetime.now().strftime("%b %a %d %H:%M:%S %Y")
     tmp_f.write(str(cmdhist_time) + " " + user + ":" + lsh_hostname + " | " + cmd + "\n")
 # BIOS Animation
 # with open("./config/conf.json", "w", encoding="utf-8") as temp_writeConfig:
@@ -340,20 +343,10 @@ while count < 3:
                         clearScreen()
                         sys.exit()
                 beep()
-                print("h-hewwo there, my sweetie senpai x3")
-                print("Welcome to PY OS Improved " + system_version + " >///<")
-                print("* Visit our awesome website: https://www.minqwq.us.kg/pyosimproved")
-                print("* Come join our telegram group: @pyosimproved")
-                print("* IRC Chat: pyos-improved@irc.freenode.net:6667")
-                time.sleep(0.05)
-                print("\nIf you need some help, pwease senpai, email me at minqwq723897@outlook.com, i w-will gladly help you uwu")
-                print("If you have any issues, pwease open an issue h-here: https://github.com/minqwq/pyos-improved/issues")
-                print("Powered by PyOS(Previously known as BBC OS)")
-                print("Wanna try PyOS? link here:https://github.com/AMDISYES/pyos_core")
-                print("Help document for new:input " + colorama.Fore.LIGHTGREEN_EX + "tutor" + color.reset + " and will show help for first using people.")
-                time.sleep(0.05)
+                cat(co_welcome)
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
+                welcome_withDetectTime(user)
                 autoexec.main()
                 if isDev == True:
                     print("Logged into dev account, some command may unlocked!")
@@ -423,6 +416,8 @@ while count < 3:
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
+                    elif cmd == "weather":
+                        os.system("python ./apps/weather/weather-api.py")
                     elif cmd.startswith("stdoutredirect"):
                         if cmd[16:] == "":
                             print("No string provided.")
@@ -628,58 +623,7 @@ while count < 3:
                     elif cmd == "calcurse":
                         os.system("calcurse")
                     elif cmd == "help": # Command list
-                        print("Larine Shell manual help:")
-                        print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(System)" + color.reset)
-                        print("ls                View the path")
-                        print("about             Show the system's information")
-                        print("converter         A tool to convert .lpap/.lpcu/.bbc to .umm")
-                        print("time              Show the time and date(Deteled in this version)")
-                        print("calendar          Show a calendar")
-                        print("clear             Clear the screen")
-                        print(color.red + "passwd <str>      Change password for this session" + color.reset)
-                        print("power             Power manager")
-                        print("exit              Lock system")
-                        print("hostname          Show hostname")
-                        print("echo <str>        Print text to screen ")
-                        print("rm <str>          Remove file")
-                        print("rmdir <str>       Remove directory")
-                        print("su <str>          Switch user")
-                        print("rss               RSS Feed reader")
-                        print("conf              Show the current config")
-                        print("chthm <name>      Change theme of the shell")
-                        print("extprog           Run external program")
-                        print("stdoutredirect    Redirect standard output to other place(example:a filename)")
-                        print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Tools)" + color.reset)
-                        print("calc              A simple calculator")
-                        print("uwufetch          List all hardware and system version")
-                        print("caesar            Caesar encryption tools")
-                        print(color.red + "fm                Ranger file manager" + color.reset)
-                        print("sticker           notepad but can't save content")
-                        print("fileget           Get any file from internet")
-                        print("paint             Paint(image maker app)")
-                        print("clock             Timer and clock")
-                        print("tasks             Critical tasks now will never forgot again.")
-                        print("asciicvt          ASCII Converter")
-                        print("ed                Line text editor")
-                        print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Relax)" + color.reset)
-                        print("mp                Play music")
-                        print("screensaver       Save your VGA screen, make your pc like a pro")
-                        print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Games)" + color.reset)
-                        print("tetris            Tetris game written using Python")
-                        print("guessnum          Guess number game written using Python")
-                        print("demine            Minesweeper game written using C")
-                        print("ttt               tic-tac-toe game written using Python")
-                        print("2048              2048 in Terminal")
-                        print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE + "(Networking)" + color.reset)
-                        print("nekochat          Online chatting client and server by Yukari2024")
-                        print("ping              Ping tool")
-                        print("rss               RSS Reader by erkankavas")
-                        print(colorama.Back.LIGHTBLUE_EX + colorama.Fore.WHITE +  "(Other)" + color.reset)
-                        print("cuscmd            Run custom command")
-                        print(color.red + "news              Show latest news of PY OS Improved." + color.reset)
-                        print("uptime            Show (this)system uptime")
-                        print("pftest            CPU Performance Test")
-                        print("tutor             Help document for new")
+                        cat(co_manualHelp)
                     elif cmd == "time --help": # time command help
                         print("Time command options:")
                         print("--help         Show this help")

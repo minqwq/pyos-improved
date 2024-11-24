@@ -2,6 +2,7 @@ import psutil
 import os
 import time
 import platform
+import datetime
 def dotLoader(howMany, howSlow):
     for dotLoader_time in range(howMany):
         print(".", end="")
@@ -31,3 +32,21 @@ def linuxUtil_detectDistro():
         os.system("python ./apps/coreutils/tinythings/detectdistro_linux/distrodetect.py")
     else:
         platform.system()
+def welcome_withDetectTime(username):
+    dtn = datetime.datetime.now()
+    if int(dtn.strftime("%H")) >= 6:
+        print("Yo " + username + ", Good morning!")
+    elif int(dtn.strftime("%H")) >= 12:
+        print("It's noon " + username + ", go eat something...")
+    elif int(dtn.strftime("%H")) >= 14:
+        print("Good afternoon " + username + "!")
+    elif int(dtn.strftime("%H")) >= 18:
+        print("It's night now, still working, " + username + "?")
+    elif int(dtn.strftime("%H")) >= 21:
+        print("Time to sleep, " + username + ".")
+    elif int(dtn.strftime("%H")) >= 0:
+        print("It's overnight now, why not go to sleep " + username + "?")
+def cat(file):
+    tmp_catcore = open(file, "r", encoding="utf-8")
+    for content in tmp_catcore:
+        print(content, end="")

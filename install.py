@@ -5,6 +5,7 @@
 import os
 
 program_name = "PY OS Improved"
+print("Scarlet Software Installer | by Flandre Studio")
 print("Welcome to " + program_name + " Installer!")
 print("This program let you install " + program_name + " completely.")
 

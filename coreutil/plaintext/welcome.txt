@@ -1,0 +1,18 @@
+Welcome to PY OS Improved!
+
+GitHub Repo:    minqwq/pyos-improved
+Forums:         https://minqwq.proboards.com/board/10/py-os-improved
+News(Website):  https://flandre-studio.github.io
+News(TXT):      https://minqwq.us.kg/pyosimproved/news/latest.txt
+
+The Improved version added too much programs and it's maybe better than MPGA.
+Type "help" to show them.
+
+We also support external program, type "extprog" to run:
+
+ - "__exit__":  Exit extprog
+ - Else:        start program name
+
+And we hope you try the original PY OS
+It's rebirth on Jul 15 2024
+If you want to try, go to this GitHuh Repo:Meltide/mpga-pyos
