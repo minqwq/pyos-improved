@@ -88,3 +88,37 @@ nul port:ayaya | a
 nul port:ayaya | a
 nul min:ayaya | uwufetch
 nul min:ayaya | exit
+nul [94m(CRTRACT) minqwq[0m:ayaya | help
+nul [94m(CRTRACT) minqwq[0m:ayaya | 
+nul [94m(CRTRACT) minqwq[0m:ayaya | 
+nul [94m(CRTRACT) minqwq[0m:ayaya | 
+nul [94m(CRTRACT) minqwq[0m:ayaya | 
+nul [94m(CRTRACT) minqwq[0m:ayaya | demine
+nul [94m(CRTRACT) minqwq[0m:ayaya | 
+nul [94m(CRTRACT) minqwq[0m:ayaya | help
+nul [94m(CRTRACT) minqwq[0m:ayaya | 
+nul [94m(CRTRACT) minqwq[0m:ayaya | help
+nul min:ayaya | st
+nul k:ayaya | uwufetch
+nul k:ayaya | uwufetch
+nul k:ayaya | uwufetch
+nul k:ayaya | clear
+nul k:ayaya | exit
+nul [94m(CRTRACT) minqwq[0m:ayaya | 
+nul [94m(CRTRACT) minqwq[0m:ayaya | help
+nul [94m(CRTRACT) minqwq[0m:ayaya | about
+nul min:ayaya | about
+nul min:ayaya | about -s
+nul 1:ayaya | 
+nul 1:ayaya | chthm default_v2
+nul 1:ayaya | 
+nul 1:ayaya | 
+nul 1:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 

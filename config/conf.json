@@ -1,7 +1,8 @@
 {
-    "system_version": "1.3.3 Prerelease 1",
+    "system_version": "1.3.3 Release",
     "system_codename": "Defined young girl",
-    "system_build": "Build 312",
-    "isWindows": "",
-    "cmd_theme": "default"
+    "system_build": "Build 319",
+    "isWindows": "false",
+    "cmd_theme": "default_v2",
+    "enable_instant_show_time": "false"
 }

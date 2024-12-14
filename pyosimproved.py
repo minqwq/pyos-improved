@@ -22,6 +22,7 @@
 # --minqwq | 2024-10-07
 import resource
 from coreutil.module.actions import *
+from coreutil.module.style import *
 usage_before = resource.getrusage(resource.RUSAGE_SELF)
 import argparse
 from python_goto import goto # Goto a line
@@ -133,6 +134,7 @@ system_is_beta = True # 是否为 Beta 版
 isWindows = jsonRead["isWindows"] # 是否为 Windows
 cmd_theme = jsonRead["cmd_theme"] # 终端 Shell 主题
 isDev = False # 是否为 Dev 模式
+enable_instant_show_time = jsonRead["enable_instant_show_time"]
 
 # CONFIG END
 # coreutil/plaintext loads START
@@ -260,7 +262,9 @@ print("PY OS Improved is a open source software and you can share it freedomly")
 print("Under \"minqwq's License\" 1.0 License.")
 print(colorama.Fore.LIGHTCYAN_EX + "Feel free to improve PY OS Improved!" + color.reset)
 print(" ")
-print("(C) " + color.green + "0x1c Studio " + color.reset + "2022--2023 | (C) " + colorama.Fore.LIGHTRED_EX + "Flandre" + color.red + " Studio " + color.reset + "&" + color.grey + " FCNM " + color.reset + "&" + color.grey + " SnowMio Studios 2022--2025" + color.reset)
+sk_act_about()
+sk_stl_about()
+print("\n(C) " + color.green + "0x1c Studio " + color.reset + "2022--2023 | (C) " + colorama.Fore.LIGHTRED_EX + "Flandre" + color.red + " Studio " + color.reset + "&" + color.grey + " FCNM " + color.reset + "&" + color.grey + " SnowMio Studios 2022--2025" + color.reset)
 print("The PY OS Improved Project 2024/06/06--Today")
 print(" ")
 time.sleep(3)
@@ -355,6 +359,8 @@ while count < 3:
                 while count < 3:
                     if cmd_theme == "default":
                         cmd_pre = colorama.Fore.LIGHTBLUE_EX + user + color.grey + ":" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " > " + color.reset
+                    elif cmd_theme == "default_v2":
+                        cmd_pre = color.green + user + ":" + lsh_hostname + color.reset + " [ / ] " + color.green + "$ " + color.reset
                     elif cmd_theme == "lite":
                         cmd_pre = colorama.Fore.GREEN + user + colorama.Fore.LIGHTGREEN_EX + " : " + color.reset
                     elif cmd_theme == "debian_bash":
@@ -363,11 +369,14 @@ while count < 3:
                         cmd_pre = "[" + user + "@" + lsh_hostname + " ~ ] $ "
                     else:
                         print("Theme not found! falling to default.")
-                        print("Available theme name:default, lite, debian_bash, arch_bash")
+                        print("Available theme name:default_v2, default, lite, debian_bash, arch_bash")
                         cmd_theme = "default"
                     lsh_time_prepare = datetime.datetime.now()
                     lsh_time = lsh_time_prepare.strftime("%H:%M:%S")
-                    print("[" + lsh_time + "]", end=" ")
+                    if enable_instant_show_time == "true":
+                        print("[" + lsh_time + "]", end=" ")
+                    elif enable_instant_show_time == "false":
+                        pass
                   # lsh_username = os.system("whoami")
                     cmd = input(cmd_pre)
                     logger.info("[Command] tty1/lsh: " + cmd)

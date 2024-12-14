@@ -3,6 +3,8 @@ import os
 import time
 import platform
 import datetime
+def sk_act_about():
+    print("ScarletKernel / CoreUtil:Actions / 1.3_R0")
 def dotLoader(howMany, howSlow):
     for dotLoader_time in range(howMany):
         print(".", end="")
