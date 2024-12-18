@@ -4,7 +4,7 @@ import time
 import platform
 import datetime
 def sk_act_about():
-    print("ScarletKernel / CoreUtil:Actions / 1.3_R0")
+    print("ScarletKernel / CoreUtil:Actions / 1.3_R1")
 def dotLoader(howMany, howSlow):
     for dotLoader_time in range(howMany):
         print(".", end="")
@@ -27,7 +27,7 @@ def cbatteryperc():
             print("Warning: Battery percent is very low now...(10%)")
         elif psutil.sensors_battery().percent > 6:
             print("Warning: Why not go to charge battery now?(5%)")
-    except FileNotFoundError:
+    except Exception:
         pass
 def linuxUtil_detectDistro():
     if platform.system() == "Linux":

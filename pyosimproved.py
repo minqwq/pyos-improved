@@ -247,26 +247,15 @@ clearScreen()
 # Startup screen
 logger.info("Starting main operating system...")
 startingtime = time.time()
-os.system("python apps/coreutils/startuplogo/animatedlogo.py")
-print(" " + style_cur.hide)
-print(random.sample(pyosimprovedtips, 1))
-print(" ")
+print("Starting up...")
 if system_is_beta == True: # If is beta version, show this warn
-    print(text.error + colorama.Fore.LIGHTYELLOW_EX + "Beta version" + color.reset)
-print(colorama.Fore.LIGHTRED_EX + "Flandre" + color.reset + "/" + "\033[38;5;45m" + "PY " + "\033[38;5;81m" + "OS " + "\033[38;5;117m" + "Im" + "\033[38;5;153m" + "pr" + "\033[38;5;189m" + "ov" + "\033[38;5;225m" + "ed" + color.reset + " | " + system_version + " | " + system_build)
-print("Codename " + system_codename + color.reset)
-print("The Physical You(PY) OS logos is not are registered trademark, you can use it on anywhere.")
-print("Original by AMDISYES | Improved Version by minqwq & bibimingming ヽ(✿ﾟ▽ﾟ)ノ")
-print(" ")
-print("PY OS Improved is a open source software and you can share it freedomly")
-print("Under \"minqwq's License\" 1.0 License.")
-print(colorama.Fore.LIGHTCYAN_EX + "Feel free to improve PY OS Improved!" + color.reset)
-print(" ")
+    print(text.doubt + "not release version, may unstable")
+print("Kernel Information")
 sk_act_about()
 sk_stl_about()
-print("\n(C) " + color.green + "0x1c Studio " + color.reset + "2022--2023 | (C) " + colorama.Fore.LIGHTRED_EX + "Flandre" + color.red + " Studio " + color.reset + "&" + color.grey + " FCNM " + color.reset + "&" + color.grey + " SnowMio Studios 2022--2025" + color.reset)
-print("The PY OS Improved Project 2024/06/06--Today")
-print(" ")
+print("\n" + system_version + " " + system_build)
+print("Flandre Studio 2024--2025")
+print("0x1c Studio 2022--2023")
 time.sleep(3)
 clearScreen()
 time.sleep(0.1)
@@ -611,7 +600,7 @@ while count < 3:
                         os.system(customCommand)
                     elif cmd == "news":
                         try:
-                            requestsUrl = "https://www.minqwq.us.kg/pyosimproved/news/latest.txt"
+                            requestsUrl = "https://minqwq.github.io/pyosimproved/news/latest.txt"
                             requestsResponse = requests.get(requestsUrl)
                             if requestsResponse.status_code == 200:
                                 print(colorama.Fore.LIGHTGREEN_EX + "STATUS:200(Success)\n" + color.reset)
@@ -619,7 +608,7 @@ while count < 3:
                                 print(requestsText)
                         except Exception:
                             print("STATUS:" + requestsResponse.status_code + "(Failed)")
-                    elif cmd.startswith("passwd "): # Change password(for this session)
+                    elif cmd.startswith("passwd"): # Change password(for this session)
                         stpasswd = cmd[7:]
                         if stpasswd == "":
                             print("No string provided")
@@ -693,4 +682,5 @@ while count < 3:
                 traceback.print_exc(file="latestcrash.log")
                 logger.critical("PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
                 input("[CRASH - Press any key to shutdown]" + color.reset)
+                clearScreen()
                 sys.exit()
