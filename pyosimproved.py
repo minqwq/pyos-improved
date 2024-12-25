@@ -1,7 +1,7 @@
 # DONT CHANGE ANY IMPORTED MODULES NAME, IM SERIOUS
 #
 # PY OS Improved -- Open-source "Operating System(OS)" written using Python 3
-# Make sure you have Python 3.9 or higher, lower version is not tested
+# Make sure you have Python 3.8 or higher, lower version is not tested
 # Project creator:minqwq / LR Studio 2024
 # 
 # For our developer:
@@ -20,10 +20,8 @@
 #
 # 在需要显示反斜杠到屏幕的情况下，请输入两个反斜杠，这是一个兼容性问题
 # --minqwq | 2024-10-07
-import resource
 from coreutil.module.actions import *
 from coreutil.module.style import *
-usage_before = resource.getrusage(resource.RUSAGE_SELF)
 import argparse
 from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
@@ -256,6 +254,7 @@ sk_stl_about()
 print("\n" + system_version + " " + system_build)
 print("Flandre Studio 2024--2025")
 print("0x1c Studio 2022--2023")
+print("\n" + style.underline + "PY OS Improved is a Open-Source fake operating system, so fell free to improve our code!")
 time.sleep(3)
 clearScreen()
 time.sleep(0.1)
@@ -336,7 +335,7 @@ while count < 3:
                         clearScreen()
                         sys.exit()
                 beep()
-                cat(co_welcome)
+                cat(co_welcome) # Welcome text, editable at coreutil/plaintext
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
                 welcome_withDetectTime(user)
@@ -348,6 +347,8 @@ while count < 3:
                 while count < 3:
                     if cmd_theme == "default":
                         cmd_pre = colorama.Fore.LIGHTBLUE_EX + user + color.grey + ":" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " > " + color.reset
+                    elif cmd_theme == "sh":
+                        cmd_pre = "$ "
                     elif cmd_theme == "default_v2":
                         cmd_pre = color.green + user + ":" + lsh_hostname + color.reset + " [ / ] " + color.green + "$ " + color.reset
                     elif cmd_theme == "lite":
@@ -386,10 +387,10 @@ while count < 3:
                             os.system("dir .\\apps")
                             print("music path:")
                             os.system("dir .\\music")
+
                     elif cmd == "uwufetch": # a Fake neofetch
                         currentUptime = time.time()
                         currentUptimeII = currentUptime - end_startingtime
-                        usage_after = resource.getrusage(resource.RUSAGE_SELF)
                         print(color.blue + "  ______   __     ___  ____  ")
                         print(" |  _ \ \ / /    / _ \/ ___| ")
                         print(color.cyan + " | |_) \ V /    | | | \___ \ ")
@@ -401,42 +402,67 @@ while count < 3:
                         running_on = linuxUtil_detectDistro()
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
-                        print("External programs:" + str(dir_filecount("./extprog")) + "(extprog)")
+                        print("Packages:" + str(dir_filecount("./extprog")) + "(extprog)")
                         print("Terminal:tty")
                         print("Uptime:" + str(round(int(currentUptimeII))) + " s")
                         print("Host:" + lsh_hostname)
                         print("CPU:Intel Pentium(133MHz)")
                         print("GPU:Cirrus Logic GD 5446(4MB)")
-                        print("Memory: " + "128" + " MB, Used:", end="")
-                        print(f"{(usage_after.ru_maxrss - usage_before.ru_maxrss) / 1024:.2f}MB")
+                        print("Memory: " + "128" + " MB, Used:")
                         print("Sound Card:?")
                         print("Ethernet Card:?")
                         print("Disk:HDD1=30GB, HDD2=55GB")
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
+
                     elif cmd == "weather":
                         os.system("python ./apps/weather/weather-api.py")
+
                     elif cmd.startswith("stdoutredirect"):
                         if cmd[16:] == "":
                             print("No string provided.")
                         else:
                             sys.stdout = cmd[16:]
+
                     elif cmd == "ed":
                         os.system("python ./apps/ed-editor/edit.py")
-                    elif cmd.startswith("extprog"):
-                        os.system("python ./extprog/__main__.py")
+                    # Package manager info
+                    elif cmd == "extprog":
+                        cat("./coreutil/plaintext/extprog_info.txt")
+                    # Package install
+                    elif cmd.startswith("extprog install"):
+                        pkgPath = cmd[16:]
+                        print("Installing package from " + pkgPath + " ...")
+                        if isWindows == "true":
+                            os.system("copy " + pkgPath + " .\\extprog")
+                        elif isWindows == "false":
+                            os.system("cp " + pkgPath + " ./extprog")
+                    # Package delete
+                    elif cmd.startswith("extprog remove"):
+                        pkgPath = cmd[15:]
+                        print("Removing package " + pkgPath + " ...")
+                        if isWindows == "true":
+                            os.system("del .\\extprog\\" + pkgPath + ".py")
+                        elif isWindows == "false":
+                            os.system("rm ./extprog/" + pkgPath + ".py")
+                    
                     elif cmd.startswith("chthm"):
                         cmd_theme = cmd[6:]
-                        logger.info("Shell theme changed to " + cmd[16:])
-                        print("Successfully seted shell theme " + cmd[16:])
+                        logger.info("Shell theme changed to " + cmd[6:])
+                        print("Successfully seted shell theme " + cmd[6:])
+
                     elif cmd == "conf":
-                        print("Remaking")
+                        print(dir("*"))
+
                     elif cmd == "asciicvt":
                         os.system("python ./apps/asciicvt/asciiconverter.py")
+
                     elif cmd == "tasks":
                         os.system("cd ./savedfile/tasks && ../../apps/tasks/tasks && cd ../..")
+
                     elif cmd == "2048":
                         os.system("./apps/2048/2048-in-terminal")
+
                     elif cmd.startswith("rm"):
                         rmFile = cmd[3:]
                         if rmFile == "":
@@ -444,12 +470,14 @@ while count < 3:
                         else:
                             os.remove(rmFile)
                     elif cmd.startswith("rmdir"):
+
                         rmDir = cmd[6:]
                         if rmDir == "":
                             print("No string provided.")
                         else:
                             os.rmdir(rmDir)
                     elif cmd.startswith("su"):
+
                         user_preInput = cmd[3:]
                         if user_preInput == "":
                             print("Please type you want to login super user.")
@@ -463,61 +491,77 @@ while count < 3:
                             logger.info("[Login manager] Switch user to " + user)
                     elif cmd == "rss":
                         os.system("python ./apps/rss/main.py")
+
                     elif cmd == "crash":
                         if user == "dev":
                             logger.warn("Congrats, you make the PY OS Improved crashed.")
                             badstring = uwu
                             anotherbadstring = "owo"
                             print(badstring + anotherbadstring)
+
                     elif cmd.startswith("echo "):
                         string = cmd[5:]
                         if string == "":
                             print("No string provided...")
                         else:
                             print(string)
+
                     elif cmd == "clock":
                         os.system("python ./apps/clock/clock.py")
+
                     elif cmd == "ttt":
                         os.system("python ./apps/tictactoe/tictactoe.py")
+
                     elif cmd == "paint":
                         paintWidthAndHeight = input("Input width and height(example:50 50): ")
                         os.system("cd ./savedfile && python ../apps/paint/paint.py " + paintWidthAndHeight + " && cd ..")
+
                     elif cmd == "pftest":
                         print("CPU Performance Test by minqwq")
                         print("2024-09-07")
                         os.system("python ./apps/pftest/mark.py")
+
                     elif cmd == "nekochat":
                         nekochatConnectToIP = input("Input server IP: ")
                         nekochatConnectToPort = input("Input server Port: ")
                         nekochatUsername = input("What's your name?: ")
                         print("Welcome to NekoChat Client(Python Port) by Yukari2024")
                         os.system("python ./apps/nekochat/py/client.py --ip " + nekochatConnectToIP + " --port " + nekochatConnectToPort + " --name " + nekochatUsername)
+
                     elif cmd == "demine":
                         os.system("./apps/minesweeper/minesweeper")
+
                     elif cmd == "fileget":
                         os.system("cd ./download && python ../apps/fileget/fileget.py && cd ..")
+
                     elif cmd == "uptime":
                         currentUptime = time.time()
                         print(currentUptime - end_startingtime)
+
                     elif cmd == "guessnum":
                         os.system("python ./apps/guessnum/guessnum.py")
+
                     elif cmd == "ping": # Ping tool
                         pingToolIPInput = input("Input IP or Domain: ")
                         pingToolCountInput = input("Send how many packages: ")
                         os.system("ping -c " + pingToolCountInput + " " + pingToolIPInput)
+
                     elif cmd == "fm":
                         os.system("./apps/ranger/ranger.sh")
+
                     elif cmd == "hostname":
                         print("add option -c to change.\n\nHostname:\n" + lsh_hostname)
                     elif cmd == "hostname -c":
                         lsh_hostname = input("> ")
                         if lsh_hostname == "":
                             print("No string provided.")
-                            lsh_hostname = "tiramisu"
-                    elif cmd == "sudo": # sudo not sudo
-                        print("This system is not based on linux, so sudo is not on here")
+
+                    elif cmd.startswith("sudo"): # sudo not sudo
+                        print("This system is not based on linux, so sudo is not on herse")
+
                     elif cmd == "sticker":
                         os.system("cd ./apps/sticker && python sticker.py && cd ../..")
+
                     elif cmd == "about": # About system
                         slowprint("---------------| About |---------------")
                         print(color.blue + "PY OS Improved " + system_version + " " + system_build + color.reset)
@@ -526,12 +570,12 @@ while count < 3:
                         print(" ")
                         print("add option -c for credits\nadd option -s for support")
                     elif cmd == "about -c" or cmd == "about --credits":
-                        print(colorama.Fore.LIGHTCYAN_EX + "Credits" + color.reset)
+                        print(colorama.Fore.LIGHTCYAN_EX + "Developers of PY OS Improved" + color.reset)
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Developers" + color.reset)
                         print("minqwq | Interface Design, Coder, Project Creator, Document Editer")
                         print("bibimingming | Module Installer")
                         print("MeltedIde aka MeltedIce aka AMDISYES(Original PY OS) | Original Project Creator")
-                        print("MinimalMio aka Yukari2024 | Installer")
+                        print("北橋 桜 aka MinimalMio aka Yukari2024 | Installer, Helper")
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Early developing tester(not sorted)" + color.reset)
                         print("minqwq")
                         print("bibimingming")
@@ -549,7 +593,8 @@ while count < 3:
                         print("WeChat:minqwq723897")
                         print("E-mail:minqwq723897@outlook.com")
                         print("Telegram:@minqwq723897")
-                        print("IRC(Instant only):minqwq #pyos-improved irc.freenode.net:6667")
+                        print("IRC(Inkstant only):minqwq #pyos-improved irc.freenode.net:6667")
+
                     elif cmd == "power":
                         print("Power options:")
                         print("Shutdown:shutdown or without start by power, st")
@@ -557,15 +602,17 @@ while count < 3:
                         print(" ")
                         print("ex:power reboot")
                     elif cmd == "power shutdown" or cmd == "st" or cmd == ":q": # Shutdown
-                        logger.info("Shutting down.")
+                        logger.info("Shutting down...")
                         clearScreen()
                         sys.exit()
                     elif cmd == "power reboot" or cmd == "rbt":
-                        logger.info("Restarting.")
+                        logger.info("Restarting...")
                         clearScreen()
                         os.execv(sys.executable, ['python'] + sys.argv)
+
                     elif cmd == "screensaver": # Screensaver
                         os.system("cd ./apps/_screensaver && python scrsv.py && cd ../..")
+
                     elif cmd == "tetris":
                         print("   #####   ####  #####   ###    #   ####")
                         print("     #     #       #     #  #      #")
@@ -577,8 +624,10 @@ while count < 3:
                         print("https://github.com/shkolovy/tetris-terminal")
                         time.sleep(3)
                         os.system("python ./apps/tetris/tetris.py")
+
                     elif cmd == "mp":
                         os.system("cd ./apps/musicplayer && python musicplayer.py && cd ../..")
+
                     elif cmd == "converter": # converter but cant select file
                         print("File Convert\nConvert .lpap/.lpcu/.bbc to .umm")
                         input("Input file's path:\n")
@@ -589,15 +638,18 @@ while count < 3:
                             tm.sleep(0.05)
                         print("\nConvert Complete")
                     elif cmd == "time": # Show current time
+
                         now = datetime.datetime.now()
                         other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
                         print(other_StyleTime)
                     elif cmd == "caesar":
                         os.system("cd ./apps/caesartools && python caesar.py && cd ../..")
+
                     elif cmd == "cuscmd":
                         print("Type custom command below...(ex:cat ciallo.txt)")
                         customCommand = input("")
                         os.system(customCommand)
+
                     elif cmd == "news":
                         try:
                             requestsUrl = "https://minqwq.github.io/pyosimproved/news/latest.txt"
@@ -608,37 +660,47 @@ while count < 3:
                                 print(requestsText)
                         except Exception:
                             print("STATUS:" + requestsResponse.status_code + "(Failed)")
+
                     elif cmd.startswith("passwd"): # Change password(for this session)
                         stpasswd = cmd[7:]
                         if stpasswd == "":
                             print("No string provided")
                         else:
                             print("Password set to " + stpasswd)
+
                     elif cmd == "calendar": # Calendar
                         yy = int(input("Year: "))
                         mm = int(input("Month: "))
                         print(color.green + "PY OS Calendar\n" + color.reset + calendar.month(yy, mm))
+
                     elif cmd == "calcurse":
                         os.system("calcurse")
+
                     elif cmd == "help": # Command list
                         cat(co_manualHelp)
+
                     elif cmd == "time --help": # time command help
                         print("Time command options:")
                         print("--help         Show this help")
                         print("--no-date      Print time without date")
                         print("--no-clk       Print time without time")
+
                     elif cmd == "calc": # Calculator
                         try:
                             formula = input("Enter the formula to be calculated(example:1+1):\n")
                             print(formula + "=", eval(formula))
                         except Exception as e:
                             print("Input error.\n" + str(e))
+
                     elif cmd == "tutor":
                         os.system("cd ./apps/tutor && python tutor.py && cd ../..")
+
                     elif cmd == "": # what is this??? --minqwq at 2024-06-12 19:32
                         space = "0"
+
                     elif cmd == "clear": # Clear screen using real system command
                         clearScreen()
+
                     elif cmd == "exit": # Logout
                         clearScreen()
                         systemIsLocked = True
