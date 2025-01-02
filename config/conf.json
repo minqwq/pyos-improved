@@ -1,8 +1,9 @@
 {
-    "system_version": "1.4.0 Prerelease 1",
-    "system_codename": "Break my body and break my mind and remake",
-    "system_build": "Build 336",
+    "system_version": "1.4.0 Release",
+    "system_codename": "lolichan",
+    "system_build": "Build 350",
     "isWindows": "true",
     "cmd_theme": "default_v2",
-    "enable_instant_show_time": "true"
+    "enable_instant_show_time": "true",
+    "isUnregistered": "false"
 }

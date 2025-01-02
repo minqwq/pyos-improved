@@ -1,0 +1,6 @@
+extprog version 1.2.1
+
+install <filename>.py      To install a python executable file
+remove  <packagename>      To delete a package
+
+The extprog have "super" scarlet power!

@@ -1,7 +1,7 @@
 # DONT CHANGE ANY IMPORTED MODULES NAME, IM SERIOUS
 #
-# PY OS Improved -- Open-source "Operating System(OS)" written using Python 3
-# Make sure you have Python 3.8 or higher, lower version is not tested
+# PY OS Improved -- Open-source FAKE Operating System(OS) written using Python 3
+# Make sure you have Python 3.8.10 or higher, lower version is not tested
 # Project creator:minqwq / LR Studio 2024
 # 
 # For our developer:
@@ -22,13 +22,10 @@
 # --minqwq | 2024-10-07
 from coreutil.module.actions import *
 from coreutil.module.style import *
-import argparse
 from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
 conf = open("./config/conf.json", "r", encoding="utf-8")
 jsonRead = json.load(conf)
-parser = argparse.ArgumentParser( prog='PY OS Improved', description='Ultimate fake operating system!', epilog='If you have issues, go to our official github repo.')
-parser.add_argument("-v", "--version", action="version", version=jsonRead["system_version"])
 import time as tm # Time
 import getpass # Password?
 import calendar # Calendar
@@ -133,6 +130,7 @@ isWindows = jsonRead["isWindows"] # 是否为 Windows
 cmd_theme = jsonRead["cmd_theme"] # 终端 Shell 主题
 isDev = False # 是否为 Dev 模式
 enable_instant_show_time = jsonRead["enable_instant_show_time"]
+isUnregistered = jsonRead["isUnregistered"]
 
 # CONFIG END
 # coreutil/plaintext loads START
@@ -270,11 +268,12 @@ print("Startup system used " + str(startingtime_t) + "s.")
 print("pwease, pweasew login to youw account >.< x3")
 print("(You can type a custom name to continue, like 'meguru' after login will show 'meguru@tiramisu #')")
 count = 0
+unreg_count = 0
 stpasswd = "ciallo"
 while count < 3:
     user = input("> ")
     if user == "gaster":
-        os.execv(sys.executable, ['python'] + sys.argv)
+        goto(line=0)
     elif user == "":
         pass
     elif user == "bai9nine":
@@ -372,6 +371,11 @@ while count < 3:
                     logger.info("[Command] tty1/lsh: " + cmd)
                     cmdhistory_write()
                     cbatteryperc() # Check battery percent
+                    if isUnregistered == "true":
+                        unreg_count += 1
+                        if unreg_count > 20:
+                            print("Please register to get best exprience.\nconfig/conf.json")
+                            unreg_count = 0
                     if cmd == "ls": # Path
                         if isWindows == "false":
                             print("root path:")
@@ -382,7 +386,7 @@ while count < 3:
                             os.system("ls ./music/")
                         elif isWindows == "true":
                             print("root path:")
-                            os.system("dir .\\")
+                            os.system("di   r .\\")
                             print("programs path:")
                             os.system("dir .\\apps")
                             print("music path:")
@@ -400,6 +404,8 @@ while count < 3:
                         print(user + "@" + lsh_hostname)
                         print("System:PY OS Improved " + system_version + " " + system_build + "\nRunning on:", end="")
                         running_on = linuxUtil_detectDistro()
+                        if isWindows == "true":
+                            print("Windows NT", end="")
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
                         print("Packages:" + str(dir_filecount("./extprog")) + "(extprog)")
@@ -412,6 +418,9 @@ while count < 3:
                         print("Sound Card:?")
                         print("Ethernet Card:?")
                         print("Disk:HDD1=30GB, HDD2=55GB")
+                        print("Color depth:4bit(16 colors)(VGA Comptiable mode)")
+                        print(colorama.Back.RED + "  " + colorama.Back.YELLOW + "  " + colorama.Back.GREEN + "  " + colorama.Back.CYAN + "  " + colorama.Back.BLUE + "  " + colorama.Back.MAGENTA + "  " + colorama.Back.WHITE + "  ")
+                        print(colorama.Back.LIGHTRED_EX + "  " + colorama.Back.LIGHTYELLOW_EX + "  " + colorama.Back.LIGHTGREEN_EX + "  " + colorama.Back.LIGHTCYAN_EX + "  " + colorama.Back.LIGHTBLUE_EX + "  " + colorama.Back.LIGHTMAGENTA_EX + "  " + colorama.Back.LIGHTWHITE_EX + "  ")
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
 
@@ -445,6 +454,12 @@ while count < 3:
                             os.system("del .\\extprog\\" + pkgPath + ".py")
                         elif isWindows == "false":
                             os.system("rm ./extprog/" + pkgPath + ".py")
+                        try:
+                            open(cmd[15:], "r")
+                        except FileNotFoundError:
+                            print("Package removed!")
+                        except Exception:
+                            print("Isn't working! try delete package manually.")
                     
                     elif cmd.startswith("chthm"):
                         cmd_theme = cmd[6:]
@@ -593,7 +608,7 @@ while count < 3:
                         print("WeChat:minqwq723897")
                         print("E-mail:minqwq723897@outlook.com")
                         print("Telegram:@minqwq723897")
-                        print("IRC(Inkstant only):minqwq #pyos-improved irc.freenode.net:6667")
+                        print("IRC(Instant only):minqwq #pyos-improved irc.freenode.net:6667")
 
                     elif cmd == "power":
                         print("Power options:")
@@ -734,7 +749,7 @@ while count < 3:
                     slowprint("\nPress 1 to restart\nPress other key to back\nor Press Ctrl+C again to shutdown...")
                     emergencyChoice = input()
                     if emergencyChoice == "1":
-                        goto(line=157)
+                        goto(line=0)
                 except KeyboardInterrupt:
                     clearScreen()
                     sys.exit()
