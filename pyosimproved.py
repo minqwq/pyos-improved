@@ -136,11 +136,13 @@ isUnregistered = jsonRead["isUnregistered"]
 # coreutil/plaintext loads START
 co_manualHelp = "coreutil/plaintext/manualhelp.txt"
 co_welcome = "coreutil/plaintext/welcome.txt"
+# coreutil/plaintext loads END
 def cmdhistory_write():
     tmp_f = open("./cache/history.txt", "a", encoding="utf-8")
     # cmdhist_lines += 1
     cmdhist_timed = datetime.datetime.now().strftime("%b %a %d %H:%M:%S %Y")
     tmp_f.write(str(cmdhist_time) + " " + user + ":" + lsh_hostname + " | " + cmd + "\n")
+
 # BIOS Animation
 # with open("./config/conf.json", "w", encoding="utf-8") as temp_writeConfig:
 if jsonRead["isWindows"] == "":
@@ -155,13 +157,16 @@ if jsonRead["isWindows"] == "":
     print("Please configure the 'isWindows' to false or true on config/conf.json\nIt's looks like this:\"isWindows\": \"\", Change it to:\n\"isWindows\": \"false\" If you are linux\n\"isWindows\": \"true\" If you are windows")
     print("Exiting...")
     sys.exit()
+
 def clearScreen():
     if isWindows == "true":
         os.system("cls")
     elif isWindows == "false":
         os.system("clear")
+
 def beep():
     print("\a", end="\r")
+
 if sys.platform.startswith("linux") or sys.platform.startswith("posix"):
     print("If you dont have 'python' command, please set alias 'python=python3'")
 temp_clock1 = time.time()

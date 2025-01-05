@@ -4,7 +4,7 @@ import time
 import platform
 import datetime
 def sk_act_about():
-    print("ScarletKernel / CoreUtil:Actions / 1.3_R1")
+    print("ScarletKernel / CoreUtil:Actions / 1.3_r2")
 def dotLoader(howMany, howSlow):
     for dotLoader_time in range(howMany):
         print(".", end="")
@@ -52,3 +52,4 @@ def cat(file):
     tmp_catcore = open(file, "r", encoding="utf-8")
     for content in tmp_catcore:
         print(content, end="")
+        time.sleep(0.02)
