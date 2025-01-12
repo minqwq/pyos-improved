@@ -1,5 +1,5 @@
 def sk_stl_about():
-    print("ScarletKernel / CoreUtil:Style Controller / 1.0_R0")
+    print("ScarletKernel / CoreUtil:Style Controller / 1.0_R1")
 
 class style:
     bold = "\033[1"
@@ -13,6 +13,6 @@ class style:
     deline = "\033[9"
     upline = "\033[53"
 
-class cur:
+class style_cur:
     hide = "\033[?25l"
     show = "\033[?25h"

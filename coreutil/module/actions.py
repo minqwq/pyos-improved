@@ -3,8 +3,9 @@ import os
 import time
 import platform
 import datetime
+import colorama
 def sk_act_about():
-    print("ScarletKernel / CoreUtil:Actions / 1.3_r2")
+    print("ScarletKernel / CoreUtil:Actions / 1.3.1_r4")
 def dotLoader(howMany, howSlow):
     for dotLoader_time in range(howMany):
         print(".", end="")
@@ -22,11 +23,13 @@ def dir_filecount(directory):
 def cbatteryperc():
     try:
         if psutil.sensors_battery().percent > 21:
-            print("Warning: Battery percent is low now(20%), you may need to charge your battery")
+            print(colorama.Fore.LIGHTYELLOW_EX + "[Low battery(" + str(psutil.sensors_battery().percent) + "%)]", end="")
         elif psutil.sensors_battery().percent > 11:
-            print("Warning: Battery percent is very low now...(10%)")
+            print(colorama.Fore.YELLOW + "[Low battery(" + str(psutil.sensors_battery().percent) + "%)]", end="")
         elif psutil.sensors_battery().percent > 6:
-            print("Warning: Why not go to charge battery now?(5%)")
+            print(colorama.Fore.LIGHTRED_EX + "[Very low battery(" + str(psutil.sensors_battery().percent) + "%)]", end="")
+        else:
+            print("[" + str(psutil.sensors_battery().percent) + "]", end="")
     except Exception:
         pass
 def linuxUtil_detectDistro():
@@ -53,3 +56,4 @@ def cat(file):
     for content in tmp_catcore:
         print(content, end="")
         time.sleep(0.02)
+    print("")

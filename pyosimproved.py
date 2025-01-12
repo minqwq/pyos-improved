@@ -11,6 +11,9 @@
 # add comment with some special word(like uw1 uw2 ..)
 # Press esc and type /uw1 to quick jump.
 
+# PLease dont change all if elif else to match & case, this will reduce compaility!
+#
+
 # (Chinese)
 # 为什么我不想像那样重构:我懒。
 # 所以我想出了一个办法，它基于编辑器的搜索功能
@@ -22,9 +25,11 @@
 # --minqwq | 2024-10-07
 from coreutil.module.actions import *
 from coreutil.module.style import *
+from coreutil.module.textmoji import *
 from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
 conf = open("./config/conf.json", "r", encoding="utf-8")
+print("config/conf.json Loaded!")
 jsonRead = json.load(conf)
 import time as tm # Time
 import getpass # Password?
@@ -65,37 +70,6 @@ print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 # (color.green + "text here" + color.reset)
 # if you want use other color, change "green" to any below name on class color
 # color.<color>
-class color: # Text colors
-    red = "\033[31m"
-    green = "\033[32m"
-    blue = "\033[34m"
-    yellow = "\033[33m"
-    purple = "\033[35m"
-    cyan = "\033[36m"
-    grey = "\033[37m"
-    reset = "\033[0m"
-print("Added class 'color'")
-class text: # TIcons
-    error = color.red + "[!] " + color.reset
-    success = color.green + "[O] " + color.reset
-    loading = color.yellow + "[...] " + color.reset
-    doubt = color.grey + "[?] " + color.reset
-    no = color.red + "[X]" + color.reset
-print("Added class 'text'")
-class textmoji: # Textmojis
-    ciallo = "(∠・ω< )⌒☆"
-    omg0 = "₍•Д•)"
-    hahaha = "ꉂ(ˊᗜˋ*)"
-    owo_neko = " ฅ( ̳• ◡ • ̳)ฅ"
-    owo = "(´･ω･`)"
-    uhmm = "(*/ω＼*)"
-    nya0 = "(ฅ>ω<*ฅ)"
-    nya1 = "ヽ(=ˆ･ω･ˆ=)丿"
-    nah0 = "╮(‵▽′)╭"
-print("Added class 'textmoji'")
-class style_cur:
-    hide = "\033[?25l"
-    show = "\033[?25h"
 class override:
     errorexpection = "teto:ErrorExpection"
     tongue = "teto:a-------"
@@ -112,6 +86,7 @@ except FileNotFoundError:
     pass
 cmdhist_lines = 0
 cmdhist_time = "nul"
+lsh_hostname = "hakurei"
 LOG_FORMAT = '[%(levelname)s] %(asctime)s | %(message)s'
 logging.basicConfig(filename='.output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
@@ -121,22 +96,28 @@ print("Tips loaded success")
 os.system("alias cls=clear")
 
 # CONFIG START
+system_version = jsonRead["system_version"] # 版本号 / Version
+system_codename = jsonRead["system_codename"] # Codename
+system_build = jsonRead["system_build"] # 每做一个修改或增减内容，就加一个 Build / If changed a feature, build +=1
+system_is_beta = True # 是否为 Beta 版 / Beta version
+isWindows = jsonRead["isWindows"] # 是否为 Windows / Are you windows?
+cmd_theme = jsonRead["cmd_theme"] # 终端 Shell 主题 / Terminal shell theme
+isDev = False # 是否为 Dev 模式 / Dev mode
+enable_instant_show_time = jsonRead["enable_instant_show_time"] # INstant show time before shell
+isUnregistered = jsonRead["isUnregistered"] # Fake unregistered warning
+# EXPERTIONAL FEATURE
 
-system_version = jsonRead["system_version"] # 版本号
-system_codename = jsonRead["system_codename"]
-system_build = jsonRead["system_build"] # 每做一个修改或增减内容，就加一个 Build
-system_is_beta = True # 是否为 Beta 版
-isWindows = jsonRead["isWindows"] # 是否为 Windows
-cmd_theme = jsonRead["cmd_theme"] # 终端 Shell 主题
-isDev = False # 是否为 Dev 模式
-enable_instant_show_time = jsonRead["enable_instant_show_time"]
-isUnregistered = jsonRead["isUnregistered"]
+readConfigFromExport = False # Linux only! windows have same but not a command.
+disableKernelFeature = False # Disable the kernel, may crash more.
 
+# EXPERTIONAL FEATURE
 # CONFIG END
+
 # coreutil/plaintext loads START
 co_manualHelp = "coreutil/plaintext/manualhelp.txt"
 co_welcome = "coreutil/plaintext/welcome.txt"
 # coreutil/plaintext loads END
+
 def cmdhistory_write():
     tmp_f = open("./cache/history.txt", "a", encoding="utf-8")
     # cmdhist_lines += 1
@@ -198,17 +179,17 @@ clearScreen()
 print("_")
 time.sleep(0.5)
 clearScreen()
-slowprint(colorama.Fore.LIGHTGREEN_EX + "minsoft 2011--2025 No lefts unserved")
+slowprint(colorama.Fore.LIGHTGREEN_EX + "Alicenoel Magic music soft 2011--2025 No lefts unserved")
 slowprint("EveryBooter v1.0")
 slowprint("Testing memory...")
 time.sleep(0.15)
 memtest = 0
-for memtest in range(129):
+for memtest in range(33):
     print(str(memtest) + "MB", end="\r")
     time.sleep(0.02)
     memtest = memtest + 1
 beep()
-print("128MB OK")
+print("32MB OK")
 time.sleep(0.5)
 profile.run("re.compile")
 time.sleep(1.5)
@@ -254,6 +235,7 @@ if system_is_beta == True: # If is beta version, show this warn
 print("Kernel Information")
 sk_act_about()
 sk_stl_about()
+sk_tm_about()
 print("\n" + system_version + " " + system_build)
 print("Flandre Studio 2024--2025")
 print("0x1c Studio 2022--2023")
@@ -265,18 +247,15 @@ end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
 beep()
 logger.info("Welcome to PY OS Improved!")
-print(colorama.Fore.LIGHTCYAN_EX + "Hewwwo wewcome back to PY OS Improved senpai >.<" + color.reset + style_cur.show) # Login screen | For restart to login manager, please goto this line for work normally
+print("PY OS Improved version " + system_version) # Login screen | For restart to login manager, please goto this line for work normally
 now = datetime.datetime.now()
 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
-print("Current time: " + colorama.Fore.LIGHTCYAN_EX + other_StyleTime + color.reset)
-print("Startup system used " + str(startingtime_t) + "s.")
-print("pwease, pweasew login to youw account >.< x3")
-print("(You can type a custom name to continue, like 'meguru' after login will show 'meguru@tiramisu #')")
+print("Current time: " + other_StyleTime)
 count = 0
 unreg_count = 0
 stpasswd = "ciallo"
 while count < 3:
-    user = input("> ")
+    user = input(lsh_hostname + " login: ")
     if user == "gaster":
         goto(line=0)
     elif user == "":
@@ -314,7 +293,6 @@ while count < 3:
                 clearScreen()
                 lshdate = now.strftime("%Y-%m-%d")
                 lshtime = now.strftime("%H:%M:%S")
-                lsh_hostname = "ayaya"
                 if user == "minqwq":
                     # password_pre = b"aWxvdmVtaW8="
                     # password = base64.b64decode(password_pre)
@@ -346,9 +324,10 @@ while count < 3:
                 autoexec.main()
                 if isDev == True:
                     print("Logged into dev account, some command may unlocked!")
-                print("\nLarine SHell (lsh) version 1.6.1 >///<\nit's a wittwe user non-fwiendwy shell...")
+                print("\nLarine SHell (lsh) version 1.7.0 >///<\nit's a wittwe user non-fwiendwy shell...")
                 tmp_outolog = open(".output.log", "a", encoding="utf-8")
                 while count < 3:
+
                     if cmd_theme == "default":
                         cmd_pre = colorama.Fore.LIGHTBLUE_EX + user + color.grey + ":" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " > " + color.reset
                     elif cmd_theme == "sh":
@@ -362,9 +341,12 @@ while count < 3:
                     elif cmd_theme == "arch_bash":
                         cmd_pre = "[" + user + "@" + lsh_hostname + " ~ ] $ "
                     else:
-                        print("Theme not found! falling to default.")
-                        print("Available theme name:default_v2, default, lite, debian_bash, arch_bash")
+                        print("Theme not found! will do nothing.")
+                        print("Available theme name:default_v2, default, lite, debian_bash, arch_bash, sh")
                         cmd_theme = "default"
+
+                    cbatteryperc()
+
                     lsh_time_prepare = datetime.datetime.now()
                     lsh_time = lsh_time_prepare.strftime("%H:%M:%S")
                     if enable_instant_show_time == "true":
@@ -375,12 +357,13 @@ while count < 3:
                     cmd = input(cmd_pre)
                     logger.info("[Command] tty1/lsh: " + cmd)
                     cmdhistory_write()
-                    cbatteryperc() # Check battery percent
+
                     if isUnregistered == "true":
                         unreg_count += 1
-                        if unreg_count > 20:
+                        if unreg_count > 25:
                             print("Please register to get best exprience.\nconfig/conf.json")
                             unreg_count = 0
+                    # Begin commands register
                     if cmd == "ls": # Path
                         if isWindows == "false":
                             print("root path:")
@@ -410,22 +393,23 @@ while count < 3:
                         print("System:PY OS Improved " + system_version + " " + system_build + "\nRunning on:", end="")
                         running_on = linuxUtil_detectDistro()
                         if isWindows == "true":
-                            print("Windows NT", end="")
+                            print("Windows NT")
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
                         print("Packages:" + str(dir_filecount("./extprog")) + "(extprog)")
                         print("Terminal:tty")
                         print("Uptime:" + str(round(int(currentUptimeII))) + " s")
                         print("Host:" + lsh_hostname)
-                        print("CPU:Intel Pentium(133MHz)")
-                        print("GPU:Cirrus Logic GD 5446(4MB)")
-                        print("Memory: " + "128" + " MB, Used:")
-                        print("Sound Card:?")
-                        print("Ethernet Card:?")
-                        print("Disk:HDD1=30GB, HDD2=55GB")
+                        print("CPU:Intel 80486DX(66MHz)")
+                        print("GPU:Standard SVGA Adapter(2MB)")
+                        print("Memory: " + "32" + " MB")
+                        print("Sound Card:Beep")
+                        print("Ethernet Card:modem")
+                        print("Disk:HDD1=10GB, HDD2=23GB")
                         print("Color depth:4bit(16 colors)(VGA Comptiable mode)")
                         print(colorama.Back.RED + "  " + colorama.Back.YELLOW + "  " + colorama.Back.GREEN + "  " + colorama.Back.CYAN + "  " + colorama.Back.BLUE + "  " + colorama.Back.MAGENTA + "  " + colorama.Back.WHITE + "  ")
-                        print(colorama.Back.LIGHTRED_EX + "  " + colorama.Back.LIGHTYELLOW_EX + "  " + colorama.Back.LIGHTGREEN_EX + "  " + colorama.Back.LIGHTCYAN_EX + "  " + colorama.Back.LIGHTBLUE_EX + "  " + colorama.Back.LIGHTMAGENTA_EX + "  " + colorama.Back.LIGHTWHITE_EX + "  ")
+                        print(colorama.Back.LIGHTRED_EX + "  " + colorama.Back.LIGHTYELLOW_EX + "  " + colorama.Back.LIGHTGREEN_EX + "  " + colorama.Back.LIGHTCYAN_EX + "  " + colorama.Back.LIGHTBLUE_EX + "  " + colorama.Back.LIGHTMAGENTA_EX + "  " + colorama.Back.LIGHTWHITE_EX + "  " + colorama.Fore.BLACK)
+                        print(color.reset, end="")
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
 
@@ -628,7 +612,7 @@ while count < 3:
                     elif cmd == "power reboot" or cmd == "rbt":
                         logger.info("Restarting...")
                         clearScreen()
-                        os.execv(sys.executable, ['python'] + sys.argv)
+                        goto(line=98)
 
                     elif cmd == "screensaver": # Screensaver
                         os.system("cd ./apps/_screensaver && python scrsv.py && cd ../..")

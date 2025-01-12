@@ -500,3 +500,218 @@ nul min:ayaya |
 nul min:ayaya | l
 nul min:ayaya | 
 nul min:ayaya | st
+nul min:ayaya | 1
+nul min:ayaya | 1
+nul min:ayaya | 1
+nul min:ayaya | 
+nul min:ayaya | help
+nul min:ayaya | clear
+nul min:ayaya | a
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | clear
+nul min:ayaya | a
+nul min:ayaya | a
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | help
+nul min:ayaya | screensaver
+nul min:ayaya | [A
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | [A
+nul min:ayaya | [A
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | [A
+nul min:ayaya | [A
+nul min:ayaya | [A
+nul min:ayaya | [A
+nul min:ayaya | st
+nul min:ayaya | help
+nul min:ayaya | su yukari
+nul yukari:ayaya | su 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | clocl
+nul yukari:ayaya | clock
+nul yukari:ayaya | mp
+nul yukari:ayaya | [A
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | 
+nul yukari:ayaya | rbt
+nul min:ayaya | help
+nul min:ayaya | 1
+nul min:ayaya | help
+nul min:ayaya | st
+nul min:ayaya | help
+nul min:ayaya | st
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | help
+nul min:ayaya | uwufetch
+nul min:ayaya | st
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | uwufetch
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | rbt
+nul min:ayaya | uwufetch
+nul min:ayaya | rbt
+nul min:ayaya | help
+nul min:ayaya | uwufetch
+nul min:ayaya | st
+nul min:ayaya | uwufetch
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | rbt
+nul min:ayaya | uwufetch
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | help
+nul min:ayaya | uptime
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | 
+nul min:ayaya | help
+nul min:ayaya | st
+nul min:hakurei | rbt
+nul [94m(CRTRACT) minqwq[0m:hakurei | help
+nul min:hakurei | help
+nul min:hakurei | uwufetch
+nul min:hakurei | 
+nul min:hakurei | tetris
+nul min:hakurei | tetris
+nul min:hakurei | export
+nul min:hakurei | clear
+nul min:hakurei | help
+nul min:hakurei | fm
+nul min:hakurei | news
+nul min:hakurei | 2048
+nul min:hakurei | [A
+nul min:hakurei | 
+nul min:hakurei | 
+nul min:hakurei | 
+nul min:hakurei | demine
+nul min:hakurei | 
+nul min:hakurei | 
+nul min:hakurei | 
+nul min:hakurei | ed
+nul min:hakurei | [A
+nul min:hakurei | ed
+nul min:hakurei | guessnum
+nul min:hakurei | help
+nul [94m(CRTRACT) minqwq[0m:hakurei | hostname -c
+nul [94m(CRTRACT) minqwq[0m:minqwq-pyosi-on-arch | reboot
+nul [94m(CRTRACT) minqwq[0m:minqwq-pyosi-on-arch | rbt
+nul min:hakurei | hostname -c
+nul min:min-pyosi-on-archvm | rbt
+nul min:hakurei | 
+nul min:hakurei | 
+nul min:hakurei | 
+nul min:hakurei | 
+nul min:hakurei | 
+nul min:hakurei | 
+nul min:hakurei | hostname -c
+nul min:minqwq-pyosi-on-archvm | rbt
