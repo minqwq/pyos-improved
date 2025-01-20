@@ -5,7 +5,7 @@ import platform
 import datetime
 import colorama
 def sk_act_about():
-    print("ScarletKernel / CoreUtil:Actions / 1.3.1_r4")
+    print("ScarletKernel / CoreUtil:Actions / 1.3.1_r5")
 def dotLoader(howMany, howSlow):
     for dotLoader_time in range(howMany):
         print(".", end="")

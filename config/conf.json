@@ -1,9 +1,10 @@
 {
     "system_version": "1.4.0 Release",
     "system_codename": "lolichan",
-    "system_build": "Build 361",
+    "system_build": "Build 371",
     "isWindows": "false",
     "cmd_theme": "default_v2",
     "enable_instant_show_time": "true",
-    "isUnregistered": "false"
+    "isUnregistered": "false",
+    "devenv": "uwu"
 }

@@ -715,3 +715,168 @@ nul min:hakurei |
 nul min:hakurei | 
 nul min:hakurei | hostname -c
 nul min:minqwq-pyosi-on-archvm | rbt
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 0
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | rss
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | 2048
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | demine
+nul min:scarletlocal-000 | ttt
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | pyosiupgrade
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | [A[A[A
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | pyosiupgrade
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | pyosiupgrade
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | tetris
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | echo mio - my dear moments -
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | ttt
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | pftest
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | pftest
+nul min:scarletlocal-000 | pr
+nul min:scarletlocal-000 | echo uwu
+nul min:scarletlocal-000 | echo $USER
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | ls
+nul min:scarletlocal-000 | tutor
+nul min:scarletlocal-000 | ck
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | extprog
+nul min:scarletlocal-000 | [A 
+nul min:scarletlocal-000 | extprog     
+nul min:scarletlocal-000 | extprog 1
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | extprog run example
+nul min:scarletlocal-000 | rbt
+nul min:scarletlocal-000 | extprog run example
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | extprog run example
+nul min:scarletlocal-000 | [3~
+nul min:scarletlocal-000 | extprog run
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | extprog
+nul min:scarletlocal-000 | extprog 
+nul min:scarletlocal-000 | extprog run
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | extprog run example
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | shizuku credits
+nul min:scarletlocal-000 | shizuku search
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | shizuku search awa
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | shizuku run
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | shizuku run example
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | w
+nul min:scarletlocal-000 | shizuku run aa
+nul min:scarletlocal-000 | extprog run   
+nul min:scarletlocal-000 | extprog run aaa
+nul min:scarletlocal-000 | shizuku run aaa
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | shizuku run
+nul min:scarletlocal-000 | shizuku run 1
+nul ,im:scarletlocal-000 | help
+nul ,im:scarletlocal-000 | extprog
+nul ,im:scarletlocal-000 | shizuku
+nul ,im:scarletlocal-000 | shizuku run
+nul ,im:scarletlocal-000 | shizuku run example
+nul min:scarletlocal-000 | shizuku run example
+nul min:scarletlocal-000 | shizuku run example
+nul min:scarletlocal-000 | shizuku run aaa
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | shizuku  [3~
+nul min:scarletlocal-000 | shzuku
+nul min:scarletlocal-000 | shizuku install
+nul min:scarletlocal-000 | shizuku credits
+nul min:scarletlocal-000 | chthm default
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | chthm lite
+nul min:scarletlocal-000 | chthm debian_bash
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | chthm arch_bash
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | chthm default_v2
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | shizuku search
+nul min:scarletlocal-000 | shizuku credits
+nul min:scarletlocal-000 | shizuku run example
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | tutor
+nul min:scarletlocal-000 | extprog run __main__
+nul min:scarletlocal-000 | shizuku run __main__
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | ping
+nul min:scarletlocal-000 | ed
+nul min:scarletlocal-000 | :q
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | ls
+nul min:scarletlocal-000 | clock
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | pftest
+nul min:scarletlocal-000 | pftest
+nul min:scarletlocal-000 | ttt
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | time
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | 		
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | help

@@ -1,6 +1,8 @@
-extprog version 1.2.0
+Shizuku, the package manager for PY OS Improved | version 1.2.1
 
-install     To install a python executable file
-remove      To delete a package
+- install     To install a python executable file
+- remove      To delete a package
+- search      Search package from mirror(coming soooooooooooooon)
+- credits     Look who made this package manager
 
-The extprog have "super" scarlet power!
+The shizuku have "super" scarlet power!

@@ -12,7 +12,6 @@
 # Press esc and type /uw1 to quick jump.
 
 # PLease dont change all if elif else to match & case, this will reduce compaility!
-#
 
 # (Chinese)
 # 为什么我不想像那样重构:我懒。
@@ -23,9 +22,13 @@
 #
 # 在需要显示反斜杠到屏幕的情况下，请输入两个反斜杠，这是一个兼容性问题
 # --minqwq | 2024-10-07
+
+# 请前往chatboard.txt（位于仓库根目录）进行长文本留言
+# 注释只用于短句
 from coreutil.module.actions import *
 from coreutil.module.style import *
 from coreutil.module.textmoji import *
+print("Kernel is ready.")
 from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
 conf = open("./config/conf.json", "r", encoding="utf-8")
@@ -86,7 +89,7 @@ except FileNotFoundError:
     pass
 cmdhist_lines = 0
 cmdhist_time = "nul"
-lsh_hostname = "hakurei"
+lsh_hostname = "scarletlocal-000"
 LOG_FORMAT = '[%(levelname)s] %(asctime)s | %(message)s'
 logging.basicConfig(filename='.output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
@@ -413,6 +416,11 @@ while count < 3:
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
 
+                    elif cmd == "pyosiupgrade":
+                        print("Checking and upgrade system...")
+                        os.system("git pull --no-rebase")
+                        print("Upgrade success, hard restart(shutdown and start again) to take effect.")
+
                     elif cmd == "weather":
                         os.system("python ./apps/weather/weather-api.py")
 
@@ -424,11 +432,16 @@ while count < 3:
 
                     elif cmd == "ed":
                         os.system("python ./apps/ed-editor/edit.py")
+
                     # Package manager info
-                    elif cmd == "extprog":
+                    elif cmd == "shizuku":
                         cat("./coreutil/plaintext/extprog_info.txt")
+                    elif cmd.startswith("shizuku run"):
+                        os.chdir("./extprog")
+                        os.system("python " + cmd[11:] + ".py")
+                        os.chdir("../")
                     # Package install
-                    elif cmd.startswith("extprog install"):
+                    elif cmd.startswith("shizuku install"):
                         pkgPath = cmd[16:]
                         print("Installing package from " + pkgPath + " ...")
                         if isWindows == "true":
@@ -436,7 +449,7 @@ while count < 3:
                         elif isWindows == "false":
                             os.system("cp " + pkgPath + " ./extprog")
                     # Package delete
-                    elif cmd.startswith("extprog remove"):
+                    elif cmd.startswith("shizuku remove"):
                         pkgPath = cmd[15:]
                         print("Removing package " + pkgPath + " ...")
                         if isWindows == "true":
@@ -449,6 +462,13 @@ while count < 3:
                             print("Package removed!")
                         except Exception:
                             print("Isn't working! try delete package manually.")
+                    # The credits
+                    elif cmd.startswith("shizuku credits"):
+                        cat("./coreutil/plaintext/shizuku_credits.txt")
+                    # Package search
+                    elif cmd.startswith("shizuku search"):
+                        request = cmd[15:]
+                        print("Coming soon")
                     
                     elif cmd.startswith("chthm"):
                         cmd_theme = cmd[6:]
