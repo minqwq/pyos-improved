@@ -17,7 +17,7 @@ su <str>          Switch user
 rss               RSS Feed reader
 conf              Show the current config
 chthm <name>      Change theme of the shell
-extprog           Run external program
+shizuku           "雫しずく", The package manager for manage programs
 stdoutredirect    Redirect standard output to other place(example:a filename)
 (Tools)
 calc              A simple calculator

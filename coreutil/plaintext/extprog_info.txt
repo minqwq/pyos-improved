@@ -1,8 +1,8 @@
-Shizuku, the package manager for PY OS Improved | version 1.2.1
+雫しずく / Shizuku, The package manager for PY OS Improved. "Install easy, ever."
 
-- install     To install a python executable file
-- remove      To delete a package
-- search      Search package from mirror(coming soooooooooooooon)
-- credits     Look who made this package manager
+- install     to install a python executable file :3
+- remove      to delete a package, oh nooo! ;3
+- search      find packages fwom the mirror (coming suuuuper soon~ x3)
+- credits     see who made this adowable package manager!
 
-The shizuku have "super" scarlet power!
+Shizuku has "super" scarlet powew, isn't that just adowable? >.<

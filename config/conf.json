@@ -1,10 +1,11 @@
 {
-    "system_version": "1.4.0 Release",
-    "system_codename": "lolichan",
-    "system_build": "Build 371",
+    "system_version": "1.4.1 Release",
+    "system_codename": "sanae hey",
+    "system_build": "Build 389",
     "isWindows": "false",
     "cmd_theme": "default_v2",
     "enable_instant_show_time": "true",
     "isUnregistered": "false",
+    "beep_when_finished": "false",
     "devenv": "uwu"
 }

@@ -4,10 +4,7 @@ import datetime
 import calendar
 import os
 import sys
-import pygame
-pygame.mixer.init()
 def rprint(string):
-    pygame.mixer.Sound("./.earlysystem/test.mp3").play()
     print(string)
 rprint("PY OS Improved | Version 1.0(Pre Alpha | Build 1)")
 rprint("Original by AMDISYES | Improved Version by minqwq")

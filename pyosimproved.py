@@ -61,6 +61,10 @@ import logging # Log.
 import profile # Maybe useless?
 import re
 import autoexec
+try:
+    import curses
+except ModuleNotFoundError:
+    print("If you are trying run this on windows, please install curses module.")
 # import coreutil.module.history as history
 print("\033[?25l")
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
@@ -90,12 +94,15 @@ except FileNotFoundError:
 cmdhist_lines = 0
 cmdhist_time = "nul"
 lsh_hostname = "scarletlocal-000"
+
+print("Registered hostname")
+
 LOG_FORMAT = '[%(levelname)s] %(asctime)s | %(message)s'
 logging.basicConfig(filename='.output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
 logger.info("Logger started successfully.")
 pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-improved", "awa", "Also try original PY OS! link available after login.", "No stay back gordon!", "sjsjsjnwnwjsosjq????"]
-print("Tips loaded success")
+print("Tips loaded success, Logger started")
 os.system("alias cls=clear")
 
 # CONFIG START
@@ -108,6 +115,7 @@ cmd_theme = jsonRead["cmd_theme"] # 终端 Shell 主题 / Terminal shell theme
 isDev = False # 是否为 Dev 模式 / Dev mode
 enable_instant_show_time = jsonRead["enable_instant_show_time"] # INstant show time before shell
 isUnregistered = jsonRead["isUnregistered"] # Fake unregistered warning
+beep_when_finished = jsonRead["beep_when_finished"] # When a command finished running, speaker will beep
 # EXPERTIONAL FEATURE
 
 readConfigFromExport = False # Linux only! windows have same but not a command.
@@ -116,10 +124,14 @@ disableKernelFeature = False # Disable the kernel, may crash more.
 # EXPERTIONAL FEATURE
 # CONFIG END
 
+print("Config registered")
+
 # coreutil/plaintext loads START
 co_manualHelp = "coreutil/plaintext/manualhelp.txt"
 co_welcome = "coreutil/plaintext/welcome.txt"
 # coreutil/plaintext loads END
+
+print("PT Registered")
 
 def cmdhistory_write():
     tmp_f = open("./cache/history.txt", "a", encoding="utf-8")
@@ -151,13 +163,17 @@ def clearScreen():
 def beep():
     print("\a", end="\r")
 
-if sys.platform.startswith("linux") or sys.platform.startswith("posix"):
-    print("If you dont have 'python' command, please set alias 'python=python3'")
 temp_clock1 = time.time()
 print("Press d to fastboot.\nElse, press enter" + style_cur.show)
 
+# curses.initscr()
+# curses.start_color()
+
 if temp_clock1 < 2:
     goto(line=181)
+
+print("Other utils loaded")
+
 debugMode = input("\n")
 if debugMode == "d":
     now = datetime.datetime.now()
@@ -182,17 +198,16 @@ clearScreen()
 print("_")
 time.sleep(0.5)
 clearScreen()
-slowprint(colorama.Fore.LIGHTGREEN_EX + "Alicenoel Magic music soft 2011--2025 No lefts unserved")
-slowprint("EveryBooter v1.0")
-slowprint("Testing memory...")
-time.sleep(0.15)
+slowprint(colorama.Fore.LIGHTGREEN_EX + "Remilia Hardware, 1582--2025 Some rights reserved")
+slowprint("Unknown Paradise v1.1")
+time.sleep(1)
 memtest = 0
 for memtest in range(33):
-    print(str(memtest) + "MB", end="\r")
+    print("Testing memory... " + str(memtest) + "MB", end="\r")
     time.sleep(0.02)
     memtest = memtest + 1
 beep()
-print("32MB OK")
+print("Testing memory... 32MB OK!")
 time.sleep(0.5)
 profile.run("re.compile")
 time.sleep(1.5)
@@ -250,7 +265,7 @@ end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
 beep()
 logger.info("Welcome to PY OS Improved!")
-print("PY OS Improved version " + system_version) # Login screen | For restart to login manager, please goto this line for work normally
+print("PY OS Improved version " + system_version + " " + lsh_hostname) # Login screen | For restart to login manager, please goto this line for work normally
 now = datetime.datetime.now()
 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
 print("Current time: " + other_StyleTime)
@@ -349,6 +364,8 @@ while count < 3:
                         cmd_theme = "default"
 
                     cbatteryperc()
+                    if beep_when_finished == "true":
+                        beep()
 
                     lsh_time_prepare = datetime.datetime.now()
                     lsh_time = lsh_time_prepare.strftime("%H:%M:%S")
@@ -400,7 +417,7 @@ while count < 3:
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
                         print("Packages:" + str(dir_filecount("./extprog")) + "(extprog)")
-                        print("Terminal:tty")
+                        print("Terminal:console1")
                         print("Uptime:" + str(round(int(currentUptimeII))) + " s")
                         print("Host:" + lsh_hostname)
                         print("CPU:Intel 80486DX(66MHz)")
@@ -409,7 +426,17 @@ while count < 3:
                         print("Sound Card:Beep")
                         print("Ethernet Card:modem")
                         print("Disk:HDD1=10GB, HDD2=23GB")
-                        print("Color depth:4bit(16 colors)(VGA Comptiable mode)")
+                        curses.initscr()
+                        print("Console output limit:" + str(curses.baudrate()), end="")
+                        print("\nColor support:", end="")
+                        if curses.has_colors() == True:
+                            if curses.has_extended_color_support() == True:
+                                print("Extended(256xc)")
+                            elif curses.has_extended_color_support() == False:
+                                print("Basic(16bc)")
+                        elif curses.has_colors() == False:
+                            print("")
+                        curses.endwin()
                         print(colorama.Back.RED + "  " + colorama.Back.YELLOW + "  " + colorama.Back.GREEN + "  " + colorama.Back.CYAN + "  " + colorama.Back.BLUE + "  " + colorama.Back.MAGENTA + "  " + colorama.Back.WHITE + "  ")
                         print(colorama.Back.LIGHTRED_EX + "  " + colorama.Back.LIGHTYELLOW_EX + "  " + colorama.Back.LIGHTGREEN_EX + "  " + colorama.Back.LIGHTCYAN_EX + "  " + colorama.Back.LIGHTBLUE_EX + "  " + colorama.Back.LIGHTMAGENTA_EX + "  " + colorama.Back.LIGHTWHITE_EX + "  " + colorama.Fore.BLACK)
                         print(color.reset, end="")
