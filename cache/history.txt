@@ -1940,3 +1940,72 @@ nul min:scarletlocal-000 |
 nul min:scarletlocal-000 | about
 nul min:scarletlocal-000 | help
 nul min:scarletlocal-000 | news
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | crash
+nul min:scarletlocal-000 | su dev
+nul dev:scarletlocal-000 | crash
+nul min:scarletlocal-000 | su dev
+nul dev:scarletlocal-000 | crash
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | shizuku credits
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | shizuku search uwu
+nul min:scarletlocal-000 | shizuku remove __main__
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | power
+nul min:scarletlocal-000 | power shutdown
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | ed
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | ed
+nul min:scarletlocal-000 | about]
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | rbt
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | about -c
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | version
+nul min:scarletlocal-000 | a
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | rbt
+nul min:scarletlocal-000 | sy
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | ]
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | pftest
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | [A[A[A[A[A[A[A[A[A[A
+nul min:scarletlocal-000 | exit
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | st

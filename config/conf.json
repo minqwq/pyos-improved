@@ -1,11 +1,12 @@
 {
     "system_version": "1.4.1 Release",
     "system_codename": "sanae hey",
-    "system_build": "Build 389",
-    "isWindows": "false",
+    "system_build": "Build 400",
+    "isWindows": "",
     "cmd_theme": "default_v2",
     "enable_instant_show_time": "true",
     "isUnregistered": "false",
     "beep_when_finished": "false",
+    "auto_boot_choice": "",
     "devenv": "uwu"
 }

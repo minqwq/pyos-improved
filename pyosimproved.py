@@ -46,7 +46,6 @@ import time # Time
 # import struct
 # import select
 import random # Random tools
-import uuid # Generate uuid
 from os import path # Path control
 # import rich.spinner # idk
 # sys.path.append("./")
@@ -116,6 +115,7 @@ isDev = False # 是否为 Dev 模式 / Dev mode
 enable_instant_show_time = jsonRead["enable_instant_show_time"] # INstant show time before shell
 isUnregistered = jsonRead["isUnregistered"] # Fake unregistered warning
 beep_when_finished = jsonRead["beep_when_finished"] # When a command finished running, speaker will beep
+auto_boot_choice = jsonRead["auto_boot_choice"] # When have a number, the boot manager will auto boot to selected operating system.
 # EXPERTIONAL FEATURE
 
 readConfigFromExport = False # Linux only! windows have same but not a command.
@@ -222,7 +222,11 @@ print(colorama.Fore.LIGHTCYAN_EX + "PY OS Improved Boot manager" + color.reset +
 print("If you dont know which to choose, choose 1.")
 print("\n1:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1\n5:BBC OS 1.2.1")
 while bootManagerLoopRun == True:
-    bootChoice = input("> ")
+    if auto_boot_choice == "":
+        print(style.slowblink + "You can set \"auto_boot_choice\" to a number to set auto select!" + color.reset)
+        bootChoice = input("> ")
+    else:
+        bootChoice = auto_boot_choice
     if bootChoice == "1":
         print("...")
         break
@@ -250,14 +254,18 @@ startingtime = time.time()
 print("Starting up...")
 if system_is_beta == True: # If is beta version, show this warn
     print(text.doubt + "not release version, may unstable")
-print("Kernel Information")
+print("[" + color.yellow + " LOAD " + color.reset + "] Initialing Scarlet Kernel...")
+time.sleep(0.1)
 sk_act_about()
 sk_stl_about()
 sk_tm_about()
+time.sleep(0.1)
+print("[" + color.green + "  OK  " + color.reset + "] Scarlet Kernel initialion complete")
 print("\n" + system_version + " " + system_build)
 print("Flandre Studio 2024--2025")
 print("0x1c Studio 2022--2023")
-print("\n" + style.underline + "PY OS Improved is a Open-Source fake operating system, so fell free to improve our code!")
+print("\n" + "PY OS Improved is a Open-Source fake operating system, so fell free to improve our code!")
+print("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs") 
 time.sleep(3)
 clearScreen()
 time.sleep(0.1)
@@ -277,7 +285,8 @@ while count < 3:
     if user == "gaster":
         goto(line=0)
     elif user == "":
-        pass
+        time.sleep(1.5)
+        print("Login incorrect")
     elif user == "bai9nine":
         print("nope.   --minqwq")
     elif user == "yukari2024":
@@ -340,6 +349,7 @@ while count < 3:
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
                 welcome_withDetectTime(user)
                 autoexec.main()
+                print(style.slowblink + "Happy china lunar year(2025-01-28)!" + color.reset)
                 if isDev == True:
                     print("Logged into dev account, some command may unlocked!")
                 print("\nLarine SHell (lsh) version 1.7.0 >///<\nit's a wittwe user non-fwiendwy shell...")
@@ -792,7 +802,6 @@ while count < 3:
             except Exception as crashReason: # Crash
                 print(colorama.Fore.LIGHTRED_EX + ":(\n\nPY OS Improved has been crashed!\n" + str(crashReason) + "\n" + str(traceback.print_exc()) + "\nSystem Information:\n" + system_version + " " + system_build + "\n")
                 os.system("uname")
-                traceback.print_exc(file="latestcrash.log")
                 logger.critical("PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
                 input("[CRASH - Press any key to shutdown]" + color.reset)
                 clearScreen()
