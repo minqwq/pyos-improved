@@ -2009,3 +2009,67 @@ nul min:scarletlocal-000 | [A[A[A[A[A[A[A[A[A[A
 nul min:scarletlocal-000 | exit
 nul min:scarletlocal-000 | 
 nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | shizuku search
+nul min:scarletlocal-000 | power
+nul min:scarletlocal-000 | power shutdown
+nul min:scarletlocal-000 | about -c
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | wufet
+nul min:scarletlocal-000 | uwufetch colotest256
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | ed
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | tetris
+nul min:scarletlocal-000 | fm
+nul min:scarletlocal-000 | sticker
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | logout
+nul min:scarletlocal-000 | exit
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | logout
+nul min:scarletlocal-000 | logout
+nul min:scarletlocal-000 | logout
+nul min:scarletlocal-000 | logout
+nul min:scarletlocal-000 | logout
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | shizuku credits
+nul min:scarletlocal-000 | shutdown
+nul min:scarletlocal-000 | st

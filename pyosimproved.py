@@ -1,30 +1,4 @@
-# DONT CHANGE ANY IMPORTED MODULES NAME, IM SERIOUS
-#
-# PY OS Improved -- Open-source FAKE Operating System(OS) written using Python 3
-# Make sure you have Python 3.8.10 or higher, lower version is not tested
-# Project creator:minqwq / LR Studio 2024
-# 
-# For our developer:
-# After you write code finished, please add comment(s) in your code nearby, you maybe know why.
-
-# How to add a quick jump for vim?:
-# add comment with some special word(like uw1 uw2 ..)
-# Press esc and type /uw1 to quick jump.
-
-# PLease dont change all if elif else to match & case, this will reduce compaility!
-
-# (Chinese)
-# 为什么我不想像那样重构:我懒。
-# 所以我想出了一个办法，它基于编辑器的搜索功能
-# 只需在某个地方加上注释，然后输入一些字(不要和已有的注释同名即可)
-# 之后你只需使用搜索功能搜索这个注释你就可以快速定位了
-# --minqwq | 2024-10-05
-#
-# 在需要显示反斜杠到屏幕的情况下，请输入两个反斜杠，这是一个兼容性问题
-# --minqwq | 2024-10-07
-
-# 请前往chatboard.txt（位于仓库根目录）进行长文本留言
-# 注释只用于短句
+# Main code - PY OS Improved
 from coreutil.module.actions import *
 from coreutil.module.style import *
 from coreutil.module.textmoji import *
@@ -58,6 +32,7 @@ import base64 # Encode and decode
 import traceback
 import logging # Log.
 import profile # Maybe useless?
+import subprocess # I need to send notification
 import re
 import autoexec
 try:
@@ -108,7 +83,7 @@ os.system("alias cls=clear")
 system_version = jsonRead["system_version"] # 版本号 / Version
 system_codename = jsonRead["system_codename"] # Codename
 system_build = jsonRead["system_build"] # 每做一个修改或增减内容，就加一个 Build / If changed a feature, build +=1
-system_is_beta = True # 是否为 Beta 版 / Beta version
+system_is_beta = False # 是否为 Beta 版 / Beta version
 isWindows = jsonRead["isWindows"] # 是否为 Windows / Are you windows?
 cmd_theme = jsonRead["cmd_theme"] # 终端 Shell 主题 / Terminal shell theme
 isDev = False # 是否为 Dev 模式 / Dev mode
@@ -116,12 +91,19 @@ enable_instant_show_time = jsonRead["enable_instant_show_time"] # INstant show t
 isUnregistered = jsonRead["isUnregistered"] # Fake unregistered warning
 beep_when_finished = jsonRead["beep_when_finished"] # When a command finished running, speaker will beep
 auto_boot_choice = jsonRead["auto_boot_choice"] # When have a number, the boot manager will auto boot to selected operating system.
+enablePassword = jsonRead["enablePassword"] # Enable password when login, string on the config.
+show_password_when_typing = jsonRead["show_password_when_typing"] # Enable will not shown password when typing.
+pwdstring = jsonRead["pwdstring"] # Password string
+allowShowNotify = jsonRead["allowShowNotify"] # Enable to show notify in linux desktop or windows 10+
 # EXPERTIONAL FEATURE
 
 readConfigFromExport = False # Linux only! windows have same but not a command.
 disableKernelFeature = False # Disable the kernel, may crash more.
 
 # EXPERTIONAL FEATURE
+# DYNAMIC CONFIG
+logout = False
+# DYNAMIC CONFIG END
 # CONFIG END
 
 print("Config registered")
@@ -316,6 +298,22 @@ while count < 3:
     else:
         isCreatorAccount = False
         while count < 3:
+            if enablePassword == "true":
+                if show_password_when_typing == "false":
+                    login_password = input("Password: ")
+                elif show_password_when_typing == "true":
+                    try:
+                        login_password = getpass.getpass("Password: ")
+                    except getpass.GetPassWarning:
+                        print("\"show_password_when_typing\": \"false\" is not working.")
+                if login_password == pwdstring:
+                    pass
+                else:
+                    print("Login incorrect\nBy some tech things, you must restart to re-login")
+            elif enablePassword == "false":
+                pass
+            else:
+                pass
             try:
                 clearScreen()
                 lshdate = now.strftime("%Y-%m-%d")
@@ -344,6 +342,16 @@ while count < 3:
                         clearScreen()
                         sys.exit()
                 beep()
+                if allowShowNotify == "true":
+                    try:
+                        showNotify("Welcome to PY OS Improved", "Type \"help\" to show all available commands.\nIf you have problem or issue, contact me or open new issue on our official repo.\nhere is my email:minqwq723897@outlook.com")
+                    except Exception:
+                        if isWindows == "false":
+                            print("libnotify-bin is not installed, install it from your package manager to enable notify.")
+                        elif isWindows == "true":
+                            print("Unknown error at sending notify")
+                elif allowShowNotify == "false":
+                    pass
                 cat(co_welcome) # Welcome text, editable at coreutil/plaintext
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
@@ -421,9 +429,10 @@ while count < 3:
                         print(color.purple + "      --- Improved ---       " + color.reset)
                         print(user + "@" + lsh_hostname)
                         print("System:PY OS Improved " + system_version + " " + system_build + "\nRunning on:", end="")
-                        running_on = linuxUtil_detectDistro()
                         if isWindows == "true":
                             print("Windows NT")
+                        elif isWindows == "false":
+                            print("Linux, " + os.ttyname(0))
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
                         print("Packages:" + str(dir_filecount("./extprog")) + "(extprog)")
@@ -449,9 +458,14 @@ while count < 3:
                         curses.endwin()
                         print(colorama.Back.RED + "  " + colorama.Back.YELLOW + "  " + colorama.Back.GREEN + "  " + colorama.Back.CYAN + "  " + colorama.Back.BLUE + "  " + colorama.Back.MAGENTA + "  " + colorama.Back.WHITE + "  ")
                         print(colorama.Back.LIGHTRED_EX + "  " + colorama.Back.LIGHTYELLOW_EX + "  " + colorama.Back.LIGHTGREEN_EX + "  " + colorama.Back.LIGHTCYAN_EX + "  " + colorama.Back.LIGHTBLUE_EX + "  " + colorama.Back.LIGHTMAGENTA_EX + "  " + colorama.Back.LIGHTWHITE_EX + "  " + colorama.Fore.BLACK)
-                        print(color.reset, end="")
+                        print("\r")
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
+
+                    elif cmd == "logout":
+                        print("Return to login manager...")
+                        logout = True
+                        break
 
                     elif cmd == "pyosiupgrade":
                         print("Checking and upgrade system...")
@@ -806,3 +820,7 @@ while count < 3:
                 input("[CRASH - Press any key to shutdown]" + color.reset)
                 clearScreen()
                 sys.exit()
+        if logout == True:
+            break
+        elif logout == False:
+            pass

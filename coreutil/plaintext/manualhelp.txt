@@ -19,6 +19,7 @@ conf              Show the current config
 chthm <name>      Change theme of the shell
 shizuku           "雫しずく", The package manager for manage programs
 stdoutredirect    Redirect standard output to other place(example:a filename)
+logout            Log out current account
 (Tools)
 calc              A simple calculator
 uwufetch          List all hardware and system version

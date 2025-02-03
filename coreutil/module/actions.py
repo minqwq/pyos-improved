@@ -4,8 +4,9 @@ import time
 import platform
 import datetime
 import colorama
+import plyer
 def sk_act_about():
-    print("ScarletKernel / CoreUtil:Actions / 1.3.1_r5")
+    print("ScarletKernel / CoreUtil:Actions / 1.4.0_r0")
 def dotLoader(howMany, howSlow):
     for dotLoader_time in range(howMany):
         print(".", end="")
@@ -55,5 +56,12 @@ def cat(file):
     tmp_catcore = open(file, "r", encoding="utf-8")
     for content in tmp_catcore:
         print(content, end="")
-        time.sleep(0.02)
+        time.sleep(0.01)
     print("")
+def showNotify(title, message):
+    plyer.notification.notify(
+        title=title,
+        message=message,
+        app_icon=None,
+        timeout=10,
+    )

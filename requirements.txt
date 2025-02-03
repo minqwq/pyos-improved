@@ -8,3 +8,4 @@ python-goto
 pygame
 requests
 progressbar
+plyer
