@@ -95,6 +95,9 @@ enablePassword = jsonRead["enablePassword"] # Enable password when login, string
 show_password_when_typing = jsonRead["show_password_when_typing"] # Enable will not shown password when typing.
 pwdstring = jsonRead["pwdstring"] # Password string
 allowShowNotify = jsonRead["allowShowNotify"] # Enable to show notify in linux desktop or windows 10+
+dualBoot = jsonRead["dualBoot"] # Allow you to boot another fake os written in any language
+dualBoot_startupCommand = jsonRead["dualBoot_startupCommand"] # Dual boot startup command
+dualBoot_OSName = jsonRead["dualBoot_OSName"] # Dual boot name(show in boot manager)
 # EXPERTIONAL FEATURE
 
 readConfigFromExport = False # Linux only! windows have same but not a command.
@@ -203,6 +206,9 @@ logger.info("Starting PY OS Improved Boot manager.")
 print(colorama.Fore.LIGHTCYAN_EX + "PY OS Improved Boot manager" + color.reset + style_cur.show)
 print("If you dont know which to choose, choose 1.")
 print("\n1:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1\n5:BBC OS 1.2.1")
+if dualBoot == "true":
+    print(color.green + "\nDUAL BOOT ENABLED" + color.reset)
+    print("6:" + dualBoot_OSName)
 while bootManagerLoopRun == True:
     if auto_boot_choice == "":
         print(style.slowblink + "You can set \"auto_boot_choice\" to a number to set auto select!" + color.reset)
@@ -226,9 +232,14 @@ while bootManagerLoopRun == True:
         print("If you want exit, press Ctrl+C to shutdown")
         os.system("python ./.earlysystem/bbcos-full.py")
         sys.exit()
+    elif bootChoice == "6":
+        if dualBoot == "true":
+            os.system(dualBoot_startupCommand)
+            sys.exit()
+        elif dualBoot == "false":
+            pass
     else:
         clearScreen()
-        goto(line=176)
 clearScreen()
 # Startup screen
 logger.info("Starting main operating system...")
@@ -357,7 +368,7 @@ while count < 3:
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
                 welcome_withDetectTime(user)
                 autoexec.main()
-                print(style.slowblink + "Happy china lunar year(2025-01-28)!" + color.reset)
+                # print(style.slowblink + "Happy china lunar year(2025-01-28)!" + color.reset)
                 if isDev == True:
                     print("Logged into dev account, some command may unlocked!")
                 print("\nLarine SHell (lsh) version 1.7.0 >///<\nit's a wittwe user non-fwiendwy shell...")
@@ -461,6 +472,12 @@ while count < 3:
                         print("\r")
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
+
+                    elif cmd == "pyosver":
+                        print(system_version + " " + system_build)
+
+                    elif cmd == "jrrp":
+                        print("As today, your luck is " + str(random.randint(0, 100)))
 
                     elif cmd == "logout":
                         print("Return to login manager...")

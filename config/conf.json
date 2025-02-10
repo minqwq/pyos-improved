@@ -1,8 +1,8 @@
 {
-    "system_version": "1.4.1 Release",
-    "system_codename": "sanae hey",
-    "system_build": "Build 416",
-    "isWindows": "",
+    "system_version": "1.4.2 Release",
+    "system_codename": "Sorakae",
+    "system_build": "Build 422",
+    "isWindows": "false",
     "cmd_theme": "default_v2",
     "enable_instant_show_time": "true",
     "isUnregistered": "false",
@@ -12,5 +12,8 @@
     "enablePassword": "false",
     "show_password_when_typing": "false",
     "pwdstring": "defaultblyat",
-    "allowShowNotify": "false"
+    "allowShowNotify": "false",
+    "dualBoot": "true",
+    "dualBoot_startupCommand": "python test.py",
+    "dualBoot_OSName": "TEST"
 }

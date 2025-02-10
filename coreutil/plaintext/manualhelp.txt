@@ -2,6 +2,7 @@ Larine Shell manual help:
 (System)
 ls                View the path
 about             Show the system's information
+pyosver           Show system version
 converter         A tool to convert .lpap/.lpcu/.bbc to .umm
 time              Show the time and date(Deteled in this version)
 calendar          Show a calendar
@@ -51,3 +52,4 @@ cuscmd            Run custom command
 uptime            Show (this)system uptime
 pftest            CPU Performance Test
 tutor             Help document for new
+jrrp             CHeck your luck amount today
