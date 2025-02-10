@@ -2129,3 +2129,14 @@ nul min:scarletlocal-000 | about
 nul min:scarletlocal-000 | st
 nul min:scarletlocal-000 | pyosver
 nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | jrrp
+nul min:scarletlocal-000 | pyosver
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | hostname
+nul min:scarletlocal-000 | hostname -c
+nul min:flandrewg-0721 | st
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | shizuku run example
+nul min:scarletlocal-000 | uwufetch
