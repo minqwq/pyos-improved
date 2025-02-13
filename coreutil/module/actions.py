@@ -5,8 +5,9 @@ import platform
 import datetime
 import colorama
 import plyer
+import socket
 def sk_act_about():
-    print("ScarletKernel / CoreUtil:Actions / 1.4.0_r0")
+    print("ScarletKernel / CoreUtil:Actions / 1.4.1_r0")
 def dotLoader(howMany, howSlow):
     for dotLoader_time in range(howMany):
         print(".", end="")
@@ -65,3 +66,9 @@ def showNotify(title, message):
         app_icon=None,
         timeout=10,
     )
+def netcheck(host, port):
+    try:
+        socket.create_connection((host, port), timeout=5)
+        return True
+    except OSError:
+        return False

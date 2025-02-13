@@ -1,0 +1,9 @@
++---------------------------+
+|     NETREFRESH MANUAL     |
++---------------------------+
+
+- Networking check fail
+  - If it's return false, you can check:
+    - Your netline, it's maybe not fully inputed or broken.
+    - WiFi(or in china called "WLAN"), Check your driver.
+    - Modem(< 56KB/s), You may forgot to dial-up, or you forgot to buy more usage.

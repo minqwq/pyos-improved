@@ -2140,3 +2140,58 @@ nul min:flandrewg-0721 | st
 nul min:scarletlocal-000 | shizuku
 nul min:scarletlocal-000 | shizuku run example
 nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | a
+nul min:scarletlocal-000 | a
+nul min:scarletlocal-000 | a
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | shizuku run example
+nul min:scarletlocal-000 | ls
+nul min:scarletlocal-000 | chthm 
+nul min:scarletlocal-000 | chthm default
+nul min:scarletlocal-000 | chthm lite
+nul min:scarletlocal-000 | chthm debian_bash
+nul min:scarletlocal-000 | chthm arch_bash
+nul min:scarletlocal-000 | chthm sh
+nul min:scarletlocal-000 | chthm 
+nul min:scarletlocal-000 | chthm default_v2
+nul min:scarletlocal-000 | wuufet]
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | netrefresh
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | fm
+nul min:scarletlocal-000 | netrefresh -h
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | netrefresh -h
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | netrefresh -h
+nul min:scarletlocal-000 | netrefresh
+nul min:scarletlocal-000 | :q
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | netrefresh -h
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | jrrp
+nul min:scarletlocal-000 | shizuku search
+nul min:scarletlocal-000 | asciicvt
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | tutor
+nul min:scarletlocal-000 | ls

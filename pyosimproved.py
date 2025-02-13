@@ -187,12 +187,14 @@ slowprint(colorama.Fore.LIGHTGREEN_EX + "Remilia Hardware, 1582--2025 Some right
 slowprint("Unknown Paradise v1.1")
 time.sleep(1)
 memtest = 0
-for memtest in range(33):
-    print("Testing memory... " + str(memtest) + "MB", end="\r")
-    time.sleep(0.02)
+for memtest in range(round(psutil.virtual_memory().total / 1024 / 1024)):
+    print("Testing memory... " + str(memtest) + "MiB", end="\r")
+    time.sleep(0.0005)
     memtest = memtest + 1
 beep()
-print("Testing memory... 32MB OK!")
+if memtest > 64:
+    print("HiMemory enabled(> 64MiB)")
+print("Testing memory... " + str(memtest) + "MiB OK!")
 time.sleep(0.5)
 profile.run("re.compile")
 time.sleep(1.5)
@@ -254,6 +256,12 @@ sk_stl_about()
 sk_tm_about()
 time.sleep(0.1)
 print("[" + color.green + "  OK  " + color.reset + "] Scarlet Kernel initialion complete")
+print("[" + color.yellow + " WAIT " + color.reset + "] Initialing network... checking... connecting to main.minqwq.moe:80 ...")
+if netcheck("main.minqwq.moe", 80):
+    networked = True
+    print("[" + color.green + "  OK  " + color.reset + "] Network return True, enabled")
+else:
+    print("[" + color.red + " FAIL " + color.reset + "] Network return False, if you have tryed to reconnect, login and run \"netrefresh\"")
 print("\n" + system_version + " " + system_build)
 print("Flandre Studio 2024--2025")
 print("0x1c Studio 2022--2023")
@@ -467,11 +475,21 @@ while count < 3:
                         elif curses.has_colors() == False:
                             print("")
                         curses.endwin()
+                        print("W:" + str(os.get_terminal_size().columns) + ", H:" + str(os.get_terminal_size().lines))
                         print(colorama.Back.RED + "  " + colorama.Back.YELLOW + "  " + colorama.Back.GREEN + "  " + colorama.Back.CYAN + "  " + colorama.Back.BLUE + "  " + colorama.Back.MAGENTA + "  " + colorama.Back.WHITE + "  ")
                         print(colorama.Back.LIGHTRED_EX + "  " + colorama.Back.LIGHTYELLOW_EX + "  " + colorama.Back.LIGHTGREEN_EX + "  " + colorama.Back.LIGHTCYAN_EX + "  " + colorama.Back.LIGHTBLUE_EX + "  " + colorama.Back.LIGHTMAGENTA_EX + "  " + colorama.Back.LIGHTWHITE_EX + "  " + colorama.Fore.BLACK)
                         print("\r")
                     elif cmd == "uwufetch colotest256":
                         os.system("python ./apps/color256/color256.py")
+
+                    elif cmd == "netrefresh":
+                        if netcheck("main.minqwq.moe", 80):
+                            networked = True
+                            print("[" + color.green + "  OK  " + color.reset + "] Network return True, enabled")
+                        else:
+                            print("[" + color.red + " FAIL " + color.reset + "] Network return False, if you have tryed to reconnect, retry run \"netrefresh\"")
+                    elif cmd == "netrefresh -h":
+                        cat("./coreutil/plaintext/netrefresh_help.txt")
 
                     elif cmd == "pyosver":
                         print(system_version + " " + system_build)
@@ -832,7 +850,8 @@ while count < 3:
                     sys.exit()
             except Exception as crashReason: # Crash
                 print(colorama.Fore.LIGHTRED_EX + ":(\n\nPY OS Improved has been crashed!\n" + str(crashReason) + "\n" + str(traceback.print_exc()) + "\nSystem Information:\n" + system_version + " " + system_build + "\n")
-                os.system("uname")
+                print("---------------------------------")
+                print("HOSTSYS INFO:\nOS:" + psutil.system)
                 logger.critical("PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
                 input("[CRASH - Press any key to shutdown]" + color.reset)
                 clearScreen()

@@ -33,6 +33,7 @@ clock             Timer and clock
 tasks             Critical tasks now will never forgot again.
 asciicvt          ASCII Converter
 ed                Line text editor
+netrefresh [-h]   Refresh network connection
 (Relax)
 mp                Play music
 screensaver       Save your VGA screen, make your pc like a pro
