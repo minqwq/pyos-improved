@@ -2195,3 +2195,20 @@ nul min:scarletlocal-000 | asciicvt
 nul min:scarletlocal-000 | uwufetch
 nul min:scarletlocal-000 | tutor
 nul min:scarletlocal-000 | ls
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | jrrp
+nul min:scarletlocal-000 | pftest
+nul min:scarletlocal-000 | exit
+nul min:scarletlocal-000 | exit
+nul min:scarletlocal-000 | exit
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | exit
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | crash
+nul min:scarletlocal-000 | su dev
+nul dev:scarletlocal-000 | crash
+nul min:scarletlocal-000 | su dev
+nul dev:scarletlocal-000 | crash
+nul min:scarletlocal-000 | su dev
+nul dev:scarletlocal-000 | crash

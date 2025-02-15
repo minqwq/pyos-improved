@@ -823,6 +823,7 @@ while count < 3:
                             if unlockSystem == "u":
                                 systemIsLocked = False
                                 clearScreen()
+                                break
                             elif unlockSystem == "time":
                                 now = datetime.datetime.now()
                                 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
@@ -830,10 +831,6 @@ while count < 3:
                             elif unlockSystem == "st":
                                 clearScreen()
                                 sys.exit()
-                        startingtime = "?"
-                        end_startingtime = "?"
-                        startingtime_t = "?"
-                        goto(line=244)
                     else: # Wrong command
                         beep()
                         print(text.error + color.red + "i can't seem to find the command >.<" + color.reset)
@@ -851,7 +848,9 @@ while count < 3:
             except Exception as crashReason: # Crash
                 print(colorama.Fore.LIGHTRED_EX + ":(\n\nPY OS Improved has been crashed!\n" + str(crashReason) + "\n" + str(traceback.print_exc()) + "\nSystem Information:\n" + system_version + " " + system_build + "\n")
                 print("---------------------------------")
-                print("HOSTSYS INFO:\nOS:" + psutil.system)
+                print("HOSTSYS INFO:\nOS:" + os.uname().sysname + " " + os.uname().version)
+                print("ARCH:" + os.uname().machine)
+                print("\nScreenshot and open new issue!\nhttps://github.com/minqwq/pyos-improved")
                 logger.critical("PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
                 input("[CRASH - Press any key to shutdown]" + color.reset)
                 clearScreen()
