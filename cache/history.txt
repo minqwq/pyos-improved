@@ -2212,3 +2212,22 @@ nul min:scarletlocal-000 | su dev
 nul dev:scarletlocal-000 | crash
 nul min:scarletlocal-000 | su dev
 nul dev:scarletlocal-000 | crash
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | rss
+nul min:scarletlocal-000 | pftest
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | [B[B[B[B
+nul min:scarletlocal-000 | jrrp
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | st
+nul min\:scarletlocal-000 | exit]
+nul min\:scarletlocal-000 | exit
+nul min\:scarletlocal-000 | help
+nul min\:scarletlocal-000 | screensaver
+nul min\:scarletlocal-000 | about
+nul min\:scarletlocal-000 | rbyt
+nul min\:scarletlocal-000 | rbt
+nul min:scarletlocal-000 | hek0o]
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | sr
+nul min:scarletlocal-000 | st

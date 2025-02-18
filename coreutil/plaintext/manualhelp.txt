@@ -25,7 +25,6 @@ logout            Log out current account
 calc              A simple calculator
 uwufetch          List all hardware and system version
 caesar            Caesar encryption tools
-(DEL)fm           Ranger file manager
 sticker           notepad but can't save content
 fileget           Get any file from internet
 paint             Paint(image maker app)

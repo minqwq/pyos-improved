@@ -39,6 +39,10 @@ try:
     import curses
 except ModuleNotFoundError:
     print("If you are trying run this on windows, please install curses module.")
+try:
+    import pygame
+except ModuleNotFoundError:
+    print("pygame not found or error, some program may not work.")
 # import coreutil.module.history as history
 print("\033[?25l")
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
@@ -98,6 +102,9 @@ allowShowNotify = jsonRead["allowShowNotify"] # Enable to show notify in linux d
 dualBoot = jsonRead["dualBoot"] # Allow you to boot another fake os written in any language
 dualBoot_startupCommand = jsonRead["dualBoot_startupCommand"] # Dual boot startup command
 dualBoot_OSName = jsonRead["dualBoot_OSName"] # Dual boot name(show in boot manager)
+venvEnable = jsonRead["venvEnable"] # Enable python venv here
+if venvEnable == "true":
+    venvPath = jsonRead["venvPath"] # If you are linux distro, like me, you need this
 # EXPERTIONAL FEATURE
 
 readConfigFromExport = False # Linux only! windows have same but not a command.
@@ -123,6 +130,12 @@ def cmdhistory_write():
     # cmdhist_lines += 1
     cmdhist_timed = datetime.datetime.now().strftime("%b %a %d %H:%M:%S %Y")
     tmp_f.write(str(cmdhist_time) + " " + user + ":" + lsh_hostname + " | " + cmd + "\n")
+
+def runPreInstApp(pathtoapp):
+    if isWindows == "true":
+        os.system("python " + pathtoapp)
+    elif isWindows == "false":
+        os.system(venvPath + " " + pathtoapp)
 
 # BIOS Animation
 # with open("./config/conf.json", "w", encoding="utf-8") as temp_writeConfig:
@@ -480,7 +493,7 @@ while count < 3:
                         print(colorama.Back.LIGHTRED_EX + "  " + colorama.Back.LIGHTYELLOW_EX + "  " + colorama.Back.LIGHTGREEN_EX + "  " + colorama.Back.LIGHTCYAN_EX + "  " + colorama.Back.LIGHTBLUE_EX + "  " + colorama.Back.LIGHTMAGENTA_EX + "  " + colorama.Back.LIGHTWHITE_EX + "  " + colorama.Fore.BLACK)
                         print("\r")
                     elif cmd == "uwufetch colotest256":
-                        os.system("python ./apps/color256/color256.py")
+                        runPreInstApp("./apps/color256/color256.py")
 
                     elif cmd == "netrefresh":
                         if netcheck("main.minqwq.moe", 80):
@@ -508,7 +521,7 @@ while count < 3:
                         print("Upgrade success, hard restart(shutdown and start again) to take effect.")
 
                     elif cmd == "weather":
-                        os.system("python ./apps/weather/weather-api.py")
+                        runPreInstApp("./apps/weather/weather-api.py")
 
                     elif cmd.startswith("stdoutredirect"):
                         if cmd[16:] == "":
@@ -517,7 +530,7 @@ while count < 3:
                             sys.stdout = cmd[16:]
 
                     elif cmd == "ed":
-                        os.system("python ./apps/ed-editor/edit.py")
+                        runPreInstApp("./apps/ed-editor/edit.py")
 
                     # Package manager info
                     elif cmd == "shizuku":
@@ -565,7 +578,7 @@ while count < 3:
                         print(dir("*"))
 
                     elif cmd == "asciicvt":
-                        os.system("python ./apps/asciicvt/asciiconverter.py")
+                        runPreInstApp("./apps/asciicvt/asciiconverter.py")
 
                     elif cmd == "tasks":
                         os.system("cd ./savedfile/tasks && ../../apps/tasks/tasks && cd ../..")
@@ -587,7 +600,6 @@ while count < 3:
                         else:
                             os.rmdir(rmDir)
                     elif cmd.startswith("su"):
-
                         user_preInput = cmd[3:]
                         if user_preInput == "":
                             print("Please type you want to login super user.")
@@ -599,8 +611,9 @@ while count < 3:
                             user = user_preInput
                             print("Logged in as " + user)
                             logger.info("[Login manager] Switch user to " + user)
+
                     elif cmd == "rss":
-                        os.system("python ./apps/rss/main.py")
+                        runPreInstApp("./apps/rss/main.py")
 
                     elif cmd == "crash":
                         if user == "dev":
@@ -617,47 +630,48 @@ while count < 3:
                             print(string)
 
                     elif cmd == "clock":
-                        os.system("python ./apps/clock/clock.py")
+                        runPreInstApp("./apps/clock/clock.py")
 
                     elif cmd == "ttt":
-                        os.system("python ./apps/tictactoe/tictactoe.py")
+                        runPreInstApp("./apps/tictactoe/tictactoe.py")
 
                     elif cmd == "paint":
                         paintWidthAndHeight = input("Input width and height(example:50 50): ")
-                        os.system("cd ./savedfile && python ../apps/paint/paint.py " + paintWidthAndHeight + " && cd ..")
+                        os.chdir("./savedfile")
+                        runPreInstApp("../apps/paint/paint.py " + paintWidthAndHeight)
+                        os.chdir("..")
 
                     elif cmd == "pftest":
                         print("CPU Performance Test by minqwq")
                         print("2024-09-07")
-                        os.system("python ./apps/pftest/mark.py")
+                        runPreInstApp("./apps/pftest/mark.py")
 
                     elif cmd == "nekochat":
                         nekochatConnectToIP = input("Input server IP: ")
                         nekochatConnectToPort = input("Input server Port: ")
                         nekochatUsername = input("What's your name?: ")
                         print("Welcome to NekoChat Client(Python Port) by Yukari2024")
-                        os.system("python ./apps/nekochat/py/client.py --ip " + nekochatConnectToIP + " --port " + nekochatConnectToPort + " --name " + nekochatUsername)
+                        runPreInstApp("./apps/nekochat/py/client.py --ip " + nekochatConnectToIP + " --port " + nekochatConnectToPort + " --name " + nekochatUsername)
 
                     elif cmd == "demine":
                         os.system("./apps/minesweeper/minesweeper")
 
                     elif cmd == "fileget":
-                        os.system("cd ./download && python ../apps/fileget/fileget.py && cd ..")
+                        os.chdir("./download")
+                        runPreInstApp("../apps/fileget/fileget.py")
+                        os.chdir("..")
 
                     elif cmd == "uptime":
                         currentUptime = time.time()
                         print(currentUptime - end_startingtime)
 
                     elif cmd == "guessnum":
-                        os.system("python ./apps/guessnum/guessnum.py")
+                        runPreInstApp("./apps/guessnum/guessnum.py")
 
                     elif cmd == "ping": # Ping tool
                         pingToolIPInput = input("Input IP or Domain: ")
                         pingToolCountInput = input("Send how many packages: ")
                         os.system("ping -c " + pingToolCountInput + " " + pingToolIPInput)
-
-                    elif cmd == "fm":
-                        os.system("./apps/ranger/ranger.sh")
 
                     elif cmd == "hostname":
                         print("add option -c to change.\n\nHostname:\n" + lsh_hostname)
@@ -668,9 +682,6 @@ while count < 3:
 
                     elif cmd.startswith("sudo"): # sudo not sudo
                         print("This system is not based on linux, so sudo is not on herse")
-
-                    elif cmd == "sticker":
-                        os.system("cd ./apps/sticker && python sticker.py && cd ../..")
 
                     elif cmd == "about": # About system
                         slowprint("---------------| About |---------------")
@@ -721,7 +732,9 @@ while count < 3:
                         goto(line=98)
 
                     elif cmd == "screensaver": # Screensaver
-                        os.system("cd ./apps/_screensaver && python scrsv.py && cd ../..")
+                        os.chdir("./apps/_screensaver")
+                        runPreInstApp("scrsv.py")
+                        os.chdir("../..")
 
                     elif cmd == "tetris":
                         print("   #####   ####  #####   ###    #   ####")
@@ -733,10 +746,7 @@ while count < 3:
                         print("by shkolovy")
                         print("https://github.com/shkolovy/tetris-terminal")
                         time.sleep(3)
-                        os.system("python ./apps/tetris/tetris.py")
-
-                    elif cmd == "mp":
-                        os.system("cd ./apps/musicplayer && python musicplayer.py && cd ../..")
+                        runPreInstApp("./apps/tetris/tetris.py")
 
                     elif cmd == "converter": # converter but cant select file
                         print("File Convert\nConvert .lpap/.lpcu/.bbc to .umm")
@@ -753,7 +763,9 @@ while count < 3:
                         other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
                         print(other_StyleTime)
                     elif cmd == "caesar":
-                        os.system("cd ./apps/caesartools && python caesar.py && cd ../..")
+                        os.chdir("./apps/caesartools")
+                        runPreInstApp("caesar.py")
+                        os.chdir("../..")
 
                     elif cmd == "cuscmd":
                         print("Type custom command below...(ex:cat ciallo.txt)")
@@ -783,9 +795,6 @@ while count < 3:
                         mm = int(input("Month: "))
                         print(color.green + "PY OS Calendar\n" + color.reset + calendar.month(yy, mm))
 
-                    elif cmd == "calcurse":
-                        os.system("calcurse")
-
                     elif cmd == "help": # Command list
                         cat(co_manualHelp)
 
@@ -803,7 +812,9 @@ while count < 3:
                             print("Input error.\n" + str(e))
 
                     elif cmd == "tutor":
-                        os.system("cd ./apps/tutor && python tutor.py && cd ../..")
+                        os.chdir("./apps/tutor")
+                        runPreInstApp("tutor.py")
+                        os.chdir("../..")
 
                     elif cmd == "": # what is this??? --minqwq at 2024-06-12 19:32
                         space = "0"
