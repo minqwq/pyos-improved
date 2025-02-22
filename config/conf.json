@@ -13,9 +13,9 @@
     "show_password_when_typing": "false",
     "pwdstring": "defaultblyat",
     "allowShowNotify": "false",
-    "dualBoot": "true",
+    "dualBoot": "false",
     "dualBoot_startupCommand": "python test.py",
     "dualBoot_OSName": "TEST",
-    "venvEnable": "true",
+    "venvEnable": "false",
     "venvPath": "~/pyvenv/bin/python"
 }

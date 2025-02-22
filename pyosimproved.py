@@ -477,9 +477,9 @@ while count < 3:
                         print("GPU:Standard SVGA Adapter(2MB)")
                         print("Memory: " + "32" + " MB")
                         print("Sound Card:", end="")
-                        if haveSoundCard = True:
+                        if haveSoundCard == True:
                             print("BeepEX")
-                        elif haveSoundCard = False:
+                        elif haveSoundCard == False:
                             print("Beep")
                         print("Ethernet Card:Wire Network 0(Status:OK)")
                         print("Disk:HDD1=10GB, HDD2=23GB")

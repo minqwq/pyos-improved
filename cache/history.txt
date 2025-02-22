@@ -2241,3 +2241,6 @@ nul min:scarletlocal-000 | clear
 nul min:scarletlocal-000 | about
 nul min:scarletlocal-000 | about -c
 nul min:scarletlocal-000 | about -s
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | jrrp
+nul min:scarletlocal-000 | uwufetch
