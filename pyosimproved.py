@@ -32,7 +32,7 @@ import base64 # Encode and decode
 import traceback
 import logging # Log.
 import profile # Maybe useless?
-import subprocess # I need to send notification
+# import subprocess # I need to send notification
 import re
 import autoexec
 try:
@@ -41,8 +41,10 @@ except ModuleNotFoundError:
     print("If you are trying run this on windows, please install curses module.")
 try:
     import pygame
-except ModuleNotFoundError:
+    haveSoundCard = True
+except Exception:
     print("pygame not found or error, some program may not work.")
+    haveSoundCard = False
 # import coreutil.module.history as history
 print("\033[?25l")
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
@@ -65,6 +67,10 @@ def echo(string):
 #    separator_character   = '#',
 #    line_color            = colorama.Fore.LIGHTBLUE_EX + 'Here > ' + color.reset,
 # print("config updated for pretty-errors")
+
+# i love bai9nine and minimalmio --minqwq 2025-02-19
+# and my best friend stevemcpe
+
 try:
     os.remove("output.log")
 except FileNotFoundError:
@@ -151,6 +157,11 @@ if jsonRead["isWindows"] == "":
     print("Please configure the 'isWindows' to false or true on config/conf.json\nIt's looks like this:\"isWindows\": \"\", Change it to:\n\"isWindows\": \"false\" If you are linux\n\"isWindows\": \"true\" If you are windows")
     print("Exiting...")
     sys.exit()
+elif jsonRead["isWindows"] == "true" or jsonRead["isWindows"] == "false":
+    pass
+else:
+    print("Incorrect syntax at \"isWindows\", check config/config.json for more info.")
+    sys.exit()
 
 def clearScreen():
     if isWindows == "true":
@@ -185,20 +196,11 @@ print(style_cur.hide)
 import psutil
 print("module import: psutil")
 print(colorama.Back.LIGHTRED_EX + colorama.Fore.LIGHTYELLOW_EX + "E:NO SINGAL" + color.reset)
-time.sleep(2)
-clearScreen()
-print("_")
-time.sleep(0.5)
-clearScreen()
-print(" ")
-time.sleep(0.5)
-clearScreen()
-print("_")
-time.sleep(0.5)
+time.sleep(1)
 clearScreen()
 slowprint(colorama.Fore.LIGHTGREEN_EX + "Remilia Hardware, 1582--2025 Some rights reserved")
 slowprint("Unknown Paradise v1.1")
-time.sleep(1)
+time.sleep(0.5)
 memtest = 0
 for memtest in range(round(psutil.virtual_memory().total / 1024 / 1024)):
     print("Testing memory... " + str(memtest) + "MiB", end="\r")
@@ -474,8 +476,12 @@ while count < 3:
                         print("CPU:Intel 80486DX(66MHz)")
                         print("GPU:Standard SVGA Adapter(2MB)")
                         print("Memory: " + "32" + " MB")
-                        print("Sound Card:Beep")
-                        print("Ethernet Card:modem")
+                        print("Sound Card:", end="")
+                        if haveSoundCard = True:
+                            print("BeepEX")
+                        elif haveSoundCard = False:
+                            print("Beep")
+                        print("Ethernet Card:Wire Network 0(Status:OK)")
                         print("Disk:HDD1=10GB, HDD2=23GB")
                         curses.initscr()
                         print("Console output limit:" + str(curses.baudrate()), end="")
