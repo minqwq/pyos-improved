@@ -111,6 +111,7 @@ dualBoot_OSName = jsonRead["dualBoot_OSName"] # Dual boot name(show in boot mana
 venvEnable = jsonRead["venvEnable"] # Enable python venv here
 if venvEnable == "true":
     venvPath = jsonRead["venvPath"] # If you are linux distro, like me, you need this
+replace_python_command_to_python3 = jsonRead["replace_python_command_to_python3"] # Replace python command to python3(when you using linux distro)
 # EXPERTIONAL FEATURE
 
 readConfigFromExport = False # Linux only! windows have same but not a command.
@@ -141,10 +142,27 @@ def runPreInstApp(pathtoapp):
     if isWindows == "true":
         os.system("python " + pathtoapp)
     elif isWindows == "false":
-        os.system(venvPath + " " + pathtoapp)
+        if venvEnable == "true": # bugfix!!!!! --minqwq
+            if replace_python_command_to_python3 == "true":
+                os.system(venvPath + "3 " + pathtoapp)
+            elif replace_python_command_to_python3 == "false":
+                os.system(venvPath + " " + pathtoapp)
+            else:
+                print("Config incorrect at \"replace_python_command_to_python3\"")
+                print("check it on config/conf.json\nif you need help please contact minqwq723897@outlook.com")
+                sys.exit()
+        else: # too --minqwq
+            if replace_python_command_to_python3 == "true":
+                os.system("python " + pathtoapp)
+            elif replace_python_command_to_python3 == "false":
+                os.system("python3 " + pathtoapp)
+            else:
+                print("Config incorrect at \"replace_python_command_to_python3\"")
+                print("check it on config/conf.json\nif you need help please contact minqwq723897@outlook.com")
+                sys.exit()
 
-# BIOS Animation
 # with open("./config/conf.json", "w", encoding="utf-8") as temp_writeConfig:
+# 
 if jsonRead["isWindows"] == "":
     # print("Unknown OS type, please set one.\nfalse:Linux\ntrue:Windows")
     # conf_isWindows_write = input(">")
@@ -174,9 +192,6 @@ def beep():
 
 temp_clock1 = time.time()
 print("Press d to fastboot.\nElse, press enter" + style_cur.show)
-
-# curses.initscr()
-# curses.start_color()
 
 if temp_clock1 < 2:
     goto(line=181)
@@ -271,12 +286,16 @@ sk_stl_about()
 sk_tm_about()
 time.sleep(0.1)
 print("[" + color.green + "  OK  " + color.reset + "] Scarlet Kernel initialion complete")
-print("[" + color.yellow + " WAIT " + color.reset + "] Initialing network... checking... connecting to main.minqwq.moe:80 ...")
-if netcheck("main.minqwq.moe", 80):
-    networked = True
-    print("[" + color.green + "  OK  " + color.reset + "] Network return True, enabled")
-else:
-    print("[" + color.red + " FAIL " + color.reset + "] Network return False, if you have tryed to reconnect, login and run \"netrefresh\"")
+print("[" + color.yellow + " WAIT " + color.reset + "] Initialing network... checking... connecting to main.minqwq.moe:80 ...(Press Ctrl+C to skip)")
+try:
+    if netcheck("main.minqwq.moe", 80):
+        networked = True
+        print("[" + color.green + "  OK  " + color.reset + "] Network return True, enabled")
+    else:
+        print("[" + color.red + " FAIL " + color.reset + "] Network return False, if you have tryed to reconnect, login and run \"netrefresh\"")
+except KeyboardInterrupt:
+    pass
+    print("[" + color.yellow + " WARN " + color.reset + "] Skipped network checking, will keep status \"False\".")
 print("\n" + system_version + " " + system_build)
 print("Flandre Studio 2024--2025")
 print("0x1c Studio 2022--2023")
@@ -329,7 +348,7 @@ while count < 3:
         time.sleep(0.1)
         clearScreen()
         print("You have been kicked by Komeiji Koishi.\nPlease r???\nP??\nPlease re-lo??..gin.")
-    else:
+    else: # trash code here --minqwq
         isCreatorAccount = False
         while count < 3:
             if enablePassword == "true":
@@ -378,7 +397,7 @@ while count < 3:
                 beep()
                 if allowShowNotify == "true":
                     try:
-                        showNotify("Welcome to PY OS Improved", "Type \"help\" to show all available commands.\nIf you have problem or issue, contact me or open new issue on our official repo.\nhere is my email:minqwq723897@outlook.com")
+                        showNotify("Welcome to PY OS Improved~!", "Type \"help\" to show all available commands.\nIf you have problem or issue, contact me or open new issue on our official repo.\nhere is my email:minqwq723897@outlook.com")
                     except Exception:
                         if isWindows == "false":
                             print("libnotify-bin is not installed, install it from your package manager to enable notify.")
@@ -507,6 +526,15 @@ while count < 3:
                             print("[" + color.green + "  OK  " + color.reset + "] Network return True, enabled")
                         else:
                             print("[" + color.red + " FAIL " + color.reset + "] Network return False, if you have tryed to reconnect, retry run \"netrefresh\"")
+                    elif cmd.startswith("netrefresh set"):
+                        if cmd[15:] == "True" or cmd[15:] == "true":
+                            networked = True
+                            print("networked = " + str(networked))
+                        elif cmd[15:] == "False" or cmd[15:] == "false":
+                            networked = False
+                            print("networked = " + str(networked))
+                        else:
+                            print("True, true, False, false")
                     elif cmd == "netrefresh -h":
                         cat("./coreutil/plaintext/netrefresh_help.txt")
 
