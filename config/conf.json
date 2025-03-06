@@ -2,7 +2,7 @@
     "system_version": "1.5.0 Release",
     "system_codename": "Tilizen",
     "system_build": "Build 450",
-    "isWindows": "false",
+    "isWindows": "",
     "cmd_theme": "default_v2",
     "enable_instant_show_time": "true",
     "isUnregistered": "false",
@@ -16,7 +16,7 @@
     "dualBoot": "false",
     "dualBoot_startupCommand": "python test.py",
     "dualBoot_OSName": "TEST",
-    "venvEnable": "true",
-    "venvPath": "~/pyvenv/bin/python",
+    "venvEnable": "false",
+    "venvPath": "",
     "replace_python_command_to_python3": "false"
 }
