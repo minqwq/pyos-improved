@@ -18,6 +18,7 @@ su <str>          Switch user
 rss               RSS Feed reader
 conf              Show the current config
 chthm <name>      Change theme of the shell
+pyosiupgrade      Update system(If available)
 shizuku           "雫しずく", The package manager for manage programs
 stdoutredirect    Redirect standard output to other place(example:a filename)
 logout            Log out current account

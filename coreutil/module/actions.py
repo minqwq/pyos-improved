@@ -6,8 +6,11 @@ import datetime
 import colorama
 import plyer
 import socket
+
+loadtime = 0
+
 def sk_act_about():
-    print("ScarletKernel / CoreUtil:Actions / 1.4.1_r0")
+    print("ScarletKernel / CoreUtil:Actions / 1.4.2_r5")
 def dotLoader(howMany, howSlow):
     for dotLoader_time in range(howMany):
         print(".", end="")
@@ -59,6 +62,9 @@ def cat(file):
         print(content, end="")
         time.sleep(0.01)
     print("")
+def cat_code(file):
+    hlcode = highlight.highlight(file)
+    print(hlcode)
 def showNotify(title, message):
     plyer.notification.notify(
         title=title,
@@ -72,3 +78,45 @@ def netcheck(host, port):
         return True
     except OSError:
         return False
+def loading_timed(loadtime):
+    while loadtime > 0:
+        print("/\r")
+        if loadtime < 0:
+            break
+        time.sleep(0.3)
+        loadtime -= 0.3
+        print("-\r")
+        if loadtime < 0:
+            break
+        time.sleep(0.3)
+        loadtime -= 0.3
+        print("\\\r")
+        if loadtime < 0:
+            break
+        time.sleep(0.3)
+        loadtime -= 0.3
+        print("|\r")
+        if loadtime < 0:
+            break
+        time.sleep(0.3)
+        loadtime -= 0.3
+        print("/\r")
+        if loadtime < 0:
+            break
+        time.sleep(0.3)
+        loadtime -= 0.3
+        print("-\r")
+        if loadtime < 0:
+            break
+        time.sleep(0.3)
+        loadtime -= 0.3
+        print("\\\r")
+        if loadtime < 0:
+            break
+        time.sleep(0.3)
+        loadtime -= 0.3
+        print("|\r")
+        if loadtime < 0:
+            break
+        time.sleep(0.3)
+        loadtime -= 0.3

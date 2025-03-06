@@ -112,6 +112,8 @@ venvEnable = jsonRead["venvEnable"] # Enable python venv here
 if venvEnable == "true":
     venvPath = jsonRead["venvPath"] # If you are linux distro, like me, you need this
 replace_python_command_to_python3 = jsonRead["replace_python_command_to_python3"] # Replace python command to python3(when you using linux distro)
+print("\r./config/conf.json:")
+cat("config/conf.json")
 # EXPERTIONAL FEATURE
 
 readConfigFromExport = False # Linux only! windows have same but not a command.
@@ -190,6 +192,7 @@ def clearScreen():
 def beep():
     print("\a", end="\r")
 
+loadtime_aftered = 0
 temp_clock1 = time.time()
 print("Press d to fastboot.\nElse, press enter" + style_cur.show)
 
@@ -300,8 +303,8 @@ print("\n" + system_version + " " + system_build)
 print("Flandre Studio 2024--2025")
 print("0x1c Studio 2022--2023")
 print("\n" + "PY OS Improved is a Open-Source fake operating system, so fell free to improve our code!")
-print("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs") 
-time.sleep(3)
+print("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs", end=" ")
+loading_timed(3)
 clearScreen()
 time.sleep(0.1)
 end_startingtime = time.time()
@@ -348,7 +351,7 @@ while count < 3:
         time.sleep(0.1)
         clearScreen()
         print("You have been kicked by Komeiji Koishi.\nPlease r???\nP??\nPlease re-lo??..gin.")
-    else: # trash code here --minqwq
+    else: # a lot of shit code here --minqwq
         isCreatorAccount = False
         while count < 3:
             if enablePassword == "true":
@@ -891,12 +894,12 @@ while count < 3:
                     clearScreen()
                     sys.exit()
             except Exception as crashReason: # Crash
-                print(colorama.Fore.LIGHTRED_EX + ":(\n\nPY OS Improved has been crashed!\n" + str(crashReason) + "\n" + str(traceback.print_exc()) + "\nSystem Information:\n" + system_version + " " + system_build + "\n")
+                print(colorama.Fore.LIGHTRED_EX + ":(\n\nSystem Panic!!\n" + str(crashReason) + "\n" + str(traceback.print_exc()) + "\nSystem Information:\n" + system_version + " " + system_build + "\n")
                 print("---------------------------------")
                 print("HOSTSYS INFO:\nOS:" + os.uname().sysname + " " + os.uname().version)
                 print("ARCH:" + os.uname().machine)
                 print("\nScreenshot and open new issue!\nhttps://github.com/minqwq/pyos-improved")
-                logger.critical("PY OS Improved has been crashed by some unexpected error o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
+                logger.critical("System Panic o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
                 input("[CRASH - Press any key to shutdown]" + color.reset)
                 clearScreen()
                 sys.exit()
