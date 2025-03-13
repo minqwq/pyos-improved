@@ -1,13 +1,13 @@
 {
-    "system_version": "1.5.0 Release",
+    "system_version": "1.5.1 Release",
     "system_codename": "Tilizen",
-    "system_build": "Build 450",
-    "isWindows": "",
+    "system_build": "Build 454",
+    "isWindows": "false",
     "cmd_theme": "default_v2",
     "enable_instant_show_time": "true",
     "isUnregistered": "false",
     "beep_when_finished": "false",
-    "auto_boot_choice": "",
+    "auto_boot_choice": "1",
     "devenv": "uwu",
     "enablePassword": "false",
     "show_password_when_typing": "false",
@@ -16,7 +16,7 @@
     "dualBoot": "false",
     "dualBoot_startupCommand": "python test.py",
     "dualBoot_OSName": "TEST",
-    "venvEnable": "false",
-    "venvPath": "",
+    "venvEnable": "true",
+    "venvPath": "~/pyvenv/bin/python",
     "replace_python_command_to_python3": "false"
 }

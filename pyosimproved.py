@@ -184,10 +184,7 @@ else:
     sys.exit()
 
 def clearScreen():
-    if isWindows == "true":
-        os.system("cls")
-    elif isWindows == "false":
-        os.system("clear")
+    print("\033[2J" + "\033[0;0H")
 
 def beep():
     print("\a", end="\r")
@@ -347,7 +344,6 @@ while count < 3:
             d.infobox("N? Si??a?", width=0, height=0, title="Er??r")
             time.sleep(random.random())
             clearScreen()
-        d.infobox("Look back~", width=0, height=0, title="From Koishi")
         time.sleep(0.1)
         clearScreen()
         print("You have been kicked by Komeiji Koishi.\nPlease r???\nP??\nPlease re-lo??..gin.")
@@ -422,6 +418,8 @@ while count < 3:
 
                     if cmd_theme == "default":
                         cmd_pre = colorama.Fore.LIGHTBLUE_EX + user + color.grey + ":" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " > " + color.reset
+                    elif cmd_theme == "classic":
+                        cmd_pre = user + "@" + lsh_hostname + " ~ >"
                     elif cmd_theme == "sh":
                         cmd_pre = "$ "
                     elif cmd_theme == "default_v2":
@@ -434,7 +432,7 @@ while count < 3:
                         cmd_pre = "[" + user + "@" + lsh_hostname + " ~ ] $ "
                     else:
                         print("Theme not found! will do nothing.")
-                        print("Available theme name:default_v2, default, lite, debian_bash, arch_bash, sh")
+                        print("Available theme name:default_v2, default, lite, debian_bash, arch_bash, sh, classic")
                         cmd_theme = "default"
 
                     cbatteryperc()
@@ -605,6 +603,13 @@ while count < 3:
                     elif cmd.startswith("shizuku search"):
                         request = cmd[15:]
                         print("Coming soon")
+                    elif cmd.startswith("shizuku flandre"):
+                        if cmd[16:] == "_scarlet" or cmd[16:] == " scarlet":
+                            print("tomato and fried egg")
+                        else:
+                            print("you just take her's wings...??")
+                    elif cmd == "shizuku scarlet":
+                        print("her's wings is not a christmas lights!")
                     
                     elif cmd.startswith("chthm"):
                         cmd_theme = cmd[6:]
