@@ -2678,3 +2678,63 @@ nul min:scarletlocal-000 |
 nul hakurei_reimu:scarletlocal-000 | about
 nul hakurei_reimu:scarletlocal-000 | uwufetch
 nul hakurei_reimu:scarletlocal-000 | :q
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | about -s
+nul min:scarletlocal-000 | about --support
+nul min:scarletlocal-000 | about -s
+nul min:scarletlocal-000 | [20~[19~
+nul min:scarletlocal-000 | about --support
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | about -c
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | about -s
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | len
+nul min:scarletlocal-000 | about -s
+nul min:scarletlocal-000 | :q
+nul min:scarletlocal-000 | wufetch
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | pyosver
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | 2048
+nul min:scarletlocal-000 | tetris
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | about -c
+nul min:scarletlocal-000 | jrrp
+nul min:scarletlocal-000 | 2048
+nul min:scarletlocal-000 | demine
+nul min:scarletlocal-000 | ttt
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | time
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | pyosiupgrade
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | rbt
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | about
+nul [94m(CRTRACT) minqwq[0m:scarletlocal-000 | about
+nul [94m(CRTRACT) minqwq[0m:scarletlocal-000 | shizuku run example
+nul [94m(CRTRACT) minqwq[0m:scarletlocal-000 | shizuku run   111
+nul [94m(CRTRACT) minqwq[0m:scarletlocal-000 | 
+nul [94m(CRTRACT) minqwq[0m:scarletlocal-000 | lplppl\\pl[pl\\lp\pl\pl\\\\\\\\\\\\\\l
+nul [94m(CRTRACT) minqwq[0m:scarletlocal-000 | 
+nul [94m(CRTRACT) minqwq[0m:scarletlocal-000 | 
+nul [94m(CRTRACT) minqwq[0m:scarletlocal-000 | 
+nul [94m(CRTRACT) minqwq[0m:scarletlocal-000 | 
+nul [94m(CRTRACT) minqwq[0m:scarletlocal-000 | 
+nul [94m(CRTRACT) minqwq[0m:scarletlocal-000 | 
+nul [94m(CRTRACT) minqwq[0m:scarletlocal-000 | 
+nul [94m(CRTRACT) minqwq[0m:scarletlocal-000 | 
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | about -c
+nul min:scarletlocal-000 | about -s

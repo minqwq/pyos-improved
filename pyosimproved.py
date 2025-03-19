@@ -1,7 +1,10 @@
 # Main code - PY OS Improved
-from coreutil.module.actions import *
-from coreutil.module.style import *
-from coreutil.module.textmoji import *
+try:
+    from coreutil.module.actions import *
+    from coreutil.module.style import *
+    from coreutil.module.textmoji import *
+except Exception:
+    print("Kernel Panic!!")
 print("Kernel is ready.")
 from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
@@ -209,9 +212,6 @@ if debugMode == "d":
     goto(line=271)
 print(style_cur.hide)
 import psutil
-print("module import: psutil")
-print(colorama.Back.LIGHTRED_EX + colorama.Fore.LIGHTYELLOW_EX + "E:NO SINGAL" + color.reset)
-time.sleep(1)
 clearScreen()
 slowprint(colorama.Fore.LIGHTGREEN_EX + "Remilia Hardware, 1582--2025 Some rights reserved")
 slowprint("Unknown Paradise v1.1")
@@ -222,8 +222,10 @@ for memtest in range(round(psutil.virtual_memory().total / 1024 / 1024)):
     time.sleep(0.0005)
     memtest = memtest + 1
 beep()
-if memtest > 64:
-    print("HiMemory enabled(> 64MiB)")
+if memtest > 1024:
+    print("HiMemory enabled(> 1024MiB)")
+elif memtest < 512:
+    print("LoMemory warning!(< 512MiB)")
 print("Testing memory... " + str(memtest) + "MiB OK!")
 time.sleep(0.5)
 profile.run("re.compile")
@@ -272,6 +274,7 @@ while bootManagerLoopRun == True:
             pass
     else:
         clearScreen()
+loading_spinner("Booting... ", 1)
 clearScreen()
 # Startup screen
 logger.info("Starting main operating system...")
@@ -300,8 +303,7 @@ print("\n" + system_version + " " + system_build)
 print("Flandre Studio 2024--2025")
 print("0x1c Studio 2022--2023")
 print("\n" + "PY OS Improved is a Open-Source fake operating system, so fell free to improve our code!")
-print("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs", end=" ")
-loading_timed(3)
+loading_spinner("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs ", 6)
 clearScreen()
 time.sleep(0.1)
 end_startingtime = time.time()
@@ -475,12 +477,7 @@ while count < 3:
                     elif cmd == "uwufetch": # a Fake neofetch
                         currentUptime = time.time()
                         currentUptimeII = currentUptime - end_startingtime
-                        print(color.blue + "  ______   __     ___  ____  ")
-                        print(" |  _ \ \ / /    / _ \/ ___| ")
-                        print(color.cyan + " | |_) \ V /    | | | \___ \ ")
-                        print(" |  __/ | |     | |_| |___) |")
-                        print(" |_|    |_|      \___/|____/ " + color.reset)
-                        print(color.purple + "      --- Improved ---       " + color.reset)
+                        cat("coreutil/plaintext/logo.txt")
                         print(user + "@" + lsh_hostname)
                         print("System:PY OS Improved " + system_version + " " + system_build + "\nRunning on:", end="")
                         if isWindows == "true":
@@ -751,12 +748,14 @@ while count < 3:
                         print("https://github.com/erkankavas/python-rss-reader | RSS Reader")
                         print("https://github.com/alewmoose/2048-in-terminal | Used for games")
                     elif cmd == "about -s" or cmd == "about --support":
+                        cat("coreutil/plaintext/before_talking.txt")
                         print("minqwq's social accounts:")
-                        print("QQ:1617195774")
+                        print("QQ:3575824194")
                         print("WeChat:minqwq723897")
                         print("E-mail:minqwq723897@outlook.com")
                         print("Telegram:@minqwq723897")
                         print("IRC(Instant only):minqwq #pyos-improved irc.freenode.net:6667")
+                        print("AutumnChat:Unavailable")
 
                     elif cmd == "power":
                         print("Power options:")

@@ -78,45 +78,13 @@ def netcheck(host, port):
         return True
     except OSError:
         return False
-def loading_timed(loadtime):
-    while loadtime > 0:
-        print("/\r")
-        if loadtime < 0:
-            break
-        time.sleep(0.3)
-        loadtime -= 0.3
-        print("-\r")
-        if loadtime < 0:
-            break
-        time.sleep(0.3)
-        loadtime -= 0.3
-        print("\\\r")
-        if loadtime < 0:
-            break
-        time.sleep(0.3)
-        loadtime -= 0.3
-        print("|\r")
-        if loadtime < 0:
-            break
-        time.sleep(0.3)
-        loadtime -= 0.3
-        print("/\r")
-        if loadtime < 0:
-            break
-        time.sleep(0.3)
-        loadtime -= 0.3
-        print("-\r")
-        if loadtime < 0:
-            break
-        time.sleep(0.3)
-        loadtime -= 0.3
-        print("\\\r")
-        if loadtime < 0:
-            break
-        time.sleep(0.3)
-        loadtime -= 0.3
-        print("|\r")
-        if loadtime < 0:
-            break
-        time.sleep(0.3)
-        loadtime -= 0.3
+def loading_spinner(string, tm):
+    for i in range(tm * 2):
+        print(string + "/", end="\r")
+        time.sleep(0.125)
+        print(string + "-", end="\r")
+        time.sleep(0.125)
+        print(string + "\\", end="\r")
+        time.sleep(0.125)
+        print(string + "|", end="\r")
+        time.sleep(0.125)

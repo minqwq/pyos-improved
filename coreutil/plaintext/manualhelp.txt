@@ -1,56 +1,56 @@
 Larine Shell manual help:
 (System)
-ls                View the path
-about             Show the system's information
-pyosver           Show system version
-converter         A tool to convert .lpap/.lpcu/.bbc to .umm
-time              Show the time and date(Deteled in this version)
-calendar          Show a calendar
-clear             Clear the screen
-(DEL)passwd <str> Change password for this session
-power             Power manager
-exit              Lock system
-hostname          Show hostname
-echo <str>        Print text to screen 
-rm <str>          Remove file
-rmdir <str>       Remove directory
-su <str>          Switch user
-rss               RSS Feed reader
-conf              Show the current config
-chthm <name>      Change theme of the shell
-pyosiupgrade      Update system(If available)
-shizuku           "雫しずく", The package manager for manage programs
-stdoutredirect    Redirect standard output to other place(example:a filename)
-logout            Log out current account
+ls                        View the path
+about [-c | -s]           Show the system's information
+pyosver                   Show system version
+converter                 A tool to convert .lpap/.lpcu/.bbc to .umm
+time                      Show the time and date(Deteled in this version)
+calendar                  Show a calendar
+clear                     Clear the screen
+(DEL)passwd <str>         Change password for this session
+power [shutdown | reboot] Power manager
+exit                      Lock system
+hostname [-c]             Show hostname
+echo <str>                Print text to screen
+rm <dir>                  Remove file
+rmdir <dir>               Remove directory
+su <user>                  Switch user
+rss                       RSS Feed reader
+conf                      Show the current config
+chthm <name>              Change theme of the shell
+pyosiupgrade              Update system(If available)
+shizuku                   "雫しずく", The package manager for manage programs
+stdoutredirect            Redirect standard output to other place(example:a filename)
+logout                    Log out current account
 (Tools)
-calc              A simple calculator
-uwufetch          List all hardware and system version
-caesar            Caesar encryption tools
-sticker           notepad but can't save content
-fileget           Get any file from internet
-paint             Paint(image maker app)
-clock             Timer and clock
-tasks             Critical tasks now will never forgot again.
-asciicvt          ASCII Converter
-ed                Line text editor
-netrefresh [-h]   Refresh network connection
+calc                      A simple calculator
+uwufetch                  List all hardware and system version
+caesar                    Caesar encryption tools
+sticker                   notepad but can't save content
+fileget                   Get any file from internet
+paint                     Paint(image maker app)
+clock                     Timer and clock
+tasks                     Critical tasks now will never forgot again.
+asciicvt                  ASCII Converter
+ed                        Line text editor
+netrefresh [-h]           Refresh network connection
 (Relax)
-mp                Play music
-screensaver       Save your VGA screen, make your pc like a pro
+mp                        Play music
+screensaver               Save your VGA screen, make your pc like a pro
 (Games)
-tetris            Tetris game written using Python
-guessnum          Guess number game written using Python
-demine            Minesweeper game written using C
-ttt               tic-tac-toe game written using Python
-2048              2048 in Terminal
+tetris                    Tetris game written using Python
+guessnum                  Guess number game written using Python
+demine                    Minesweeper game written using C
+ttt                       tic-tac-toe game written using Python
+2048                      2048 in Terminal
 (Networking)
-nekochat          Online chatting client and server by Yukari2024
-ping              Ping tool
-rss               RSS Reader by erkankavas
+nekochat                  Online chatting client and server by Yukari2024
+ping                      Ping tool
+rss                       RSS Reader by erkankavas
 (Other)
-cuscmd            Run custom command
-(DEL)news         Show latest news of PY OS Improved.
-uptime            Show (this)system uptime
-pftest            CPU Performance Test
-tutor             Help document for new
-jrrp             CHeck your luck amount today
+cuscmd                    Run custom command
+(DEL)news                 Show latest news of PY OS Improved.
+uptime                    Show (this)system uptime
+pftest                    CPU Performance Test
+tutor                     Help document for new
+jrrp                      Check your luck amount today
