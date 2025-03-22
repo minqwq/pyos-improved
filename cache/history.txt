@@ -2738,3 +2738,33 @@ nul min:scarletlocal-000 | help
 nul min:scarletlocal-000 | about
 nul min:scarletlocal-000 | about -c
 nul min:scarletlocal-000 | about -s
+nul min:scarletlocal-000 | uwufetch
+nul min:scarletlocal-000 | clear
+nul min:scarletlocal-000 | about
+nul min:scarletlocal-000 | rbt
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | st
+nul min:scarletlocal-000 | tetris
+nul min:scarletlocal-000 | [A
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | shizuk
+nul min:scarletlocal-000 | shizuku
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | help
+nul min:scarletlocal-000 | cd
+nul min:scarletlocal-000 | cd
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | cd 
+nul min:scarletlocal-000 | cd
+nul min:scarletlocal-000 | cd
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | 
+nul min:scarletlocal-000 | cd apps

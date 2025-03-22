@@ -25,7 +25,7 @@ import time # Time
 import random # Random tools
 from os import path # Path control
 # import rich.spinner # idk
-# sys.path.append("./")
+sys.path.append("./")
 import platform
 # import rich
 import requests # Get file from server
@@ -81,6 +81,8 @@ except FileNotFoundError:
 cmdhist_lines = 0
 cmdhist_time = "nul"
 lsh_hostname = "scarletlocal-000"
+user = "defaultuser_nologin"
+lsh_path = os.getcwd()
 
 print("Registered hostname")
 
@@ -121,6 +123,7 @@ cat("config/conf.json")
 
 readConfigFromExport = False # Linux only! windows have same but not a command.
 disableKernelFeature = False # Disable the kernel, may crash more.
+expertfeature_cd_enabled = False # cd command availablity
 
 # EXPERTIONAL FEATURE
 # DYNAMIC CONFIG
@@ -425,7 +428,7 @@ while count < 3:
                     elif cmd_theme == "sh":
                         cmd_pre = "$ "
                     elif cmd_theme == "default_v2":
-                        cmd_pre = color.green + user + ":" + lsh_hostname + color.reset + " [ / ] " + color.green + "$ " + color.reset
+                        cmd_pre = color.green + user + ":" + lsh_hostname + color.reset + " [ " + lsh_path + " ] " + color.green + "$ " + color.reset
                     elif cmd_theme == "lite":
                         cmd_pre = colorama.Fore.GREEN + user + colorama.Fore.LIGHTGREEN_EX + " : " + color.reset
                     elif cmd_theme == "debian_bash":
@@ -450,7 +453,7 @@ while count < 3:
                   # lsh_username = os.system("whoami")
                     cmd = input(cmd_pre)
                     logger.info("[Command] tty1/lsh: " + cmd)
-                    cmdhistory_write()
+                    # cmdhistory_write()
 
                     if isUnregistered == "true":
                         unreg_count += 1
@@ -460,19 +463,9 @@ while count < 3:
                     # Begin commands register
                     if cmd == "ls": # Path
                         if isWindows == "false":
-                            print("root path:")
                             os.system("ls ./")
-                            print("programs path:")
-                            os.system("ls ./apps/")
-                            print("music path:")
-                            os.system("ls ./music/")
                         elif isWindows == "true":
-                            print("root path:")
-                            os.system("di   r .\\")
-                            print("programs path:")
-                            os.system("dir .\\apps")
-                            print("music path:")
-                            os.system("dir .\\music")
+                            os.system("dir .\\")
 
                     elif cmd == "uwufetch": # a Fake neofetch
                         currentUptime = time.time()
@@ -517,6 +510,22 @@ while count < 3:
                         print("\r")
                     elif cmd == "uwufetch colotest256":
                         runPreInstApp("./apps/color256/color256.py")
+
+                    elif cmd.startswith("cd"):
+                        if expertfeature_cd_enabled == True:
+                            chdir = cmd[3:]
+                            try:
+                                os.chdir(chdir)
+                                lsh_path = os.getcwd()
+                            except FileNotFoundError:
+                                print("dir not found: " + chdir)
+                        elif expertfeature_cd_enabled == False:
+                            ef_cd_wanttoenable_doubt = input("Warning! it's a expertional feature.\nDo you still want to use it?[Y/N]")
+                            if ef_cd_wanttoenable_doubt == "y" or ef_cd_wanttoenable_doubt == "Y":
+                                expertfeature_cd_enabled = True
+                            elif ef_cd_wanttoenable_doubt == "n" or ef_cd_wanttoenable_doubt == "N":
+                                pass
+                                print("ok... i know your choice, will not enable it.")
 
                     elif cmd == "netrefresh":
                         if netcheck("main.minqwq.moe", 80):
