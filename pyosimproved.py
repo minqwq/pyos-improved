@@ -5,6 +5,7 @@ try:
     from coreutil.module.textmoji import *
 except Exception:
     print("Kernel Panic!!")
+    sys.exit(15)
 print("Kernel is ready.")
 from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
@@ -906,6 +907,9 @@ while count < 3:
                 except KeyboardInterrupt:
                     clearScreen()
                     sys.exit()
+            except FileNotFoundError:
+                logger.error("file not found...")
+                print("file not found...")
             except Exception as crashReason: # Crash
                 print(colorama.Fore.LIGHTRED_EX + ":(\n\nSystem Panic!!\n" + str(crashReason) + "\n" + str(traceback.print_exc()) + "\nSystem Information:\n" + system_version + " " + system_build + "\n")
                 print("---------------------------------")

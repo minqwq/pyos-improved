@@ -10,7 +10,7 @@ import socket
 loadtime = 0
 
 def sk_act_about():
-    print("ScarletKernel / CoreUtil:Actions / 1.4.2_r5")
+    print("ScarletKernel / CoreUtil:Actions / 1.4.2_r6")
 def dotLoader(howMany, howSlow):
     for dotLoader_time in range(howMany):
         print(".", end="")
@@ -57,11 +57,14 @@ def welcome_withDetectTime(username):
     elif int(dtn.strftime("%H")) >= 0:
         print("It's overnight now, why not go to sleep " + username + "?")
 def cat(file):
-    tmp_catcore = open(file, "r", encoding="utf-8")
-    for content in tmp_catcore:
-        print(content, end="")
-        time.sleep(0.01)
-    print("")
+    try:
+        tmp_catcore = open(file, "r", encoding="utf-8")
+        for content in tmp_catcore:
+            print(content, end="")
+            time.sleep(0.01)
+        print("")
+    except FileNotFoundError:
+        print("ERROR: file not found: " + file)
 def cat_code(file):
     hlcode = highlight.highlight(file)
     print(hlcode)
