@@ -49,6 +49,7 @@ try:
 except Exception:
     print("pygame not found or error, some program may not work.")
     haveSoundCard = False
+import art
 # import coreutil.module.history as history
 print("\033[?25l")
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
@@ -118,6 +119,7 @@ venvEnable = jsonRead["venvEnable"] # Enable python venv here
 if venvEnable == "true":
     venvPath = jsonRead["venvPath"] # If you are linux distro, like me, you need this
 replace_python_command_to_python3 = jsonRead["replace_python_command_to_python3"] # Replace python command to python3(when you using linux distro)
+disablePathShow = jsonRead["disablePathShow"] # Disable path show on shell
 print("\r./config/conf.json:")
 cat("config/conf.json")
 # EXPERTIONAL FEATURE
@@ -133,6 +135,9 @@ logout = False
 # CONFIG END
 
 print("Config registered")
+
+if disablePathShow == "true":
+    lsh_path = "DISABLED"
 
 # coreutil/plaintext loads START
 co_manualHelp = "coreutil/plaintext/manualhelp.txt"
@@ -424,8 +429,12 @@ while count < 3:
 
                     if cmd_theme == "default":
                         cmd_pre = colorama.Fore.LIGHTBLUE_EX + user + color.grey + ":" + colorama.Fore.LIGHTCYAN_EX + lsh_hostname + colorama.Fore.LIGHTGREEN_EX + " > " + color.reset
+                    elif cmd_theme == "flandre":
+                        cmd_pre = colorama.Fore.LIGHTYELLOW_EX + user + color.reset + "/" + colorama.Fore.LIGHTRED_EX + lsh_hostname + color.reset + " ( " + colorama.Fore.LIGHTYELLOW_EX + lsh_path + color.reset + " )" + colorama.Fore.LIGHTRED_EX + " > " + color.reset
+                    elif cmd_theme == "remilia":
+                        cmd_pre = colorama.Fore.LIGHTBLUE_EX + user + color.reset + "\\" + colorama.Fore.LIGHTMAGENTA_EX + lsh_hostname + color.reset + " { " + colorama.Fore.LIGHTBLUE_EX + lsh_path + color.reset + " } " + colorama.Fore.LIGHTMAGENTA_EX + "> " + color.reset
                     elif cmd_theme == "classic":
-                        cmd_pre = user + "@" + lsh_hostname + " ~ >"
+                        cmd_pre = user + "@" + lsh_hostname + " " + lsh_path + " > "
                     elif cmd_theme == "sh":
                         cmd_pre = "$ "
                     elif cmd_theme == "default_v2":
@@ -438,7 +447,7 @@ while count < 3:
                         cmd_pre = "[" + user + "@" + lsh_hostname + " ~ ] $ "
                     else:
                         print("Theme not found! will do nothing.")
-                        print("Available theme name:default_v2, default, lite, debian_bash, arch_bash, sh, classic")
+                        print("Available theme name:default_v2, default, lite, debian_bash, arch_bash, sh, classic, flandre")
                         cmd_theme = "default"
 
                     cbatteryperc()
@@ -471,7 +480,9 @@ while count < 3:
                     elif cmd == "uwufetch": # a Fake neofetch
                         currentUptime = time.time()
                         currentUptimeII = currentUptime - end_startingtime
-                        cat("coreutil/plaintext/logo.txt")
+                        # cat("coreutil/plaintext/logo.txt") # Fallback option
+                        art.tprint("PY    OS")
+                        print("    --- Improved Edition ---")
                         print(user + "@" + lsh_hostname)
                         print("System:PY OS Improved " + system_version + " " + system_build + "\nRunning on:", end="")
                         if isWindows == "true":
@@ -518,6 +529,8 @@ while count < 3:
                             try:
                                 os.chdir(chdir)
                                 lsh_path = os.getcwd()
+                                if disablePathShow == "true":
+                                    lsh_path = "DISABLED"
                             except FileNotFoundError:
                                 print("dir not found: " + chdir)
                         elif expertfeature_cd_enabled == False:
