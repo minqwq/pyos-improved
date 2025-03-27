@@ -50,6 +50,7 @@ except Exception:
     print("pygame not found or error, some program may not work.")
     haveSoundCard = False
 import art
+import pprint
 # import coreutil.module.history as history
 print("\033[?25l")
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
@@ -635,9 +636,13 @@ while count < 3:
                         cmd_theme = cmd[6:]
                         logger.info("Shell theme changed to " + cmd[6:])
                         print("Successfully seted shell theme " + cmd[6:])
-
+                    
                     elif cmd == "conf":
-                        print(dir("*"))
+                        pprint.pprint(dict(globals()))
+                    elif cmd == "conf --set":
+                        confsel1 = input("set <confsel1> = <confsel2>(cur:sel1): ")
+                        confsel2 = input("set <confsel1> = <confsel2>(cur:sel2): ")
+                        os.environ[confsel1] = confsel2
 
                     elif cmd == "asciicvt":
                         runPreInstApp("./apps/asciicvt/asciiconverter.py")
@@ -834,7 +839,14 @@ while count < 3:
                     elif cmd == "cuscmd":
                         print("Type custom command below...(ex:cat ciallo.txt)")
                         customCommand = input("")
-                        os.system(customCommand)
+                        if "sudo" in customCommand:
+                            cc_chksudo = input("Are you sure to use sudo?[Enter/Another(no)]")
+                            if cc_chksudo == "":
+                                os.system(customCommand)
+                            else:
+                                pass
+                        else:
+                            os.system(customCommand)
 
                     elif cmd == "news":
                         try:
