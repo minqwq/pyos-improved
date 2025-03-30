@@ -1,12 +1,4 @@
 # Main code - PY OS Improved
-try:
-    from coreutil.module.actions import *
-    from coreutil.module.style import *
-    from coreutil.module.textmoji import *
-except Exception:
-    print("Kernel Panic!!")
-    sys.exit(15)
-print("Kernel is ready.")
 from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
 conf = open("./config/conf.json", "r", encoding="utf-8")
@@ -39,6 +31,15 @@ import profile # Maybe useless?
 # import subprocess # I need to send notification
 import re
 import autoexec
+try:
+    from coreutil.module.actions import *
+    from coreutil.module.style import *
+    from coreutil.module.textmoji import *
+    from coreutil.module.splashes import *
+except Exception:
+    print("Kernel Panic!!")
+    sys.exit(15)
+print("Kernel is ready.")
 try:
     import curses
 except ModuleNotFoundError:
@@ -219,7 +220,8 @@ if debugMode == "d":
     startingtime = "???"
     print("You are now in debug mode.")
     print("If crash, dont report ANY error.")
-    goto(line=271)
+    count = 0
+    goto(line=330)
 print(style_cur.hide)
 import psutil
 clearScreen()
@@ -320,7 +322,8 @@ end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
 beep()
 logger.info("Welcome to PY OS Improved!")
-print("PY OS Improved version " + system_version + " " + lsh_hostname) # Login screen | For restart to login manager, please goto this line for work normally
+print("PY OS Improved \"Flandre/Scarlet Kernel I\" version " + system_version + " " + lsh_hostname) # Login screen | For restart to login manager, please goto this line for work normally
+print("\nTips: " + random.choice(splashes))
 now = datetime.datetime.now()
 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
 print("Current time: " + other_StyleTime)
@@ -328,7 +331,10 @@ count = 0
 unreg_count = 0
 stpasswd = "ciallo"
 while count < 3:
-    user = input(lsh_hostname + " login: ")
+    if debugMode == "d":
+        pass
+    elif debugMode == "":
+        user = input(lsh_hostname + " login: ")
     if user == "gaster":
         goto(line=0)
     elif user == "":
@@ -424,7 +430,7 @@ while count < 3:
                 # print(style.slowblink + "Happy china lunar year(2025-01-28)!" + color.reset)
                 if isDev == True:
                     print("Logged into dev account, some command may unlocked!")
-                print("\nLarine SHell (lsh) version 1.7.0 >///<\nit's a wittwe user non-fwiendwy shell...")
+                print("\nLarine SHell (lsh) version " + colorama.Fore.LIGHTYELLOW_EX + "1.7.0" + color.reset + " >///<\nit's a wittwe user non-fwiendwy shell...")
                 tmp_outolog = open(".output.log", "a", encoding="utf-8")
                 while count < 3:
 
@@ -688,6 +694,9 @@ while count < 3:
                             badstring = uwu
                             anotherbadstring = "owo"
                             print(badstring + anotherbadstring)
+                        else:
+                            os.chdir("./apps")
+                            cat_bugged("coreutil/plaintext/manualhelp.txt")
 
                     elif cmd.startswith("echo "):
                         string = cmd[5:]
@@ -922,7 +931,7 @@ while count < 3:
                         beep()
                         print(text.error + color.red + "i can't seem to find the command >.<" + color.reset)
                         print(color.red + "[Unknown command]" + color.reset, end=' ')
-                        logger.error("tty1/lsh: " + cmd + ": Command not found!")
+                        logger.error("tty1/lsh | " + cmd + " | Command not found!")
             except KeyboardInterrupt: # Ctrl+C, "Ctrl+Alt+Del" like action
                 try:
                     slowprint("\nPress 1 to restart\nPress other key to back\nor Press Ctrl+C again to shutdown...")

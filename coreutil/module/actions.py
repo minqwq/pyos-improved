@@ -65,6 +65,12 @@ def cat(file):
         print("")
     except FileNotFoundError:
         print("ERROR: file not found: " + file)
+def cat_bugged(file):
+    tmp_catcore = open(file, "r", encoding="utf-8")
+    for content in tmp_catcore:
+        print(content, end="")
+        time.sleep(0.01)
+    print("")
 def cat_code(file):
     hlcode = highlight.highlight(file)
     print(hlcode)
