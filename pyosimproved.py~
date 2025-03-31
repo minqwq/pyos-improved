@@ -318,17 +318,6 @@ print("\n" + "PY OS Improved is a Open-Source fake operating system, so fell fre
 loading_spinner("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs ", 6)
 clearScreen()
 time.sleep(0.1)
-aprilFoolsTimeCheck = time.time()
-print(str(aprilFoolsTimeCheck))
-if aprilFoolsTimeCheck < 1743523200:
-    print(text.error + color.red + "Your system has been hacked by minqwq!!!!!!\nPlease type the coorrect password to unlock.")
-    getAFUnlock = input("type decoded of this string(after you decoded, if you see 0 and 1 please decode again)\nMTEwMTExMCAxMTAwMDAxIDExMDExMTAgMTEwMDAwMSAxMTAxMTAxIDExMDEwMDE=\n>")
-    if getAFUnlock == "nanami":
-        pass
-    else:
-        while True:
-            print(text.error + color.red + "Your system is being to destroy...")
-            time.sleep(0.1)
 end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
 beep()
@@ -387,7 +376,7 @@ while count < 3:
                         login_password = getpass.getpass("Password: ")
                     except getpass.GetPassWarning:
                         print("\"show_password_when_typing\": \"false\" is not working.")
-                if login_password == pwdstring: # FIXME: not working.
+                if login_password == pwdstring:
                     pass
                 else:
                     print("Login incorrect\nBy some tech things, you must restart to re-login")
