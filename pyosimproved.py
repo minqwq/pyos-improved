@@ -529,15 +529,18 @@ while count < 3:
                         print("Ethernet Card:Wire Network 0(Status:OK)")
                         print("Disk:HDD1=10GB, HDD2=23GB")
                         curses.initscr()
-                        print("Console output limit:" + str(curses.baudrate()), end="")
-                        print("\nColor support:", end="")
-                        if curses.has_colors() == True:
-                            if curses.has_extended_color_support() == True:
-                                print("Extended(256xc)")
-                            elif curses.has_extended_color_support() == False:
-                                print("Basic(16bc)")
-                        elif curses.has_colors() == False:
-                            print("")
+                        if isWindows == "true":
+                            pass
+                        elif isWindows == "false":
+                            print("Console output limit:" + str(curses.baudrate()), end="")
+                            print("\nColor support:", end="")
+                            if curses.has_colors() == True:
+                                if curses.has_extended_color_support() == True:
+                                    print("Extended(256xc)")
+                                elif curses.has_extended_color_support() == False:
+                                    print("Basic(16bc)")
+                            elif curses.has_colors() == False:
+                                print("")
                         curses.endwin()
                         print("W:" + str(os.get_terminal_size().columns) + ", H:" + str(os.get_terminal_size().lines))
                         print(colorama.Back.RED + "  " + colorama.Back.YELLOW + "  " + colorama.Back.GREEN + "  " + colorama.Back.CYAN + "  " + colorama.Back.BLUE + "  " + colorama.Back.MAGENTA + "  " + colorama.Back.WHITE + "  ")
