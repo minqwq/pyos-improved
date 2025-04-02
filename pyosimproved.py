@@ -376,6 +376,9 @@ while count < 3:
         time.sleep(0.1)
         clearScreen()
         print("You have been kicked by Komeiji Koishi.\nPlease r???\nP??\nPlease re-lo??..gin.")
+    elif user == "mibino":
+        print("nope")
+        sys.exit()
     else: # a lot of shit code here --minqwq
         isCreatorAccount = False
         while count < 3:
@@ -387,7 +390,7 @@ while count < 3:
                         login_password = getpass.getpass("Password: ")
                     except getpass.GetPassWarning:
                         print("\"show_password_when_typing\": \"false\" is not working.")
-                if login_password == pwdstring: # FIXME: not working.
+                if login_password == pwdstring: # FIXME: not working. --minqwq @mibino
                     pass
                 else:
                     print("Login incorrect\nBy some tech things, you must restart to re-login")
@@ -397,6 +400,7 @@ while count < 3:
                 pass
             try:
                 clearScreen()
+                print("If you are stucked on this screen please press Ctrl+C and then restart")
                 lshdate = now.strftime("%Y-%m-%d")
                 lshtime = now.strftime("%H:%M:%S")
                 if user == "minqwq":
@@ -433,6 +437,7 @@ while count < 3:
                             print("Unknown error at sending notify")
                 elif allowShowNotify == "false":
                     pass
+                clearScreen()
                 cat(co_welcome) # Welcome text, editable at coreutil/plaintext
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")

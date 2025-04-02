@@ -1,7 +1,7 @@
 {
-    "system_version": "1.5.1 Release",
+    "system_version": "1.5.2 Development Channel",
     "system_codename": "Tilizen",
-    "system_build": "Build 487",
+    "system_build": "Build 491",
     "isWindows": "false",
     "cmd_theme": "default_v2",
     "enable_instant_show_time": "true",
@@ -10,7 +10,7 @@
     "auto_boot_choice": "",
     "devenv": "uwu",
     "enablePassword": "true",
-    "show_password_when_typing": "true",
+    "show_password_when_typing": "false",
     "pwdstring": "defaultblyat",
     "allowShowNotify": "false",
     "dualBoot": "false",

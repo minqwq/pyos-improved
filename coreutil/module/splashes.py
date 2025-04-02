@@ -1,3 +1,4 @@
+
 splashes = [
                 "Also try PY OS(original)! it's still alive.",
                 "ciallo(ciao + hello)~",
@@ -10,5 +11,6 @@ splashes = [
                 "code is easy, like python, you can see https://docs.python.org to learn from don't know anything",
                 "/dev/pts/1",
                 "BLYAT, SUKAAAAAAAAAAA, SUKAAAAAAAAAAAAAAAAAAAAAAAAAA!!!!!!!!!!!!",
-                "baka"
+                "baka",
+                "dracula is not a story, its real!"
             ]
