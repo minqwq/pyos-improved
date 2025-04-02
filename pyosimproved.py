@@ -221,7 +221,7 @@ if debugMode == "d":
     print("You are now in debug mode.")
     print("If crash, dont report ANY error.")
     count = 0
-    goto(line=330)
+    goto(line=341)
 print(style_cur.hide)
 import psutil
 clearScreen()
@@ -381,7 +381,7 @@ while count < 3:
         sys.exit()
     else: # a lot of shit code here --minqwq
         isCreatorAccount = False
-        while count < 3:
+        while count < 3: # 代码难以维护，到处不明变量 --wusheng233
             if enablePassword == "true":
                 if show_password_when_typing == "false":
                     login_password = input("Password: ")
@@ -390,10 +390,11 @@ while count < 3:
                         login_password = getpass.getpass("Password: ")
                     except getpass.GetPassWarning:
                         print("\"show_password_when_typing\": \"false\" is not working.")
-                if login_password == pwdstring: # FIXME: not working. --minqwq @mibino
+                if login_password == pwdstring:
                     pass
                 else:
-                    print("Login incorrect\nBy some tech things, you must restart to re-login")
+                    print("Incorrect password, please re-enter")
+                    continue
             elif enablePassword == "false":
                 pass
             else:
