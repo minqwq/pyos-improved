@@ -965,13 +965,16 @@ while count < 3:
                 logger.error("file not found...")
                 print("file not found...")
             except Exception as crashReason: # Crash
-                print(colorama.Fore.LIGHTRED_EX + ":(\n\nSystem Panic!!\n" + str(crashReason) + "\n" + str(traceback.print_exc()) + "\nSystem Information:\n" + system_version + " " + system_build + "\n")
-                print("---------------------------------")
-                print("HOSTSYS INFO:\nOS:" + os.uname().sysname + " " + os.uname().version)
-                print("ARCH:" + os.uname().machine)
-                print("\nScreenshot and open new issue!\nhttps://github.com/minqwq/pyos-improved")
+                time.sleep(0.3) # need this for beep correctly
+                beep()
+                time.sleep(0.1)
+                beep()
+                time.sleep(0.1)
+                beep()
+                traceback.print_exception(crashReason, limit=1145, file=sys.stdout)
+                runPreInstApp("coreutil/catchinfo.py")
                 logger.critical("System Panic o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
-                input("[CRASH - Press any key to shutdown]" + color.reset)
+                input("[Press any key to shutdown - " + str(crashReason) + "]")
                 clearScreen()
                 sys.exit()
         if logout == True:
