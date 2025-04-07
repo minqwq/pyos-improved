@@ -73,3 +73,4 @@ output.log
 
 # cache
 __pycache__/
+__pycache__/*
