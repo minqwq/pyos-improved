@@ -527,7 +527,11 @@ while count < 3:
                             print("BeepEX")
                         elif haveSoundCard == False:
                             print("Beep")
-                        print("Ethernet Card:Wire Network 0(Status:OK)")
+                        print("Ethernet Card:Wire Network 0(Status:" end="")
+                        if networked == True:
+                            print("Enabled)")
+                        elif networked == False:
+                            print("Disabled)")
                         print("Disk:HDD1=10GB, HDD2=23GB")
                         curses.initscr()
                         if isWindows == "true":
