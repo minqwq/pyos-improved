@@ -662,9 +662,9 @@ while count < 3:
                         logger.info("Shell theme changed to " + cmd[6:])
                         print("Successfully seted shell theme " + cmd[6:])
                     
-                    elif cmd == "conf":
+                    elif cmd == "patch":
                         pprint.pprint(dict(globals()))
-                    elif cmd == "conf --set":
+                    elif cmd == "patch --set":
                         confsel1 = input("set <confsel1> = <confsel2>(cur:sel1): ")
                         confsel2 = input("set <confsel1> = <confsel2>(cur:sel2): ")
                         os.environ[confsel1] = confsel2
@@ -678,7 +678,7 @@ while count < 3:
                     elif cmd == "2048":
                         os.system("./apps/2048/2048-in-terminal")
 
-                    elif cmd.startswith("rm"):
+                    elif cmd.startswith("flan"):
                         rmFile = cmd[3:]
                         if rmFile == "":
                             print("No string provided.")

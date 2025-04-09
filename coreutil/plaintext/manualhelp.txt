@@ -12,11 +12,11 @@ power [shutdown | reboot] Power manager
 exit                      Lock system
 hostname [-c]             Show hostname
 echo <str>                Print text to screen
-rm <dir>                  Remove file
+flan <dir>                Remove file
 rmdir <dir>               Remove directory
-su <user>                  Switch user
+su <user>                 Switch user
 rss                       RSS Feed reader
-conf                      Show the current config
+patch                     Show the current config
 chthm <name>              Change theme of the shell
 pyosiupgrade              Update system(If available)
 shizuku                   "雫しずく", The package manager for manage programs
