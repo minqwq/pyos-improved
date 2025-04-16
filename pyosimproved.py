@@ -223,13 +223,10 @@ if debugMode == "d":
     print("You are now in debug mode.")
     print("If crash, dont report ANY error.")
     count = 0
-<<<<<<< HEAD
     goto(line=341)
 elif debugMode == "c":
     print("this feature is very unstable as now, please enable it by modify code.")
     compWizard()
-=======
->>>>>>> 5ce2ce2eac469789558a2e76125e5e407f8b4d19
 print(style_cur.hide)
 import psutil
 clearScreen()

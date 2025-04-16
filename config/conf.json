@@ -1,9 +1,7 @@
 {
     "system_version": "1.5.2 Development Channel",
     "system_codename": "Tilizen",
-<<<<<<< HEAD
     "system_build": "Build 498",
->>>>>>> 5ce2ce2eac469789558a2e76125e5e407f8b4d19
     "isWindows": "false",
     "cmd_theme": "default_v2",
     "enable_instant_show_time": "true",
