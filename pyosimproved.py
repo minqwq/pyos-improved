@@ -4,6 +4,7 @@ import json # Read json file(config file need this)
 conf = open("./config/conf.json", "r", encoding="utf-8")
 print("config/conf.json Loaded!")
 jsonRead = json.load(conf)
+# jsonWrite = open("config/conf.json", "w", encoding="utf-8")
 import time as tm # Time
 import getpass # Password?
 import calendar # Calendar
@@ -179,23 +180,24 @@ def runPreInstApp(pathtoapp):
 
 # with open("./config/conf.json", "w", encoding="utf-8") as temp_writeConfig:
 # 
-if jsonRead["isWindows"] == "":
-    # print("Unknown OS type, please set one.\nfalse:Linux\ntrue:Windows")
-    # conf_isWindows_write = input(">")
-    # if conf_isWindows_write == "false":
-        # pass
-        # 这不会写，帮我写一下，就是把配置文件里的"isWindows"值改成"false"("isWindows": "false")
-    # elif conf_isWindows_write == "true":
-        # pass
-        # 这里和上面一样，不过false改成true
-    print("Please configure the 'isWindows' to false or true on config/conf.json\nIt's looks like this:\"isWindows\": \"\", Change it to:\n\"isWindows\": \"false\" If you are linux\n\"isWindows\": \"true\" If you are windows")
-    print("Exiting...")
-    sys.exit()
-elif jsonRead["isWindows"] == "true" or jsonRead["isWindows"] == "false":
-    pass
-else:
-    print("Incorrect syntax at \"isWindows\", check config/config.json for more info.")
-    sys.exit()
+disablecompwizard = ["""
+def compWizard():
+    print("Comptiable Wizard\ntrue if you are windows\nfalse if you are *nix")
+    conf_isWindows_write = input("> ")
+    if conf_isWindows_write == "false":
+        jsonRead["isWindows"] = "false"
+        json.dump(jsonRead, jsonWrite, indent=4)
+        print("You can restart now.")
+    elif conf_isWindows_write == "true":
+        jsonRead["isWindows"] = "true"
+        json.dump(jsonRead, jsonWrite, indent=4)
+        print("You can restart now.")
+    # print("Please configure the 'isWindows' to false or true on config/conf.json\nIt's looks like this:\"isWindows\": \"\", Change it to:\n\"isWindows\": \"false\" If you are linux\n\"isWindows\": \"true\" If you are windows")
+    # print("Exiting...")
+    # sys.exit()
+    else:
+        print("Please retry.")
+"""]
 
 def clearScreen():
     print("\033[2J" + "\033[0;0H")
@@ -205,7 +207,7 @@ def beep():
 
 loadtime_aftered = 0
 temp_clock1 = time.time()
-print("Press d to fastboot.\nElse, press enter" + style_cur.show)
+print("Press d to fastboot.\nPress c to comptiable wizard\nElse, press enter" + style_cur.show)
 
 if temp_clock1 < 2:
     goto(line=181)
@@ -222,6 +224,9 @@ if debugMode == "d":
     print("If crash, dont report ANY error.")
     count = 0
     goto(line=330)
+elif debugMode == "c":
+    print("this feature is very unstable as now, please enable it by modify code.")
+    compWizard()
 print(style_cur.hide)
 import psutil
 clearScreen()
@@ -314,7 +319,8 @@ except KeyboardInterrupt:
 print("\n" + system_version + " " + system_build)
 print("Flandre Studio 2024--2025")
 print("0x1c Studio 2022--2023")
-print("\n" + "PY OS Improved is a Open-Source fake operating system, so fell free to improve our code!")
+print("\n" + "* PY OS Improved is a Open-Source fake operating system, so fell free to improve our code!")
+print("* PY OS Improved Project is inspired from PY OS/BBC OS 1.2.1 not 2.0 or later.")
 loading_spinner("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs ", 6)
 clearScreen()
 time.sleep(0.1)
@@ -446,8 +452,14 @@ while count < 3:
                 # print(style.slowblink + "Happy china lunar year(2025-01-28)!" + color.reset)
                 if isDev == True:
                     print("Logged into dev account, some command may unlocked!")
+                try:
+                    cat("coreutil/plaintext/lastlogin.txt")
+                except FileNotFoundError:
+                    print("Last login: Unknown, did you just deleted this file or first using?")
                 print("\nLarine SHell (lsh) version " + colorama.Fore.LIGHTYELLOW_EX + "1.7.0" + color.reset + " >///<\nit's a wittwe user non-fwiendwy shell...")
                 tmp_outolog = open(".output.log", "a", encoding="utf-8")
+                with open("coreutil/plaintext/lastlogin.txt", "w", encoding="utf-8") as ll_wrt:
+                    ll_wrt.write("Last login: " + now.strftime("%b %a %d %H:%M:%S %Y"))
                 while count < 3:
 
                     if cmd_theme == "default":
