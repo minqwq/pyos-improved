@@ -223,10 +223,13 @@ if debugMode == "d":
     print("You are now in debug mode.")
     print("If crash, dont report ANY error.")
     count = 0
-    goto(line=330)
+<<<<<<< HEAD
+    goto(line=341)
 elif debugMode == "c":
     print("this feature is very unstable as now, please enable it by modify code.")
     compWizard()
+=======
+>>>>>>> 5ce2ce2eac469789558a2e76125e5e407f8b4d19
 print(style_cur.hide)
 import psutil
 clearScreen()
@@ -387,7 +390,7 @@ while count < 3:
         sys.exit()
     else: # a lot of shit code here --minqwq
         isCreatorAccount = False
-        while count < 3:
+        while count < 3: # 代码难以维护，到处不明变量 --wusheng233
             if enablePassword == "true":
                 if show_password_when_typing == "false":
                     login_password = input("Password: ")
@@ -396,10 +399,11 @@ while count < 3:
                         login_password = getpass.getpass("Password: ")
                     except getpass.GetPassWarning:
                         print("\"show_password_when_typing\": \"false\" is not working.")
-                if login_password == pwdstring: # FIXME: not working. --minqwq @mibino
+                if login_password == pwdstring:
                     pass
                 else:
-                    print("Login incorrect\nBy some tech things, you must restart to re-login")
+                    print("Incorrect password, please re-enter")
+                    continue
             elif enablePassword == "false":
                 pass
             else:
@@ -538,7 +542,11 @@ while count < 3:
                             print("BeepEX")
                         elif haveSoundCard == False:
                             print("Beep")
-                        print("Ethernet Card:Wire Network 0(Status:OK)")
+                        print("Ethernet Card:Wire Network 0(Status:", end="")
+                        if networked == True:
+                            print("Enabled)")
+                        elif networked == False:
+                            print("Disabled)")
                         print("Disk:HDD1=10GB, HDD2=23GB")
                         curses.initscr()
                         if isWindows == "true":
@@ -976,13 +984,16 @@ while count < 3:
                 logger.error("file not found...")
                 print("file not found...")
             except Exception as crashReason: # Crash
-                print(colorama.Fore.LIGHTRED_EX + ":(\n\nSystem Panic!!\n" + str(crashReason) + "\n" + str(traceback.print_exc()) + "\nSystem Information:\n" + system_version + " " + system_build + "\n")
-                print("---------------------------------")
-                print("HOSTSYS INFO:\nOS:" + os.uname().sysname + " " + os.uname().version)
-                print("ARCH:" + os.uname().machine)
-                print("\nScreenshot and open new issue!\nhttps://github.com/minqwq/pyos-improved")
+                time.sleep(0.3) # need this for beep correctly
+                beep()
+                time.sleep(0.1)
+                beep()
+                time.sleep(0.1)
+                beep()
+                traceback.print_exception(crashReason, limit=1145, file=sys.stdout)
+                runPreInstApp("coreutil/catchinfo.py")
                 logger.critical("System Panic o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
-                input("[CRASH - Press any key to shutdown]" + color.reset)
+                input("[Press any key to shutdown - " + str(crashReason) + "]")
                 clearScreen()
                 sys.exit()
         if logout == True:
