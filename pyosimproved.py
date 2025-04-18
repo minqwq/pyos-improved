@@ -123,6 +123,7 @@ if venvEnable == "true":
     venvPath = jsonRead["venvPath"] # If you are linux distro, like me, you need this
 replace_python_command_to_python3 = jsonRead["replace_python_command_to_python3"] # Replace python command to python3(when you using linux distro)
 disablePathShow = jsonRead["disablePathShow"] # Disable path show on shell
+shorter_welcome = jsonRead["shorter_welcome"] # Show shorter welcome text when logon
 print("\r./config/conf.json:")
 cat("config/conf.json")
 # EXPERTIONAL FEATURE
@@ -234,11 +235,14 @@ slowprint(colorama.Fore.LIGHTGREEN_EX + "Remilia Hardware, 1582--2025 Some right
 slowprint("Unknown Paradise v1.1")
 time.sleep(0.5)
 memtest = 0
-for memtest in range(round(psutil.virtual_memory().total / 1024 / 1024)):
-    print("Testing memory... " + str(memtest) + "MiB", end="\r")
-    time.sleep(0.0005)
-    memtest = memtest + 1
-beep()
+try:
+    for memtest in range(round(psutil.virtual_memory().total / 1024 / 1024)):
+        print("Testing memory... " + str(memtest) + "MiB", end="\r")
+        time.sleep(0.0005)
+        memtest = memtest + 1
+    beep()
+except KeyboardInterrupt:
+    print("Skipped memory test, but catched memory before so will show cache int.")
 if memtest > 1024:
     print("HiMemory enabled(> 1024MiB)")
 elif memtest < 512:
@@ -445,7 +449,10 @@ while count < 3:
                 elif allowShowNotify == "false":
                     pass
                 clearScreen()
-                cat(co_welcome) # Welcome text, editable at coreutil/plaintext
+                if shorter_welcome == "false":
+                    cat(co_welcome) # Welcome text, editable at coreutil/plaintext
+                elif shorter_welcome == "true":
+                    cat("coreutil/plaintext/welcome_shorter.txt")
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
                 welcome_withDetectTime(user)
@@ -457,10 +464,11 @@ while count < 3:
                     cat("coreutil/plaintext/lastlogin.txt")
                 except FileNotFoundError:
                     print("Last login: Unknown, did you just deleted this file or first using?")
-                print("\nLarine SHell (lsh) version " + colorama.Fore.LIGHTYELLOW_EX + "1.7.0" + color.reset + " >///<\nit's a wittwe user non-fwiendwy shell...")
+                print("\nFlandre SHell (fsh) version " + colorama.Fore.LIGHTRED_EX + "1.8.0" + color.reset + " >///<\n\"The window of the core...\"")
                 tmp_outolog = open(".output.log", "a", encoding="utf-8")
                 with open("coreutil/plaintext/lastlogin.txt", "w", encoding="utf-8") as ll_wrt:
                     ll_wrt.write("Last login: " + now.strftime("%b %a %d %H:%M:%S %Y"))
+                    print("lastlogin written completed.")
                 while count < 3:
 
                     if cmd_theme == "default":
