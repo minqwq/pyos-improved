@@ -318,7 +318,7 @@ try:
     else:
         print("[" + color.red + " FAIL " + color.reset + "] Network return False, if you have tryed to reconnect, login and run \"netrefresh\"")
 except KeyboardInterrupt:
-    pass
+    networked = False
     print("[" + color.yellow + " WARN " + color.reset + "] Skipped network checking, will keep status \"False\".")
 print("\n" + system_version + " " + system_build)
 print("Flandre Studio 2024--2025")
@@ -392,7 +392,7 @@ while count < 3:
     else: # a lot of shit code here --minqwq
         isCreatorAccount = False
         while count < 3: # 代码难以维护，到处不明变量 --wusheng233
-            if enablePassword == "true":
+            if enablePassword == "true": # 回上面：那确实，我也不知道啥时候就变成屎山了 --minqwq
                 if show_password_when_typing == "false":
                     login_password = input("Password: ")
                 elif show_password_when_typing == "true":
@@ -573,6 +573,14 @@ while count < 3:
                         print("\r")
                     elif cmd == "uwufetch colotest256":
                         runPreInstApp("./apps/color256/color256.py")
+
+                    elif cmd == "flashscr":
+                        clearScreen()
+                        for temp_flashscreen in range(1000):
+                            print(colorama.Back.LIGHTWHITE_EX)
+                            print(color.reset)
+                        clearScreen()
+                        print("is your eyes still right? or...are you still wake up?")
 
                     elif cmd.startswith("cd"):
                         if expertfeature_cd_enabled == True:

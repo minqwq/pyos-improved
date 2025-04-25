@@ -54,3 +54,4 @@ uptime                    Show (this)system uptime
 pftest                    CPU Performance Test
 tutor                     Help document for new
 jrrp                      Check your luck amount today
+flashscr                  Flash bomb!!!
