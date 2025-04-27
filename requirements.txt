@@ -9,3 +9,6 @@ pygame
 requests
 progressbar
 plyer
+python-rtmidi
+mido
+art

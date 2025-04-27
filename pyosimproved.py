@@ -574,6 +574,9 @@ while count < 3:
                     elif cmd == "uwufetch colotest256":
                         runPreInstApp("./apps/color256/color256.py")
 
+                    elif cmd == "krmidipl":
+                        runPreInstApp("./apps/krmidipl/runme.py")
+
                     elif cmd == "flashscr":
                         clearScreen()
                         for temp_flashscreen in range(1000):

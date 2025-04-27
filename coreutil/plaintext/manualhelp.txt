@@ -35,7 +35,7 @@ asciicvt                  ASCII Converter
 ed                        Line text editor
 netrefresh [-h]           Refresh network connection
 (Relax)
-mp                        Play music
+krmidipl                  Powerful MIDI Player written in Python 3
 screensaver               Save your VGA screen, make your pc like a pro
 (Games)
 tetris                    Tetris game written using Python
