@@ -1,11 +1,13 @@
 import psutil
 import os
+import sys
 import time
 import platform
 import datetime
 import colorama
 import plyer
 import socket
+import pprint
 
 loadtime = 0
 
@@ -99,3 +101,12 @@ def loading_spinner(string, tm):
         time.sleep(0.125)
         print(string + "|", end="\r")
         time.sleep(0.125)
+def coresh():
+    pprint.pprint(dict(globals()))
+    while True:
+        cmd = input("initramfs nouser at void >_ $ ")
+        if cmd == "about":
+            sk_act_about()
+            print("initramfs input v1.0")
+        elif cmd == "q":
+            sys.exit()

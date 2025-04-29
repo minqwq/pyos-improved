@@ -20,6 +20,7 @@ import random # Random tools
 from os import path # Path control
 # import rich.spinner # idk
 sys.path.append("./")
+print("trying to set path append(is it work?)")
 import platform
 # import rich
 import requests # Get file from server
@@ -280,12 +281,12 @@ while bootManagerLoopRun == True:
     elif bootChoice == "4":
         clearScreen()
         print("If you want exit, press Ctrl+C to shutdown")
-        os.system("python ./.earlysystem/pyosimproved.py")
+        runPreInstApp("./.earlysystem/pyosimproved.py")
         sys.exit()
     elif bootChoice == "5":
         clearScreen()
         print("If you want exit, press Ctrl+C to shutdown")
-        os.system("python ./.earlysystem/bbcos-full.py")
+        runPreInstApp("./.earlysystem/bbcos-full.py")
         sys.exit()
     elif bootChoice == "6":
         if dualBoot == "true":
@@ -293,6 +294,8 @@ while bootManagerLoopRun == True:
             sys.exit()
         elif dualBoot == "false":
             pass
+    elif bootChoice == "7":
+        coresh()
     else:
         clearScreen()
 loading_spinner("Booting... ", 1)
