@@ -1,4 +1,5 @@
 # Main code - PY OS Improved
+print("First running may take long time in some device, if this happen please just wait.(if its not responding at somewhere please press Ctrl+C and restart.)")
 from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
 conf = open("./config/conf.json", "r", encoding="utf-8")
@@ -584,7 +585,9 @@ while count < 3:
                         clearScreen()
                         for temp_flashscreen in range(1000):
                             print(colorama.Back.LIGHTWHITE_EX)
+                            time.sleep(0.005)
                             print(color.reset)
+                            time.sleep(0.005)
                         clearScreen()
                         print("is your eyes still right? or...are you still wake up?")
 
