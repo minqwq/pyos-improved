@@ -1,8 +1,0 @@
-雫しずく / Shizuku, The package manager for PY OS Improved. "Install easy, ever."
-
-- install     to install a python executable file :3
-- remove      to delete a package, oh nooo! ;3
-- search      find packages fwom the mirror (coming suuuuper soon~ x3)
-- credits     see who made this adowable package manager!
-
-Shizuku has "super" scarlet powew, isn't that just adowable? >.<

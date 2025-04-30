@@ -1,0 +1,30 @@
+Welcome to PY OS Improved!
+
+GitHub Repo:    minqwq/pyos-improved
+Forums:         https://minqwq.proboards.com/board/10/py-os-improved
+News(Website):  https://flandre-studio.github.io
+News(TXT):      http://main.minqwq.moe/pyosimproved/news/latest.txt
+Telegram Group: https://t.me/pyosimproved
+Official Site:  http://main.minqwq.moe/pyosimproved
+Wiki:           file://<OSI_rootpath>/docs
+
+The Improved version added too much programs and it's maybe better than MPGA.
+Type "help" to show them.
+
+We also support external program, type "shizuku" to run:
+
+ - None:        Show help
+ - "run":       Run a program
+ - "install":   Install program from path to file
+ - "remove":    Remove(delete) a program from your computer
+ - "search":    Search package from Scarlet Network(スカーレット・ネットワーク)
+ - Else:        start program name
+
+Don't forget to update! run "pyosiupgrade" to update.
+
+And we hope you try the original PY OS
+It's rebirth on Jul 15 2024
+If you want to try, go to this GitHub Repo:Meltide/mpga-pyos
+
+The PY OS Improved is an Open-source "Fake" operating system
+We are welcome you to improve this project!

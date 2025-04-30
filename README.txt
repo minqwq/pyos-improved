@@ -27,7 +27,7 @@ if still crash, please install more modules(traceback will tell you what missed)
 ok its end, next you need to configure.
 
 2.1 - The config file
-"config/conf.json" is a config of PY OS Improved, when you first using, you need to modify it(little changes)
+"config/config.json" is a config of PY OS Improved, when you first using, you need to modify it(little changes)
 Open it, and find a line with "isWindows", if you found, replace "" to "false" or "true"(this by your os type)
 if you have venv you can configure "venvEnable" and "venvPath", the example is showed on the config.
 
