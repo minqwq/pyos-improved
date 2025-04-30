@@ -32,4 +32,18 @@ Open it, and find a line with "isWindows", if you found, replace "" to "false" o
 if you have venv you can configure "venvEnable" and "venvPath", the example is showed on the config.
 
 Congrats! now type "python(and 3 if you are windows) pyosimproved.py" to run
+
+Ex.1.1 - Q&A
+Q:Did windows run this project require admin permission?
+A:no.
+
+Q:If i use linux distro, venv is forcely required?
+A:no, this is looking for specify distro(like debian require, but fedora not)
+
+Q:Crashed!
+A:Open issue, or if you can, fix it by yourself ;)
+
+Ex.1.2 - Features List
+Run this, and login, then type help and press enter.
+
 still issues? open issue or email me:minqwq723897@outlook.com

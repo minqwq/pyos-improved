@@ -1,4 +1,5 @@
 # Main code - PY OS Improved
+print("First running may take long time in some device, if this happen please just wait.(if its not responding at somewhere please press Ctrl+C and restart.)")
 from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
 conf = open("./config/config.json", "r", encoding="utf-8")
@@ -20,6 +21,7 @@ import random # Random tools
 from os import path # Path control
 # import rich.spinner # idk
 sys.path.append("./")
+print("trying to set path append(is it work?)")
 import platform
 # import rich
 import requests # Get file from server
@@ -280,12 +282,12 @@ while bootManagerLoopRun == True:
     elif bootChoice == "4":
         clearScreen()
         print("If you want exit, press Ctrl+C to shutdown")
-        os.system("python ./.earlysystem/pyosimproved.py")
+        runPreInstApp("./.earlysystem/pyosimproved.py")
         sys.exit()
     elif bootChoice == "5":
         clearScreen()
         print("If you want exit, press Ctrl+C to shutdown")
-        os.system("python ./.earlysystem/bbcos-full.py")
+        runPreInstApp("./.earlysystem/bbcos-full.py")
         sys.exit()
     elif bootChoice == "6":
         if dualBoot == "true":
@@ -293,6 +295,8 @@ while bootManagerLoopRun == True:
             sys.exit()
         elif dualBoot == "false":
             pass
+    elif bootChoice == "7":
+        coresh()
     else:
         clearScreen()
 loading_spinner("Booting... ", 1)
@@ -574,11 +578,16 @@ while count < 3:
                     elif cmd == "uwufetch colotest256":
                         runPreInstApp("./apps/color256/color256.py")
 
+                    elif cmd == "krmidipl":
+                        runPreInstApp("./apps/krmidipl/runme.py")
+
                     elif cmd == "flashscr":
                         clearScreen()
                         for temp_flashscreen in range(1000):
                             print(colorama.Back.LIGHTWHITE_EX)
+                            time.sleep(0.005)
                             print(color.reset)
+                            time.sleep(0.005)
                         clearScreen()
                         print("is your eyes still right? or...are you still wake up?")
 
@@ -824,7 +833,8 @@ while count < 3:
                         print("minqwq | Interface Design, Coder, Project Creator, Document Editer")
                         print("bibimingming | Module Installer")
                         print("MeltedIde aka MeltedIce aka AMDISYES(Original PY OS) | Original Project Creator")
-                        print("北橋 桜 aka MinimalMio aka Yukari2024 | Installer, Helper")
+                        print("北橋 桜 aka MinimalMio aka Yukari2024 | Installer(old), Helper")
+                        print("Dr. Evan | Installer(new)")
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Early developing tester(not sorted)" + color.reset)
                         print("minqwq")
                         print("bibimingming")

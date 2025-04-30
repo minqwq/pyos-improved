@@ -1,13 +1,13 @@
 {
     "system_version": "1.5.2 Development Channel",
     "system_codename": "Tilizen",
-    "system_build": "Build 508",
+    "system_build": "Build 514",
     "isWindows": "false",
     "cmd_theme": "default_v2",
     "enable_instant_show_time": "true",
     "isUnregistered": "false",
     "beep_when_finished": "true",
-    "auto_boot_choice": "1",
+    "auto_boot_choice": "",
     "devenv": "uwu",
     "enablePassword": "false",
     "show_password_when_typing": "false",
@@ -18,7 +18,7 @@
     "dualBoot_OSName": "TEST",
     "venvEnable": "true",
     "venvPath": "~/pyvenv/bin/python",
-    "replace_python_command_to_python3": "false",
-    "disablePathShow": "false",
+    "replace_python_command_to_python3": "true",
+    "disablePathShow": "true",
     "shorter_welcome": "false"
 }
