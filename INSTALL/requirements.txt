@@ -1,0 +1,14 @@
+psutil
+Pillow
+matplotlib
+colorama
+datetime
+pretty-errors
+python-goto
+pygame
+requests
+progressbar
+plyer
+python-rtmidi
+mido
+art
