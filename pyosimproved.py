@@ -656,6 +656,7 @@ while count < 3:
                         runPreInstApp("./apps/ed-editor/edit.py")
 
                     # Package manager info
+                    # 先提前说一下啊，别太复杂，我怕我自己看不懂 --minqwq
                     elif cmd == "shizuku":
                         cat("./coreutil/plaintext/extprog_info.txt")
                     elif cmd.startswith("shizuku run"):
