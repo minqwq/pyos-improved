@@ -1019,6 +1019,7 @@ while count < 3:
                 logger.critical("System Panic o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
                 input("[Press any key to shutdown - " + str(crashReason) + "]")
                 clearScreen()
+                os.remove("./__pycache__/")
                 sys.exit()
         if logout == True:
             break
