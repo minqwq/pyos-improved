@@ -2,10 +2,10 @@
 print("First running may take long time in some device, if this happen please just wait.(if its not responding at somewhere please press Ctrl+C and restart.)")
 from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
-conf = open("./config/conf.json", "r", encoding="utf-8")
-print("config/conf.json Loaded!")
+conf = open("./config/config.json", "r", encoding="utf-8")
+print("config/config.json Loaded!")
 jsonRead = json.load(conf)
-# jsonWrite = open("config/conf.json", "w", encoding="utf-8")
+# jsonWrite = open("config/config.json", "w", encoding="utf-8")
 import time as tm # Time
 import getpass # Password?
 import calendar # Calendar
@@ -31,7 +31,7 @@ import base64 # Encode and decode
 import traceback
 import logging # Log.
 import profile # Maybe useless?
-# import subprocess # I need to send notification
+import subprocess # I need to send notification
 import re
 import autoexec
 try:
@@ -55,7 +55,8 @@ except Exception:
     haveSoundCard = False
 import art
 import pprint
-# import coreutil.module.history as history
+import coreutil.shizuku.manager as szkmng # Installer for shizuku
+# import core.module.history as history
 print("\033[?25l")
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 # Preload classes
@@ -82,7 +83,7 @@ def echo(string):
 # and my best friend stevemcpe
 
 try:
-    os.remove("output.log")
+    os.remove("./data/cache/.output.log")
 except FileNotFoundError:
     pass
 cmdhist_lines = 0
@@ -94,7 +95,7 @@ lsh_path = os.getcwd()
 print("Registered hostname")
 
 LOG_FORMAT = '[%(levelname)s] %(asctime)s | %(message)s'
-logging.basicConfig(filename='.output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
+logging.basicConfig(filename='cache/.output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
 logger.info("Logger started successfully.")
 pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-improved", "awa", "Also try original PY OS! link available after login.", "No stay back gordon!", "sjsjsjnwnwjsosjq????"]
@@ -126,8 +127,8 @@ if venvEnable == "true":
 replace_python_command_to_python3 = jsonRead["replace_python_command_to_python3"] # Replace python command to python3(when you using linux distro)
 disablePathShow = jsonRead["disablePathShow"] # Disable path show on shell
 shorter_welcome = jsonRead["shorter_welcome"] # Show shorter welcome text when logon
-print("\r./config/conf.json:")
-cat("config/conf.json")
+print("\r./config/config.json:")
+cat("config/config.json")
 # EXPERTIONAL FEATURE
 
 readConfigFromExport = False # Linux only! windows have same but not a command.
@@ -145,15 +146,15 @@ print("Config registered")
 if disablePathShow == "true":
     lsh_path = "DISABLED"
 
-# coreutil/plaintext loads START
+# core/plaintext loads START
 co_manualHelp = "coreutil/plaintext/manualhelp.txt"
 co_welcome = "coreutil/plaintext/welcome.txt"
-# coreutil/plaintext loads END
+# core/plaintext loads END
 
 print("PT Registered")
 
 def cmdhistory_write():
-    tmp_f = open("./cache/history.txt", "a", encoding="utf-8")
+    tmp_f = open("cache/history.txt", "a", encoding="utf-8")
     # cmdhist_lines += 1
     cmdhist_timed = datetime.datetime.now().strftime("%b %a %d %H:%M:%S %Y")
     tmp_f.write(str(cmdhist_time) + " " + user + ":" + lsh_hostname + " | " + cmd + "\n")
@@ -169,7 +170,7 @@ def runPreInstApp(pathtoapp):
                 os.system(venvPath + " " + pathtoapp)
             else:
                 print("Config incorrect at \"replace_python_command_to_python3\"")
-                print("check it on config/conf.json\nif you need help please contact minqwq723897@outlook.com")
+                print("check it on config/config.json\nif you need help please contact minqwq723897@outlook.com")
                 sys.exit()
         else: # too --minqwq
             if replace_python_command_to_python3 == "true":
@@ -178,10 +179,10 @@ def runPreInstApp(pathtoapp):
                 os.system("python3 " + pathtoapp)
             else:
                 print("Config incorrect at \"replace_python_command_to_python3\"")
-                print("check it on config/conf.json\nif you need help please contact minqwq723897@outlook.com")
+                print("check it on config/config.json\nif you need help please contact minqwq723897@outlook.com")
                 sys.exit()
 
-# with open("./config/conf.json", "w", encoding="utf-8") as temp_writeConfig:
+# with open("./config/config.json", "w", encoding="utf-8") as temp_writeConfig:
 # 
 disablecompwizard = ["""
 def compWizard():
@@ -195,7 +196,7 @@ def compWizard():
         jsonRead["isWindows"] = "true"
         json.dump(jsonRead, jsonWrite, indent=4)
         print("You can restart now.")
-    # print("Please configure the 'isWindows' to false or true on config/conf.json\nIt's looks like this:\"isWindows\": \"\", Change it to:\n\"isWindows\": \"false\" If you are linux\n\"isWindows\": \"true\" If you are windows")
+    # print("Please configure the 'isWindows' to false or true on config/config.json\nIt's looks like this:\"isWindows\": \"\", Change it to:\n\"isWindows\": \"false\" If you are linux\n\"isWindows\": \"true\" If you are windows")
     # print("Exiting...")
     # sys.exit()
     else:
@@ -454,7 +455,7 @@ while count < 3:
                     pass
                 clearScreen()
                 if shorter_welcome == "false":
-                    cat(co_welcome) # Welcome text, editable at coreutil/plaintext
+                    cat(co_welcome) # Welcome text, editable at coreutil/plaintext/welcome.txt
                 elif shorter_welcome == "true":
                     cat("coreutil/plaintext/welcome_shorter.txt")
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
@@ -465,12 +466,12 @@ while count < 3:
                 if isDev == True:
                     print("Logged into dev account, some command may unlocked!")
                 try:
-                    cat("coreutil/plaintext/lastlogin.txt")
+                    cat("cache/lastlogin.txt")
                 except FileNotFoundError:
                     print("Last login: Unknown, did you just deleted this file or first using?")
                 print("\nFlandre SHell (fsh) version " + colorama.Fore.LIGHTRED_EX + "1.8.0" + color.reset + " >///<\n\"The window of the core...\"")
-                tmp_outolog = open(".output.log", "a", encoding="utf-8")
-                with open("coreutil/plaintext/lastlogin.txt", "w", encoding="utf-8") as ll_wrt:
+                tmp_outolog = open("cache/.output.log", "a", encoding="utf-8")
+                with open("cache/lastlogin.txt", "w", encoding="utf-8") as ll_wrt:
                     ll_wrt.write("Last login: " + now.strftime("%b %a %d %H:%M:%S %Y"))
                     print("lastlogin written completed.")
                 while count < 3:
@@ -516,9 +517,12 @@ while count < 3:
                     if isUnregistered == "true":
                         unreg_count += 1
                         if unreg_count > 25:
-                            print("Please register to get best exprience.\nconfig/conf.json")
+                            print("Please register to get best exprience.\nconfig/config.json")
                             unreg_count = 0
                     # Begin commands register
+
+                    pyosi_local_path = os.getcwd()
+
                     if cmd == "ls": # Path
                         if isWindows == "false":
                             os.system("ls ./")
@@ -528,7 +532,7 @@ while count < 3:
                     elif cmd == "uwufetch": # a Fake neofetch
                         currentUptime = time.time()
                         currentUptimeII = currentUptime - end_startingtime
-                        # cat("coreutil/plaintext/logo.txt") # Fallback option
+                        # cat("core/plaintext/logo.txt") # Fallback option
                         art.tprint("PY    OS")
                         print("    --- Improved Edition ---")
                         print(user + "@" + lsh_hostname)
@@ -539,7 +543,7 @@ while count < 3:
                             print("Linux, " + os.ttyname(0))
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
-                        print("Packages:" + str(dir_filecount("./extprog")) + "(extprog)")
+                        print("Packages:" + str(dir_filecount("./data/apps")) + "(extprog)")
                         print("Terminal:console1")
                         print("Uptime:" + str(round(int(currentUptimeII))) + " s")
                         print("Host:" + lsh_hostname)
@@ -656,11 +660,10 @@ while count < 3:
                         runPreInstApp("./apps/ed-editor/edit.py")
 
                     # Package manager info
-                    # 先提前说一下啊，别太复杂，我怕我自己看不懂 --minqwq
                     elif cmd == "shizuku":
                         cat("./coreutil/plaintext/extprog_info.txt")
                     elif cmd.startswith("shizuku run"):
-                        os.chdir("./extprog")
+                        os.chdir("./data/apps")
                         os.system("python " + cmd[11:] + ".py")
                         os.chdir("../")
                     # Package install
@@ -668,23 +671,31 @@ while count < 3:
                         pkgPath = cmd[16:]
                         print("Installing package from " + pkgPath + " ...")
                         if isWindows == "true":
-                            os.system("copy " + pkgPath + " .\\extprog")
+                            # os.system("copy " + pkgPath + " .\\data\\apps")
+                            result = szkmng.install(pkgPath)
+                            os.chdir(pyosi_local_path)
+                            if result != 0:
+                                print("Installation failed.")
                         elif isWindows == "false":
-                            os.system("cp " + pkgPath + " ./extprog")
-                    # Package delete
+                            # os.system("cp " + pkgPath + " ./data/apps")
+                            result = szkmng.install(pkgPath)
+                            os.chdir(pyosi_local_path)
+                            if result != 0:
+                                print("Installation failed.")
+                    # Package remove
                     elif cmd.startswith("shizuku remove"):
-                        pkgPath = cmd[15:]
-                        print("Removing package " + pkgPath + " ...")
+                        rm_app_name = cmd[15:]
+                        print("Removing application: " + rm_app_name + " ...")
                         if isWindows == "true":
-                            os.system("del .\\extprog\\" + pkgPath + ".py")
+                            result = szkmng.remove(rm_app_name)
+                            os.chdir(pyosi_local_path)
+                            if result != 0:
+                                print("Removal failed.")
                         elif isWindows == "false":
-                            os.system("rm ./extprog/" + pkgPath + ".py")
-                        try:
-                            open(cmd[15:], "r")
-                        except FileNotFoundError:
-                            print("Package removed!")
-                        except Exception:
-                            print("Isn't working! try delete package manually.")
+                            result = szkmng.remove(rm_app_name)
+                            os.chdir(pyosi_local_path)
+                            if result != 0:
+                                print("Removal failed.")
                     # The credits
                     elif cmd.startswith("shizuku credits"):
                         cat("./coreutil/plaintext/shizuku_credits.txt")
@@ -716,7 +727,7 @@ while count < 3:
                         runPreInstApp("./apps/asciicvt/asciiconverter.py")
 
                     elif cmd == "tasks":
-                        os.system("cd ./savedfile/tasks && ../../apps/tasks/tasks && cd ../..")
+                        os.system("cd ./home/public/savedfile/tasks && ../../apps/tasks/tasks && cd ../..")
 
                     elif cmd == "2048":
                         os.system("./apps/2048/2048-in-terminal")
@@ -753,7 +764,7 @@ while count < 3:
                     elif cmd == "crash":
                         if user == "dev":
                             logger.warn("Congrats, you make the PY OS Improved crashed.")
-                            badstring = uwu
+                            badstring = "uwu"
                             anotherbadstring = "owo"
                             print(badstring + anotherbadstring)
                         else:
@@ -775,7 +786,7 @@ while count < 3:
 
                     elif cmd == "paint":
                         paintWidthAndHeight = input("Input width and height(example:50 50): ")
-                        os.chdir("./savedfile")
+                        os.chdir("./home/public/savedfile")
                         runPreInstApp("../apps/paint/paint.py " + paintWidthAndHeight)
                         os.chdir("..")
 
@@ -820,6 +831,34 @@ while count < 3:
 
                     elif cmd.startswith("sudo"): # sudo not sudo
                         print("This system is not based on linux, so sudo is not on herse")
+
+                    elif cmd.startswith("szk"):
+                        # 提取包名，即命令去掉前四个字符后的部分
+                        pypkg = cmd[4:]
+                        if isWindows == "true":
+                            try:
+                                os.chdir(".\\data\\apps\\" + pypkg)
+                                os.system("python " + pypkg + ".py")
+                            except FileNotFoundError:
+                                print("Package not found: " + pypkg)
+                                os.chdir(pyosi_local_path)
+                            except Exception as e:
+                                print("Error: " + str(e))
+                                os.chdir(pyosi_local_path)
+                            finally:
+                                os.chdir(pyosi_local_path)
+                        elif isWindows == "false":
+                            try:
+                                os.chdir("./data/apps/" + pypkg)
+                                os.system("python " + pypkg + ".py")
+                            except FileNotFoundError:
+                                print("Package not found: " + pypkg)
+                                os.chdir(pyosi_local_path)
+                            except Exception as e:
+                                print("Error: " + str(e))
+                                os.chdir(pyosi_local_path)
+                            finally:
+                                os.chdir(pyosi_local_path)
 
                     elif cmd == "about": # About system
                         slowprint("---------------| About |---------------")
@@ -1019,7 +1058,6 @@ while count < 3:
                 logger.critical("System Panic o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
                 input("[Press any key to shutdown - " + str(crashReason) + "]")
                 clearScreen()
-                os.remove("./__pycache__/")
                 sys.exit()
         if logout == True:
             break
