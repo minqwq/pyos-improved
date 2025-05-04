@@ -39,6 +39,7 @@ try:
     from coreutil.module.style import *
     from coreutil.module.textmoji import *
     from coreutil.module.splashes import *
+    from coreutil.module.network import *
 except Exception:
     print("Kernel Panic!!")
     sys.exit(15)
@@ -313,6 +314,7 @@ time.sleep(0.1)
 sk_act_about()
 sk_stl_about()
 sk_tm_about()
+sk_net_about()
 time.sleep(0.1)
 print("[" + color.green + "  OK  " + color.reset + "] Scarlet Kernel initialion complete")
 print("[" + color.yellow + " WAIT " + color.reset + "] Initialing network... checking... connecting to main.minqwq.moe:80 ...(Press Ctrl+C to skip)")
@@ -560,6 +562,7 @@ while count < 3:
                             print("Enabled)")
                         elif networked == False:
                             print("Disabled)")
+                        get_public_ips()
                         print("Disk:HDD1=10GB, HDD2=23GB")
                         curses.initscr()
                         if isWindows == "true":
@@ -904,6 +907,13 @@ while count < 3:
                         print("ex:power reboot")
                     elif cmd == "power shutdown" or cmd == "st" or cmd == ":q": # Shutdown
                         logger.info("Shutting down...")
+                        clearScreen()
+                        for i in range(175):
+                            print(colorama.Back.LIGHTWHITE_EX)
+                            time.sleep(0.0005)
+                        print(color.reset)
+                        clearScreen()
+                        input("You can safe turn off your computer now.(any key...)")
                         clearScreen()
                         sys.exit()
                     elif cmd == "power reboot" or cmd == "rbt":
