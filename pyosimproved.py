@@ -666,8 +666,8 @@ while count < 3:
                     elif cmd == "shizuku":
                         cat("./coreutil/plaintext/extprog_info.txt")
                     elif cmd.startswith("shizuku run"):
-                        os.chdir("./data/apps")
-                        os.system("python " + cmd[11:] + ".py")
+                        os.chdir("./extprog")
+                        runPreInstApp(cmd[11:] + ".py")
                         os.chdir("../")
                     # Package install
                     elif cmd.startswith("shizuku install"):
