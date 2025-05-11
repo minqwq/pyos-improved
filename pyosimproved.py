@@ -92,6 +92,7 @@ cmdhist_time = "nul"
 lsh_hostname = "scarletlocal-000"
 user = "defaultuser_nologin"
 lsh_path = os.getcwd()
+networked = False
 
 print("Registered hostname")
 
@@ -568,7 +569,10 @@ while count < 3:
                             print("Enabled)")
                         elif networked == False:
                             print("Disabled)")
-                        get_public_ips()
+                        try:
+                            get_public_ips()
+                        except UnboundLocalError:
+                            pass
                         print("Disk:HDD1=10GB, HDD2=23GB")
                         curses.initscr()
                         if isWindows == "true":
