@@ -128,6 +128,7 @@ if venvEnable == "true":
 replace_python_command_to_python3 = jsonRead["replace_python_command_to_python3"] # Replace python command to python3(when you using linux distro)
 disablePathShow = jsonRead["disablePathShow"] # Disable path show on shell
 shorter_welcome = jsonRead["shorter_welcome"] # Show shorter welcome text when logon
+faster_startup = jsonRead["faster_startup"] # New version of startup screen
 print("\r./config/config.json:")
 cat("config/config.json")
 # EXPERTIONAL FEATURE
@@ -306,33 +307,38 @@ clearScreen()
 # Startup screen
 logger.info("Starting main operating system...")
 startingtime = time.time()
-print("Starting up...")
-if system_is_beta == True: # If is beta version, show this warn
-    print(text.doubt + "not release version, may unstable")
-print("[" + color.yellow + " LOAD " + color.reset + "] Initialing Scarlet Kernel...")
-time.sleep(0.1)
-sk_act_about()
-sk_stl_about()
-sk_tm_about()
-sk_net_about()
-time.sleep(0.1)
-print("[" + color.green + "  OK  " + color.reset + "] Scarlet Kernel initialion complete")
-print("[" + color.yellow + " WAIT " + color.reset + "] Initialing network... checking... connecting to main.minqwq.moe:80 ...(Press Ctrl+C to skip)")
-try:
-    if netcheck("main.minqwq.moe", 80):
-        networked = True
-        print("[" + color.green + "  OK  " + color.reset + "] Network return True, enabled")
-    else:
-        print("[" + color.red + " FAIL " + color.reset + "] Network return False, if you have tryed to reconnect, login and run \"netrefresh\"")
-except KeyboardInterrupt:
-    networked = False
-    print("[" + color.yellow + " WARN " + color.reset + "] Skipped network checking, will keep status \"False\".")
-print("\n" + system_version + " " + system_build)
-print("Flandre Studio 2024--2025")
-print("0x1c Studio 2022--2023")
-print("\n" + "* PY OS Improved is a Open-Source fake operating system, so fell free to improve our code!")
-print("* PY OS Improved Project is inspired from PY OS/BBC OS 1.2.1 not 2.0 or later.")
-loading_spinner("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs ", 6)
+if faster_startup == "true":
+    runPreInstApp("coreutil/xubuntustartup_mod.py")
+else:
+    print("Starting up...")
+    if system_is_beta == True: # If is beta version, show this warn
+        print(text.doubt + "not release version, may unstable")
+    print("[" + color.yellow + " LOAD " + color.reset + "] Initialing Scarlet Kernel...")
+    time.sleep(0.1)
+    sk_act_about()
+    sk_stl_about()
+    sk_tm_about()
+    sk_net_about()
+    time.sleep(0.1)
+    print("[" + color.green + "  OK  " + color.reset + "] Scarlet Kernel initialion complete")
+    """
+    print("[" + color.yellow + " WAIT " + color.reset + "] Initialing network... checking... connecting to main.minqwq.moe:80 ...(Press Ctrl+C to skip)")
+    try:
+        if netcheck("main.minqwq.moe", 80):
+            networked = True
+            print("[" + color.green + "  OK  " + color.reset + "] Network return True, enabled")
+        else:
+            print("[" + color.red + " FAIL " + color.reset + "] Network return False, if you have tryed to reconnect, login and run \"netrefresh\"")
+    except KeyboardInterrupt:
+        networked = False
+        print("[" + color.yellow + " WARN " + color.reset + "] Skipped network checking, will keep status \"False\".")
+    """
+    print("\n" + system_version + " " + system_build)
+    print("Flandre Studio 2024--2025")
+    print("0x1c Studio 2022--2023")
+    print("\n" + "* PY OS Improved is a Open-Source fake operating system, so fell free to improve our code!")
+    print("* PY OS Improved Project is inspired from PY OS/BBC OS 1.2.1 not 2.0 or later.")
+    loading_spinner("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs ", 6)
 clearScreen()
 time.sleep(0.1)
 aprilFoolsTimeCheck = time.time()
