@@ -14,11 +14,12 @@ Type "help" to show them.
 We also support external program, type "shizuku" to run:
 
  - None:        Show help
- - "run":       Run a program
+ - "run":       Run a program(For older program(Ends with .py portable program))
  - "install":   Install program from path to file
  - "remove":    Remove(delete) a program from your computer
  - "search":    Search package from Scarlet Network(スカーレット・ネットワーク)
  - Else:        start program name
+ - "szk" without starts with "shizuku": Run a program(For newer program)
 
 Don't forget to update! run "pyosiupgrade" to update.
 

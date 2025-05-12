@@ -30,10 +30,12 @@ import base64 # Encode and decode
 # import tqdm # Progress bar
 import traceback
 import logging # Log.
-import profile # Maybe useless?
+import profile # used only at startup screen and you can remove it
 import subprocess # I need to send notification
 import re
 import autoexec
+import threading
+import coreutil.moddedprogram.pymodpl as pymodpl
 try:
     from coreutil.module.actions import *
     from coreutil.module.style import *
@@ -342,6 +344,7 @@ else:
     loading_spinner("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs ", 6)
 clearScreen()
 time.sleep(0.1)
+"""
 aprilFoolsTimeCheck = time.time()
 print(str(aprilFoolsTimeCheck))
 if aprilFoolsTimeCheck < 1743523200:
@@ -353,6 +356,7 @@ if aprilFoolsTimeCheck < 1743523200:
         while True:
             print(text.error + color.red + "Your system is being to destroy...")
             time.sleep(0.1)
+"""
 end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
 beep()
@@ -594,6 +598,16 @@ while count < 3:
                         print("\r")
                     elif cmd == "uwufetch colotest256":
                         runPreInstApp("./apps/color256/color256.py")
+
+                    elif cmd.startswith("pymodpl"):
+                        tmp_pymodpl_fname = cmd[8:]
+                        try:
+                            pymodpl_thread.stop()
+                        except Exception:
+                            pass
+                        pymodpl_thread = threading.Thread(target=pymodpl.play_stdfile(tmp_pymodpl_fname))
+                        pymodpl_thread.daemon = True
+                        pymodpl_thread.start()
 
                     elif cmd == "krmidipl":
                         runPreInstApp("./apps/krmidipl/runme.py")
