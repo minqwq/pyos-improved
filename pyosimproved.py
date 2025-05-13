@@ -545,7 +545,7 @@ while count < 3:
                     elif cmd == "uwufetch": # a Fake neofetch
                         currentUptime = time.time()
                         currentUptimeII = currentUptime - end_startingtime
-                        # cat("core/plaintext/logo.txt") # Fallback option
+                        # cat("coreutil/plaintext/logo.txt") # Fallback option
                         art.tprint("PY    OS")
                         print("    --- Improved Edition ---")
                         print(user + "@" + lsh_hostname)
