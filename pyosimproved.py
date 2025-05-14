@@ -522,7 +522,7 @@ while count < 3:
                         print("[" + lsh_time + "]", end=" ")
                     elif enable_instant_show_time == "false":
                         pass
-                  # lsh_username = os.system("whoami")
+                    # lsh_username = os.system("whoami")
                     cmd = input(cmd_pre)
                     logger.info("[Command] tty1/lsh: " + cmd)
                     # cmdhistory_write()
