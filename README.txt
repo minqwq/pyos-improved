@@ -38,7 +38,7 @@ Q:Did windows run this project require admin permission?
 A:no.
 
 Q:If i use linux distro, venv is forcely required?
-A:no, this is looking for specify distro(like debian require, but fedora not)
+A:no, this is looking for specify distro(like debian require, but fedora not), but we **RECOMMEND** use venv
 
 Q:Crashed!
 A:Open issue, or if you can, fix it by yourself ;)
