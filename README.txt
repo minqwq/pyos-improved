@@ -26,6 +26,11 @@ First, install modules using pip, type "pip install -r requirements.txt"(in Linu
 if still crash, please install more modules(traceback will tell you what missed)
 ok its end, next you need to configure.
 
+1.3 - Try it
+First, you need Nix(get it on https://nixos.org/)
+and type "nix-shell", wait
+and now you can type "python3 pyosimproved.py" for start pyos-improved.
+
 2.1 - The config file
 "config/conf.json" is a config of PY OS Improved, when you first using, you need to modify it(little changes)
 Open it, and find a line with "isWindows", if you found, replace "" to "false" or "true"(this by your os type)
@@ -38,7 +43,7 @@ Q:Did windows run this project require admin permission?
 A:no.
 
 Q:If i use linux distro, venv is forcely required?
-A:no, this is looking for specify distro(like debian require, but fedora not)
+A:no, this is looking for specify distro(like debian require, but fedora not), but we **RECOMMEND** use venv
 
 Q:Crashed!
 A:Open issue, or if you can, fix it by yourself ;)
