@@ -12,7 +12,7 @@ import pprint
 loadtime = 0
 
 def sk_act_about():
-    print("ScarletKernel / CoreUtil:Actions / 1.4.2_r6")
+    print("ScarletKernel / CoreUtil:Actions / 1.4.3")
 def dotLoader(howMany, howSlow):
     for dotLoader_time in range(howMany):
         print(".", end="")

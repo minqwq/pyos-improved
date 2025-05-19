@@ -187,8 +187,11 @@ def runPreInstApp(pathtoapp):
                 print("check it on config/config.json\nif you need help please contact minqwq723897@outlook.com")
                 sys.exit()
 
+def termux_detect():
+    return "TERMUX_VERSION" in os.environ
+
 # with open("./config/config.json", "w", encoding="utf-8") as temp_writeConfig:
-# 
+#
 disablecompwizard = ["""
 def compWizard():
     print("Comptiable Wizard\ntrue if you are windows\nfalse if you are *nix")
@@ -553,7 +556,14 @@ while count < 3:
                         if isWindows == "true":
                             print("Windows NT")
                         elif isWindows == "false":
-                            print("Linux, " + os.ttyname(0))
+                            print("Linux, " + os.ttyname(0), end="")
+                            try:
+                                if termux_detect():
+                                    print(" (Termux)")
+                                else:
+                                    print("")
+                            except Exception:
+                                pass
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
                         print("Packages:" + str(dir_filecount("./data/apps")) + "(extprog)")
@@ -737,12 +747,12 @@ while count < 3:
                             print("you just take her's wings...??")
                     elif cmd == "shizuku scarlet":
                         print("her's wings is not a christmas lights!")
-                    
+
                     elif cmd.startswith("chthm"):
                         cmd_theme = cmd[6:]
                         logger.info("Shell theme changed to " + cmd[6:])
                         print("Successfully seted shell theme " + cmd[6:])
-                    
+
                     elif cmd == "patch":
                         pprint.pprint(dict(globals()))
                     elif cmd == "patch --set":
@@ -900,7 +910,7 @@ while count < 3:
                         print("minqwq | Interface Design, Coder, Project Creator, Document Editer")
                         print("bibimingming | Module Installer")
                         print("MeltedIde aka MeltedIce aka AMDISYES(Original PY OS) | Original Project Creator")
-                        print("北橋 桜 aka MinimalMio aka Yukari2024 | Installer(old), Helper")
+                        print("北橋 桜 aka MinimalMio aka Yukari2024 | Installer(old), Helper")
                         print("Dr. Evan | Installer(new)")
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Early developing tester(not sorted)" + color.reset)
                         print("minqwq")
