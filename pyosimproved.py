@@ -307,7 +307,7 @@ while bootManagerLoopRun == True:
     elif bootChoice == "7":
         coresh()
     else:
-        clearScreen()
+        print("Operating System not found - Bad Boot ID")
 loading_spinner("Booting... ", 1)
 clearScreen()
 # Startup screen
@@ -344,6 +344,7 @@ else:
     print("0x1c Studio 2022--2023")
     print("\n" + "* PY OS Improved is a Open-Source fake operating system, so fell free to improve our code!")
     print("* PY OS Improved Project is inspired from PY OS/BBC OS 1.2.1 not 2.0 or later.")
+    print("This is a \"freeware\".")
     loading_spinner("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs ", 6)
 clearScreen()
 time.sleep(0.1)
@@ -444,7 +445,6 @@ while count < 3:
                     if creatorVerify == creatorVerifyPassword:
                         clearScreen()
                         print("The creator of PY OS Improved, welcome back.\n")
-                        user = colorama.Fore.LIGHTBLUE_EX + "(CRTRACT) minqwq" + color.reset
                         isCreatorAccount = True
                     else:
                         print(color.red + "Access Denied." + color.reset)
@@ -903,7 +903,7 @@ while count < 3:
                         print("(C) " + color.green + "0x1c Studio " + color.reset + "2022--2023 | (C) " + colorama.Fore.LIGHTRED_EX + "Flandre" + color.red + " Studio " + color.reset + "&" + color.grey + " FCNM " + color.reset + "&" + color.grey + " SnowMio Studios 2022--2025" + color.reset)
                         print("Python version: " + str(platform.python_version()))
                         print(" ")
-                        print("add option -c for credits\nadd option -s for support")
+                        print("add option -c for credits\nadd option -s for support\nadd option -l for license")
                     elif cmd == "about -c" or cmd == "about --credits":
                         print(colorama.Fore.LIGHTCYAN_EX + "Developers of PY OS Improved" + color.reset)
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Developers" + color.reset)
@@ -932,6 +932,8 @@ while count < 3:
                         print("Telegram:@minqwq723897")
                         print("IRC(Instant only):minqwq #pyos-improved irc.freenode.net:6667")
                         print("AutumnChat:Unavailable")
+                    elif cmd == "about -l":
+                        cat("LICENSE")
 
                     elif cmd == "power":
                         print("Power options:")
@@ -972,20 +974,11 @@ while count < 3:
                         time.sleep(3)
                         runPreInstApp("./apps/tetris/tetris.py")
 
-                    elif cmd == "converter": # converter but cant select file
-                        print("File Convert\nConvert .lpap/.lpcu/.bbc to .umm")
-                        input("Input file's path:\n")
-                        for i in range(1, 101):
-                            print("\r", end="")
-                            print("Progress: {}%: ".format(i), "=" * (i // 2), end="")
-                            sys.stdout.flush()
-                            tm.sleep(0.05)
-                        print("\nConvert Complete")
                     elif cmd == "time": # Show current time
-
                         now = datetime.datetime.now()
                         other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
                         print(other_StyleTime)
+                        
                     elif cmd == "caesar":
                         os.chdir("./apps/caesartools")
                         runPreInstApp("caesar.py")
@@ -1003,44 +996,8 @@ while count < 3:
                         else:
                             os.system(customCommand)
 
-                    elif cmd == "news":
-                        try:
-                            requestsUrl = "https://minqwq.github.io/pyosimproved/news/latest.txt"
-                            requestsResponse = requests.get(requestsUrl)
-                            if requestsResponse.status_code == 200:
-                                print(colorama.Fore.LIGHTGREEN_EX + "STATUS:200(Success)\n" + color.reset)
-                                requestsText = requestsResponse.text
-                                print(requestsText)
-                        except Exception:
-                            print("STATUS:" + requestsResponse.status_code + "(Failed)")
-
-                    elif cmd.startswith("passwd"): # Change password(for this session)
-                        stpasswd = cmd[7:]
-                        if stpasswd == "":
-                            print("No string provided")
-                        else:
-                            print("Password set to " + stpasswd)
-
-                    elif cmd == "calendar": # Calendar
-                        yy = int(input("Year: "))
-                        mm = int(input("Month: "))
-                        print(color.green + "PY OS Calendar\n" + color.reset + calendar.month(yy, mm))
-
                     elif cmd == "help": # Command list
                         cat(co_manualHelp)
-
-                    elif cmd == "time --help": # time command help
-                        print("Time command options:")
-                        print("--help         Show this help")
-                        print("--no-date      Print time without date")
-                        print("--no-clk       Print time without time")
-
-                    elif cmd == "calc": # Calculator
-                        try:
-                            formula = input("Enter the formula to be calculated(example:1+1):\n")
-                            print(formula + "=", eval(formula))
-                        except Exception as e:
-                            print("Input error.\n" + str(e))
 
                     elif cmd == "tutor":
                         os.chdir("./apps/tutor")
@@ -1075,7 +1032,7 @@ while count < 3:
                                 sys.exit()
                     else: # Wrong command
                         beep()
-                        print(text.error + color.red + "i can't seem to find the command >.<" + color.reset)
+                        print(text.error + color.red + "i can't seem to find the command >.< : " + cmd + color.reset)
                         print(color.red + "[Unknown command]" + color.reset, end=' ')
                         logger.error("tty1/lsh | " + cmd + " | Command not found!")
             except KeyboardInterrupt: # Ctrl+C, "Ctrl+Alt+Del" like action

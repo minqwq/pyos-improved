@@ -12,10 +12,11 @@ import pprint
 loadtime = 0
 
 def sk_act_about():
-    print("ScarletKernel / CoreUtil:Actions / 1.4.3")
+    print("ScarletKernel / CoreUtil:Actions / 1.4.4")
 def dotLoader(howMany, howSlow):
     for dotLoader_time in range(howMany):
-        print(".", end="")
+        sys.stdout.write(".")
+        sys.stdout.flush()
         time.sleep(howSlow)
 def slowprint(text):
     for blyat in text:
@@ -104,9 +105,13 @@ def loading_spinner(string, tm):
 def coresh():
     pprint.pprint(dict(globals()))
     while True:
-        cmd = input("initramfs nouser at void >_ $ ")
+        cmd = input("initramfs >_ $ ")
         if cmd == "about":
             sk_act_about()
-            print("initramfs input v1.0")
-        elif cmd == "q":
+            print("initramfs input v1.0.1")
+        elif cmd == "exit":
             sys.exit()
+        elif cmd.startswith("dlt"):
+            dotLoader(50, 0.01)
+        else:
+            print("command not found in scarlet kernel.")

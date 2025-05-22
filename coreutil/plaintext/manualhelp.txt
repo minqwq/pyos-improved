@@ -3,11 +3,8 @@ Larine Shell manual help:
 ls                        View the path
 about [-c | -s]           Show the system's information
 pyosver                   Show system version
-converter                 A tool to convert .lpap/.lpcu/.bbc to .umm
 time                      Show the time and date(Deteled in this version)
-calendar                  Show a calendar
 clear                     Clear the screen
-(DEL)passwd <str>         Change password for this session
 power [shutdown | reboot] Power manager
 exit                      Lock system
 hostname [-c]             Show hostname
@@ -23,7 +20,6 @@ shizuku                   "雫しずく", The package manager for manage program
 stdoutredirect            Redirect standard output to other place(example:a filename)
 logout                    Log out current account
 (Tools)
-calc                      A simple calculator
 uwufetch                  List all hardware and system version
 caesar                    Caesar encryption tools
 sticker                   notepad but can't save content
@@ -49,7 +45,6 @@ ping                      Ping tool
 rss                       RSS Reader by erkankavas
 (Other)
 cuscmd                    Run custom command
-(DEL)news                 Show latest news of PY OS Improved.
 uptime                    Show (this)system uptime
 pftest                    CPU Performance Test
 tutor                     Help document for new

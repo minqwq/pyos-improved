@@ -1,4 +1,4 @@
-
+# Last changed at 2025-05-21 by minqwq
 splashes = [
                 "Also try PY OS(original)! it's still alive.",
                 "ciallo(ciao + hello)~",
@@ -12,5 +12,15 @@ splashes = [
                 "/dev/pts/1",
                 "BLYAT, SUKAAAAAAAAAAA, SUKAAAAAAAAAAAAAAAAAAAAAAAAAA!!!!!!!!!!!!",
                 "baka",
-                "dracula is not a story, its real!"
+                "dracula is not a story, its real!",
+                "Also listen Team Shanghai Alice's music!",
+                "Also listen Team Flandre Studio's music!",
+                "so nanoka?(like this?)",
+                "#!/usr/bin/bash",
+                "a phone, a miracle.",
+                "i believe you can do it.",
+                "Also try Touhou Project!",
+                "Also try Undertale!",
+                "Also try Minecraft!",
+                "con aux nul"
             ]
