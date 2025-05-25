@@ -1,4 +1,4 @@
-# Last changed at 2025-05-21 by minqwq
+# Last changed at 2025-05-25 by minqwq
 splashes = [
                 "Also try PY OS(original)! it's still alive.",
                 "ciallo(ciao + hello)~",
@@ -22,5 +22,7 @@ splashes = [
                 "Also try Touhou Project!",
                 "Also try Undertale!",
                 "Also try Minecraft!",
-                "con aux nul"
+                "con aux nul",
+                "Did you know? PY OS Improved's birth location is a old phone with termux.",
+                ":file .bram ; :wq"
             ]

@@ -25,17 +25,17 @@ print("trying to set path append(is it work?)")
 import platform
 # import rich
 import requests # Get file from server
-# import pretty_errors # Crash screen replace
+# import pretty_errors # Crash screen replacement
 import base64 # Encode and decode
 # import tqdm # Progress bar
 import traceback
 import logging # Log.
 import profile # used only at startup screen and you can remove it
-import subprocess # I need to send notification
+import subprocess
 import re
 import autoexec
 import threading
-import coreutil.moddedprogram.pymodpl as pymodpl
+# import coreutil.moddedprogram.pymodpl as pymodpl
 try:
     from coreutil.module.actions import *
     from coreutil.module.style import *
@@ -50,6 +50,7 @@ try:
     import curses
 except ModuleNotFoundError:
     print("If you are trying run this on windows, please install curses module.")
+    sys.exit(1)
 try:
     import pygame
     haveSoundCard = True
