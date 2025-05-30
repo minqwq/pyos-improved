@@ -366,6 +366,8 @@ end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
 beep()
 logger.info("Welcome to PY OS Improved!")
+if isWindows == "true":
+    logger.warn("Operating System Incomptiable warning: Some program may not working on your PC.")
 print("PY OS Improved \"Flandre/Scarlet Kernel I\" version " + system_version + " " + lsh_hostname) # Login screen | For restart to login manager, please goto this line for work normally
 print("\nTips: " + random.choice(splashes))
 now = datetime.datetime.now()

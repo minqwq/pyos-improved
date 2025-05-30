@@ -1,7 +1,7 @@
 Larine Shell manual help:
 (System)
 ls                        View the path
-about [-c | -s]           Show the system's information
+about [-csl]           Show the system's information
 pyosver                   Show system version
 time                      Show the time and date(Deteled in this version)
 clear                     Clear the screen
