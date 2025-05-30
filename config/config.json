@@ -1,8 +1,8 @@
 {
-    "system_version": "1.5.2 Release",
-    "system_codename": "Tilizen",
-    "system_build": "Build 542",
-    "isWindows": "",
+    "system_version": "1.6.0 Developer Channel",
+    "system_codename": "The Scarlet of Devil",
+    "system_build": "Build 550",
+    "isWindows": "false",
     "cmd_theme": "default_v2",
     "enable_instant_show_time": "true",
     "isUnregistered": "false",
@@ -16,10 +16,10 @@
     "dualBoot": "false",
     "dualBoot_startupCommand": "python test.py",
     "dualBoot_OSName": "TEST",
-    "venvEnable": "true",
+    "venvEnable": "false",
     "venvPath": "~/pyvenv/bin/python",
-    "replace_python_command_to_python3": "true",
+    "replace_python_command_to_python3": "false",
     "disablePathShow": "true",
     "shorter_welcome": "false",
-    "faster_startup": "false"
+    "faster_startup": "true"
 }
