@@ -804,9 +804,7 @@ while count < 3:
                     elif cmd == "crash":
                         if user == "dev":
                             logger.warn("Congrats, you make the PY OS Improved crashed.")
-                            badstring = "uwu"
-                            anotherbadstring = "owo"
-                            print(badstring + anotherbadstring)
+                            raise EOFError("by urself")
                         else:
                             os.chdir("./apps")
                             cat_bugged("coreutil/plaintext/manualhelp.txt")
@@ -1058,6 +1056,7 @@ while count < 3:
                 time.sleep(0.1)
                 beep()
                 traceback.print_exception(crashReason, limit=1145, file=sys.stdout)
+                cat("coreutil/buildtime_styled.txt")
                 runPreInstApp("coreutil/catchinfo.py")
                 logger.critical("System Panic o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
                 input("[Press any key to shutdown - " + str(crashReason) + "]")
