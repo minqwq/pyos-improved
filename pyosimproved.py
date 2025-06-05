@@ -14,20 +14,13 @@ import sys # idk
 import datetime
 import colorama
 import time # Time
-# import socket
-# import struct
-# import select
 import random # Random tools
 from os import path # Path control
-# import rich.spinner # idk
 sys.path.append("./")
 print("trying to set path append(is it work?)")
 import platform
-# import rich
 import requests # Get file from server
-# import pretty_errors # Crash screen replacement
 import base64 # Encode and decode
-# import tqdm # Progress bar
 import traceback
 import logging # Log.
 import profile # used only at startup screen and you can remove it
