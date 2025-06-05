@@ -1,7 +1,7 @@
 {
-    "system_version": "1.6.0 Developer Channel",
+    "system_version": "1.6.0 Release",
     "system_codename": "The Scarlet of Devil",
-    "system_build": "Build 550",
+    "system_build": "Build 553",
     "isWindows": "false",
     "cmd_theme": "default_v2",
     "enable_instant_show_time": "true",
@@ -18,8 +18,8 @@
     "dualBoot_OSName": "TEST",
     "venvEnable": "false",
     "venvPath": "~/pyvenv/bin/python",
-    "replace_python_command_to_python3": "false",
-    "disablePathShow": "true",
+    "replace_python_command_to_python3": "true",
+    "disablePathShow": "false",
     "shorter_welcome": "false",
     "faster_startup": "true"
 }
