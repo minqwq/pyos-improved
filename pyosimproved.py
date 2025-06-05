@@ -308,7 +308,7 @@ clearScreen()
 logger.info("Starting main operating system...")
 startingtime = time.time()
 if faster_startup == "true":
-    runPreInstApp("coreutil/xubuntustartup_mod.py")
+    runPreInstApp("./coreutil/xubuntustartup_mod.py")
 else:
     print("Starting up...")
     if system_is_beta == True: # If is beta version, show this warn
