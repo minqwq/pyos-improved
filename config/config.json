@@ -1,7 +1,7 @@
 {
-    "system_version": "1.6.0 Release",
+    "system_version": "1.6.1 Developer Chabnel",
     "system_codename": "The Scarlet of Devil",
-    "system_build": "Build 553",
+    "system_build": "Build 554",
     "isWindows": "false",
     "cmd_theme": "default_v2",
     "enable_instant_show_time": "true",

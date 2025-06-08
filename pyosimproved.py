@@ -499,7 +499,10 @@ while count < 3:
                     elif cmd_theme == "sh":
                         cmd_pre = "$ "
                     elif cmd_theme == "default_v2":
-                        cmd_pre = color.green + user + ":" + lsh_hostname + color.reset + " [ " + lsh_path + " ] " + color.green + "$ " + color.reset
+                        if getpass.getuser() == "root":
+                            cmd_pre = "[asroot] " + color.red + user + ":" + lsh_hostname + color.reset + " [ " + lsh_path + " ] " + color.red + "$ " + color.reset
+                        else:
+                            cmd_pre = color.green + user + ":" + lsh_hostname + color.reset + " [ " + lsh_path + " ] " + color.green + "$ " + color.reset
                     elif cmd_theme == "lite":
                         cmd_pre = colorama.Fore.GREEN + user + colorama.Fore.LIGHTGREEN_EX + " : " + color.reset
                     elif cmd_theme == "debian_bash":
