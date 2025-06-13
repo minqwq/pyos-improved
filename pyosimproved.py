@@ -3,8 +3,10 @@ print("First running may take long time in some device, if this happen please ju
 from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
 conf = open("./config/config.json", "r", encoding="utf-8")
+devconf = open("./config/.devconfig/confdev.json", "r", encoding="utf-8")
 print("config/config.json Loaded!")
 jsonRead = json.load(conf)
+devJsonRead = json.load(devconf)
 # jsonWrite = open("config/config.json", "w", encoding="utf-8")
 import time as tm # Time
 import getpass # Password?
@@ -101,9 +103,9 @@ print("Tips loaded success, Logger started")
 os.system("alias cls=clear")
 
 # CONFIG START
-system_version = jsonRead["system_version"] # 版本号 / Version
-system_codename = jsonRead["system_codename"] # Codename
-system_build = jsonRead["system_build"] # 每做一个修改或增减内容，就加一个 Build / If changed a feature, build +=1
+system_version = devJsonRead["system_version"] # 版本号 / Version
+system_codename = devJsonRead["system_codename"] # Codename
+system_build = devJsonRead["system_build"] # 每做一个修改或增减内容，就加一个 Build / If changed a feature, build +=1
 system_is_beta = False # 是否为 Beta 版 / Beta version
 isWindows = jsonRead["isWindows"] # 是否为 Windows / Are you windows?
 cmd_theme = jsonRead["cmd_theme"] # 终端 Shell 主题 / Terminal shell theme
@@ -571,7 +573,8 @@ while count < 3:
                         print("Host:" + lsh_hostname)
                         print("CPU:Intel 80486DX(66MHz)")
                         print("GPU:Standard SVGA Adapter(2MB)")
-                        print("Memory: " + "32" + " MB")
+                        print("Native Memory: 1024KB")
+                        print("Extended Memory: " + str(round(psutil.virtual_memory().total / 1024 - 1024)) + " KB")
                         print("Sound Card:", end="")
                         if haveSoundCard == True:
                             print("BeepEX")
@@ -1051,6 +1054,7 @@ while count < 3:
                 beep()
                 time.sleep(0.1)
                 beep()
+                clearScreen()
                 traceback.print_exception(crashReason, limit=1145, file=sys.stdout)
                 cat("coreutil/buildtime_styled.txt")
                 runPreInstApp("coreutil/catchinfo.py")
