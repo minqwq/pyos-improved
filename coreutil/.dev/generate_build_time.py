@@ -5,6 +5,9 @@ import platform
 import curses
 import uuid
 import sys
+import json
+
+devJR = json.load(open("../../config/.devconfig/confdev.json", "r", encoding="utf-8"))
 
 if os.environ.get("SBI_ENABLED") == "true" or True or "True":
     pass
@@ -16,8 +19,10 @@ writeme = open("../buildtime_styled.txt", "w+", encoding="utf-8")
 writeme.write("PY OS Improved SBI\n" +
               "Time at        - " + str(dt.strftime("%A, %d. %B %Y %H:%M:%S")) + "\n" +
               "Architecture   - " + platform.machine() + "\n" +
+              "pyosver        - " + devJR["system_version"] + " " + devJR["system_build"] + "\n"
               "System/Kernel  - " + platform.system() + "\n" +
+              "Builder's Path - " + os.environ["PWD"] + "\n" +
               "S/K, Version   - " + platform.release() + "\n" +
-              "uuid           - " + str(uuid.uuid4()) + "\n\n" +
-              "hope you beloved by god. --minqwq")
+              "uuid           - " + str(uuid.uuid4()) + "\n\n"
+              )
 print("success, see ../buildtime_styled.txt please")
