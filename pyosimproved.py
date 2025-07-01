@@ -91,6 +91,7 @@ lsh_hostname = "scarletlocal-000"
 user = "defaultuser_nologin"
 lsh_path = os.getcwd()
 networked = False
+rpia_404 = False
 
 print("Registered hostname")
 
@@ -98,9 +99,8 @@ LOG_FORMAT = '[%(levelname)s] %(asctime)s | %(message)s'
 logging.basicConfig(filename='cache/.output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
 logger.info("Logger started successfully.")
-pyosimprovedtips = ["Official forum:https://minqwq.proboards.com/board/10/py-os-improved", "awa", "Also try original PY OS! link available after login.", "No stay back gordon!", "sjsjsjnwnwjsosjq????"]
 print("Tips loaded success, Logger started")
-os.system("alias cls=clear")
+print("Loading your config...")
 
 # CONFIG START
 system_version = devJsonRead["system_version"] # 版本号 / Version
@@ -128,6 +128,7 @@ replace_python_command_to_python3 = jsonRead["replace_python_command_to_python3"
 disablePathShow = jsonRead["disablePathShow"] # Disable path show on shell
 shorter_welcome = jsonRead["shorter_welcome"] # Show shorter welcome text when logon
 faster_startup = jsonRead["faster_startup"] # New version of startup screen
+rsyscmd_when_cnf = jsonRead["rsyscmd_when_cnf"] # Run system command when command not found
 print("\r./config/config.json:")
 cat("config/config.json")
 # EXPERTIONAL FEATURE
@@ -162,33 +163,41 @@ def cmdhistory_write():
 
 def runPreInstApp(pathtoapp):
     if isWindows == "true":
-        os.system("python " + pathtoapp)
+        try:
+            os.system("python " + pathtoapp)
+            rpia_404 = False
+        except FileNotFoundError:
+            rpia_404 = True
     elif isWindows == "false":
-        if venvEnable == "true": # bugfix!!!!! --minqwq
-            if replace_python_command_to_python3 == "true":
-                os.system(venvPath + "3 " + pathtoapp)
-            elif replace_python_command_to_python3 == "false":
-                os.system(venvPath + " " + pathtoapp)
-            else:
-                print("Config incorrect at \"replace_python_command_to_python3\"")
-                print("check it on config/config.json\nif you need help please contact minqwq723897@outlook.com")
-                sys.exit()
-        else: # too --minqwq
-            if replace_python_command_to_python3 == "true":
-                os.system("python " + pathtoapp)
-            elif replace_python_command_to_python3 == "false":
-                os.system("python3 " + pathtoapp)
-            else:
-                print("Config incorrect at \"replace_python_command_to_python3\"")
-                print("check it on config/config.json\nif you need help please contact minqwq723897@outlook.com")
-                sys.exit()
+        try:
+            if venvEnable == "true": # bugfix!!!!! --minqwq
+                if replace_python_command_to_python3 == "true":
+                    os.system(venvPath + "3 " + pathtoapp)
+                elif replace_python_command_to_python3 == "false":
+                    os.system(venvPath + " " + pathtoapp)
+                else:
+                    print("Config incorrect at \"replace_python_command_to_python3\"")
+                    print("check it on config/config.json\nif you need help please contact minqwq723897@outlook.com")
+                    sys.exit()
+            else: # too --minqwq
+                if replace_python_command_to_python3 == "true":
+                    os.system("python " + pathtoapp)
+                elif replace_python_command_to_python3 == "false":
+                    os.system("python3 " + pathtoapp)
+                else:
+                    print("Config incorrect at \"replace_python_command_to_python3\"")
+                    print("check it on config/config.json\nif you need help please contact minqwq723897@outlook.com")
+                    sys.exit()
+            rpia_404 = False
+        except FileNotFoundError:
+            rpia_404 = True
 
 def termux_detect():
     return "TERMUX_VERSION" in os.environ
 
 # with open("./config/config.json", "w", encoding="utf-8") as temp_writeConfig:
 #
-disablecompwizard = ["""
+"""
 def compWizard():
     print("Comptiable Wizard\ntrue if you are windows\nfalse if you are *nix")
     conf_isWindows_write = input("> ")
@@ -205,7 +214,7 @@ def compWizard():
     # sys.exit()
     else:
         print("Please retry.")
-"""]
+"""
 
 def clearScreen():
     print("\033[2J" + "\033[0;0H")
@@ -265,8 +274,8 @@ time.sleep(0.1)
 bootManagerLoopRun = True
 logger.info("Start logging.")
 logger.info("Starting PY OS Improved Boot manager.")
-print(colorama.Fore.LIGHTCYAN_EX + "PY OS Improved Boot manager" + color.reset + style_cur.show)
-print("If you dont know which to choose, choose 1.")
+print(colorama.Fore.LIGHTRED_EX + "PY OS Improved Boot manager\n" + colorama.Fore.LIGHTYELLOW_EX + "  -- version II unportable" + color.reset + style_cur.show)
+print("If you dont know which to choose, choose 1 and then continue.")
 print("\n1:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1\n5:BBC OS 1.2.1")
 if dualBoot == "true":
     print(color.green + "\nDUAL BOOT ENABLED" + color.reset)
@@ -341,7 +350,7 @@ else:
     print("\n" + "* PY OS Improved is a Open-Source fake operating system, so fell free to improve our code!")
     print("* PY OS Improved Project is inspired from PY OS/BBC OS 1.2.1 not 2.0 or later.")
     print("This is a \"freeware\".")
-    loading_spinner("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs ", 6)
+    loading_spinner("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs ", 3)
 clearScreen()
 time.sleep(0.1)
 """
@@ -502,7 +511,7 @@ while count < 3:
                         cmd_pre = "$ "
                     elif cmd_theme == "default_v2":
                         if getpass.getuser() == "root":
-                            cmd_pre = "[asroot] " + color.red + user + ":" + lsh_hostname + color.reset + " [ " + lsh_path + " ] " + color.red + "$ " + color.reset
+                            cmd_pre = "[*root*] " + color.red + user + ":" + lsh_hostname + color.reset + " [ " + lsh_path + " ] " + color.red + "$ " + color.reset
                         else:
                             cmd_pre = color.green + user + ":" + lsh_hostname + color.reset + " [ " + lsh_path + " ] " + color.green + "$ " + color.reset
                     elif cmd_theme == "lite":
@@ -1031,13 +1040,17 @@ while count < 3:
                                 clearScreen()
                                 sys.exit()
                     else: # Wrong command
-                        beep()
-                        print(text.error + color.red + "i can't seem to find the command >.< : " + cmd + color.reset)
-                        print(color.red + "[Unknown command]" + color.reset, end=' ')
-                        logger.error("tty1/lsh | " + cmd + " | Command not found!")
+                        if rsyscmd_when_cnf == "true":
+                            print("Unknown command, rsyscmd_when_cnf is enabled so will try to run external command...")
+                            os.system(cmd)
+                        elif rsyscmd_when_cnf == "false":
+                            beep()
+                            print(text.error + color.red + "i can't seem to find the command >.< : " + cmd + color.reset)
+                            print(color.red + "[Unknown command]" + color.reset, end=' ')
+                            logger.error("tty1/lsh | " + cmd + " | Command not found!")
             except KeyboardInterrupt: # Ctrl+C, "Ctrl+Alt+Del" like action
                 try:
-                    slowprint("\nPress 1 to restart\nPress other key to back\nor Press Ctrl+C again to shutdown...")
+                    print("\nPress 1 to restart\nPress other key to back\nor Press Ctrl+C again to shutdown...")
                     emergencyChoice = input()
                     if emergencyChoice == "1":
                         goto(line=0)

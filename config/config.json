@@ -1,7 +1,4 @@
 {
-    "system_version": "1.6.1 Developer Chabnel",
-    "system_codename": "The Scarlet of Devil",
-    "system_build": "Build 554",
     "isWindows": "false",
     "cmd_theme": "default_v2",
     "enable_instant_show_time": "true",
@@ -16,10 +13,11 @@
     "dualBoot": "false",
     "dualBoot_startupCommand": "python test.py",
     "dualBoot_OSName": "TEST",
-    "venvEnable": "false",
+    "venvEnable": "true",
     "venvPath": "~/pyvenv/bin/python",
     "replace_python_command_to_python3": "true",
     "disablePathShow": "false",
     "shorter_welcome": "false",
-    "faster_startup": "true"
+    "faster_startup": "true",
+    "rsyscmd_when_cnf": "true"
 }
