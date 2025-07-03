@@ -58,15 +58,6 @@ import coreutil.shizuku.manager as szkmng # Installer for shizuku
 # import core.module.history as history
 print("\033[?25l")
 print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
-# Preload classes
-#
-# New color library imported, but legacy will never remove
-# How to use these color:
-# green for example
-# use this trick:
-# (color.green + "text here" + color.reset)
-# if you want use other color, change "green" to any below name on class color
-# color.<color>
 class override:
     errorexpection = "teto:ErrorExpection"
     tongue = "teto:a-------"
@@ -750,7 +741,7 @@ while count < 3:
                     # Package search
                     elif cmd.startswith("shizuku search"):
                         request = cmd[15:]
-                        print("Coming soon")
+                        print("This feature is deprecated, please do manually download and install package.")
                     elif cmd.startswith("shizuku flandre"):
                         if cmd[16:] == "_scarlet" or cmd[16:] == " scarlet":
                             print("tomato and fried egg")
