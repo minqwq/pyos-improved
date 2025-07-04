@@ -265,9 +265,10 @@ time.sleep(0.1)
 bootManagerLoopRun = True
 logger.info("Start logging.")
 logger.info("Starting PY OS Improved Boot manager.")
-print(colorama.Fore.LIGHTRED_EX + "PY OS Improved Boot manager\n" + colorama.Fore.LIGHTYELLOW_EX + "  -- version II unportable" + color.reset + style_cur.show)
+logger.warning("This is the final version of PY OS Improved Boot manager, We will switch to Leaf Boot manager, after the Leaf Boot manager development finished.")
+print(colorama.Fore.LIGHTRED_EX + "PY OS Improved Boot manager\n" + colorama.Fore.LIGHTYELLOW_EX + "  -- version II Final version" + color.reset + style_cur.show)
 print("If you dont know which to choose, choose 1 and then continue.")
-print("\n1:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1\n5:BBC OS 1.2.1")
+print("\n1:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1\n5:BBC OS 1.2.1\n8:Switch to Leaf Boot manager(new!)")
 if dualBoot == "true":
     print(color.green + "\nDUAL BOOT ENABLED" + color.reset)
     print("6:" + dualBoot_OSName)
@@ -302,6 +303,8 @@ while bootManagerLoopRun == True:
             pass
     elif bootChoice == "7":
         coresh()
+    elif bootChoice == "8":
+        print("Not provided in this version")
     else:
         print("Operating System not found - Bad Boot ID")
 loading_spinner("Booting... ", 1)
@@ -610,6 +613,10 @@ while count < 3:
                         print("\r")
                     elif cmd == "uwufetch colotest256":
                         runPreInstApp("./apps/color256/color256.py")
+
+                    elif cmd.startswith("whereis"):
+                        whereisword = cmd[8:]
+                        filesearch(whereisword)
 
                     elif cmd.startswith("pymodpl"):
                         tmp_pymodpl_fname = cmd[8:]
