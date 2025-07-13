@@ -71,6 +71,7 @@ def echo(string):
 
 # i love bai9nine and minimalmio --minqwq 2025-02-19
 # and my best friend stevemcpe
+# 19740914
 
 try:
     os.remove("./data/cache/.output.log")
@@ -86,7 +87,7 @@ rpia_404 = False
 
 print("Registered hostname")
 
-LOG_FORMAT = '[%(levelname)s] %(asctime)s | %(message)s'
+LOG_FORMAT = '[Embedded][%(levelname)s] %(asctime)s | %(message)s'
 logging.basicConfig(filename='cache/.output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
 logger.info("Logger started successfully.")
@@ -120,6 +121,7 @@ disablePathShow = jsonRead["disablePathShow"] # Disable path show on shell
 shorter_welcome = jsonRead["shorter_welcome"] # Show shorter welcome text when logon
 faster_startup = jsonRead["faster_startup"] # New version of startup screen
 rsyscmd_when_cnf = jsonRead["rsyscmd_when_cnf"] # Run system command when command not found
+lsh_hostname = jsonRead["default_hostname"] # Your default hostname(Boot ID 1 only)
 print("\r./config/config.json:")
 cat("config/config.json")
 # EXPERTIONAL FEATURE
@@ -238,25 +240,8 @@ elif debugMode == "c":
 print(style_cur.hide)
 import psutil
 clearScreen()
-slowprint(colorama.Fore.LIGHTGREEN_EX + "Remilia Hardware, 1582--2025 Some rights reserved")
-slowprint("Unknown Paradise v1.1")
-time.sleep(0.5)
-memtest = 0
-try:
-    for memtest in range(round(psutil.virtual_memory().total / 1024 / 1024)):
-        print("Testing memory... " + str(memtest) + "MiB", end="\r")
-        time.sleep(0.0005)
-        memtest = memtest + 1
-    beep()
-except KeyboardInterrupt:
-    print("Skipped memory test, but catched memory before so will show cache int.")
-if memtest > 1024:
-    print("HiMemory enabled(> 1024MiB)")
-elif memtest < 512:
-    print("LoMemory warning!(< 512MiB)")
-print("Testing memory... " + str(memtest) + "MiB OK!")
-time.sleep(0.5)
-profile.run("re.compile")
+print(colorama.Fore.LIGHTGREEN_EX + "Native + Extended Memory Total " + str(psutil.virtual_memory().total / 1024) + " KBytes(i)")
+print(colorama.Fore.LIGHTGREEN_EX + "Initing Boot manager...")
 time.sleep(1.5)
 clearScreen()
 print(color.reset)
@@ -613,6 +598,11 @@ while count < 3:
                         print("\r")
                     elif cmd == "uwufetch colotest256":
                         runPreInstApp("./apps/color256/color256.py")
+                    
+                    elif cmd.startswith("kernlog"):
+                        level = int(cmd[8:9])
+                        string = cmd[10:]
+                        visuallog(string, level)
 
                     elif cmd.startswith("whereis"):
                         whereisword = cmd[8:]

@@ -19,6 +19,7 @@ pyosiupgrade              Update system(If available)
 shizuku                   "雫しずく", The package manager for manage programs
 stdoutredirect            Redirect standard output to other place(example:a filename)
 logout                    Log out current account
+kernlog <level> <str>     Output custom log(Kernel Mode)
 (Tools)
 uwufetch                  List all hardware and system version
 caesar                    Caesar encryption tools

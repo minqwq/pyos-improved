@@ -8,6 +8,7 @@ import colorama
 import plyer
 import socket
 import pprint
+import logging
 
 loadtime = 0
 
@@ -18,7 +19,7 @@ def dotLoader(howMany, howSlow):
         sys.stdout.write(".")
         sys.stdout.flush()
         time.sleep(howSlow)
-def slowprint(text):
+def slowprint(text): # Byte-by-Byte to print for some effect, usage: slowprint("uwuuuuuuuuuuuuuuuuuuuu")
     for blyat in text:
         print(blyat, end="", flush=True)
         time.sleep(0.005)
@@ -76,10 +77,10 @@ def cat_bugged(file):
         print(content, end="")
         time.sleep(0.01)
     print("")
-def cat_code(file):
+def cat_code(file): # Can be used on require-show code program, with highlight support, usage: cat_code("path/to/your/file.*")
     hlcode = highlight.highlight(file)
     print(hlcode)
-def showNotify(title, message):
+def showNotify(title, message): # You can use this for desktop notify showing, usage: showNotify("title here", "uwu"), \n is available
     plyer.notification.notify(
         title=title,
         message=message,
@@ -92,6 +93,13 @@ def netcheck(host, port):
         return True
     except OSError:
         return False
+'''
+Loading Spinner Stick
+Usage: string, tm(string, loop_time(1 loop = 0.5s))
+loading_spinner("uwu", 1)
+loading_spinner("", 2)
+All examples are runnable
+'''
 def loading_spinner(string, tm):
     for i in range(tm * 2):
         print(string + "/", end="\r")
@@ -154,6 +162,23 @@ def filesearch(keyword, directory='.', search_subdirs=True):
         print(f"  Error: Directory {COLOR_PATH}{directory}{COLOR_RESET} does not exist")
     except PermissionError:
         print(f"  Error: No permission to access {COLOR_PATH}{directory}{COLOR_RESET}")
+def visuallog(string, level): # Logger that's can be used on your third-party program, usage:visuallog("your string", 1)
+    LOG_FORMAT = '[Kernel][%(levelname)s] %(asctime)s | %(message)s'
+    logging.basicConfig(filename='cache/.output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
+    logger = logging.getLogger(__name__)
+    if level == 0:
+        print("[INFO] " + string)
+        logger.info(string)
+    elif level == 1:
+        print(colorama.Fore.LIGHTYELLOW_EX + "[WARN] " + colorama.Fore.RESET + string)
+        logger.warning(string)
+    elif level == 2:
+        print(colorama.Fore.LIGHTRED_EX + "[ERROR] " + colorama.Fore.RESET + string)
+        logger.error(string)
+    elif level == 3:
+        print(colorama.Fore.RED + "[FATAL] " + colorama.Fore.RESET + string)
+        logger.fatal(string)
+
 def coresh():
     pprint.pprint(dict(globals()))
     while True:
