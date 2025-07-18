@@ -267,7 +267,8 @@ while bootManagerLoopRun == True:
         print("...")
         break
     elif bootChoice == "2":
-        os.execv(sys.executable, ['python'] + sys.argv)
+        # os.execv(sys.executable, ['python'] + sys.argv) # here, its have issue on windows, so its disabled now --minqwq
+        goto(line=1)
     elif bootChoice == "3":
         sys.exit()
     elif bootChoice == "4":
