@@ -63,5 +63,3 @@ def mori(user, hostname, curpath, configfile, devconfigfile, uptime):
         print(f"  {Fore.CYAN}Extended Memory: {Style.RESET_ALL}{formemtotal} MiB")
 
     final_prints()
-
-mori("minqwq", "hostman-test-495", "", "config/config.json", "config/.devconfig/confdev.json", 100) 

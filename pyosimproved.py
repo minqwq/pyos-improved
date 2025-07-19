@@ -82,6 +82,7 @@ cmdhist_time = "nul"
 lsh_hostname = "scarletlocal-000"
 user = "defaultuser_nologin"
 lsh_path = os.getcwd()
+lsh_path_fixed = os.getcwd()
 networked = False
 rpia_404 = False
 
@@ -274,12 +275,12 @@ while bootManagerLoopRun == True:
     elif bootChoice == "4":
         clearScreen()
         print("If you want exit, press Ctrl+C to shutdown")
-        runPreInstApp("./.earlysystem/pyosimproved.py")
+        runPreInstApp(lsh_path_fixed + "/.earlysystem/pyosimproved.py")
         sys.exit()
     elif bootChoice == "5":
         clearScreen()
         print("If you want exit, press Ctrl+C to shutdown")
-        runPreInstApp("./.earlysystem/bbcos-full.py")
+        runPreInstApp(lsh_path_fixed + "/.earlysystem/bbcos-full.py")
         sys.exit()
     elif bootChoice == "6":
         if dualBoot == "true":
@@ -299,7 +300,7 @@ clearScreen()
 logger.info("Starting main operating system...")
 startingtime = time.time()
 if faster_startup == "true":
-    runPreInstApp("./coreutil/xubuntustartup_mod.py")
+    runPreInstApp(lsh_path_fixed + "/coreutil/xubuntustartup_mod.py")
 else:
     print("Starting up...")
     if system_is_beta == True: # If is beta version, show this warn
@@ -458,9 +459,9 @@ while count < 3:
                     pass
                 clearScreen()
                 if shorter_welcome == "false":
-                    cat(co_welcome) # Welcome text, editable at coreutil/plaintext/welcome.txt
+                    cat(lsh_path_fixed + "/" + co_welcome) # Welcome text, editable at coreutil/plaintext/welcome.txt
                 elif shorter_welcome == "true":
-                    cat("coreutil/plaintext/welcome_shorter.txt")
+                    cat(lsh_path_fixed + "/coreutil/plaintext/welcome_shorter.txt")
                 print("\nH-hi thewe " + color.cyan + user + color.reset + " >///<, I-I missed you a-a lot.")
                 print("Today is " + colorama.Fore.LIGHTCYAN_EX + lshdate + color.reset + " and time is " + colorama.Fore.LIGHTCYAN_EX + lshtime + color.reset + ".\nWeather is not bad.\n")
                 welcome_withDetectTime(user)
@@ -469,7 +470,7 @@ while count < 3:
                 if isDev == True:
                     print("Logged into dev account, some command may unlocked!")
                 try:
-                    cat("cache/lastlogin.txt")
+                    cat(lsh_path_fixed + "/cache/lastlogin.txt")
                 except FileNotFoundError:
                     print("Last login: Unknown, did you just deleted this file or first using?")
                 print("\nFlandre SHell (fsh) version " + colorama.Fore.LIGHTRED_EX + "1.8.0" + color.reset + " >///<\n\"The window of the core...\"")
@@ -556,7 +557,7 @@ while count < 3:
                                 pass
                         print("Architecture:" + str(platform.machine()))
                         print("Python version:" + str(platform.python_version()))
-                        print("Packages:" + str(dir_filecount("./data/apps")) + "(extprog)")
+                        print("Packages:" + str(dir_filecount(lsh_path_fixed + "/data/apps")) + "(extprog)")
                         print("Terminal:console1")
                         print("Uptime:" + str(round(int(currentUptimeII))) + " s")
                         print("Host:" + lsh_hostname)
@@ -598,7 +599,12 @@ while count < 3:
                         print(colorama.Back.LIGHTRED_EX + "  " + colorama.Back.LIGHTYELLOW_EX + "  " + colorama.Back.LIGHTGREEN_EX + "  " + colorama.Back.LIGHTCYAN_EX + "  " + colorama.Back.LIGHTBLUE_EX + "  " + colorama.Back.LIGHTMAGENTA_EX + "  " + colorama.Back.LIGHTWHITE_EX + "  " + colorama.Fore.BLACK)
                         print("\r")
                     elif cmd == "uwufetch colotest256":
-                        runPreInstApp("./apps/color256/color256.py")
+                        runPreInstApp(lsh_path_fixed + "/apps/color256/color256.py")
+
+                    elif cmd == "morifetchex":
+                        currentUptime = time.time()
+                        currentUptimeII = currentUptime - end_startingtime
+                        mori(user, lsh_hostname, lsh_path, "config/config.json", "config/.devconfig/confdev.json", str(round(int(currentUptimeII))))
                     
                     elif cmd.startswith("kernlog"):
                         level = int(cmd[8:9])
@@ -620,7 +626,7 @@ while count < 3:
                         pymodpl_thread.start()
 
                     elif cmd == "krmidipl":
-                        runPreInstApp("./apps/krmidipl/runme.py")
+                        runPreInstApp(lsh_path_fixed + "/apps/krmidipl/runme.py")
 
                     elif cmd == "flashscr":
                         clearScreen()
@@ -666,7 +672,7 @@ while count < 3:
                         else:
                             print("True, true, False, false")
                     elif cmd == "netrefresh -h":
-                        cat("./coreutil/plaintext/netrefresh_help.txt")
+                        cat(lsh_path_fixed + "/coreutil/plaintext/netrefresh_help.txt")
 
                     elif cmd == "pyosver":
                         print(system_version + " " + system_build)
@@ -685,7 +691,7 @@ while count < 3:
                         print("Upgrade success, hard restart(shutdown and start again) to take effect.")
 
                     elif cmd == "weather":
-                        runPreInstApp("./apps/weather/weather-api.py")
+                        runPreInstApp(lsh_path_fixed + "/apps/weather/weather-api.py")
 
                     elif cmd.startswith("stdoutredirect"):
                         if cmd[16:] == "":
@@ -694,13 +700,13 @@ while count < 3:
                             sys.stdout = cmd[16:]
 
                     elif cmd == "ed":
-                        runPreInstApp("./apps/ed-editor/edit.py")
+                        runPreInstApp(lsh_path_fixed + "/apps/ed-editor/edit.py")
 
                     # Package manager info
                     elif cmd == "shizuku":
-                        cat("./coreutil/plaintext/extprog_info.txt")
+                        cat(lsh_path_fixed + "/coreutil/plaintext/extprog_info.txt")
                     elif cmd.startswith("shizuku run"):
-                        os.chdir("./extprog")
+                        os.chdir(lsh_path_fixed + "/extprog")
                         runPreInstApp(cmd[11:] + ".py")
                         os.chdir("../")
                     # Package install
@@ -735,7 +741,7 @@ while count < 3:
                                 print("Removal failed.")
                     # The credits
                     elif cmd.startswith("shizuku credits"):
-                        cat("./coreutil/plaintext/shizuku_credits.txt")
+                        cat(lsh_path_fixed + "/coreutil/plaintext/shizuku_credits.txt")
                     # Package search
                     elif cmd.startswith("shizuku search"):
                         request = cmd[15:]
@@ -761,13 +767,13 @@ while count < 3:
                         os.environ[confsel1] = confsel2
 
                     elif cmd == "asciicvt":
-                        runPreInstApp("./apps/asciicvt/asciiconverter.py")
+                        runPreInstApp(lsh_path_fixed + "/apps/asciicvt/asciiconverter.py")
 
                     elif cmd == "tasks":
                         os.system("cd ./home/public/savedfile/tasks && ../../apps/tasks/tasks && cd ../..")
 
                     elif cmd == "2048":
-                        os.system("./apps/2048/2048-in-terminal")
+                        os.system(lsh_path_fixed + "/apps/2048/2048-in-terminal")
 
                     elif cmd.startswith("flan"):
                         rmFile = cmd[3:]
@@ -796,14 +802,14 @@ while count < 3:
                             logger.info("[Login manager] Switch user to " + user)
 
                     elif cmd == "rss":
-                        runPreInstApp("./apps/rss/main.py")
+                        runPreInstApp(lsh_path_fixed + "/apps/rss/main.py")
 
                     elif cmd == "crash":
                         if user == "dev":
                             logger.warn("Congrats, you make the PY OS Improved crashed.")
                             raise EOFError("by urself")
                         else:
-                            os.chdir("./apps")
+                            os.chdir(lsh_path_fixed + "/apps")
                             cat_bugged("coreutil/plaintext/manualhelp.txt")
 
                     elif cmd.startswith("echo "):
@@ -814,34 +820,34 @@ while count < 3:
                             print(string)
 
                     elif cmd == "clock":
-                        runPreInstApp("./apps/clock/clock.py")
+                        runPreInstApp(lsh_path_fixed + "/apps/clock/clock.py")
 
                     elif cmd == "ttt":
-                        runPreInstApp("./apps/tictactoe/tictactoe.py")
+                        runPreInstApp(lsh_path_fixed + "/apps/tictactoe/tictactoe.py")
 
                     elif cmd == "paint":
                         paintWidthAndHeight = input("Input width and height(example:50 50): ")
-                        os.chdir("./home/public/savedfile")
+                        os.chdir(lsh_path_fixed + "/home/public/savedfile")
                         runPreInstApp("../apps/paint/paint.py " + paintWidthAndHeight)
                         os.chdir("..")
 
                     elif cmd == "pftest":
                         print("CPU Performance Test by minqwq")
                         print("2024-09-07")
-                        runPreInstApp("./apps/pftest/mark.py")
+                        runPreInstApp(lsh_path_fixed + "/apps/pftest/mark.py")
 
                     elif cmd == "nekochat":
                         nekochatConnectToIP = input("Input server IP: ")
                         nekochatConnectToPort = input("Input server Port: ")
                         nekochatUsername = input("What's your name?: ")
                         print("Welcome to NekoChat Client(Python Port) by Yukari2024")
-                        runPreInstApp("./apps/nekochat/py/client.py --ip " + nekochatConnectToIP + " --port " + nekochatConnectToPort + " --name " + nekochatUsername)
+                        runPreInstApp(lsh_path_fixed + "/apps/nekochat/py/client.py --ip " + nekochatConnectToIP + " --port " + nekochatConnectToPort + " --name " + nekochatUsername)
 
                     elif cmd == "demine":
-                        os.system("./apps/minesweeper/minesweeper")
+                        os.system(lsh_path_fixed + "/apps/minesweeper/minesweeper")
 
                     elif cmd == "fileget":
-                        os.chdir("./download")
+                        os.chdir(lsh_path_fixed + "/download")
                         runPreInstApp("../apps/fileget/fileget.py")
                         os.chdir("..")
 
@@ -850,7 +856,7 @@ while count < 3:
                         print(currentUptime - end_startingtime)
 
                     elif cmd == "guessnum":
-                        runPreInstApp("./apps/guessnum/guessnum.py")
+                        runPreInstApp(lsh_path_fixed + "/apps/guessnum/guessnum.py")
 
                     elif cmd == "ping": # Ping tool
                         pingToolIPInput = input("Input IP or Domain: ")
@@ -884,7 +890,7 @@ while count < 3:
                                 os.chdir(pyosi_local_path)
                         elif isWindows == "false":
                             try:
-                                os.chdir("./data/apps/" + pypkg)
+                                os.chdir(lsh_path_fixed + "/data/apps/" + pypkg)
                                 os.system("python " + pypkg + ".py")
                             except FileNotFoundError:
                                 print("Package not found: " + pypkg)
@@ -922,7 +928,7 @@ while count < 3:
                         print("https://github.com/erkankavas/python-rss-reader | RSS Reader")
                         print("https://github.com/alewmoose/2048-in-terminal | Used for games")
                     elif cmd == "about -s" or cmd == "about --support":
-                        cat("coreutil/plaintext/before_talking.txt")
+                        cat(lsh_path_fixed + "/coreutil/plaintext/before_talking.txt")
                         print("minqwq's social accounts:")
                         print("QQ:3575824194")
                         print("WeChat:minqwq723897")
@@ -931,7 +937,7 @@ while count < 3:
                         print("IRC(Instant only):minqwq #pyos-improved irc.freenode.net:6667")
                         print("AutumnChat:Unavailable")
                     elif cmd == "about -l":
-                        cat("LICENSE")
+                        cat(lsh_path_fixed + "/LICENSE")
 
                     elif cmd == "power":
                         print("Power options:")
@@ -956,7 +962,7 @@ while count < 3:
                         goto(line=98)
 
                     elif cmd == "screensaver": # Screensaver
-                        os.chdir("./apps/_screensaver")
+                        os.chdir(lsh_path_fixed + "/apps/_screensaver")
                         runPreInstApp("scrsv.py")
                         os.chdir("../..")
 
@@ -970,7 +976,7 @@ while count < 3:
                         print("by shkolovy")
                         print("https://github.com/shkolovy/tetris-terminal")
                         time.sleep(3)
-                        runPreInstApp("./apps/tetris/tetris.py")
+                        runPreInstApp(lsh_path_fixed + "/apps/tetris/tetris.py")
 
                     elif cmd == "time": # Show current time
                         now = datetime.datetime.now()
@@ -978,7 +984,7 @@ while count < 3:
                         print(other_StyleTime)
                         
                     elif cmd == "caesar":
-                        os.chdir("./apps/caesartools")
+                        os.chdir(lsh_path_fixed + "/apps/caesartools")
                         runPreInstApp("caesar.py")
                         os.chdir("../..")
 
@@ -995,10 +1001,10 @@ while count < 3:
                             os.system(customCommand)
 
                     elif cmd == "help": # Command list
-                        cat(co_manualHelp)
+                        cat(lsh_path_fixed + "/" + co_manualHelp)
 
                     elif cmd == "tutor":
-                        os.chdir("./apps/tutor")
+                        os.chdir(lsh_path_fixed + "/apps/tutor")
                         runPreInstApp("tutor.py")
                         os.chdir("../..")
 
@@ -1058,7 +1064,7 @@ while count < 3:
                 beep()
                 clearScreen()
                 traceback.print_exception(crashReason, limit=1145, file=sys.stdout)
-                cat("coreutil/buildtime_styled.txt")
+                cat(lsh_path_fixed + "/coreutil/buildtime_styled.txt")
                 runPreInstApp("coreutil/catchinfo.py")
                 logger.critical("System Panic o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
                 input("[Press any key to shutdown - " + str(crashReason) + "]")
