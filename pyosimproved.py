@@ -129,7 +129,7 @@ cat("config/config.json")
 
 readConfigFromExport = False # Linux only! windows have same but not a command.
 disableKernelFeature = False # Disable the kernel, may crash more.
-expertfeature_cd_enabled = False # cd command availablity
+expertfeature_cd_enabled = True # cd command availablity
 
 # EXPERTIONAL FEATURE
 # DYNAMIC CONFIG
@@ -501,6 +501,8 @@ while count < 3:
                         cmd_pre = colorama.Fore.LIGHTGREEN_EX + user + "@" + lsh_hostname + color.reset + ":" + colorama.Fore.LIGHTBLUE_EX + "~" + color.reset + "$ "
                     elif cmd_theme == "arch_bash":
                         cmd_pre = "[" + user + "@" + lsh_hostname + " ~ ] $ "
+                    elif cmd_theme == "tcsh":
+                        cmd_pre = colorama.Fore.CYAN + lsh_hostname + color.reset + ":" + colorama.Fore.LIGHTWHITE_EX + lsh_path + color.reset + "> "
                     else:
                         print("Theme not found! will do nothing.")
                         print("Available theme name:default_v2, default, lite, debian_bash, arch_bash, sh, classic, flandre")
@@ -648,13 +650,6 @@ while count < 3:
                                     lsh_path = "DISABLED"
                             except FileNotFoundError:
                                 print("dir not found: " + chdir)
-                        elif expertfeature_cd_enabled == False:
-                            ef_cd_wanttoenable_doubt = input("Warning! it's a expertional feature.\nDo you still want to use it?[Y/N]")
-                            if ef_cd_wanttoenable_doubt == "y" or ef_cd_wanttoenable_doubt == "Y":
-                                expertfeature_cd_enabled = True
-                            elif ef_cd_wanttoenable_doubt == "n" or ef_cd_wanttoenable_doubt == "N":
-                                pass
-                                print("ok... i know your choice, will not enable it.")
 
                     elif cmd == "netrefresh":
                         if netcheck("main.minqwq.moe", 80):
