@@ -53,3 +53,8 @@ Boolean: "true", "false"
 
 "shorter_welcome": If you think the welcome text too long, you can enable this
 Boolean: "true", "false"
+
+"faster_startup": Enable new version of the startup screen
+Boolean: "true", "false"
+
+"rsyscmd_when_cnf": Run command to host system, if the command is not found
