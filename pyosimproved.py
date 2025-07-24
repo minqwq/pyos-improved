@@ -704,41 +704,38 @@ while count < 3:
 
                     # Package manager info
                     elif cmd == "shizuku":
-                        cat(lsh_path_fixed + "/coreutil/plaintext/extprog_info.txt")
+                        szkmng.tips()
                     elif cmd.startswith("shizuku run"):
-                        os.chdir(lsh_path_fixed + "/extprog")
-                        runPreInstApp(cmd[11:] + ".py")
-                        os.chdir("../")
+                        if cmd[11:]:
+                            os.chdir(lsh_path_fixed + "/extprog")
+                            runPreInstApp(cmd[11:] + ".py")
+                            os.chdir("../")
+                        else:
+                            print(f"{Fore.RED}No string provided.{Fore.RESET}")
                     # Package install
                     elif cmd.startswith("shizuku install"):
-                        pkgPath = cmd[16:]
-                        print("Installing package from " + pkgPath + " ...")
-                        if isWindows == "true":
-                            # os.system("copy " + pkgPath + " .\\data\\apps")
-                            result = szkmng.install(pkgPath)
-                            os.chdir(pyosi_local_path)
-                            if result != 0:
-                                print("Installation failed.")
-                        elif isWindows == "false":
-                            # os.system("cp " + pkgPath + " ./data/apps")
-                            result = szkmng.install(pkgPath)
-                            os.chdir(pyosi_local_path)
-                            if result != 0:
-                                print("Installation failed.")
+                        if cmd[16:]:
+                            pkgPath = cmd[16:]
+                        else:
+                            pkgPath = ""
+                        szkmng.install(pkgPath)
                     # Package remove
                     elif cmd.startswith("shizuku remove"):
-                        rm_app_name = cmd[15:]
-                        print("Removing application: " + rm_app_name + " ...")
-                        if isWindows == "true":
-                            result = szkmng.remove(rm_app_name)
-                            os.chdir(pyosi_local_path)
-                            if result != 0:
-                                print("Removal failed.")
-                        elif isWindows == "false":
-                            result = szkmng.remove(rm_app_name)
-                            os.chdir(pyosi_local_path)
-                            if result != 0:
-                                print("Removal failed.")
+                        if cmd[15:]:
+                            rm_app_name = cmd[15:]
+                        else:
+                            rm_app_name = ""
+                        szkmng.remove(rm_app_name)
+                    # Package list
+                    elif cmd == "shizuku list":
+                        szkmng.list_apps()
+                    # Run Shizuku package
+                    elif cmd.startswith("szk"):
+                        if cmd[4:]:
+                            pkg_name = cmd[4:]
+                        else:
+                            pkg_name = ""
+                        szkmng.run(pkg_name)
                     # The credits
                     elif cmd.startswith("shizuku credits"):
                         cat(lsh_path_fixed + "/coreutil/plaintext/shizuku_credits.txt")
@@ -872,34 +869,6 @@ while count < 3:
 
                     elif cmd.startswith("sudo"): # sudo not sudo
                         print("This system is not based on linux, so sudo is not on herse")
-
-                    elif cmd.startswith("szk"):
-                        # 提取包名，即命令去掉前四个字符后的部分
-                        pypkg = cmd[4:]
-                        if isWindows == "true":
-                            try:
-                                os.chdir(".\\data\\apps\\" + pypkg)
-                                os.system("python " + pypkg + ".py")
-                            except FileNotFoundError:
-                                print("Package not found: " + pypkg)
-                                os.chdir(pyosi_local_path)
-                            except Exception as e:
-                                print("Error: " + str(e))
-                                os.chdir(pyosi_local_path)
-                            finally:
-                                os.chdir(pyosi_local_path)
-                        elif isWindows == "false":
-                            try:
-                                os.chdir(lsh_path_fixed + "/data/apps/" + pypkg)
-                                os.system("python " + pypkg + ".py")
-                            except FileNotFoundError:
-                                print("Package not found: " + pypkg)
-                                os.chdir(pyosi_local_path)
-                            except Exception as e:
-                                print("Error: " + str(e))
-                                os.chdir(pyosi_local_path)
-                            finally:
-                                os.chdir(pyosi_local_path)
 
                     elif cmd == "about": # About system
                         slowprint("---------------| About |---------------")

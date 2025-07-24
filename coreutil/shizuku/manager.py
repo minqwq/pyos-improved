@@ -3,7 +3,7 @@
 @ Shizuku Software Manager
 @ Shizuku Application Package Installer Core Module
 @ Author: ElofHew
-@ Version: 1.0
+@ Version: 2.0
 @ Date: 2025.05.02
 """
 
@@ -14,191 +14,369 @@ import zipfile  # 用于处理ZIP文件的压缩和解压缩
 import time     # 用于添加延迟
 import json     # 用于处理JSON文件的读取和写入
 import shutil   # 用于文件和目录的高级操作，如复制文件和删除文件夹等
+from platform import system as pfs # 用于获取当前操作系统类型
+from platform import python_version as pv # 用于获取当前Python版本
+from colorama import Fore, Style, init # 用于控制终端输出的颜色
 
-def install(pkg_path):
-    # 打印包路径
-    print("path: " + pkg_path)
-    # 循环提示用户是否要安装该包，直到输入有效选项
-    while True:
-        check = str(input("Do you want to install this package? (y/n): "))
-        if check == "y" or check == "Y":
-            # 如果用户输入 'y' 或 'Y'，则跳出循环继续安装
-            break
-        elif check == "n" or check == "N":
-            # 如果用户输入 'n' 或 'N'，则取消操作并返回状态码
-            print("Operation cancelled.")
+init(autoreset=True) # 初始化颜色模块
+
+pyosi_path = os.getcwd()
+os_type = pfs().lower()
+python_ver = pv()
+szk_install_path = os.path.join(pyosi_path, "data", "apps")
+if not os.path.exists(szk_install_path):
+    os.makedirs(szk_install_path)
+
+def tips():
+    print(f"{Fore.LIGHTGREEN_EX}% Shizuku Package Manager %{Style.RESET_ALL}")
+    print(f"{Fore.LIGHTGREEN_EX}==========================={Style.RESET_ALL}")
+    print(f"{Fore.CYAN}install <path> - Install a package{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}remove <pkg>   - Remove a package{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}list           - List all installed packages{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}credits        - See who made shizuku package manager{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}run <pkg>      - Run a extprog (not shizuku package){Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}szk            - Run a installed shizuku package{Style.RESET_ALL}")
+    print(f"{Fore.LIGHTMAGENTA_EX}search         - Search for a package (Coming soon...){Style.RESET_ALL}")
+    print()
+    print(f"{Fore.GREEN}Shizuku has 'super' scarlet powew, isn't that just adowable? >.<{Fore.RESET}")
+
+def run(*aargs):
+    __usage__ = "Usage: shizuku run <pkg>"
+    if len(aargs) < 1:
+        print(f"{Fore.YELLOW}{__usage__}{Style.RESET_ALL}")
+        return
+    if len(aargs) == 1:
+        if aargs[0] == "":
+            print(f"{Fore.YELLOW}{__usage__}{Style.RESET_ALL}")
             return 1
-        else:
-            # 如果用户输入无效选项，则提示重新输入
-            print("Invalid input. Please enter 'y' or 'n'.")
-            continue
-    # 提示开始安装包
-    print("Installing package...")
+        pkg_name = aargs[0]
+        args = []
+    else:
+        pkg_name = aargs[0]
+        args = aargs[1:]
+    # Check if app exists
+    app_dir_path = os.path.join(szk_install_path, pkg_name)
     try:
-        # 获取当前工作目录
-        current_dir = os.getcwd()
-        # 定义目标目录路径（data/local/tmp）
-        destination_dir = os.path.join(current_dir, "data", "local", "tmp")
-        
-        # 检查目标目录是否存在，如果不存在则创建它
-        if not os.path.exists(destination_dir):
-            os.makedirs(destination_dir)
+        # 3rd party apps
+        third_party_app_list = os.path.join(pyosi_path, "data", "apps", "apps.json")
+        # Open json files
+        with open(third_party_app_list, "r") as tpapp_file:
+            tpapp_list = json.load(tpapp_file)
+        # Check command
+        if pkg_name in tpapp_list:
+            app_path = tpapp_list.get(pkg_name)["path"]
+            if os.path.exists(app_path):
+                app_file = os.path.join(app_path, "main.py")
+                if not os.path.isfile(app_file):
+                    print(f"{Fore.RED}Error: {app_file} not found.{Style.RESET_ALL}")
+                    return 1
+            else:
+                print(f"{Fore.RED}Error: {app_path} not found.{Style.RESET_ALL}")
+                return 1
+            boot_string = str(os.path.join(pyosi_path, app_file))
+            # Check arguments
+            boot_args = args if args else []
+            # Run app
+            os.chdir(app_path)
+            process = subprocess.run([sys.executable, boot_string] + boot_args)
+            if process.returncode != 0:
+                print(f"{Fore.YELLOW}WARNING: This app returned a code: {process.returncode}.{Style.RESET_ALL}")
+            os.chdir(pyosi_path)
+            return 0
         else:
-            # 如果目标目录存在，清空目录中的所有文件和文件夹（但保留tmp文件夹本身）
-            for filename in os.listdir(destination_dir):
-                file_path = os.path.join(destination_dir, filename)
-                if os.path.isfile(file_path):
-                    # 对于文件，直接删除
-                    os.remove(file_path)
-                elif os.path.isdir(file_path) and filename != 'tmp':
-                    # 对于文件夹且不是 'tmp' 文件夹，递归删除整个文件夹
-                    shutil.rmtree(file_path)
-        
-        # 构建目标文件的完整路径（目标目录加上包的文件名）
-        destination_path = os.path.join(destination_dir, os.path.basename(pkg_path))
-        # 将包文件复制到目标目录
-        shutil.copy(pkg_path, destination_path)
-        print(f"Package successfully copied to {destination_path}")
-        try:
-            # 重命名文件为 .zip 扩展名
-            new_name = os.path.splitext(os.path.basename(pkg_path))[0] + ".zip"
-            os.rename(destination_path, os.path.join(destination_dir, new_name))
-            print(f"Package successfully renamed to {new_name}")
-            # 定义解压目录路径（data/apps 加上包名去掉 .zip 后缀）
-            unzip_dir = os.path.join(current_dir, "data", "apps", new_name[:-4])  # 去掉 .zip 后缀
-            # 使用 zipfile 模块解压文件到解压目录
-            with zipfile.ZipFile(os.path.join(destination_dir, new_name), 'r') as zip_ref:
-                zip_ref.extractall(unzip_dir)
-            print(f"Package successfully extracted to {unzip_dir}")
-            # 打开解压目录中的 info.json 文件以获取应用信息
-            with open(os.path.join(unzip_dir, "info.json"), "r") as f:
-                config = json.load(f)
-            # 从 info.json 中读取应用名称和版本号
-            app_name = config["name"]
-            app_version = config["version"]
-            print(f"Installing {app_name} {app_version}...")
-            
-            # 检查是否已经存在同名的应用目录
-            existing_app_dir = os.path.join(current_dir, "data", "apps", app_name)
-            if os.path.exists(existing_app_dir):
-                # 打开已安装目录中的 info.json 文件以获取应用信息
-                with open(os.path.join(existing_app_dir, "info.json"), "r") as f:
-                    existing_config = json.load(f)
-                # 从已安装的 info.json 中读取应用版本号
-                existing_app_version = existing_config["version"]
-                
-                # 比较版本号
-                if existing_app_version < app_version:
-                    print(f"Found older version {existing_app_version} of {app_name}. Installing newer version {app_version}.")
-                    # 删除已安装的软件包
-                    shutil.rmtree(existing_app_dir)
-                else:
-                    print(f"{app_name} already installed with version {existing_app_version}. No need to install again.")
-                    # 删除临时解压的文件夹
-                    shutil.rmtree(os.path.join(destination_dir, new_name[:-4]))
-                    return 0
-            
-            # 将解压目录重命名为应用名称
-            os.rename(unzip_dir, os.path.join(current_dir, "data", "apps", app_name))
-            new_path_app = os.path.join(current_dir, "data", "apps", app_name)
-            # 将解压目录中的 main.py 文件重命名为应用名称.py
-            os.rename(os.path.join(new_path_app, "main.py"), os.path.join(new_path_app, app_name + ".py"))
-            print("Installing dependencies...")
-            # 提示用户是否要更改 pip 的镜像为清华大学镜像
-            mirror_change = str(input("Do you want to change the Tsinghua mirror of pip? (y/n): "))
-            while True:
-                if mirror_change == "y" or mirror_change == "Y":
-                    # 如果用户输入 'y' 或 'Y'，则使用清华大学镜像安装 some-package
-                    subprocess.run(["pip", "install", "-i", "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple", "some-package"], check=True)
-                    break
-                elif mirror_change == "n" or mirror_change == "N":
-                    # 如果用户输入 'n' 或 'N'，则直接跳出循环，不更改镜像
-                    break
-                else:
-                    # 如果用户输入无效选项，则提示重新输入
-                    print("Invalid input. Please enter 'y' or 'n'.")
-                    continue
-            try:
-                # 切换到应用目录
-                os.chdir(new_path_app)
-                # 安装 requirements.txt 中列出的所有依赖项
-                subprocess.run(["pip", "install", "-r", "requirements.txt"], check=True)
-                print("Dependencies installed.")
-                print(f"Package successfully installed to {new_path_app}")
-                print("="*30)
-                print("How to run the application:")
-                print(f"! You can just input the command 'szk {app_name} in PY OS Improved.")
-                print("="*30)
-                # 添加延迟以便用户查看安装信息
-                time.sleep(2)
-                print(f"{app_name} {app_version} has been successfully installed.")
-                # 再次添加延迟以便用户查看安装完成信息
-                time.sleep(2)
-                # 安装完成后返回状态码
-                return 0
-            except subprocess.CalledProcessError:
-                # 如果 requirements.txt 文件不存在或命令执行失败，则提示相应信息
-                print("No requirements.txt found.")
-                # 删除临时解压的文件夹
-                shutil.rmtree(os.path.join(destination_dir, new_name[:-4]))
-                return 1
-            except Exception as e:
-                # 如果在安装依赖过程中发生其他异常，则打印异常信息
-                print(f"An error occurred during installing dependencies: {e}")
-                # 删除临时解压的文件夹
-                shutil.rmtree(os.path.join(destination_dir, new_name[:-4]))
-                return 1
-        except Exception as e:
-            # 如果在重命名或解压过程中发生异常，则打印异常信息
-            print(f"An error occurred during renaming or extraction: {e}")
-            # 删除临时解压的文件夹
-            shutil.rmtree(os.path.join(destination_dir, new_name[:-4]))
+            print(f"{Fore.RED}Error: Package '{pkg_name}' not found.{Style.RESET_ALL}")
             return 1
+    except FileNotFoundError:
+        print(f"{Fore.RED}Info file not found.{Style.RESET_ALL}")
+        return 1
+    except subprocess.CalledProcessError as e:
+        print(f"{Fore.RED}Error: Failed to run {pkg_name}. {e}{Style.RESET_ALL}")
+        return 1
+    except OSError as e:
+        print(f"{Fore.RED}Error: Failed to run {pkg_name}. {e}{Style.RESET_ALL}")
+        return 1
     except Exception as e:
-        # 如果在安装过程中发生其他异常，则打印异常信息
-        print(f"An error occurred: {e}")
-        # 删除临时解压的文件夹
-        if 'new_name' in locals():
-            shutil.rmtree(os.path.join(destination_dir, new_name[:-4]))
+        print(f"{Fore.RED}Error: {e}{Style.RESET_ALL}")
+        return 1
+    finally:
+        os.chdir(pyosi_path)
+
+def install(*aargs):
+    __usage__ = "Usage: shizuku install <package_path>"
+    if not aargs or len(aargs) > 1 or aargs[0] == "":
+        print(f"{Fore.YELLOW}{__usage__}{Fore.RESET}")
+        return 1
+    pkg_path = aargs[0]
+    # Main
+    ins_pkg_path = os.path.abspath(pkg_path)
+    temp_path = os.path.join(pyosi_path, "data", "temp")
+    apps_path = os.path.join(pyosi_path, "data", "apps")
+
+    try:
+        # Check if package exists
+        if not os.path.exists(ins_pkg_path):
+            if not os.path.exists(os.path.abspath(pkg_path)):
+                print(f"{Fore.RED}Package not found.{Fore.RESET}")
+            return 1
+        if not os.path.exists(temp_path):
+            os.makedirs(temp_path)
+        if not os.path.exists(apps_path):
+            os.makedirs(apps_path)
+
+        # Extract package
+        print(f"{Fore.CYAN}Installing package...{Fore.RESET}")
+        extra_path = os.path.join(temp_path)
+        if os.path.exists(extra_path):
+            shutil.rmtree(extra_path)
+        os.makedirs(extra_path)
+        with zipfile.ZipFile(ins_pkg_path, "r") as zip_ref:
+            zip_ref.extractall(extra_path)
+    except FileNotFoundError:
+        print(f"{Fore.RED}Package file not found.{Fore.RESET}")
+        return 1
+    except Exception as e:
+        print(f"{Fore.RED}An error occurred during package check: {e}{Fore.RESET}")
+        return 1
+    
+    # Get app name and version
+    try:
+        with open(os.path.join(extra_path, "info.json"), "r") as app_json_f:
+            app_json = json.load(app_json_f)
+            app_name = app_json["name"]
+            app_version = app_json["version"]
+            app_vcode = app_json["vcode"]
+            app_author = app_json["author"]
+            app_desc = app_json["description"]
+            app_category = app_json["category"]
+            app_min = app_json["min_python_version"]
+            app_tar = app_json["target_python_version"]
+            app_comptb = app_json["compatible_os"]
+        while True:
+            check = str(input(f"{Fore.CYAN}Do you want to install the package '{app_name}'? (y/n): {Fore.RESET}"))
+            if check == "y" or check == "Y":
+                break
+            elif check == "n" or check == "N":
+                print(Fore.RED + "Operation cancelled." + Fore.RESET)
+                return 1
+            else:
+                print(Fore.RED + "Invalid input. Please enter 'y' or 'n'." + Fore.RESET)
+                continue
+    except KeyboardInterrupt:
+        print(Fore.RED + "Operation cancelled." + Fore.RESET)
+        shutil.rmtree(extra_path)
+        return 0
+    except FileNotFoundError:
+        print(f"{Fore.RED}File 'info.json' not found.{Fore.RESET}")
+        shutil.rmtree(extra_path)
+        return 1
+    except Exception as e:
+        print(f"{Fore.RED}An error occurred: {e}{Fore.RESET}")
+        shutil.rmtree(extra_path)
         return 1
 
-def remove(app_name):
-    # 打印应用名称
-    print(f"Removing package: {app_name}")
-    # 循环提示用户是否要卸载该包，直到输入有效选项
-    while True:
-        check = str(input(f"Do you want to remove the package '{app_name}'? (y/n): "))
-        if check == "y" or check == "Y":
-            # 如果用户输入 'y' 或 'Y'，则跳出循环继续卸载
-            break
-        elif check == "n" or check == "N":
-            # 如果用户输入 'n' 或 'N'，则取消操作并返回状态码
-            print("Operation cancelled.")
-            return 1
+    # Install app
+    # Check the most compatible items
+    try:
+        if app_comptb.lower() != os_type.lower():
+            print(f"{Fore.YELLOW}WARN: This app may be not compatible with your system.{Fore.RESET}")
+        if int(app_min.split(".")[1]) > int(python_ver.split(".")[1]):
+            print(f"{Fore.YELLOW}WARN: This app requires Python {app_min} or higher, but your Python version is {python_ver}.{Fore.RESET}")
+        if int(app_tar.split(".")[1]) != int(python_ver.split(".")[1]):
+            print(f"{Fore.YELLOW}WARN: This app may not work properly with your Python version.{Fore.RESET}")
+    except Exception as e:
+        print(f"{Fore.RED}An error occurred while checking compatibility: {e}{Fore.RESET}")
+        return 1
+
+    # Check if app already exists
+    try:
+        app_dir = os.path.join(apps_path, app_name)
+        if os.path.exists(app_dir):
+            with open(os.path.join(app_dir, "info.json"), "r") as exist_app_json_f:
+                exist_app_json = json.load(exist_app_json_f)
+            # Same version, reinstall ask
+            if exist_app_json["vcode"] == app_vcode:
+                print(f"{Fore.YELLOW}Package '{app_name}' already installed. Do you want to install it again? (y/n){Fore.RESET}")
+            # Higher version, downgrade ask
+            elif exist_app_json["vcode"] > app_vcode:
+                print(f"{Fore.YELLOW}There is a newer version of package '{app_name}'. Would you like to downgrade it? (y/n){Fore.RESET}")
+            # Lower version, upgrade ask
+            elif exist_app_json["vcode"] < app_vcode:
+                print(f"{Fore.YELLOW}There is an older version of package '{app_name}'. Would you like to upgrade it? (y/n){Fore.RESET}")
+            else:
+                print(f"{Fore.RED}An error occurred while checking package '{app_name}'.{Fore.RESET}")
+                return 1
+            while True:
+                check = str(input("> "))
+                if check == "y" or check == "Y":
+                    break
+                elif check == "n" or check == "N":
+                    print(Fore.RED + "Operation cancelled." + Fore.RESET)
+                    return 0
+                else:
+                    print(Fore.RED + "Invalid input. Please enter 'y' or 'n'." + Fore.RESET)
+                    continue
+            # Remove old app directory
+            shutil.rmtree(app_dir)
+        # Copy app files to app directory
+        shutil.copytree(extra_path, app_dir)
+    except KeyboardInterrupt:
+        print(Fore.RED + "Operation cancelled." + Fore.RESET)
+        return 0
+    except FileExistsError:
+        print(f"{Fore.RED}Directory '{app_name}' already exists.{Fore.RESET}")
+        return 1
+    except Exception as e:
+        print(f"{Fore.RED}An error occurred during package installation: {e}{Fore.RESET}")
+        return 1
+
+    # Install dependencies
+    try:
+        if os.path.isfile(os.path.join(extra_path, "requirements.txt")):
+            print(f"{Fore.CYAN}Installing dependencies...{Fore.RESET}")
+            subprocess.run([sys.executable, "-m", "pip", "install", "-r", os.path.join(extra_path, "requirements.txt")], check=True)
         else:
-            # 如果用户输入无效选项，则提示重新输入
-            print("Invalid input. Please enter 'y' or 'n'.")
-            continue
-    
-    # 获取当前工作目录
-    current_dir = os.getcwd()
-    # 定义应用目录路径
-    app_dir = os.path.join(current_dir, "data", "apps", app_name)
-    
-    # 检查应用目录是否存在
-    if not os.path.exists(app_dir):
-        print(f"Package '{app_name}' not found. No need to remove.")
+            print(f"{Fore.YELLOW}No dependencies found.{Fore.RESET}")
+    except FileNotFoundError:
+        print(f"{Fore.RED}File 'info.json' in app directory not found.{Fore.RESET}")
+        return 1
+    except KeyboardInterrupt:
+        print(Fore.RED + "Operation cancelled." + Fore.RESET)
+        return 0
+    except json.JSONDecodeError:
+        print(f"{Fore.RED}File 'info.json' format is incorrect.{Fore.RESET}")
+        return 1
+    except Exception as e:
+        print(f"{Fore.RED}An error occurred: {e}{Fore.RESET}")
+        return 1
+
+    # Add app to registry
+    try:
+        if not os.path.exists(os.path.join(pyosi_path, "data", "apps")):
+            os.makedirs(os.path.join(pyosi_path, "data", "apps"))
+        apps_json_path = os.path.join(pyosi_path, "data", "apps", "apps.json")
+        if os.path.exists(apps_json_path):
+            with open(apps_json_path, "r") as add_app_f:
+                add_app_config = json.load(add_app_f)
+        else:
+            add_app_config = {}
+        add_app_config[app_name] = {
+            "path": app_dir if not app_dir.startswith(pyosi_path) else app_dir.replace(pyosi_path, "."),
+            "version": app_version,
+            "version_code": app_vcode,
+            "author": app_author,
+            "description": app_desc,
+            "category": app_category,
+            "min_python_version": app_min,
+            "target_python_version": app_tar,
+            "comptb_os": app_comptb,
+        }
+        with open(apps_json_path, "w") as add_app_f:
+            json.dump(add_app_config, add_app_f, indent=4)
+        print(f"{Fore.GREEN}Package '{app_name}' has been successfully installed.{Fore.RESET}")
+    except FileNotFoundError:
+        print(f"{Fore.RED}File 'apps.json' not found.{Fore.RESET}")
+        return 1
+    except Exception as e:
+        print(f"{Fore.RED}An error occurred during app registry update: {e}{Fore.RESET}")
         return 1
     
+    # Clean up
     try:
-        # 删除应用目录
-        shutil.rmtree(app_dir)
-        print(f"Package '{app_name}' has been successfully removed.")
-        # 再次添加延迟以便用户查看卸载完成信息
-        time.sleep(2)
-        # 卸载完成后返回状态码
+        shutil.rmtree(extra_path)
         return 0
     except Exception as e:
-        # 如果在删除过程中发生异常，则打印异常信息
-        print(f"An error occurred during removal: {e}")
+        print(f"{Fore.RED}An error occurred during cleanup: {e}{Fore.RESET}")
+        return 1
+
+def remove(*aargs):
+    __usage__ = "Usage: shizuku remove <package>"
+    if not aargs or len(aargs) > 1 or aargs[0] == "":
+        print(f"{Fore.YELLOW}{__usage__}{Fore.RESET}")
+        return 1
+    app_name = aargs[0]
+    # Check if app exists in registry
+    print(f"{Fore.RED}Removing package: {app_name}{Fore.RESET}")
+    # Confirm removal
+    while True:
+        try:
+            check = str(input(f"{Fore.CYAN}Do you want to remove the package '{app_name}'? (y/n): {Fore.RESET}"))
+            if check == "y" or check == "Y":
+                break
+            elif check == "n" or check == "N":
+                print(Fore.RED + "Operation cancelled." + Fore.RESET)
+                return 1
+            else:
+                print(Fore.RED + "Invalid input. Please enter 'y' or 'n'." + Fore.RESET)
+                continue
+        except KeyboardInterrupt:
+            print(Fore.RED + "Operation cancelled." + Fore.RESET)
+            return 0
+
+    # Check app registry
+    try:
+        apps_json_path = os.path.join(pyosi_path, "data", "apps", "apps.json")
+        with open(apps_json_path, "r") as add_app_f:
+            add_app_config = json.load(add_app_f)
+        if app_name in add_app_config:
+            app_dir = add_app_config[app_name]["path"]
+            if not os.path.isabs(app_dir):
+                app_dir = os.path.join(pyosi_path, app_dir)
+        else:
+            print(f"{Fore.YELLOW}Package '{app_name}' not found. No need to remove.{Fore.RESET}")
+            return 1
+    except FileNotFoundError:
+        print(f"{Fore.RED}File 'apps.json' not found.{Fore.RESET}")
+        return 1
+    except Exception as e:
+        print(f"{Fore.RED}An error occurred: {e}{Fore.RESET}")
+        return 1
+    
+    # Remove app directory
+    try:
+        shutil.rmtree(app_dir)
+        with open(apps_json_path, "r") as add_app_f:
+            add_app_config = json.load(add_app_f)
+        del add_app_config[app_name]
+        with open(apps_json_path, "w") as add_app_f:
+            json.dump(add_app_config, add_app_f, indent=4)
+        print(f"{Fore.GREEN}Package '{app_name}' has been successfully removed.{Fore.RESET}")
+        return 0
+    except FileNotFoundError:
+        print(f"{Fore.RED}Directory '{app_name}' not found.{Fore.RESET}")
+        return 1
+    except OSError as e:
+        print(f"{Fore.RED}An error occurred during directory removal: {e}{Fore.RESET}")
+        return 1
+    except Exception as e:
+        print(f"{Fore.RED}An error occurred during removal: {e}{Fore.RESET}")
+        return 1
+
+def list_apps():
+    # Main
+    try:
+        apps_json_path = os.path.join(pyosi_path, "data", "apps", "apps.json")
+        if os.path.exists(apps_json_path):
+            with open(apps_json_path) as add_app_f:
+                add_app_config = json.load(add_app_f)
+        else:
+            add_app_config = {}
+        if len(add_app_config) == 0:
+            print(f"{Fore.YELLOW}No packages installed.{Fore.RESET}")
+            return 1
+        else:
+            all_app_list = {**add_app_config}
+            print(f"{Fore.GREEN}Installed packages:{Fore.RESET}")
+            print(f"{Fore.CYAN}[Name]{Fore.RESET} - {Fore.GREEN}[Version]{Fore.RESET} - {Fore.LIGHTBLUE_EX}[Author]{Fore.RESET} - {Fore.YELLOW}[Category]{Fore.RESET} - {Fore.LIGHTMAGENTA_EX}[Description]{Style.RESET_ALL}")
+            for app_name in all_app_list:
+                app_version = all_app_list[app_name]["version"]
+                app_author = all_app_list[app_name]["author"]
+                app_desc = all_app_list[app_name]["description"]
+                app_category = all_app_list[app_name]["category"]
+                print(f"{Fore.CYAN}{app_name}{Fore.RESET} - {Fore.GREEN}{app_version}{Fore.RESET} - {Fore.LIGHTBLUE_EX}{app_author}{Fore.RESET} - {Fore.YELLOW}{app_category}{Fore.RESET} - {Fore.LIGHTMAGENTA_EX}{app_desc}{Fore.RESET}")
+            return 0
+    except FileNotFoundError:
+        print(f"{Fore.RED}File 'apps.json' not found.\n{Fore.CYAN}Looks like you haven't installed any packages yet.{Fore.RESET}")
+        return 1
+    except Exception as e:
+        print(f"{Fore.RED}An error occurred: {e}{Fore.RESET}")
         return 1
