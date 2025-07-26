@@ -1,6 +1,6 @@
 {
     "startup_screen_filepath": "./coreutil/xubuntu_startup_mod.py",
-    "system_version": "1.6.1 Developer Channel",
+    "system_version": "2.0.0 Alpha 1 Dev",
     "system_build": "Build 577",
-    "system_codename": "The Scarlet of Devil"
+    "system_codename": "Kokoro"
 }
