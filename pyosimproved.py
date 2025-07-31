@@ -538,70 +538,8 @@ while count < 3:
                         elif isWindows == "true":
                             os.system("dir .\\")
 
-                    elif cmd == "uwufetch": # a Fake neofetch
-                        currentUptime = time.time()
-                        currentUptimeII = currentUptime - end_startingtime
-                        # cat("coreutil/plaintext/logo.txt") # Fallback option
-                        art.tprint("PY    OS")
-                        print("    --- Improved Edition ---")
-                        print(user + "@" + lsh_hostname)
-                        print("System:PY OS Improved " + system_version + " " + system_build + "\nRunning on:", end="")
-                        if isWindows == "true":
-                            print("Windows NT")
-                        elif isWindows == "false":
-                            print("Linux, " + os.ttyname(0), end="")
-                            try:
-                                if termux_detect():
-                                    print(" (Termux)")
-                                else:
-                                    print("")
-                            except Exception:
-                                pass
-                        print("Architecture:" + str(platform.machine()))
-                        print("Python version:" + str(platform.python_version()))
-                        print("Packages:" + str(dir_filecount(lsh_path_fixed + "/data/apps")) + "(extprog)")
-                        print("Terminal:console1")
-                        print("Uptime:" + str(round(int(currentUptimeII))) + " s")
-                        print("Host:" + lsh_hostname)
-                        print("CPU:Intel 80486DX(66MHz)")
-                        print("GPU:Standard SVGA Adapter(2MB)")
-                        print("Native Memory: 1024KB")
-                        print("Extended Memory: " + str(round(psutil.virtual_memory().total / 1024 - 1024)) + " KB")
-                        print("Sound Card:", end="")
-                        if haveSoundCard == True:
-                            print("BeepEX")
-                        elif haveSoundCard == False:
-                            print("Beep")
-                        print("Ethernet Card:Wire Network 0(Status:", end="")
-                        if networked == True:
-                            print("Enabled)")
-                        elif networked == False:
-                            print("Disabled)")
-                        try:
-                            get_public_ips()
-                        except UnboundLocalError:
-                            pass
-                        print("Disk:HDD1=10GB, HDD2=23GB")
-                        curses.initscr()
-                        if isWindows == "true":
-                            pass
-                        elif isWindows == "false":
-                            print("Console output limit:" + str(curses.baudrate()), end="")
-                            print("\nColor support:", end="")
-                            if curses.has_colors() == True:
-                                if curses.has_extended_color_support() == True:
-                                    print("Extended(256xc)")
-                                elif curses.has_extended_color_support() == False:
-                                    print("Basic(16bc)")
-                            elif curses.has_colors() == False:
-                                print("")
-                        curses.endwin()
-                        print("W:" + str(os.get_terminal_size().columns) + ", H:" + str(os.get_terminal_size().lines))
-                        print(colorama.Back.RED + "  " + colorama.Back.YELLOW + "  " + colorama.Back.GREEN + "  " + colorama.Back.CYAN + "  " + colorama.Back.BLUE + "  " + colorama.Back.MAGENTA + "  " + colorama.Back.WHITE + "  ")
-                        print(colorama.Back.LIGHTRED_EX + "  " + colorama.Back.LIGHTYELLOW_EX + "  " + colorama.Back.LIGHTGREEN_EX + "  " + colorama.Back.LIGHTCYAN_EX + "  " + colorama.Back.LIGHTBLUE_EX + "  " + colorama.Back.LIGHTMAGENTA_EX + "  " + colorama.Back.LIGHTWHITE_EX + "  " + colorama.Fore.BLACK)
-                        print("\r")
-                    elif cmd == "uwufetch colotest256":
-                        runPreInstApp(lsh_path_fixed + "/apps/color256/color256.py")
+                    elif cmd == "helpv2":
+                        runPreInstApp(lsh_path_fixed + "/apps/coreutils/help/cmdListParser.py")
 
                     elif cmd == "morifetchex":
                         currentUptime = time.time()
