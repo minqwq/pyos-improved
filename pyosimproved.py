@@ -30,6 +30,7 @@ import subprocess
 import re
 import autoexec
 import threading
+import uuid
 # import coreutil.moddedprogram.pymodpl as pymodpl
 try:
     from coreutil.module.actions import *
@@ -123,6 +124,10 @@ shorter_welcome = jsonRead["shorter_welcome"] # Show shorter welcome text when l
 faster_startup = jsonRead["faster_startup"] # New version of startup screen
 rsyscmd_when_cnf = jsonRead["rsyscmd_when_cnf"] # Run system command when command not found
 lsh_hostname = jsonRead["default_hostname"] # Your default hostname(Boot ID 1 only)
+try:
+    deviceid = open(lsh_path_fixed + "/config/deviceid.txt", "r", encoding="utf-8").readline().strip()
+except Exception:
+    pass
 print("\r./config/config.json:")
 cat("config/config.json")
 # EXPERTIONAL FEATURE
@@ -242,7 +247,15 @@ print(style_cur.hide)
 import psutil
 clearScreen()
 print(colorama.Fore.LIGHTGREEN_EX + "Native + Extended Memory Total " + str(psutil.virtual_memory().total / 1024) + " KBytes(i)")
-print(colorama.Fore.LIGHTGREEN_EX + "Initing Boot manager...")
+print(colorama.Fore.LIGHTGREEN_EX + "System Kernel init successful!")
+print("Checking Device UUID Availablity...")
+if not os.path.isfile(lsh_path_fixed + "/config/deviceid.txt"):
+    print("Not found, Creating one...")
+    open(lsh_path_fixed + "/config/deviceid.txt", "w+", encoding="utf-8").write(str(uuid.uuid1()))
+    print("Restarting...")
+    goto(line=1)
+else:
+    print("Founded! checking pass.")
 time.sleep(1.5)
 clearScreen()
 print(color.reset)
@@ -252,13 +265,13 @@ bootManagerLoopRun = True
 logger.info("Start logging.")
 logger.info("Starting PY OS Improved Boot manager.")
 logger.warning("This is the final version of PY OS Improved Boot manager, We will switch to Leaf Boot manager, after the Leaf Boot manager development finished.")
-print(colorama.Fore.LIGHTRED_EX + "PY OS Improved Boot manager\n" + colorama.Fore.LIGHTYELLOW_EX + "  -- version II Final version" + color.reset + style_cur.show)
-print("If you dont know which to choose, choose 1 and then continue.")
-print("\n1:PY OS Improved " + system_version + "\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1\n5:BBC OS 1.2.1\n8:Switch to Leaf Boot manager(new!)")
-if dualBoot == "true":
-    print(color.green + "\nDUAL BOOT ENABLED" + color.reset)
-    print("6:" + dualBoot_OSName)
 while bootManagerLoopRun == True:
+    print(colorama.Fore.LIGHTRED_EX + "PY OS Improved Boot manager\n" + colorama.Fore.LIGHTYELLOW_EX + "  -- version II Final version" + color.reset + style_cur.show)
+    print("If you dont know which to choose, choose 1 and then continue.")
+    print("\n1:PY OS Improved " + system_version + "\n9:PY OS Improved Rescue Mode\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1\n5:BBC OS 1.2.1\n8:Switch to Leaf Boot manager(new!)")
+    if dualBoot == "true":
+        print(color.green + "\nDUAL BOOT ENABLED" + color.reset)
+        print("6:" + dualBoot_OSName)
     if auto_boot_choice == "":
         print(style.slowblink + "You can set \"auto_boot_choice\" to a number to set auto select!" + color.reset)
         bootChoice = input("> ")
@@ -292,6 +305,10 @@ while bootManagerLoopRun == True:
         coresh()
     elif bootChoice == "8":
         print("Not provided in this version")
+    elif bootChoice == "9":
+        runPreInstApp(lsh_path_fixed + "/coreutil/rescue/issueres.py")
+        clearScreen()
+        continue
     else:
         print("Operating System not found - Bad Boot ID")
 loading_spinner("Booting... ", 1)
@@ -503,6 +520,8 @@ while count < 3:
                         cmd_pre = "[" + user + "@" + lsh_hostname + " ~ ] $ "
                     elif cmd_theme == "tcsh":
                         cmd_pre = colorama.Fore.CYAN + lsh_hostname + color.reset + ":" + colorama.Fore.LIGHTWHITE_EX + lsh_path + color.reset + "> "
+                    elif cmd_theme == "qos":
+                        cmd_pre = colorama.Back.BLUE + "[PYOS Imp. II]" + colorama.Back.WHITE + colorama.Fore.BLACK + " --:--:-- " + colorama.Style.RESET_ALL + colorama.Fore.WHITE + colorama.Back.GREEN + " " + user + " " + colorama.Style.RESET_ALL + " > " + colorama.Fore.LIGHTGREEN_EX + " ~ $ " + colorama.Style.RESET_ALL
                     else:
                         print("Theme not found! will do nothing.")
                         print("Available theme name:default_v2, default, lite, debian_bash, arch_bash, sh, classic, flandre")
@@ -544,7 +563,7 @@ while count < 3:
                     elif cmd == "morifetchex":
                         currentUptime = time.time()
                         currentUptimeII = currentUptime - end_startingtime
-                        mori(user, lsh_hostname, lsh_path, "config/config.json", "config/.devconfig/confdev.json", str(round(int(currentUptimeII))))
+                        mori(user, lsh_hostname, lsh_path, "config/config.json", "config/.devconfig/confdev.json", str(round(int(currentUptimeII))), deviceid)
                     
                     elif cmd.startswith("kernlog"):
                         level = int(cmd[8:9])

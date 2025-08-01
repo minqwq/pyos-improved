@@ -180,7 +180,7 @@ def visuallog(string, level): # Logger that's can be used on your third-party pr
     elif level == 3:
         print(colorama.Fore.RED + "[FATAL] " + colorama.Fore.RESET + string)
         logger.fatal(string)
-def mori(user, hostname, curpath, configfile, devconfigfile, uptime):
+def mori(user, hostname, curpath, configfile, devconfigfile, uptime, deviceid):
     if curpath == "":
         path = os.getcwd()
     else:
@@ -220,11 +220,12 @@ def mori(user, hostname, curpath, configfile, devconfigfile, uptime):
     rsyscmd_when_cnf = cJsonRead["rsyscmd_when_cnf"] # Run system command when command not found
     
     def final_prints():
-        print(f"{Fore.LIGHTCYAN_EX}morifetch{Fore.LIGHTRED_EX}EX{Style.RESET_ALL} Version 0.01a Demo\n",
+        print(f"{Fore.LIGHTCYAN_EX}morifetch{Fore.LIGHTRED_EX}EX{Style.RESET_ALL} Version 0.02a Demo\n",
               f" {Fore.YELLOW}User & Hostname: {Style.RESET_ALL}{user} at {hostname}\n",
               f" {Fore.YELLOW}Uptime: {Style.RESET_ALL}{uptime} secs\n",
-              f" {Fore.YELLOW}Version & Codename: {Style.RESET_ALL}{system_version} \"{system_codename}\"\n\n",
-              f" {Fore.GREEN}Host System Release: {Style.RESET_ALL}{platform.system()} {platform.release()} {platform.version()}\n",
+              f" {Fore.YELLOW}Version & Codename: {Style.RESET_ALL}{system_version} \"{system_codename}\"\n",
+              f" {Fore.YELLOW}Device UUID: {Style.RESET_ALL}{deviceid}\n\n"
+              f"  {Fore.GREEN}Host System Release: {Style.RESET_ALL}{platform.system()} {platform.release()} {platform.version()}\n",
               f" {Fore.GREEN}Host Arch: {Style.RESET_ALL}{platform.machine()}\n\n",
               f" {Fore.CYAN}CPU: {Style.RESET_ALL}Failed to Fetch\n"
               f"  {Fore.CYAN}Native Memory: {Style.RESET_ALL}1024 KiB")
@@ -240,6 +241,7 @@ def mori(user, hostname, curpath, configfile, devconfigfile, uptime):
 
 def coresh():
     pprint.pprint(dict(globals()))
+    print("End of current loaded modules.\nStarting shell...")
     while True:
         cmd = input("initramfs >_ $ ")
         if cmd == "about":
