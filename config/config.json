@@ -10,15 +10,15 @@
     "enablePassword": "false",
     "show_password_when_typing": "false",
     "pwdstring": "defaultblyat",
-    "allowShowNotify": "true",
+    "allowShowNotify": "false",
     "dualBoot": "true",
     "dualBoot_startupCommand": "python test.py",
     "dualBoot_OSName": "TEST",
-    "venvEnable": "false",
+    "venvEnable": "true",
     "venvPath": "~/pyvenv/bin/python",
     "replace_python_command_to_python3": "true",
     "disablePathShow": "false",
     "shorter_welcome": "true",
-    "faster_startup": "true",
+    "faster_startup": "false",
     "rsyscmd_when_cnf": "false"
 }

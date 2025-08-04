@@ -1,9 +1,9 @@
 PY OS Improved SBI
-Time at        - Monday, 23. June 2025 12:03:09
+Time at        - Sunday, 03. August 2025 16:41:17
 Architecture   - x86_64
-pyosver        - 1.6.1 Developer Channel Build 559
+pyosver        - 2.0.0 Alpha 2 Build 588
 System/Kernel  - Linux
 Builder's Path - /home/minqwq/gitclones/pyos-improved/coreutil/.dev
 S/K, Version   - 6.1.0-35-amd64
-uuid           - 3b2ee29a-ec3f-41bd-98b9-4f9d94ab4717
+uuid           - a0c7e6e4-3f3b-426b-8f7b-510ae05fc865
 

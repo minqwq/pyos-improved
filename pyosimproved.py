@@ -124,6 +124,7 @@ shorter_welcome = jsonRead["shorter_welcome"] # Show shorter welcome text when l
 faster_startup = jsonRead["faster_startup"] # New version of startup screen
 rsyscmd_when_cnf = jsonRead["rsyscmd_when_cnf"] # Run system command when command not found
 lsh_hostname = jsonRead["default_hostname"] # Your default hostname(Boot ID 1 only)
+autologin_username = devJsonRead["autologin_username"]
 try:
     deviceid = open(lsh_path_fixed + "/config/deviceid.txt", "r", encoding="utf-8").readline().strip()
 except Exception:
@@ -379,8 +380,8 @@ count = 0
 unreg_count = 0
 stpasswd = "ciallo"
 while count < 3:
-    if debugMode == "d":
-        pass
+    if not autologin_username == "":
+        user = autologin_username
     elif debugMode == "":
         user = input(lsh_hostname + " login: ")
     if user == "gaster":
@@ -549,7 +550,7 @@ while count < 3:
                             unreg_count = 0
                     # Begin commands register
 
-                    pyosi_local_path = os.getcwd()
+                    # pyosi_local_path = os.getcwd() --comment this for disabled, i dont need this one\n if i break somethiing, please uncomment --minqwq
 
                     if cmd == "ls": # Path
                         if isWindows == "false":
@@ -897,7 +898,7 @@ while count < 3:
                         print("Restart:reboot or without start by power, rbt")
                         print(" ")
                         print("ex:power reboot")
-                    elif cmd == "power shutdown" or cmd == "st" or cmd == ":q": # Shutdown
+                    elif cmd == "power shutdown" or cmd == "st" or cmd == ":q" or cmd == "halt": # Shutdown
                         logger.info("Shutting down...")
                         clearScreen()
                         for i in range(175):
@@ -908,10 +909,19 @@ while count < 3:
                         input("You can safe turn off your computer now.(any key...)")
                         clearScreen()
                         sys.exit()
-                    elif cmd == "power reboot" or cmd == "rbt":
-                        logger.info("Restarting...")
+                    elif cmd == "power reboot" or cmd == "reboot":
+                        visuallog("Executing reboot process...", 0)
+                        visuallog("Unloading all modules and kernel...", 1)
+                        '''
+                        for tmp_module0 in set(sys.modules.keys()):
+                            if tmp_module0 not in sys.buildin_module_names and not tmp_module0.startswith("_"):
+                                del sys.modules[tmp_module0]
+                        '''
+                        visuallog("Unloaded complete...", 0)
+                        visuallog("Reset Spell \"Reboot the world\"", 0)
+                        time.sleep(1)
                         clearScreen()
-                        goto(line=98)
+                        goto(line=1)
 
                     elif cmd == "screensaver": # Screensaver
                         os.chdir(lsh_path_fixed + "/apps/_screensaver")

@@ -1,6 +1,7 @@
 {
     "startup_screen_filepath": "./coreutil/xubuntu_startup_mod.py",
-    "system_version": "2.0.0 Alpha 2",
-    "system_build": "Build 588",
+    "autologin_username": "min",
+    "system_version": "2.0.0 Alpha 3",
+    "system_build": "Build 589",
     "system_codename": "Kokoro"
 }

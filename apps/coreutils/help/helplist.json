@@ -44,7 +44,8 @@
             "ed": "Line-based text editor",
             "netrefresh [-h, set] [status]": "Refresh network connection",
             "cuscmd": "Run any command on host system",
-            "pftest": "CPU Speed test tools"
+            "pftest": "CPU Speed test tools",
+	    "whereis": "Search files on your computer."
         },
         "Relax": {
             "screensaver": "Save your CRT screen",
