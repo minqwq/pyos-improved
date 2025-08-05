@@ -1,9 +1,6 @@
 Welcome to PY OS Improved!
 
-GitHub Repo:    minqwq/pyos-improved
-Forums:         https://minqwq.proboards.com/board/10/py-os-improved
-News(Website):  https://flandre-studio.github.io
-News(TXT):      http://main.minqwq.moe/pyosimproved/news/latest.txt
+GitHub/Codeberg Repo:    minqwq/pyos-improved
 Telegram Group: https://t.me/pyosimproved
 Official Site:  http://main.minqwq.moe/pyosimproved
 Wiki:           file://<OSI_rootpath>/docs
@@ -29,3 +26,5 @@ If you want to try, go to this GitHub Repo:Meltide/mpga-pyos
 
 The PY OS Improved is an Open-source "Fake" operating system
 We are welcome you to improve this project!
+
+FOr software update, system update, and packages, please go to our official website for more info.

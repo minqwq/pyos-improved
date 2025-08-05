@@ -18,7 +18,8 @@
     "venvPath": "~/pyvenv/bin/python",
     "replace_python_command_to_python3": "true",
     "disablePathShow": "false",
-    "shorter_welcome": "true",
+    "shorter_welcome": "false",
     "faster_startup": "false",
-    "rsyscmd_when_cnf": "false"
+    "rsyscmd_when_cnf": "true",
+    "enable_legacy_help_engine": "false"
 }

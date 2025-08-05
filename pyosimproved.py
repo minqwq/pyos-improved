@@ -125,6 +125,7 @@ faster_startup = jsonRead["faster_startup"] # New version of startup screen
 rsyscmd_when_cnf = jsonRead["rsyscmd_when_cnf"] # Run system command when command not found
 lsh_hostname = jsonRead["default_hostname"] # Your default hostname(Boot ID 1 only)
 autologin_username = devJsonRead["autologin_username"]
+enable_legacy_help_engine = jsonRead["enable_legacy_help_engine"]
 try:
     deviceid = open(lsh_path_fixed + "/config/deviceid.txt", "r", encoding="utf-8").readline().strip()
 except Exception:
@@ -558,8 +559,11 @@ while count < 3:
                         elif isWindows == "true":
                             os.system("dir .\\")
 
-                    elif cmd == "helpv2":
-                        runPreInstApp(lsh_path_fixed + "/apps/coreutils/help/cmdListParser.py")
+                    elif cmd == "help":
+                        if enable_legacy_help_engine == "false":
+                            runPreInstApp(lsh_path_fixed + "/apps/coreutils/help/cmdListParser.py")
+                        elif enable_legacy_help_engine == "true":
+                            cat(lsh_path_fixed + "/" + co_manualHelp)
 
                     elif cmd == "morifetchex":
                         currentUptime = time.time()
@@ -819,9 +823,11 @@ while count < 3:
                     elif cmd == "hostname":
                         print("add option -c to change.\n\nHostname:\n" + lsh_hostname)
                     elif cmd == "hostname -c":
-                        lsh_hostname = input("> ")
-                        if lsh_hostname == "":
+                        lsh_hostname_pre = input("> ")
+                        if lsh_hostname_pre == "":
                             print("No string provided.")
+                        else:
+                            lsh_hostname = lsh_hostname_pre
 
                     elif cmd.startswith("sudo"): # sudo not sudo
                         print("This system is not based on linux, so sudo is not on herse")
@@ -868,7 +874,7 @@ while count < 3:
                         print("bibimingming | Module Installer")
                         print("MeltedIde aka MeltedIce aka AMDISYES(Original PY OS) | Original Project Creator")
                         print("北橋 桜 aka MinimalMio aka Yukari2024 | Installer(old), Helper")
-                        print("Dr. Evan | Installer(new)")
+                        print("Dr. Evan | Installer(new), shizuku v2")
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Early developing tester(not sorted)" + color.reset)
                         print("minqwq")
                         print("bibimingming")
@@ -961,9 +967,6 @@ while count < 3:
                                 pass
                         else:
                             os.system(customCommand)
-
-                    elif cmd == "help": # Command list
-                        cat(lsh_path_fixed + "/" + co_manualHelp)
 
                     elif cmd == "tutor":
                         os.chdir(lsh_path_fixed + "/apps/tutor")
