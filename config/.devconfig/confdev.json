@@ -1,7 +1,7 @@
 {
     "startup_screen_filepath": "./coreutil/xubuntu_startup_mod.py",
-    "autologin_username": "min",
+    "autologin_username": "",
     "system_version": "2.0.0 Alpha 3",
-    "system_build": "Build 593",
-    "system_codename": "Kokoro"
+    "system_build": "Build 598",
+    "system_codename": "Hata no Kokoro"
 }

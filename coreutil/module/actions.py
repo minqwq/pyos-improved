@@ -103,15 +103,18 @@ loading_spinner("", 2)
 All examples are runnable
 '''
 def loading_spinner(string, tm):
-    for i in range(tm * 2):
-        print(string + "/", end="\r")
-        time.sleep(0.125)
-        print(string + "-", end="\r")
-        time.sleep(0.125)
-        print(string + "\\", end="\r")
-        time.sleep(0.125)
-        print(string + "|", end="\r")
-        time.sleep(0.125)
+    try:
+        for i in range(tm * 2):
+            print(string + "/", end="\r")
+            time.sleep(0.125)
+            print(string + "-", end="\r")
+            time.sleep(0.125)
+            print(string + "\\", end="\r")
+            time.sleep(0.125)
+            print(string + "|", end="\r")
+            time.sleep(0.125)
+    except KeyboardInterrupt:
+        pass
 def filesearch(keyword, directory='.', search_subdirs=True):
     """
     Search for files and directories containing the keyword in their names

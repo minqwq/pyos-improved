@@ -39,9 +39,9 @@ try:
     from coreutil.module.splashes import *
     from coreutil.module.network import *
 except Exception:
-    print("Kernel Panic!!")
+    visuallog("Kernel Panic!!", 3)
     sys.exit(15)
-print("Kernel is ready.")
+visuallog("Kernel is ready.", 0)
 try:
     import curses
 except ModuleNotFoundError:
@@ -74,10 +74,6 @@ def echo(string):
 # and my best friend stevemcpe
 # 19740914
 
-try:
-    os.remove("./data/cache/.output.log")
-except FileNotFoundError:
-    pass
 cmdhist_lines = 0
 cmdhist_time = "nul"
 lsh_hostname = "scarletlocal-000"
@@ -86,6 +82,7 @@ lsh_path = os.getcwd()
 lsh_path_fixed = os.getcwd()
 networked = False
 rpia_404 = False
+debugMode = ""
 
 print("Registered hostname")
 
@@ -231,23 +228,10 @@ if temp_clock1 < 2:
     goto(line=181)
 
 print("Other utils loaded")
-
-debugMode = input("\n")
-if debugMode == "d":
-    now = datetime.datetime.now()
-    startingtime_t = "???"
-    end_startingtime = "???"
-    startingtime = "???"
-    print("You are now in debug mode.")
-    print("If crash, dont report ANY error.")
-    count = 0
-    goto(line=341)
-elif debugMode == "c":
-    print("this feature is very unstable as now, please enable it by modify code.")
-    compWizard()
 print(style_cur.hide)
 import psutil
 clearScreen()
+visuallog("in the shortly future, we will change the project name.(not sure now what name will used)", 1)
 print(colorama.Fore.LIGHTGREEN_EX + "Native + Extended Memory Total " + str(psutil.virtual_memory().total / 1024) + " KBytes(i)")
 print(colorama.Fore.LIGHTGREEN_EX + "System Kernel init successful!")
 print("Checking Device UUID Availablity...")
@@ -266,7 +250,7 @@ time.sleep(0.1)
 bootManagerLoopRun = True
 logger.info("Start logging.")
 logger.info("Starting PY OS Improved Boot manager.")
-logger.warning("This is the final version of PY OS Improved Boot manager, We will switch to Leaf Boot manager, after the Leaf Boot manager development finished.")
+visuallog("This is the final version of PY OS Improved Boot manager, We will switch to Leaf Boot manager, after the Leaf Boot manager development finished.", 1)
 while bootManagerLoopRun == True:
     print(colorama.Fore.LIGHTRED_EX + "PY OS Improved Boot manager\n" + colorama.Fore.LIGHTYELLOW_EX + "  -- version II Final version" + color.reset + style_cur.show)
     print("If you dont know which to choose, choose 1 and then continue.")
@@ -306,17 +290,17 @@ while bootManagerLoopRun == True:
     elif bootChoice == "7":
         coresh()
     elif bootChoice == "8":
-        print("Not provided in this version")
+        visuallog("Not provided in this version", 2)
     elif bootChoice == "9":
         runPreInstApp(lsh_path_fixed + "/coreutil/rescue/issueres.py")
         clearScreen()
         continue
     else:
-        print("Operating System not found - Bad Boot ID")
+        visuallog("Operating System not found - Bad Boot ID", 2)
 loading_spinner("Booting... ", 1)
 clearScreen()
 # Startup screen
-logger.info("Starting main operating system...")
+visuallog("Starting main operating system...", 0)
 startingtime = time.time()
 if faster_startup == "true":
     runPreInstApp(lsh_path_fixed + "/coreutil/xubuntustartup_mod.py")
@@ -350,7 +334,7 @@ else:
     print("\n" + "* PY OS Improved is a Open-Source fake operating system, so fell free to improve our code!")
     print("* PY OS Improved Project is inspired from PY OS/BBC OS 1.2.1 not 2.0 or later.")
     print("This is a \"freeware\".")
-    loading_spinner("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs ", 3)
+    loading_spinner("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs (Press Ctrl+C to skip) ", 3)
 clearScreen()
 time.sleep(0.1)
 """
@@ -371,8 +355,8 @@ startingtime_t = end_startingtime - startingtime
 beep()
 logger.info("Welcome to PY OS Improved!")
 if isWindows == "true":
-    logger.warn("Operating System Incomptiable warning: Some program may not working on your PC.")
-print("PY OS Improved \"Flandre/Scarlet Kernel I\" version " + system_version + " " + lsh_hostname) # Login screen | For restart to login manager, please goto this line for work normally
+    visuallog("Operating System Incomptiable warning: Some program may not working on your PC.", 1)
+print("PY OS Improved \"Flandre/Scarlet Kernel I\" PYOS/Legacy version " + system_version + " " + lsh_hostname) # Login screen | For restart to login manager, please goto this line for work normally
 print("\nTips: " + random.choice(splashes))
 now = datetime.datetime.now()
 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
@@ -571,9 +555,12 @@ while count < 3:
                         mori(user, lsh_hostname, lsh_path, "config/config.json", "config/.devconfig/confdev.json", str(round(int(currentUptimeII))), deviceid)
                     
                     elif cmd.startswith("kernlog"):
-                        level = int(cmd[8:9])
-                        string = cmd[10:]
-                        visuallog(string, level)
+                        try:
+                            level = int(cmd[8:9])
+                            string = cmd[10:]
+                            visuallog(string, level)
+                        except Exception:
+                            visuallog("Syntax incorrect.", 2)
 
                     elif cmd.startswith("whereis"):
                         whereisword = cmd[8:]
@@ -1005,7 +992,7 @@ while count < 3:
                             os.system(cmd)
                         elif rsyscmd_when_cnf == "false":
                             beep()
-                            print(text.error + color.red + "i can't seem to find the command >.< : " + cmd + color.reset)
+                            visuallog("Command not found on the list m(__)m : " + cmd, 2)
                             print(color.red + "[Unknown command]" + color.reset, end=' ')
                             logger.error("tty1/lsh | " + cmd + " | Command not found!")
             except KeyboardInterrupt: # Ctrl+C, "Ctrl+Alt+Del" like action
@@ -1013,13 +1000,12 @@ while count < 3:
                     print("\nPress 1 to restart\nPress other key to back\nor Press Ctrl+C again to shutdown...")
                     emergencyChoice = input()
                     if emergencyChoice == "1":
-                        goto(line=0)
+                        goto(line=1)
                 except KeyboardInterrupt:
                     clearScreen()
                     sys.exit()
             except FileNotFoundError:
-                logger.error("file not found...")
-                print("file not found...")
+                visuallog("file not found...", 2)
             except Exception as crashReason: # Crash
                 time.sleep(0.3) # need this for beep correctly
                 beep()
@@ -1031,7 +1017,7 @@ while count < 3:
                 traceback.print_exception(crashReason, limit=1145, file=sys.stdout)
                 cat(lsh_path_fixed + "/coreutil/buildtime_styled.txt")
                 runPreInstApp("coreutil/catchinfo.py")
-                logger.critical("System Panic o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)")
+                visuallog("System Panic o(╥﹏╥)o : な、何か予期しないエラーが発生しましたにゃ (⁄ ⁄•⁄ω⁄•⁄ ⁄)", 3)
                 input("[Press any key to shutdown - " + str(crashReason) + "]")
                 clearScreen()
                 sys.exit()

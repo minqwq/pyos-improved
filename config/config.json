@@ -14,12 +14,12 @@
     "dualBoot": "true",
     "dualBoot_startupCommand": "python test.py",
     "dualBoot_OSName": "TEST",
-    "venvEnable": "true",
+    "venvEnable": "false",
     "venvPath": "~/pyvenv/bin/python",
     "replace_python_command_to_python3": "true",
     "disablePathShow": "false",
     "shorter_welcome": "false",
     "faster_startup": "false",
-    "rsyscmd_when_cnf": "true",
+    "rsyscmd_when_cnf": "false",
     "enable_legacy_help_engine": "false"
 }
