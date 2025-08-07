@@ -1,3 +1,7 @@
+! - GitHub Repo is a mirror!
+! - If you are gonna to developing some new features, or just little improvement, Please go to https://codeberg.org/minqwq/pyos-improved
+! - GitHub pull request will be rejected anyway, no reason.
+
 PY OS Improved ~ The Ultimate *fake* Operating System written in Python 3
 
 0. - Requirements
