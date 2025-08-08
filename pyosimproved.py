@@ -4,7 +4,6 @@ from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
 conf = open("./config/config.json", "r", encoding="utf-8")
 devconf = open("./config/.devconfig/confdev.json", "r", encoding="utf-8")
-print("config/config.json Loaded!")
 jsonRead = json.load(conf)
 devJsonRead = json.load(devconf)
 # jsonWrite = open("config/config.json", "w", encoding="utf-8")
@@ -19,7 +18,6 @@ import time # Time
 import random # Random tools
 from os import path # Path control
 sys.path.append("./")
-print("trying to set path append(is it work?)")
 import platform
 import requests # Get file from server
 import base64 # Encode and decode
@@ -58,7 +56,6 @@ import pprint
 import coreutil.shizuku.manager as szkmng # Installer for shizuku
 # import core.module.history as history
 print("\033[?25l")
-print(colorama.Fore.LIGHTGREEN_EX + "All modules-1 loaded!" + "\033[0m")
 class override:
     errorexpection = "teto:ErrorExpection"
     tongue = "teto:a-------"
@@ -84,14 +81,10 @@ networked = False
 rpia_404 = False
 debugMode = ""
 
-print("Registered hostname")
-
 LOG_FORMAT = '[Embedded][%(levelname)s] %(asctime)s | %(message)s'
 logging.basicConfig(filename='cache/.output.log', datefmt='%b %a %d %H:%M:%S %Y', level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
 logger.info("Logger started successfully.")
-print("Tips loaded success, Logger started")
-print("Loading your config...")
 
 # CONFIG START
 system_version = devJsonRead["system_version"] # 版本号 / Version
@@ -141,8 +134,6 @@ logout = False
 # DYNAMIC CONFIG END
 # CONFIG END
 
-print("Config registered")
-
 if disablePathShow == "true":
     lsh_path = "DISABLED"
 
@@ -150,8 +141,6 @@ if disablePathShow == "true":
 co_manualHelp = "coreutil/plaintext/manualhelp.txt"
 co_welcome = "coreutil/plaintext/welcome.txt"
 # core/plaintext loads END
-
-print("PT Registered")
 
 def cmdhistory_write():
     tmp_f = open("cache/history.txt", "a", encoding="utf-8")
@@ -222,7 +211,6 @@ def beep():
 
 loadtime_aftered = 0
 temp_clock1 = time.time()
-print("Press d to fastboot.\nPress c to comptiable wizard\nElse, press enter" + style_cur.show)
 
 if temp_clock1 < 2:
     goto(line=181)
@@ -231,7 +219,7 @@ print("Other utils loaded")
 print(style_cur.hide)
 import psutil
 clearScreen()
-visuallog("in the shortly future, we will change the project name.(not sure now what name will used)", 1)
+visuallog("in the shortly future, we will change the project name to VoidFlan or DarkReedy", 1)
 print(colorama.Fore.LIGHTGREEN_EX + "Native + Extended Memory Total " + str(psutil.virtual_memory().total / 1024) + " KBytes(i)")
 print(colorama.Fore.LIGHTGREEN_EX + "System Kernel init successful!")
 print("Checking Device UUID Availablity...")
