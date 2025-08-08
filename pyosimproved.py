@@ -1,4 +1,4 @@
-# Main code - PY OS Improved
+# Main code - VoidFlan Project
 print("First running may take long time in some device, if this happen please just wait.(if its not responding at somewhere please press Ctrl+C and restart.)")
 from python_goto import goto # Goto a line
 import json # Read json file(config file need this)
@@ -120,8 +120,6 @@ try:
     deviceid = open(lsh_path_fixed + "/config/deviceid.txt", "r", encoding="utf-8").readline().strip()
 except Exception:
     pass
-print("\r./config/config.json:")
-cat("config/config.json")
 # EXPERTIONAL FEATURE
 
 readConfigFromExport = False # Linux only! windows have same but not a command.
@@ -237,12 +235,11 @@ time.sleep(0.1)
 # Boot manager
 bootManagerLoopRun = True
 logger.info("Start logging.")
-logger.info("Starting PY OS Improved Boot manager.")
-visuallog("This is the final version of PY OS Improved Boot manager, We will switch to Leaf Boot manager, after the Leaf Boot manager development finished.", 1)
+logger.info("Starting VoidFlan Boot manager.")
 while bootManagerLoopRun == True:
-    print(colorama.Fore.LIGHTRED_EX + "PY OS Improved Boot manager\n" + colorama.Fore.LIGHTYELLOW_EX + "  -- version II Final version" + color.reset + style_cur.show)
+    print(colorama.Fore.LIGHTRED_EX + "Scarlet Kernel Boot manager\n" + colorama.Fore.LIGHTYELLOW_EX + "  -- version II series" + color.reset + style_cur.show)
     print("If you dont know which to choose, choose 1 and then continue.")
-    print("\n1:PY OS Improved " + system_version + "\n9:PY OS Improved Rescue Mode\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1\n5:BBC OS 1.2.1\n8:Switch to Leaf Boot manager(new!)")
+    print("\n1:VoidFlan Project " + system_version + "\n9:VoidFlan Rescue Mode\n2:Reboot\n3:Shutdown\n4:PY OS Improved Pre-Alpha 1\n5:BBC OS 1.2.1\n8:Switch to Leaf Boot manager(new!)")
     if dualBoot == "true":
         print(color.green + "\nDUAL BOOT ENABLED" + color.reset)
         print("6:" + dualBoot_OSName)
@@ -319,8 +316,8 @@ else:
     print("\n" + system_version + " " + system_build)
     print("Flandre Studio 2024--2025")
     print("0x1c Studio 2022--2023")
-    print("\n" + "* PY OS Improved is a Open-Source fake operating system, so fell free to improve our code!")
-    print("* PY OS Improved Project is inspired from PY OS/BBC OS 1.2.1 not 2.0 or later.")
+    print("\n" + "* VoidFlan Project is a Open-Source fake operating system, so fell free to improve our code!")
+    print("* VoidFlan Project is inspired from PY OS/BBC OS 1.2.1 not 2.0 or later.")
     print("This is a \"freeware\".")
     loading_spinner("[" + color.yellow + " WAIT " + color.reset + "] Delay: 3 secs (Press Ctrl+C to skip) ", 3)
 clearScreen()
@@ -341,10 +338,10 @@ if aprilFoolsTimeCheck < 1743523200:
 end_startingtime = time.time()
 startingtime_t = end_startingtime - startingtime
 beep()
-logger.info("Welcome to PY OS Improved!")
+logger.info("Welcome to VoidFlan Project!")
 if isWindows == "true":
     visuallog("Operating System Incomptiable warning: Some program may not working on your PC.", 1)
-print("PY OS Improved \"Flandre/Scarlet Kernel I\" PYOS/Legacy version " + system_version + " " + lsh_hostname) # Login screen | For restart to login manager, please goto this line for work normally
+print("VoidFlan Project \"Flandre/Scarlet Kernel I\" PYOS/Legacy version " + system_version + " " + lsh_hostname) # Login screen | For restart to login manager, please goto this line for work normally
 print("\nTips: " + random.choice(splashes))
 now = datetime.datetime.now()
 other_StyleTime = now.strftime("%b %a %d %H:%M:%S %Y")
@@ -365,7 +362,7 @@ while count < 3:
     elif user == "bai9nine":
         print("nope.   --minqwq")
     elif user == "yukari2024":
-        print(colorama.Back.LIGHTBLUE_EX + "PY OS Improved has been terminated.")
+        print(colorama.Back.LIGHTBLUE_EX + "VoidFlan Project has been terminated.")
         print("and this is not a issue, its just a easter egg." + color.reset)
         sys.exit()
     elif user == "yukari":
@@ -423,7 +420,7 @@ while count < 3:
                     creatorVerify = bytes(getpass.getpass("Verify required, please type password...\n> "), encoding="utf-8")
                     if creatorVerify == creatorVerifyPassword:
                         clearScreen()
-                        print("The creator of PY OS Improved, welcome back.\n")
+                        print("The creator of VoidFlan Project, welcome back.\n")
                         isCreatorAccount = True
                     else:
                         print(color.red + "Access Denied." + color.reset)
@@ -440,7 +437,7 @@ while count < 3:
                 beep()
                 if allowShowNotify == "true":
                     try:
-                        showNotify("Welcome to PY OS Improved~!", "Type \"help\" to show all available commands.\nIf you have problem or issue, contact me or open new issue on our official repo.\nhere is my email:minqwq723897@outlook.com")
+                        showNotify("Welcome to VoidFlan Project~!", "Type \"help\" to show all available commands.\nIf you have problem or issue, contact me or open new issue on our official repo.\nhere is my email:minqwq723897@outlook.com")
                     except Exception:
                         if isWindows == "false":
                             print("libnotify-bin is not installed, install it from your package manager to enable notify.")
@@ -738,7 +735,7 @@ while count < 3:
 
                     elif cmd == "crash":
                         if user == "dev":
-                            logger.warn("Congrats, you make the PY OS Improved crashed.")
+                            logger.warn("Congrats, you make the VoidFlan Project crashed.")
                             raise EOFError("by urself")
                         else:
                             os.chdir(lsh_path_fixed + "/apps")
@@ -837,13 +834,13 @@ while count < 3:
 
                     elif cmd == "about": # About system
                         slowprint("---------------| About |---------------")
-                        print(color.blue + "PY OS Improved " + system_version + " " + system_build + color.reset)
+                        print(color.blue + "VoidFlan Project " + system_version + " " + system_build + " by Yartmin Scarlet" + color.reset)
                         print("(C) " + color.green + "0x1c Studio " + color.reset + "2022--2023 | (C) " + colorama.Fore.LIGHTRED_EX + "Flandre" + color.red + " Studio " + color.reset + "&" + color.grey + " FCNM " + color.reset + "&" + color.grey + " SnowMio Studios 2022--2025" + color.reset)
                         print("Python version: " + str(platform.python_version()))
                         print(" ")
                         print("add option -c for credits\nadd option -s for support\nadd option -l for license")
                     elif cmd == "about -c" or cmd == "about --credits":
-                        print(colorama.Fore.LIGHTCYAN_EX + "Developers of PY OS Improved" + color.reset)
+                        print(colorama.Fore.LIGHTCYAN_EX + "Developers of VoidFlan Project" + color.reset)
                         print(colorama.Back.WHITE + colorama.Fore.BLACK + "Developers" + color.reset)
                         print("minqwq | Interface Design, Coder, Project Creator, Document Editer")
                         print("bibimingming | Module Installer")
@@ -957,7 +954,7 @@ while count < 3:
                     elif cmd == "exit": # Logout
                         clearScreen()
                         systemIsLocked = True
-                        print("PY OS Improved " + system_version + " (Locked.)")
+                        print("VoidFlan " + system_version + " (Locked.)")
                         print("Press u and press enter to login account...")
                         print("or...\ntime   | View current time")
                         print("st   | Shutdown")

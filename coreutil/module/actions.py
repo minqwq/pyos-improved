@@ -183,6 +183,11 @@ def visuallog(string, level): # Logger that's can be used on your third-party pr
     elif level == 3:
         print(colorama.Fore.RED + "[FATAL] " + colorama.Fore.RESET + string)
         logger.fatal(string)
+'''
+mori
+- Desc: used for a command "morifetchex", will fetch the system information.
+usage: see code
+'''
 def mori(user, hostname, curpath, configfile, devconfigfile, uptime, deviceid):
     if curpath == "":
         path = os.getcwd()
@@ -229,7 +234,7 @@ def mori(user, hostname, curpath, configfile, devconfigfile, uptime, deviceid):
         print("It seems like config files are not found.")
     
     def final_prints():
-        print(f"{Fore.LIGHTCYAN_EX}morifetch{Fore.LIGHTRED_EX}EX{Style.RESET_ALL} Version 0.02a Demo\n",
+        print(f"{Fore.LIGHTCYAN_EX}morifetch{Fore.LIGHTRED_EX}EX{Style.RESET_ALL} Version 1.00a\n",
               f" {Fore.YELLOW}User & Hostname: {Style.RESET_ALL}{user} at {hostname}\n",
               f" {Fore.YELLOW}Uptime: {Style.RESET_ALL}{uptime} secs\n",
               f" {Fore.YELLOW}Version & Codename: {Style.RESET_ALL}{system_version} \"{system_codename}\"\n",
@@ -240,11 +245,12 @@ def mori(user, hostname, curpath, configfile, devconfigfile, uptime, deviceid):
               f"  {Fore.CYAN}Native Memory: {Style.RESET_ALL}1024 KiB")
         formemcount = 0
         formemtotal = int(psutil.virtual_memory().total / 1024 / 1024)
+        formemtotalkib = int(psutil.virtual_memory().total / 1024)
         for i in range(formemtotal):
             formemcount += 1
             print(f"  {Fore.CYAN}Extended Memory: {Style.RESET_ALL}{formemcount} MiB", end="\r") 
             time.sleep(0.00001)
-        print(f"  {Fore.CYAN}Extended Memory: {Style.RESET_ALL}{formemtotal} MiB")
+        print(f"  {Fore.CYAN}Extended Memory: {Style.RESET_ALL}{formemtotal} MiB / {formemtotalkib} KiB")
 
     final_prints()
 
